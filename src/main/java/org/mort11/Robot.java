@@ -1,7 +1,6 @@
 package org.mort11;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
-
 /**
  * Created by Benny Mirisola on 1/6/18.
  */
@@ -9,13 +8,14 @@ public class Robot extends IterativeRobot {
 
     @Override
     public void robotInit() {
-        super.robotInit();
+
 
     }
 
     @Override
     public void teleopInit() {
         super.teleopInit();
+
     }
 
     @Override
