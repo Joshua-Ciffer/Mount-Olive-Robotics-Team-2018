@@ -1,0 +1,15 @@
+.gradle
+.idea/workspace.xml
+out
+build
+.classpath
+.project
+Thumbs.db
+.DS_Store
+run
+.idea/dictionaries
+.idea/libraries
+logs
+.idea/inspectionProfiles
+.idea/modules/
+.idea
