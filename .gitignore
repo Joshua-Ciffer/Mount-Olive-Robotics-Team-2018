@@ -1,7 +1,7 @@
-.gradle
+.gradle/
 .idea/workspace.xml
 out
-build
+build/
 .classpath
 .project
 Thumbs.db
@@ -12,4 +12,4 @@ run
 logs
 .idea/inspectionProfiles
 .idea/modules/
-.idea
+.idea/
