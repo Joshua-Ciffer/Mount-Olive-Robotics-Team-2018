@@ -7,9 +7,4 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
  */
 public class IO {
 
-    private TalonSRX leftTalonMaster;
-    private TalonSRX leftTalonFollower;
-    private TalonSRX rightTalonMaster;
-    private TalonSRX rightTalonFollower;
-
 }
