@@ -8,7 +8,6 @@ public class Robot extends IterativeRobot {
 
     @Override
     public void robotInit() {
-        System.out.println();
 
     }
 
