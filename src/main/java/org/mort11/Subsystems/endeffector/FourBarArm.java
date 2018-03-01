@@ -1,7 +1,9 @@
 package org.mort11.Subsystems.endeffector;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.mort11.Commands.endeffector.ElevatorCommands.ElevatorCommandGroups.JoystickDrives.MoveFourBarArm;
 import org.mort11.Commands.endeffector.ElevatorCommands.JoystickCommands.JoystickDriveFourBarArm;
+import org.mort11.Control.Operator;
 import org.mort11.Hardware.IO;
 import org.mort11.Util.Constants;
 
@@ -26,7 +28,7 @@ public class FourBarArm extends Subsystem {
 	 */
 	@Override
 	protected void initDefaultCommand() {
-		setDefaultCommand(new JoystickDriveFourBarArm());
+		setDefaultCommand(new MoveFourBarArm(Operator.getRightOperatorJoystick().getZ()));
 	}
 
 	/**
@@ -64,33 +66,9 @@ public class FourBarArm extends Subsystem {
 
 	}
 
-	public void setLim(double speed) {
+	public void set(double speed) {
 
-		if (IO.getActuatorLimitSwitchBottom().get() == false){
-
-			if(speed < -Constants.MOTOR_DEADZONE) {
-
-				IO.getFourbarTalon().set(Constants.CONTROL_MODE, speed);
-
-			}
-
-		} else if (IO.getActuatorLimitSwitchTop().get() == false) { // If the arm wants to go to the top, and it is not already at the top ...
-
-			if(speed > Constants.MOTOR_DEADZONE){
-
-				IO.getFourbarTalon().set(Constants.CONTROL_MODE, speed);
-
-			}
-
-		} else {
-
-			if ((speed > Constants.MOTOR_DEADZONE) || (speed < -Constants.MOTOR_DEADZONE)) {
-
-				IO.getFourbarTalon().set(Constants.CONTROL_MODE, speed);
-
-			}
-
-		}
+		IO.getFourbarTalon().set(Constants.CONTROL_MODE, speed);
 
 	}
 
