@@ -92,6 +92,8 @@ public class IO {
 		compressor = new Compressor();
 		compressor.start();
 
+		ahrs = new AHRS(SPI.Port.kMXP);
+
 	}
 
 	public static void initLimitSwitchNames() {
