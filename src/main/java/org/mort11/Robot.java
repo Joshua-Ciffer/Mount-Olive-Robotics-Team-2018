@@ -55,11 +55,10 @@ public class Robot extends IterativeRobot {
 		secondStageElevator = new SecondStageElevator();
 		fourBarArm = new FourBarArm();
 		intake = new Intake();
-
-		new Compressor().start();
+		driveTrain = new Drivetrain(); // Create the drive train subsystem object
 
 		Operator.init();
-		driveTrain = new Drivetrain(); // Create the drive train subsystem object
+
 		SmartDashboardLogger.init();
 		autoChooser = new SendableChooser<Command>();
 		sideChooser = new SendableChooser<>();
@@ -70,16 +69,13 @@ public class Robot extends IterativeRobot {
 	}
 
 	@Override
-	public void teleopInit() {
-		if(autoCommand.isRunning()){
-			autoCommand.cancel();
-		}
+	public void disabledInit() {
 	}
 
 	@Override
-	public void teleopPeriodic() {
-		Scheduler.getInstance().run();
-		SmartDashboard.updateValues();
+	public void disabledPeriodic() {
+		AutoChooser.addAutons(sideChooser.getSelected());
+
 	}
 
 	@Override
@@ -96,6 +92,19 @@ public class Robot extends IterativeRobot {
 	}
 
 	@Override
+	public void teleopInit() {
+		if(autoCommand.isRunning()){
+			autoCommand.cancel();
+		}
+	}
+
+	@Override
+	public void teleopPeriodic() {
+		Scheduler.getInstance().run();
+		SmartDashboard.updateValues();
+	}
+
+	@Override
 	public void testInit() {
 	}
 
@@ -103,16 +112,6 @@ public class Robot extends IterativeRobot {
 	public void testPeriodic() {
 		Scheduler.getInstance().run();
 		SmartDashboard.updateValues();
-	}
-
-	@Override
-	public void disabledInit() {
-	}
-
-	@Override
-	public void disabledPeriodic() {
-		AutoChooser.addAutons(sideChooser.getSelected());
-
 	}
 
 }

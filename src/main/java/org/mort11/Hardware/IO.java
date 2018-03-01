@@ -3,10 +3,7 @@ package org.mort11.Hardware;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.kauailabs.navx.frc.AHRS;
-import edu.wpi.first.wpilibj.AnalogInput;
-import edu.wpi.first.wpilibj.AnalogPotentiometer;
-import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.interfaces.Potentiometer;
 import org.mort11.Util.Constants;
 
@@ -21,7 +18,7 @@ import org.mort11.Util.Constants;
  */
 public class IO {
 
-	private static TalonSRX FourbarTalon;
+	private static TalonSRX fourbarTalon;
 	private static TalonSRX firstStageElevatorTalonMaster, firstStageElevatorTalonFollower;
 	private static TalonSRX secondStageElevatorTalon;
 	private static VictorSPX intakeRollerVictorRight, intakeRollerVictorLeft;
@@ -39,8 +36,6 @@ public class IO {
 	private static AnalogInput potentiometerInput;
 
 	private static Potentiometer potentiometer;
-
-	private static DoubleSolenoid intakePiston;
 	
 	private static AHRS ahrs;
 	
@@ -48,10 +43,14 @@ public class IO {
      * Double Solenoids.
      */
     private static DoubleSolenoid transmission;
+	private static DoubleSolenoid intakePiston;
+
+
+    public static Compressor compressor;
 
 
 	public static void init() {
-		FourbarTalon = new TalonSRX(Constants.ARM_TALON);
+		fourbarTalon = new TalonSRX(Constants.ARM_TALON);
 
 		firstStageElevatorTalonMaster = new TalonSRX(Constants.FIRST_STAGE_ELEVATOR_TALON_MASTER);
 		firstStageElevatorTalonFollower = new TalonSRX(Constants.FIRST_STAGE_ELEVATOR_TALON_FOLLOWER);
@@ -88,6 +87,9 @@ public class IO {
 
 		intakePiston = new DoubleSolenoid(Constants.INTAKE_PISTON_IN, Constants.INTAKE_PISTON_OUT);
 
+		compressor = new Compressor();
+		compressor.start();
+
 	}
 
 	public static void initLimitSwitchNames() {
@@ -116,7 +118,7 @@ public class IO {
     }
 
 	public static TalonSRX getFourbarTalon() {
-		return FourbarTalon;
+		return fourbarTalon;
 	}
 	public static TalonSRX getFirstStageElevatorTalonMaster() {
 		return firstStageElevatorTalonMaster;
