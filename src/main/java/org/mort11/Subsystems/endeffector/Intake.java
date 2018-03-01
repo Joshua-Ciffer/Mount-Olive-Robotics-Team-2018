@@ -56,17 +56,6 @@ public class Intake extends Subsystem {
                 IO.getIntakeRollerVictorLeft().set(Constants.CONTROL_MODE, Constants.INTAKE_STOP);
                 IO.getIntakeRollerVictorRight().set(Constants.CONTROL_MODE, Constants.INTAKE_STOP);
             }
-
-            case COAST: {
-                if (IO.getIntakeLimitSwitchLeft().get() == false && IO.getIntakeLimitSwitchRight().get() == false) {
-                    IO.getIntakeRollerVictorLeft().set(Constants.CONTROL_MODE, Constants.INTAKE_COAST);
-                    IO.getIntakeRollerVictorRight().set(Constants.CONTROL_MODE, Constants.INTAKE_COAST);
-                    break;
-                } else {
-                    IO.getIntakeRollerVictorLeft().set(Constants.CONTROL_MODE, Constants.INTAKE_STOP);
-                    IO.getIntakeRollerVictorRight().set(Constants.CONTROL_MODE, Constants.INTAKE_STOP);
-                }
-            }
         }
     }
 
