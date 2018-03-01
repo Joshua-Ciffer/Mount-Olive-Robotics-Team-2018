@@ -122,37 +122,12 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void disabledInit() {
-
-		super.disabledInit();
-		// autoChooser = new SendableChooser();
-		// sideChooser = new SendableChooser();
 	}
 
 	@Override
 	public void disabledPeriodic() {
-		
-		// autoChooser = new SendableChooser();
-		// sideChooser = new SendableChooser();
+		AutoChooser.addAutons(sideChooser.getSelected());
 
-		// autoChooser.addDefault("Do Nothing", new DoNothing());
-		// autoChooser.addObject("Drive Straight", new DriveStraight());
-
-		// SmartDashboard.putData("Autonomous Chooser", autoChooser);
-		// sideChooser.addDefault("Middle", "Middle");
-		// sideChooser.addObject("Left", "Left");
-		// sideChooser.addObject("Right", "Right");
-		// SmartDashboard.putData("Field Side", sideChooser);
-		//
-		// if (sideChooser.getSelected().equals("Left")) {
-		// autoChooser.addObject("Turn Right and Do Scale", new ScaleTurnRight());
-		// autoChooser.addObject("Turn Right and Do Switch", new SwitchTurnRight());
-		// }
-		//
-		// if (sideChooser.getSelected().equals("Right")) {
-		// autoChooser.addObject("Turn Left and Do Scale", new ScaleTurnLeft());
-		// autoChooser.addObject("Turn Left and Do Switch", new SwitchTurnLeft());
-		// }
-		//
 	}
 
 }

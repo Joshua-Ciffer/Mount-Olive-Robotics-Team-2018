@@ -1,7 +1,9 @@
 package org.mort11.Util;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.TimedCommand;
 import org.mort11.Commands.auton.DoNothing;
+import org.mort11.Commands.auton.Driving.DriveDistanceTimed;
 import org.mort11.Robot;
 //import org.mort11.Commands.Autonomous.*;
 
@@ -42,6 +44,17 @@ public class AutoChooser {
     public static void addAutons(String side){
         if (side.equals("Middle")){
             Robot.autoChooser.addDefault("Do Nothing", new DoNothing());
+            Robot.autoChooser.addObject("Drive Forwards Timed", new DriveDistanceTimed(Constants.DRIVETRAIN_SPEED, 3));
+        }
+
+        else if (side.equals("Left")){
+            Robot.autoChooser.addDefault("Do Nothing", new DoNothing());
+            Robot.autoChooser.addObject("Drive Forwards Timed", new DriveDistanceTimed(Constants.DRIVETRAIN_SPEED, 3));
+        }
+
+        else if (side.equals("Right")){
+            Robot.autoChooser.addDefault("Do Nothing", new DoNothing());
+            Robot.autoChooser.addObject("Drive Forwards Timed", new DriveDistanceTimed(Constants.DRIVETRAIN_SPEED, 3));
         }
 
 
