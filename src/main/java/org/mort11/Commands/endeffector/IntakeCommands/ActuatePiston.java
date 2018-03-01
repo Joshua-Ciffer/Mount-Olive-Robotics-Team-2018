@@ -17,6 +17,7 @@ public class ActuatePiston extends Command {
 
 	public ActuatePiston(HardwareStates.IntakePistonState pistonState) {
 		super("ActuatePiston");
+		requires(Robot.intake);
 		setInterruptible(true);
 		this.pistonState = pistonState;
 	}
