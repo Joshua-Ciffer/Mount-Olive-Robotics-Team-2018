@@ -54,8 +54,6 @@ public class Operator {
         JoystickButton intakeButton = new JoystickButton(leftOperatorJoystick, Constants.INTAKE_BUTTON);
         JoystickButton outtakeButton = new JoystickButton(leftOperatorJoystick, Constants.OUTTAKE_BUTTON);
         JoystickButton actuateIntakeButton = new JoystickButton(leftOperatorJoystick, Constants.ACTUATE_PISTON_BUTTON);
-        JoystickButton stopButton = new JoystickButton(leftOperatorJoystick, Constants.STOP_BUTTON);
-
         JoystickButton shiftButton = new JoystickButton(leftOperatorJoystick, Constants.SHIFT_BUTTON);
         JoystickButton lowButton = new JoystickButton(leftOperatorJoystick, Constants.LOW_BUTTON);
 

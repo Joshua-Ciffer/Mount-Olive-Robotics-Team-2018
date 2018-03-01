@@ -61,7 +61,6 @@ public class Constants {
 	public static final int INTAKE_POS_BUTTON = 2;
 	public static final int PLACE_ON_SCALE_BUTTON = 8;
 	public static final int PLACE_ON_SWITCH_BUTTON = 9;
-	public static final int STOP_BUTTON = 3;
 	public static final int SHIFT_BUTTON = 7;
 	public static final int LOW_BUTTON = 4;
 
