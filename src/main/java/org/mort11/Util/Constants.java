@@ -116,8 +116,9 @@ public class Constants {
 	public static final int ANGLE_FINISH = 5;
 	public static final int DISTANCE_LENIENCY = 10;
 
-	// TurnDegrees Motor speeds
+	// Drivetrain speeds
 	public static final double SPEED_FAR = .3;
 	public static final double SPEED_CLOSE = .15;
+	public static final double DRIVETRAIN_SPEED = .3;
 
 }

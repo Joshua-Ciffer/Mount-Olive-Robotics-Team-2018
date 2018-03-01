@@ -51,6 +51,12 @@ public class Drivetrain extends Subsystem {
             IO.getTransmission().set(DoubleSolenoid.Value.kReverse);
         }
     }
+
+    public void setBothSides(double speed){
+        setLeftDriveSpeed(speed);
+        setRightDriveSpeed(speed);
+
+    }
     
     public void halt (){
         setLeftDriveSpeed(0);
@@ -63,5 +69,7 @@ public class Drivetrain extends Subsystem {
     protected void initDefaultCommand() {
         setDefaultCommand(new JoystickDrive());
     }
+
+
 
 }
