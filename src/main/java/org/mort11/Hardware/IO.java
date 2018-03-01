@@ -82,6 +82,8 @@ public class IO {
 		actuatorLimitSwitchTop = new DigitalInput(Constants.ARM_LIMIT_SWITCH_TOP);
 		actuatorLimitSwitchBottom = new DigitalInput(Constants.ARM_LIMIT_SWITCH_BOTTOM);
 
+		initLimitSwitchNames();
+
 		potentiometerInput = new AnalogInput(Constants.POTENTIOMETER_INPUT);
 		potentiometer = new AnalogPotentiometer(potentiometerInput, 180, 0);
 
