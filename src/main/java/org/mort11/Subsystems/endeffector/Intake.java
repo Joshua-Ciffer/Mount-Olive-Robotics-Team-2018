@@ -2,6 +2,7 @@ package org.mort11.Subsystems.endeffector;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.mort11.Commands.endeffector.IntakeCommands.CoastIntake;
 import org.mort11.Commands.endeffector.IntakeCommands.RollIntake;
 import org.mort11.Hardware.HardwareStates;
 import org.mort11.Hardware.IO;
@@ -27,7 +28,7 @@ public class Intake extends Subsystem {
      */
     @Override
     protected void initDefaultCommand() {
-        setDefaultCommand(new RollIntake(HardwareStates.RollerState.COAST));
+        setDefaultCommand(new CoastIntake());
     }
 
     /**
