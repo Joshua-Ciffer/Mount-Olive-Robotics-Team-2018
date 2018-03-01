@@ -89,8 +89,8 @@ public class IO {
 
 		intakePiston = new DoubleSolenoid(Constants.INTAKE_PISTON_IN, Constants.INTAKE_PISTON_OUT);
 
-		compressor = new Compressor();
-		compressor.start();
+		//compressor = new Compressor();
+		//compressor.start();
 
 		ahrs = new AHRS(SPI.Port.kMXP);
 

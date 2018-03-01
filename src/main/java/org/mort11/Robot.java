@@ -1,18 +1,12 @@
 package org.mort11;
 
-import edu.wpi.cscore.CvSink;
-import edu.wpi.cscore.CvSource;
 import edu.wpi.cscore.UsbCamera;
-import edu.wpi.first.networktables.NetworkTable;
-import edu.wpi.first.networktables.NetworkTableInstance;
-import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.mort11.Commands.auton.DoNothing;
 import org.mort11.Control.Operator;
 import org.mort11.Hardware.IO;
 import org.mort11.Subsystems.Drivetrain.Drivetrain;
@@ -59,31 +53,37 @@ public class Robot extends IterativeRobot {
 
 		Operator.init();
 
-		SmartDashboardLogger.init();
-		autoChooser = new SendableChooser<Command>();
-		sideChooser = new SendableChooser<>();
-		sideChooser.addDefault("Middle", "Middle");
-		sideChooser.addObject("Left", "Left");
-		sideChooser.addObject("Right", "Right");
+        sideChooser = new SendableChooser<>();
+        sideChooser.addDefault("Middle", "Middle");
+        sideChooser.addObject("Left", "Left");
+        sideChooser.addObject("Right", "Right");
+        SmartDashboard.putData("Sides", sideChooser);
+
+		//SmartDashboardLogger.init();
 
 	}
 
 	@Override
 	public void disabledInit() {
+	    Scheduler.getInstance().removeAll();
 	}
 
 	@Override
 	public void disabledPeriodic() {
-		AutoChooser.addAutons(sideChooser.getSelected());
+        autoChooser = new SendableChooser<>();
 
-	}
+		AutoChooser.addAutons(sideChooser.getSelected());
+        SmartDashboard.putData("autons",autoChooser);
+    }
 
 	@Override
 	public void autonomousInit() {
 
 		gameData = DriverStation.getInstance().getGameSpecificMessage(); // Get the game data from the driver station
-		autoCommand = autoChooser.getSelected();
-		autoCommand.start();
+		autoCommand = AutoChooser.setAutoCommand(autoChooser.getSelected(),gameData);
+		if(autoCommand != null){
+            autoCommand.start();
+        }
 	}
 
 	@Override
@@ -93,7 +93,7 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void teleopInit() {
-		if(autoCommand.isRunning()){
+		if(autoCommand != null){
 			autoCommand.cancel();
 		}
 	}

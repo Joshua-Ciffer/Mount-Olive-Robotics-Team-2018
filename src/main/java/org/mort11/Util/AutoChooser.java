@@ -57,9 +57,6 @@ public class AutoChooser {
             Robot.autoChooser.addDefault("Do Nothing", new DoNothing());
             Robot.autoChooser.addObject("Drive Forwards Timed", new DriveDistanceTimed(Constants.DRIVETRAIN_SPEED, 3));
         }
-
-        SmartDashboard.putData(Robot.autoChooser);
-
     }
 
 }

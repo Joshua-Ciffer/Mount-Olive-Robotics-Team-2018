@@ -18,12 +18,12 @@ public class Constants {
 	/*
 	 * Motors
 	 */
-	public static final int DRIVETRAIN_LEFT_MASTER = 3;
-	public static final int DRIVETRAIN_LEFT_SLAVE_MIDDLE = 4;
-	public static final int DRIVETRAIN_LEFT_SLAVE_BACK = 5;
-	public static final int DRIVETRAIN_RIGHT_MASTER = 0;
-	public static final int DRIVETRAIN_RIGHT_SLAVE_MIDDLE = 1;
-	public static final int DRIVETRAIN_RIGHT_SLAVE_BACK = 2;
+	public static final int DRIVETRAIN_LEFT_MASTER = 0;
+	public static final int DRIVETRAIN_LEFT_SLAVE_MIDDLE = 1;
+	public static final int DRIVETRAIN_LEFT_SLAVE_BACK = 2;
+	public static final int DRIVETRAIN_RIGHT_MASTER = 3;
+	public static final int DRIVETRAIN_RIGHT_SLAVE_MIDDLE = 4;
+	public static final int DRIVETRAIN_RIGHT_SLAVE_BACK = 5;
 
     // DIO [Encoders, Limit switches]
     // NOTE: Fill in actual values for limit switches.
@@ -119,6 +119,6 @@ public class Constants {
 	// Drivetrain speeds
 	public static final double SPEED_FAR = .3;
 	public static final double SPEED_CLOSE = .15;
-	public static final double DRIVETRAIN_SPEED = .3;
+	public static final double DRIVETRAIN_SPEED = -.3;
 
 }
