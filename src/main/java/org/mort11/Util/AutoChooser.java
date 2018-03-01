@@ -2,6 +2,7 @@ package org.mort11.Util;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.TimedCommand;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.mort11.Commands.auton.DoNothing;
 import org.mort11.Commands.auton.Driving.DriveDistanceTimed;
 import org.mort11.Robot;
@@ -12,9 +13,9 @@ import org.mort11.Robot;
  */
 
 public class AutoChooser {
-//    static Command autoCommand;
-//    public static Command setAutoCommand(Command selected, String gameData) {
-//
+    static Command autoCommand;
+    public static Command setAutoCommand(Command selected, String gameData) {
+        autoCommand = selected;
 //        if(selected.equals(new SwitchTurnLeft()) && gameData.charAt(0) == 'R') {
 //            autoCommand = new SwitchTurnLeft();
 //        }
@@ -34,9 +35,9 @@ public class AutoChooser {
 //            autoCommand = new DriveStraight();
 //        }
 //
-//        return autoCommand; // Return the autonomous command to run
+        return autoCommand; // Return the autonomous command to run
 //
-//    }
+  }
 
     /*
     * Adds autons to side according to auton chooser
@@ -57,7 +58,7 @@ public class AutoChooser {
             Robot.autoChooser.addObject("Drive Forwards Timed", new DriveDistanceTimed(Constants.DRIVETRAIN_SPEED, 3));
         }
 
-
+        SmartDashboard.putData(Robot.autoChooser);
 
     }
 

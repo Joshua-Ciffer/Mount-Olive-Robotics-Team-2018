@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.mort11.Commands.auton.DoNothing;
 import org.mort11.Control.Operator;
 import org.mort11.Hardware.IO;
 import org.mort11.Subsystems.Drivetrain.Drivetrain;
@@ -38,10 +39,6 @@ public class Robot extends IterativeRobot {
 
 	private Command autoCommand; // Autonomous command to run
 
-	private NetworkTable autonomous; // ShuffleBoard autonomous table
-	public static NetworkTable debug; // ShuffleBoard debug table
-	private NetworkTable limelight; // ShuffleBoard camera table
-
 	private String gameData; // Game data from the driver station
 	private String robotPos; // The position of the robot on the field
 
@@ -62,11 +59,6 @@ public class Robot extends IterativeRobot {
 		new Compressor().start();
 
 		Operator.init();
-
-		autonomous = NetworkTableInstance.getDefault().getTable("Autonomous"); // Create tables
-		debug = NetworkTableInstance.getDefault().getTable("Debug");
-		limelight = NetworkTableInstance.getDefault().getTable("Limelight");
-
 		driveTrain = new Drivetrain(); // Create the drive train subsystem object
 		SmartDashboardLogger.init();
 		autoChooser = new SendableChooser<Command>();
@@ -79,39 +71,32 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void teleopInit() {
-		super.teleopInit();
-
-		NetworkTableInstance.getDefault().getTable("limelight").getEntry("ledMode").setNumber(1);
-		NetworkTableInstance.getDefault().getTable("limelight").getEntry("camMode").setNumber(1);
-
+		if(autoCommand.isRunning()){
+			autoCommand.cancel();
+		}
 	}
 
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.updateValues();
 	}
 
 	@Override
 	public void autonomousInit() {
 
-		super.autonomousInit();
-
 		gameData = DriverStation.getInstance().getGameSpecificMessage(); // Get the game data from the driver station
-
-		// if(!autoChooser.getSelected().equals(new DoNothing())){
-		// autoCommand = AutoChooser.setAutoCommand((Command)autoChooser.getSelected(), gameData);
-		// }
-
+		autoCommand = autoChooser.getSelected();
+		autoCommand.start();
 	}
 
 	@Override
 	public void autonomousPeriodic() {
-		super.autonomousPeriodic();
+		Scheduler.getInstance().run();
 	}
 
 	@Override
 	public void testInit() {
-		super.teleopInit();
 	}
 
 	@Override
