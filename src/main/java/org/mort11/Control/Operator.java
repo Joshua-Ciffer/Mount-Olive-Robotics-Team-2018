@@ -8,7 +8,6 @@ import org.mort11.Commands.endeffector.ElevatorCommands.ElevatorCommandGroups.In
 import org.mort11.Commands.endeffector.ElevatorCommands.ElevatorCommandGroups.PlaceOnScale;
 import org.mort11.Commands.endeffector.ElevatorCommands.ElevatorCommandGroups.PlaceOnSwitch;
 import org.mort11.Commands.endeffector.IntakeCommands.ActuatePiston;
-import org.mort11.Commands.endeffector.IntakeCommands.IntakeCommandGroup;
 import org.mort11.Commands.endeffector.IntakeCommands.RollIntake;
 import org.mort11.Hardware.HardwareStates;
 import org.mort11.Util.Constants;
@@ -68,12 +67,12 @@ public class Operator {
         shiftButton.whenPressed(new Shift(HardwareStates.Gear.HIGH));
         lowButton.whenPressed(new Shift(HardwareStates.Gear.LOW));
 
-        intakeButton.whileHeld(new IntakeCommandGroup(HardwareStates.IntakePistonState.IN, HardwareStates.RollerState.IN));
-        intakeButton.whenReleased(new IntakeCommandGroup(HardwareStates.IntakePistonState.OUT, HardwareStates.RollerState.STOP));
+        intakeButton.whileHeld(new RollIntake(HardwareStates.RollerState.IN));
+        intakeButton.whenReleased(new RollIntake(HardwareStates.RollerState.STOP));
         outtakeButton.whileHeld(new RollIntake(HardwareStates.RollerState.OUT));
         outtakeButton.whenReleased(new RollIntake(HardwareStates.RollerState.STOP));
-        actuateIntakeButton.whileHeld(new ActuatePiston(HardwareStates.IntakePistonState.OUT));
-        actuateIntakeButton.whenReleased(new ActuatePiston(HardwareStates.IntakePistonState.IN));
+        actuateIntakeButton.whileHeld(new ActuatePiston(HardwareStates.IntakePistonState.IN));
+        actuateIntakeButton.whenReleased(new ActuatePiston(HardwareStates.IntakePistonState.OUT));
 
     }
 
