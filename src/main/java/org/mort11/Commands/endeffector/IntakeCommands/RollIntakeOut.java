@@ -19,7 +19,7 @@ public class RollIntakeOut extends Command {
 
     @Override
     protected void execute() {
-        Robot.intake.setRollerSpeed(-Constants.INTAKE_SPEED);
+        Robot.intake.setRollerSpeed(Constants.INTAKE_SPEED);
     }
 
     @Override

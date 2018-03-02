@@ -11,8 +11,8 @@ public class IntakeCommand extends CommandGroup {
 
         setInterruptible(true);
 
-        addParallel(new MoveFirstStageElevatorDown(-Constants.ELEVATOR_SPEED));
-        addParallel(new MoveSecondStageElevatorDown(-Constants.ELEVATOR_SPEED));
+        //addParallel(new MoveFirstStageElevatorDown(-Constants.ELEVATOR_SPEED));
+        //addParallel(new MoveSecondStageElevatorDown(-Constants.ELEVATOR_SPEED));
         addParallel(new MoveFourBarArmDegrees(180));
 
     }

@@ -35,7 +35,7 @@ public class Intake extends Subsystem {
      * @param speed - Roller talon speed.
      */
     public void setRollerSpeed(double speed) {
-        IO.getIntakeRollerVictorLeft().set(Constants.CONTROL_MODE, -speed);
+        IO.getIntakeRollerVictorLeft().set(Constants.CONTROL_MODE, speed);
         IO.getIntakeRollerVictorRight().set(Constants.CONTROL_MODE, speed);
 
 //        IO.getIntakeRollerVictorLeft().set(Constants.CONTROL_MODE, Constants.INTAKE_STOP);

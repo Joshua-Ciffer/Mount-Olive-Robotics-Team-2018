@@ -20,7 +20,7 @@ public class MoveFourBarArmUp extends Command {
 
         if(speed < -Constants.MOTOR_DEADZONE){
             System.out.println("MoveFourBarArmUp has executed");
-            Robot.fourBarArm.set(speed);
+            Robot.fourBarArm.set(-speed);
         }
     }
     @Override

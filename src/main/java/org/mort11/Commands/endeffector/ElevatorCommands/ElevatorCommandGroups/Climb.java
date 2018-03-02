@@ -13,8 +13,8 @@ public class Climb extends CommandGroup {
 
         setInterruptible(true);
 
-        addParallel(new MoveFirstStageElevatorUp(Constants.ELEVATOR_SPEED));
-        addParallel(new MoveSecondStageElevatorUp(Constants.ELEVATOR_SPEED));
+        //addParallel(new MoveFirstStageElevatorUp(Constants.ELEVATOR_SPEED));
+        //addParallel(new MoveSecondStageElevatorUp(Constants.ELEVATOR_SPEED));
         addParallel(new MoveFourBarArmDegrees(180));
 
     }

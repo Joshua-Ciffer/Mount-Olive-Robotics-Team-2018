@@ -20,12 +20,12 @@ public class RollIntakeIn extends Command {
 
     @Override
     protected void execute() {
-        Robot.intake.setRollerSpeed(Constants.INTAKE_SPEED);
+        Robot.intake.setRollerSpeed(-Constants.INTAKE_SPEED);
     }
 
     @Override
     protected boolean isFinished() {
-        return !IO.getIntakeLimitSwitchRight().get() && !IO.getIntakeLimitSwitchLeft().get();
+        return false;
     }
 
     @Override
@@ -37,7 +37,7 @@ public class RollIntakeIn extends Command {
 
     @Override
     protected void interrupted() {
-        end();
+        Robot.intake.setRollerSpeed(0);
     }
 
 }

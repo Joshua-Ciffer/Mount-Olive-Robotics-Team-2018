@@ -51,17 +51,17 @@ public class Operator {
 
         JoystickButton intakeButton = new JoystickButton(leftOperatorJoystick, Constants.INTAKE_BUTTON);
         JoystickButton outtakeButton = new JoystickButton(leftOperatorJoystick, Constants.OUTTAKE_BUTTON);
-        JoystickButton actuateIntakeButton = new JoystickButton(leftOperatorJoystick, Constants.ACTUATE_PISTON_BUTTON);
-        JoystickButton shiftButton = new JoystickButton(leftOperatorJoystick, Constants.SHIFT_BUTTON);
-        JoystickButton lowButton = new JoystickButton(leftOperatorJoystick, Constants.LOW_BUTTON);
+        JoystickButton actuateIntakeButton = new JoystickButton(rightOperatorJoystick, Constants.ACTUATE_PISTON_BUTTON);
+        //JoystickButton shiftButton = new JoystickButton(rightOperatorJoystick, Constants.SHIFT_BUTTON);
+        //JoystickButton lowButton = new JoystickButton(rightOperatorJoystick, Constants.LOW_BUTTON);
 
         //climbButton.whenPressed(new Climb());
         //intakePosButton.whenPressed(new IntakeCommand());
         //placeOnScaleButton.whenPressed(new PlaceOnScale());
         //placeOnSwitchButton.whenPressed(new PlaceOnSwitch());
 
-        shiftButton.whenPressed(new Shift(HardwareStates.Gear.HIGH));
-        lowButton.whenPressed(new Shift(HardwareStates.Gear.LOW));
+        //shiftButton.whenPressed(new Shift(HardwareStates.Gear.HIGH));
+        //lowButton.whenPressed(new Shift(HardwareStates.Gear.LOW));
 
         intakeButton.whileHeld(new RollIntakeIn());
         intakeButton.whenReleased(new StopIntake());

@@ -11,8 +11,8 @@ public class PlaceOnSwitch extends CommandGroup {
 
         setInterruptible(true);
 
-        addParallel(new MoveFirstStageElevatorDown(-Constants.ELEVATOR_SPEED));
-        addParallel(new MoveSecondStageElevatorUp(Constants.ELEVATOR_SPEED));
+        //addParallel(new MoveFirstStageElevatorDown(-Constants.ELEVATOR_SPEED));
+        //addParallel(new MoveSecondStageElevatorUp(Constants.ELEVATOR_SPEED));
         addParallel(new MoveFourBarArmDegrees(180));
 
     }
