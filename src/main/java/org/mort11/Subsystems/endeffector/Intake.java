@@ -51,12 +51,12 @@ public class Intake extends Subsystem {
     public void actuatePiston(HardwareStates.IntakePistonState pistonState) {
         switch (pistonState) {
             case IN: {
-                IO.getIntakePiston().set(DoubleSolenoid.Value.kForward);
+                IO.getIntakePiston().set(DoubleSolenoid.Value.kReverse);
                 System.out.println("Going in");
                 break;
             }
             case OUT: {
-                IO.getIntakePiston().set(DoubleSolenoid.Value.kReverse);
+                IO.getIntakePiston().set(DoubleSolenoid.Value.kForward);
                 System.out.println("Going out");
                 break;
             }

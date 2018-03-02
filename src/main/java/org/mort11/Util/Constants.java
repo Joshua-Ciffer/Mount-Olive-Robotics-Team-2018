@@ -104,6 +104,8 @@ public class Constants {
     public static final double MOTOR_DEADZONE = 0.1;
     public static final double ANGLE_DEADZONE = 5;
 
+    public static final int ROLLER_TIMEOUT = 1;
+
 	public static final int ARM_MAX = 180;
 	public static final int ARM_MIN = 0;
 
