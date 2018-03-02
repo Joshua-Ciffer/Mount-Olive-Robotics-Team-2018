@@ -27,7 +27,7 @@ public class FourBarArm extends Subsystem {
 	 */
 	@Override
 	protected void initDefaultCommand() {
-		setDefaultCommand(new MoveFourBarArm(Operator.getRightOperatorJoystick().getZ()));
+		setDefaultCommand(new MoveFourBarArm());
 	}
 
 	/**
