@@ -19,7 +19,7 @@ public class StopIntake extends Command {
 
     @Override
     protected void execute() {
-        Robot.intake.setRollerSpeed(0);
+        Robot.intake.setRollerSpeed(Constants.INTAKE_STOP);
     }
 
     @Override

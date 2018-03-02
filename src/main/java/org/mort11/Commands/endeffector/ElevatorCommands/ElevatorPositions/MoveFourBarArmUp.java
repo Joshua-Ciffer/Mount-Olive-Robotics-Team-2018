@@ -9,6 +9,7 @@ public class MoveFourBarArmUp extends Command {
     private double speed;
     public MoveFourBarArmUp(double speed) {
         super("MoveFourBarArm");
+        requires(Robot.fourBarArm);
         this.speed = speed;
     }
     @Override
