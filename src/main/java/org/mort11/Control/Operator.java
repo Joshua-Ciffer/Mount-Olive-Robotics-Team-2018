@@ -67,8 +67,8 @@ public class Operator {
         //shiftButton.whenPressed(new Shift(HardwareStates.Gear.HIGH));
         //lowButton.whenPressed(new Shift(HardwareStates.Gear.LOW));
 
-        actuateIntakeButton.whileHeld(new ActuatePiston(HardwareStates.IntakePistonState.IN));
-        actuateIntakeButton.whenReleased(new ActuatePiston(HardwareStates.IntakePistonState.OUT));
+        actuateIntakeButton.whileHeld(new ActuatePiston(HardwareStates.IntakePistonState.OUT));
+        actuateIntakeButton.whenReleased(new ActuatePiston(HardwareStates.IntakePistonState.IN));
 
     }
 

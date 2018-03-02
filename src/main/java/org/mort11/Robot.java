@@ -74,6 +74,7 @@ public class Robot extends IterativeRobot {
 
 		AutoChooser.addAutons(sideChooser.getSelected());
         SmartDashboard.putData("autons",autoChooser);
+        System.out.println(IO.getIntakePiston().get());
     }
 
 	@Override

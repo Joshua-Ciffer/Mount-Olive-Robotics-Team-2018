@@ -65,7 +65,7 @@ public class IO {
         rightSlaveMiddle = new TalonSRX(Constants.DRIVETRAIN_RIGHT_SLAVE_MIDDLE);
         rightSlaveBack = new TalonSRX(Constants.DRIVETRAIN_RIGHT_SLAVE_BACK);
 
-        transmission = new DoubleSolenoid(Constants.PCM_ID, Constants.TRANSMISSION_SHIFT_LOW, Constants.TRANSMISSION_SHIFT_HIGH);
+        //transmission = new DoubleSolenoid(Constants.PCM_ID, Constants.TRANSMISSION_SHIFT_LOW, Constants.TRANSMISSION_SHIFT_HIGH);
 
 		intakeRollerVictorRight = new VictorSPX(Constants.INTAKE_ROLLER_VICTOR_RIGHT);
 		intakeRollerVictorLeft = new VictorSPX(Constants.INTAKE_ROLLER_VICTOR_LEFT);
@@ -87,7 +87,8 @@ public class IO {
 		potentiometerInput = new AnalogInput(Constants.POTENTIOMETER_INPUT);
 		potentiometer = new AnalogPotentiometer(potentiometerInput, 180, 0);
 
-		intakePiston = new DoubleSolenoid(Constants.INTAKE_PISTON_IN, Constants.INTAKE_PISTON_OUT);
+		intakePiston = new DoubleSolenoid(Constants.PCM_ID, Constants.INTAKE_PISTON_IN, Constants.INTAKE_PISTON_OUT);
+		intakePiston.setName("Intake");
 
 		compressor = new Compressor();
 		compressor.start();
