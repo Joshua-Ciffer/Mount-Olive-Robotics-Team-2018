@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.command.TimedCommand;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.mort11.Commands.auton.DoNothing;
 import org.mort11.Commands.auton.Driving.DriveDistanceTimed;
+import org.mort11.Commands.auton.Driving.DriveTimedWithCube;
 import org.mort11.Robot;
 //import org.mort11.Commands.Autonomous.*;
 
@@ -45,17 +46,20 @@ public class AutoChooser {
     public static void addAutons(String side){
         if (side.equals("Middle")){
             Robot.autoChooser.addDefault("Do Nothing", new DoNothing());
-            Robot.autoChooser.addObject("Drive Forwards Timed", new DriveDistanceTimed(Constants.DRIVETRAIN_SPEED, 3));
+            Robot.autoChooser.addObject("Drive Forwards Timed", new DriveTimedWithCube(Constants.DRIVETRAIN_SPEED, 2));
+            Robot.autoChooser.addObject("DriveForwardsTimed", new DriveDistanceTimed(Constants.DRIVETRAIN_SPEED, 2));
         }
 
         else if (side.equals("Left")){
             Robot.autoChooser.addDefault("Do Nothing", new DoNothing());
-            Robot.autoChooser.addObject("Drive Forwards Timed", new DriveDistanceTimed(Constants.DRIVETRAIN_SPEED, 3));
+            Robot.autoChooser.addObject("Drive Forwards Timed", new DriveTimedWithCube(Constants.DRIVETRAIN_SPEED, 3));
+            Robot.autoChooser.addObject("DriveForwardsTimed", new DriveDistanceTimed(Constants.DRIVETRAIN_SPEED, 3));
         }
 
         else if (side.equals("Right")){
             Robot.autoChooser.addDefault("Do Nothing", new DoNothing());
-            Robot.autoChooser.addObject("Drive Forwards Timed", new DriveDistanceTimed(Constants.DRIVETRAIN_SPEED, 3));
+            Robot.autoChooser.addObject("Drive Forwards Timed", new DriveTimedWithCube(Constants.DRIVETRAIN_SPEED, 3));
+            Robot.autoChooser.addObject("DriveForwardsTimed", new DriveDistanceTimed(Constants.DRIVETRAIN_SPEED, 3));
         }
     }
 
