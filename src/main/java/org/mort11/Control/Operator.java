@@ -48,17 +48,15 @@ public class Operator {
 
         JoystickButton intakeButton = new JoystickButton(leftOperatorJoystick, Constants.INTAKE_BUTTON);
         JoystickButton outtakeButton = new JoystickButton(leftOperatorJoystick, Constants.OUTTAKE_BUTTON);
-        JoystickButton actuateIntakeButton = new JoystickButton(rightOperatorJoystick, Constants.ACTUATE_PISTON_BUTTON);
+        JoystickButton actuateIntakeButton = new JoystickButton(leftOperatorJoystick, Constants.ACTUATE_PISTON_BUTTON);
         //JoystickButton shiftButton = new JoystickButton(rightOperatorJoystick, Constants.SHIFT_BUTTON);
         //JoystickButton lowButton = new JoystickButton(rightOperatorJoystick, Constants.LOW_BUTTON);
-        JoystickButton in2 = new JoystickButton(leftOperatorJoystick, 1);
-        JoystickButton out2 = new JoystickButton(leftOperatorJoystick, 2);
 
-        in2.whileHeld(new RollIntake(Constants.INTAKE_SPEED, HardwareStates.RollerState.IN));
-        in2.whenReleased(new RollIntake(0, HardwareStates.RollerState.STOP));
+        intakeButton.whileHeld(new RollIntake(Constants.INTAKE_SPEED, HardwareStates.RollerState.IN));
+        intakeButton.whenReleased(new RollIntake(0, HardwareStates.RollerState.STOP));
 
-        out2.whileHeld(new RollIntake(Constants.INTAKE_SPEED, HardwareStates.RollerState.OUT));
-        out2.whenReleased(new RollIntake(0, HardwareStates.RollerState.STOP));
+        outtakeButton.whileHeld(new RollIntake(Constants.INTAKE_SPEED, HardwareStates.RollerState.OUT));
+        outtakeButton.whenReleased(new RollIntake(0, HardwareStates.RollerState.STOP));
 
 
         //climbButton.whenPressed(new Climb());
@@ -68,12 +66,6 @@ public class Operator {
 
         //shiftButton.whenPressed(new Shift(HardwareStates.Gear.HIGH));
         //lowButton.whenPressed(new Shift(HardwareStates.Gear.LOW));
-
-        intakeButton.whileHeld(new RollIntakeIn());
-        intakeButton.whenReleased(new StopIntake());
-
-        outtakeButton.whileHeld(new RollIntakeOut());
-        outtakeButton.whenReleased(new StopIntake());
 
         actuateIntakeButton.whileHeld(new ActuatePiston(HardwareStates.IntakePistonState.IN));
         actuateIntakeButton.whenReleased(new ActuatePiston(HardwareStates.IntakePistonState.OUT));

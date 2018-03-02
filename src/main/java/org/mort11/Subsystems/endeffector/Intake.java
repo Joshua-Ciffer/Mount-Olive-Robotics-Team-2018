@@ -52,10 +52,12 @@ public class Intake extends Subsystem {
         switch (pistonState) {
             case IN: {
                 IO.getIntakePiston().set(DoubleSolenoid.Value.kForward);
+                System.out.println("Going in");
                 break;
             }
             case OUT: {
                 IO.getIntakePiston().set(DoubleSolenoid.Value.kReverse);
+                System.out.println("Going out");
                 break;
             }
         }

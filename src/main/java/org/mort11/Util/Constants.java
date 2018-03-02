@@ -56,7 +56,7 @@ public class Constants {
 	// Joystick buttons
 	public static final int INTAKE_BUTTON = 3;
 	public static final int OUTTAKE_BUTTON = 5;
-	public static final int ACTUATE_PISTON_BUTTON = 3;
+	public static final int ACTUATE_PISTON_BUTTON = 1;
 	public static final int CLIMB_BUTTON = 1;
 	public static final int INTAKE_POS_BUTTON = 2;
 	public static final int PLACE_ON_SCALE_BUTTON = 8;
