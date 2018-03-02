@@ -20,13 +20,10 @@ public class MoveFourBarArmDown extends Command {
             System.out.println("MoveFourBarArmDown has executed");
             Robot.fourBarArm.set(-speed);
         }
-        else{
-            end();
-        }
     }
     @Override
     protected boolean isFinished() {
-        return !IO.getActuatorLimitSwitchBottom().get() || speed < -Constants.MOTOR_DEADZONE;
+        return !IO.getActuatorLimitSwitchBottom().get() || speed < Constants.MOTOR_DEADZONE;
     }
     @Override
     protected void end() {

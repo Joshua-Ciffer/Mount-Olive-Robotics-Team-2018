@@ -25,7 +25,7 @@ public class MoveFirstStageElevatorDown extends Command{
 
     @Override
     protected boolean isFinished() {
-        return !IO.getFirstStageElevatorLimitSwitchBottom().get() || speed < -Constants.MOTOR_DEADZONE;
+        return !IO.getFirstStageElevatorLimitSwitchBottom().get() || speed < Constants.MOTOR_DEADZONE;
     }
 
     @Override
