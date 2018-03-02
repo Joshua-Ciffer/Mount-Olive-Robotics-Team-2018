@@ -11,6 +11,7 @@ public class MoveFourBarArmDown extends Command {
     public MoveFourBarArmDown() {
         super("MoveFourBarArmDown");
         requires(Robot.fourBarArm);
+        setInterruptible(true);
     }
     @Override
     protected void execute() {

@@ -12,10 +12,12 @@ public class MoveFourBarArmUp extends Command {
     public MoveFourBarArmUp() {
         super("MoveFourBarArm");
         requires(Robot.fourBarArm);
+        setInterruptible(true);
     }
     @Override
     protected void execute() {
         speed = Operator.getRightOperatorJoystick().getZ();
+
         if(speed < -Constants.MOTOR_DEADZONE){
             System.out.println("MoveFourBarArmUp has executed");
             Robot.fourBarArm.set(speed);

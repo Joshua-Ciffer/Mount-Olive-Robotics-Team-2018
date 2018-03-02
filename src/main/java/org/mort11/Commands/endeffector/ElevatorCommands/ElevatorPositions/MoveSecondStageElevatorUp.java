@@ -17,7 +17,7 @@ public class MoveSecondStageElevatorUp extends Command {
     @Override
     protected void execute() {
         speed = Operator.getRightOperatorJoystick().getY();
-        
+
         if(speed < -Constants.MOTOR_DEADZONE)
             Robot.secondStageElevator.set(speed);
     }
