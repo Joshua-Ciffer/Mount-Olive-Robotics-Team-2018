@@ -19,7 +19,7 @@ public class MoveFirstStageElevatorDown extends Command{
         speed = Operator.getLeftOperatorJoystick().getY();
 
         if(speed > Constants.MOTOR_DEADZONE) {
-            Robot.firstStageElevator.set(speed);
+            Robot.firstStageElevator.set(-speed);
         }
     }
 
