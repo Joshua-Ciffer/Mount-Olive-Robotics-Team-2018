@@ -57,10 +57,10 @@ public class Operator {
         JoystickButton shiftButton = new JoystickButton(leftOperatorJoystick, Constants.SHIFT_BUTTON);
         JoystickButton lowButton = new JoystickButton(leftOperatorJoystick, Constants.LOW_BUTTON);
 
-        climbButton.whenPressed(new Climb());
-        intakePosButton.whenPressed(new IntakeCommand());
-        placeOnScaleButton.whenPressed(new PlaceOnScale());
-        placeOnSwitchButton.whenPressed(new PlaceOnSwitch());
+        //climbButton.whenPressed(new Climb());
+        //intakePosButton.whenPressed(new IntakeCommand());
+        //placeOnScaleButton.whenPressed(new PlaceOnScale());
+        //placeOnSwitchButton.whenPressed(new PlaceOnSwitch());
 
         shiftButton.whenPressed(new Shift(HardwareStates.Gear.HIGH));
         lowButton.whenPressed(new Shift(HardwareStates.Gear.LOW));

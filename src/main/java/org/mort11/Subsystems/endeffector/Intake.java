@@ -28,7 +28,7 @@ public class Intake extends Subsystem {
      */
     @Override
     protected void initDefaultCommand() {
-        setDefaultCommand(new CoastIntake());
+        //setDefaultCommand(new CoastIntake());
     }
 
     /**
@@ -40,22 +40,19 @@ public class Intake extends Subsystem {
         switch (rollerState) {
             case IN: {
 
-                if (IO.getIntakeLimitSwitchLeft().get() == false && IO.getIntakeLimitSwitchRight().get() == false) {
+                    IO.getIntakeRollerVictorLeft().set(Constants.CONTROL_MODE, -speed);
+                    IO.getIntakeRollerVictorRight().set(Constants.CONTROL_MODE, speed);
                     break;
-                } else {
-                    IO.getIntakeRollerVictorLeft().set(Constants.CONTROL_MODE, speed);
-                    IO.getIntakeRollerVictorRight().set(Constants.CONTROL_MODE, -speed);
-                    break;
-                }
             }
             case OUT: {
-                IO.getIntakeRollerVictorLeft().set(Constants.CONTROL_MODE, -speed);
-                IO.getIntakeRollerVictorRight().set(Constants.CONTROL_MODE, speed);
+                IO.getIntakeRollerVictorLeft().set(Constants.CONTROL_MODE, speed);
+                IO.getIntakeRollerVictorRight().set(Constants.CONTROL_MODE, -speed);
                 break;
             }
             case STOP: {
                 IO.getIntakeRollerVictorLeft().set(Constants.CONTROL_MODE, Constants.INTAKE_STOP);
                 IO.getIntakeRollerVictorRight().set(Constants.CONTROL_MODE, Constants.INTAKE_STOP);
+                break;
             }
         }
     }

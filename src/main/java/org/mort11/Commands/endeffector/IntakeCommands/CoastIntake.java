@@ -26,6 +26,10 @@ public class CoastIntake extends Command {
 
     @Override
     protected boolean isFinished() {
-        return false;
+        return true;
+    }
+
+    protected void interrupted(){
+        end();
     }
 }
