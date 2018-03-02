@@ -29,7 +29,7 @@ public class FirstStageElevator extends Subsystem {
 	 */
 	@Override
 	protected void initDefaultCommand() {
-		setDefaultCommand(new MoveFirstStageElevator(Operator.getLeftOperatorJoystick().getY()));
+		setDefaultCommand(new MoveFirstStageElevator());
 	}
 
 	/**

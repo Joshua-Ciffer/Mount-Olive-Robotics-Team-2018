@@ -26,7 +26,7 @@ public class SecondStageElevator extends Subsystem {
 	 */
 	@Override
 	protected void initDefaultCommand() {
-		setDefaultCommand(new MoveSecondStageElevator(Operator.getRightOperatorJoystick().getY()));
+		setDefaultCommand(new MoveSecondStageElevator());
 	}
 
 	/**
