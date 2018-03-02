@@ -3,12 +3,10 @@ package org.mort11.Control;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.mort11.Commands.Drivetrain.Shifting.Shift;
-import org.mort11.Commands.endeffector.ElevatorCommands.ElevatorCommandGroups.Climb;
-import org.mort11.Commands.endeffector.ElevatorCommands.ElevatorCommandGroups.IntakeCommand;
-import org.mort11.Commands.endeffector.ElevatorCommands.ElevatorCommandGroups.PlaceOnScale;
-import org.mort11.Commands.endeffector.ElevatorCommands.ElevatorCommandGroups.PlaceOnSwitch;
 import org.mort11.Commands.endeffector.IntakeCommands.ActuatePiston;
-import org.mort11.Commands.endeffector.IntakeCommands.RollIntake;
+import org.mort11.Commands.endeffector.IntakeCommands.RollIntakeIn;
+import org.mort11.Commands.endeffector.IntakeCommands.RollIntakeOut;
+import org.mort11.Commands.endeffector.IntakeCommands.StopIntake;
 import org.mort11.Hardware.HardwareStates;
 import org.mort11.Util.Constants;
 
@@ -65,10 +63,12 @@ public class Operator {
         shiftButton.whenPressed(new Shift(HardwareStates.Gear.HIGH));
         lowButton.whenPressed(new Shift(HardwareStates.Gear.LOW));
 
-        intakeButton.whileHeld(new RollIntake(HardwareStates.RollerState.IN));
-        intakeButton.whenReleased(new RollIntake(HardwareStates.RollerState.STOP));
-        outtakeButton.whileHeld(new RollIntake(HardwareStates.RollerState.OUT));
-        outtakeButton.whenReleased(new RollIntake(HardwareStates.RollerState.STOP));
+        intakeButton.whileHeld(new RollIntakeIn());
+        intakeButton.whenReleased(new StopIntake());
+
+        outtakeButton.whileHeld(new RollIntakeOut());
+        outtakeButton.whenReleased(new StopIntake());
+
         actuateIntakeButton.whileHeld(new ActuatePiston(HardwareStates.IntakePistonState.IN));
         actuateIntakeButton.whenReleased(new ActuatePiston(HardwareStates.IntakePistonState.OUT));
 

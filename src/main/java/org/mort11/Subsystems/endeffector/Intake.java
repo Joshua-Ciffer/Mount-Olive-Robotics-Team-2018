@@ -2,8 +2,6 @@ package org.mort11.Subsystems.endeffector;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import org.mort11.Commands.endeffector.IntakeCommands.CoastIntake;
-import org.mort11.Commands.endeffector.IntakeCommands.RollIntake;
 import org.mort11.Hardware.HardwareStates;
 import org.mort11.Hardware.IO;
 import org.mort11.Util.Constants;
@@ -36,25 +34,12 @@ public class Intake extends Subsystem {
      *
      * @param speed - Roller talon speed.
      */
-    public void setRollerSpeed(double speed, HardwareStates.RollerState rollerState) {
-        switch (rollerState) {
-            case IN: {
+    public void setRollerSpeed(double speed) {
+        IO.getIntakeRollerVictorLeft().set(Constants.CONTROL_MODE, -speed);
+        IO.getIntakeRollerVictorRight().set(Constants.CONTROL_MODE, speed);
 
-                    IO.getIntakeRollerVictorLeft().set(Constants.CONTROL_MODE, -speed);
-                    IO.getIntakeRollerVictorRight().set(Constants.CONTROL_MODE, speed);
-                    break;
-            }
-            case OUT: {
-                IO.getIntakeRollerVictorLeft().set(Constants.CONTROL_MODE, speed);
-                IO.getIntakeRollerVictorRight().set(Constants.CONTROL_MODE, -speed);
-                break;
-            }
-            case STOP: {
-                IO.getIntakeRollerVictorLeft().set(Constants.CONTROL_MODE, Constants.INTAKE_STOP);
-                IO.getIntakeRollerVictorRight().set(Constants.CONTROL_MODE, Constants.INTAKE_STOP);
-                break;
-            }
-        }
+//        IO.getIntakeRollerVictorLeft().set(Constants.CONTROL_MODE, Constants.INTAKE_STOP);
+//        IO.getIntakeRollerVictorRight().set(Constants.CONTROL_MODE, Constants.INTAKE_STOP);
     }
 
 

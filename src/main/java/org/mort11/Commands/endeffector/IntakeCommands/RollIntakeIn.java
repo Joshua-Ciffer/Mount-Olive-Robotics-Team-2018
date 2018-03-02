@@ -10,32 +10,34 @@ import org.mort11.Util.Constants;
  * @author Joshua Ciffer
  * @version 02/14/2018
  */
-public class RollIntake extends Command {
+public class RollIntakeIn extends Command {
 
-    private HardwareStates.RollerState rollerState;
-
-    public RollIntake(HardwareStates.RollerState rollerState) {
-        super("IntakeRollers");
+    public RollIntakeIn() {
+        super("RollIntakeIn");
         requires(Robot.intake);
         setInterruptible(true);
-        this.rollerState = rollerState;
     }
 
     @Override
     protected void execute() {
-        Robot.intake.setRollerSpeed(Constants.INTAKE_SPEED, rollerState);
-
-    }
-
-
-    @Override
-    protected void interrupted() {
-        Robot.intake.setRollerSpeed(0, rollerState);
+        Robot.intake.setRollerSpeed(Constants.INTAKE_SPEED);
     }
 
     @Override
     protected boolean isFinished() {
-        return false;
+        return !IO.getIntakeLimitSwitchRight().get() && !IO.getIntakeLimitSwitchLeft().get();
+    }
+
+    @Override
+    protected void end() {
+
+        Robot.intake.setRollerSpeed(0);
+
+    }
+
+    @Override
+    protected void interrupted() {
+        end();
     }
 
 }
