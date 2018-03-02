@@ -6,12 +6,7 @@ import org.mort11.Commands.endeffector.ElevatorCommands.ElevatorPositions.MoveFo
 import org.mort11.Robot;
 
 public class MoveFourBarArm extends CommandGroup {
-    public MoveFourBarArm(){
-
-    }
-
     public MoveFourBarArm(double speed) {
-        requires(Robot.fourBarArm);
         addSequential(new MoveFourBarArmUp(speed));
         addSequential(new MoveFourBarArmDown(speed));
     }

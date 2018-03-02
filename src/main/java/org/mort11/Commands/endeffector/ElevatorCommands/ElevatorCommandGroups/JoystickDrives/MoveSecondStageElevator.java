@@ -6,10 +6,7 @@ import org.mort11.Commands.endeffector.ElevatorCommands.ElevatorPositions.MoveSe
 import org.mort11.Robot;
 
 public class MoveSecondStageElevator extends CommandGroup{
-    public MoveSecondStageElevator(){
-    }
     public MoveSecondStageElevator(double speed){
-        requires(Robot.secondStageElevator);
         addSequential(new MoveSecondStageElevatorUp(speed));
         addSequential(new MoveSecondStageElevatorDown(speed));
     }
