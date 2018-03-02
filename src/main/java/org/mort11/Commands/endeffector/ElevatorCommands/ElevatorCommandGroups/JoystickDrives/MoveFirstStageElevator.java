@@ -6,8 +6,8 @@ import org.mort11.Commands.endeffector.ElevatorCommands.ElevatorPositions.MoveFi
 import org.mort11.Robot;
 
 public class MoveFirstStageElevator extends CommandGroup {
-    public MoveFirstStageElevator(double speed){
-        addSequential(new MoveFirstStageElevatorUp(speed));
-        addSequential(new MoveFirstStageElevatorDown(speed));
+    public MoveFirstStageElevator(){
+        addSequential(new MoveFirstStageElevatorUp());
+        addSequential(new MoveFirstStageElevatorDown());
     }
 }
