@@ -18,7 +18,7 @@ public class MoveFourBarArmUp extends Command {
     }
     @Override
     protected boolean isFinished() {
-        return IO.getActuatorLimitSwitchTop().get() || speed > Constants.MOTOR_DEADZONE;
+        return !IO.getActuatorLimitSwitchTop().get() || speed > Constants.MOTOR_DEADZONE;
     }
     @Override
     protected void end() {
