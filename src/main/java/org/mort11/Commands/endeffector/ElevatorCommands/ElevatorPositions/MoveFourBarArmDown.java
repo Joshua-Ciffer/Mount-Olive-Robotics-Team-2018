@@ -14,8 +14,10 @@ public class MoveFourBarArmDown extends Command {
     }
     @Override
     protected void execute() {
-        if(speed > Constants.MOTOR_DEADZONE)
+        if(speed > Constants.MOTOR_DEADZONE){
+            System.out.println("MoveFourBarArmDown has executed");
             Robot.fourBarArm.set(speed);
+        }
     }
     @Override
     protected boolean isFinished() {
@@ -23,6 +25,7 @@ public class MoveFourBarArmDown extends Command {
     }
     @Override
     protected void end() {
+        System.out.println("MoveFourBarArmDown has executed");
         Robot.fourBarArm.set(0);
     }
     @Override

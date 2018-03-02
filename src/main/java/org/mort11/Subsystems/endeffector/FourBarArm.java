@@ -66,7 +66,7 @@ public class FourBarArm extends Subsystem {
 	}
 
 	public void set(double speed) {
-
+        System.out.println("Setting FourBarArm motor speed to: " + speed);
 		IO.getFourbarTalon().set(Constants.CONTROL_MODE, speed);
 
 	}
