@@ -101,7 +101,7 @@ public class Constants {
 
 	public static final String potentiometerName = "Potentiometer";
 
-    public static final double MOTOR_DEADZONE = 0.1;
+    public static final double MOTOR_DEADZONE = 0.2;
     public static final double ANGLE_DEADZONE = 5;
 
     public static final int ROLLER_TIMEOUT = 1;

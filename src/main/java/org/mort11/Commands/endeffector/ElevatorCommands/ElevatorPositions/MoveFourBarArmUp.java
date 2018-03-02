@@ -17,10 +17,12 @@ public class MoveFourBarArmUp extends Command {
     @Override
     protected void execute() {
         speed = Operator.getRightOperatorJoystick().getZ();
-
         if(speed < -Constants.MOTOR_DEADZONE){
             System.out.println("MoveFourBarArmUp has executed");
             Robot.fourBarArm.set(-speed);
+        }
+        else{
+            end();
         }
     }
     @Override
