@@ -1,4 +1,4 @@
-package org.mort11.Commands.endeffector.IntakeCommands.AutoIntakeSetCommands;
+package org.mort11.Commands.endeffector.IntakeCommands.auton;
 
 import edu.wpi.first.wpilibj.command.TimedCommand;
 import org.mort11.Hardware.HardwareStates;

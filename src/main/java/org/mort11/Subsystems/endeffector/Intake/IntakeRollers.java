@@ -15,8 +15,5 @@ public class IntakeRollers extends Subsystem {
     public void setRollerSpeed(double speed) {
         IO.getIntakeRollerVictorLeft().set(Constants.CONTROL_MODE, speed);
         IO.getIntakeRollerVictorRight().set(Constants.CONTROL_MODE, speed);
-
-//        IO.getIntakeRollerVictorLeft().set(Constants.CONTROL_MODE, Constants.INTAKE_STOP);
-//        IO.getIntakeRollerVictorRight().set(Constants.CONTROL_MODE, Constants.INTAKE_STOP);
     }
 }
