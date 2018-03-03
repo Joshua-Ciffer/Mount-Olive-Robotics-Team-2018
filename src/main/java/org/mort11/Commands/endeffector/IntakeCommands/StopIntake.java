@@ -19,12 +19,20 @@ public class StopIntake extends Command {
 
     @Override
     protected void execute() {
+        if (!IO.getIntakeLimitSwitchRight().get() && !IO.getIntakeLimitSwitchLeft().get()) {
 
+            Robot.intakeRollers.setRollerSpeed(Constants.INTAKE_COAST);
+
+        } else {
+
+            Robot.intakeRollers.setRollerSpeed(Constants.INTAKE_STOP);
+
+        }
     }
 
     @Override
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     @Override
