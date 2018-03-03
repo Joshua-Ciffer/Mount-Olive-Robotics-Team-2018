@@ -60,7 +60,7 @@ public class Operator {
 
 
         //climbButton.whenPressed(new Climb());
-        //intakePosButton.whenPressed(new IntakeCommand());
+        //intakePosButton.whenPressed(new Intake());
         //placeOnScaleButton.whenPressed(new PlaceOnScale());
         //placeOnSwitchButton.whenPressed(new PlaceOnSwitch());
 

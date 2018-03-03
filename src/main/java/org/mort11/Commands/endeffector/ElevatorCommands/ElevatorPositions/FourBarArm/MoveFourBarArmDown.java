@@ -1,4 +1,4 @@
-package org.mort11.Commands.endeffector.ElevatorCommands.ElevatorPositions;
+package org.mort11.Commands.endeffector.ElevatorCommands.ElevatorPositions.FourBarArm;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.mort11.Control.Operator;
@@ -6,33 +6,28 @@ import org.mort11.Hardware.IO;
 import org.mort11.Robot;
 import org.mort11.Util.Constants;
 
-public class MoveFourBarArmUp extends Command {
+public class MoveFourBarArmDown extends Command {
     private double speed;
-
-    public MoveFourBarArmUp() {
-        super("MoveFourBarArm");
+    public MoveFourBarArmDown() {
+        super("MoveFourBarArmDown");
         requires(Robot.fourBarArm);
         setInterruptible(true);
     }
     @Override
     protected void execute() {
         speed = Operator.getRightOperatorJoystick().getZ();
-        if(speed < -Constants.MOTOR_DEADZONE){
-            System.out.println("MoveFourBarArmUp has executed");
+        if(speed > Constants.MOTOR_DEADZONE) {
+            System.out.println("MoveFourBarArmDown has executed");
             Robot.fourBarArm.set(-speed);
-        }
-        else{
-            end();
         }
     }
     @Override
     protected boolean isFinished() {
-
-        return !IO.getActuatorLimitSwitchTop().get() || speed > -Constants.MOTOR_DEADZONE;
+        return !IO.getActuatorLimitSwitchBottom().get() || speed < Constants.MOTOR_DEADZONE;
     }
     @Override
     protected void end() {
-        System.out.println("MoveFourBarArmUp has finished");
+        System.out.println("MoveFourBarArmDown has executed");
         Robot.fourBarArm.set(0);
     }
     @Override

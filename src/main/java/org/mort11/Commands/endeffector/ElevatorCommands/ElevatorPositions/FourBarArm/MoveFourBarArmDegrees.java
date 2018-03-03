@@ -1,4 +1,4 @@
-package org.mort11.Commands.endeffector.ElevatorCommands.ElevatorPositions;
+package org.mort11.Commands.endeffector.ElevatorCommands.ElevatorPositions.FourBarArm;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.mort11.Hardware.IO;

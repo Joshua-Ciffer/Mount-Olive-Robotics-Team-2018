@@ -1,11 +1,7 @@
-package org.mort11.Commands.endeffector.ElevatorCommands.ElevatorPositions.AutoElevatorSetCommands;
+package org.mort11.Commands.endeffector.ElevatorCommands.ElevatorPositions.auton;
 
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.TimedCommand;
-import org.mort11.Control.Operator;
-import org.mort11.Hardware.IO;
 import org.mort11.Robot;
-import org.mort11.Util.Constants;
 
 public class MoveFirstStageElevatorSetValue extends TimedCommand{
     private double speed;
