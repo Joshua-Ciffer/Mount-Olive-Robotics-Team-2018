@@ -12,7 +12,8 @@ import org.mort11.Hardware.IO;
 import org.mort11.Subsystems.Drivetrain.Drivetrain;
 import org.mort11.Subsystems.endeffector.FirstStageElevator;
 import org.mort11.Subsystems.endeffector.FourBarArm;
-import org.mort11.Subsystems.endeffector.Intake;
+import org.mort11.Subsystems.endeffector.Intake.IntakePistons;
+import org.mort11.Subsystems.endeffector.Intake.IntakeRollers;
 import org.mort11.Subsystems.endeffector.SecondStageElevator;
 import org.mort11.Util.AutoChooser;
 import org.mort11.Util.SmartDashboardLogger;
@@ -28,7 +29,8 @@ public class Robot extends IterativeRobot {
 	public static FirstStageElevator firstStageElevator;
 	public static SecondStageElevator secondStageElevator;
 	public static FourBarArm fourBarArm;
-	public static Intake intake;
+	public static IntakePistons intakePistons;
+	public static IntakeRollers intakeRollers;
 	public static Drivetrain driveTrain; // Creates a drivetrain object
 
 	private Command autoCommand; // Autonomous command to run
@@ -48,7 +50,8 @@ public class Robot extends IterativeRobot {
 		firstStageElevator = new FirstStageElevator();
 		secondStageElevator = new SecondStageElevator();
 		fourBarArm = new FourBarArm();
-		intake = new Intake();
+		intakePistons = new IntakePistons();
+		intakeRollers = new IntakeRollers();
 		driveTrain = new Drivetrain(); // Create the drive train subsystem object
 
 		Operator.init();

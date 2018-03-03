@@ -3,7 +3,6 @@ package org.mort11.Commands.endeffector.IntakeCommands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.mort11.Hardware.HardwareStates;
 import org.mort11.Robot;
-import org.mort11.Subsystems.endeffector.Intake;
 import org.mort11.Util.Constants;
 
 public class RollIntake extends Command {
@@ -11,7 +10,7 @@ public class RollIntake extends Command {
     private HardwareStates.RollerState rollerState;
     public RollIntake (double speed, HardwareStates.RollerState request){
         super("Roll Intake");
-        requires(Robot.intake);
+        requires(Robot.intakeRollers);
         setInterruptible(true);
         this.speed = speed;
         this.rollerState = request;
@@ -21,15 +20,15 @@ public class RollIntake extends Command {
     protected void execute(){
         switch (rollerState){
             case IN:
-                Robot.intake.setRollerSpeed(-speed);
+                Robot.intakeRollers.setRollerSpeed(-speed);
                 break;
 
             case OUT:
-                Robot.intake.setRollerSpeed(speed);
+                Robot.intakeRollers.setRollerSpeed(speed);
                 break;
 
             case STOP:
-                Robot.intake.setRollerSpeed(0);
+                Robot.intakeRollers.setRollerSpeed(0);
                 break;
 
             }
@@ -37,7 +36,7 @@ public class RollIntake extends Command {
 
         @Override
         protected void end (){
-        Robot.intake.setRollerSpeed(0);
+        Robot.intakeRollers.setRollerSpeed(0);
 
         }
 

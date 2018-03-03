@@ -17,14 +17,14 @@ public class ActuatePiston extends Command {
 
 	public ActuatePiston(HardwareStates.IntakePistonState pistonState) {
 		super("ActuatePiston");
-		requires(Robot.intake);
+		requires(Robot.intakePistons);
 		setInterruptible(true);
 		this.pistonState = pistonState;
 	}
 
 	@Override
 	protected void execute() {
-		Robot.intake.actuatePiston(pistonState);
+		Robot.intakePistons.actuatePiston(pistonState);
 	}
 
 	@Override
