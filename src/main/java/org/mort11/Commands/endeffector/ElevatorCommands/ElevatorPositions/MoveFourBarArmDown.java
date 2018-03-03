@@ -23,7 +23,7 @@ public class MoveFourBarArmDown extends Command {
     }
     @Override
     protected boolean isFinished() {
-        return !IO.getActuatorLimitSwitchBottom().get() || speed < -Constants.MOTOR_DEADZONE;
+        return !IO.getActuatorLimitSwitchBottom().get() || speed < Constants.MOTOR_DEADZONE;
     }
     @Override
     protected void end() {
