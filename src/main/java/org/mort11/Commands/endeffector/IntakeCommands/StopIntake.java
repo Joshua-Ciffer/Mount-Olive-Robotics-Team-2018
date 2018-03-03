@@ -13,24 +13,32 @@ public class StopIntake extends Command {
 
     public StopIntake() {
         super("StopIntake");
-        requires(Robot.intake);
+        requires(Robot.intakeRollers);
         setInterruptible(true);
     }
 
     @Override
     protected void execute() {
+        if (!IO.getIntakeLimitSwitchRight().get() && !IO.getIntakeLimitSwitchLeft().get()) {
 
+            Robot.intakeRollers.setRollerSpeed(Constants.INTAKE_COAST);
+
+        } else {
+
+            Robot.intakeRollers.setRollerSpeed(Constants.INTAKE_STOP);
+
+        }
     }
 
     @Override
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     @Override
     protected void end() {
 
-        Robot.intake.setRollerSpeed(0);
+        Robot.intakeRollers.setRollerSpeed(0);
 
     }
 
