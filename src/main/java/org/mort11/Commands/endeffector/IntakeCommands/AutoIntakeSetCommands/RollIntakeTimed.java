@@ -1,6 +1,5 @@
 package org.mort11.Commands.endeffector.IntakeCommands.AutoIntakeSetCommands;
 
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.TimedCommand;
 import org.mort11.Hardware.HardwareStates;
 import org.mort11.Robot;
