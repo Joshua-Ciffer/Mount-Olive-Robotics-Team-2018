@@ -24,7 +24,7 @@ public class MoveSecondStageElevatorUp extends Command {
 
     @Override
     protected boolean isFinished() {
-        return !IO.getSecondStageElevatorLimitSwitchTop().get() || speed > Constants.MOTOR_DEADZONE ;
+        return !IO.getSecondStageElevatorLimitSwitchTop().get() || speed > -Constants.MOTOR_DEADZONE ;
     }
     @Override
     protected void end() {
