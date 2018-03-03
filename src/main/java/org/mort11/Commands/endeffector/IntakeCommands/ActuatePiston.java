@@ -31,5 +31,4 @@ public class ActuatePiston extends Command {
 	protected boolean isFinished() {
 		return true;
 	}
-
 }

@@ -21,7 +21,6 @@ public class FirstStageElevator extends Subsystem {
 	 */
 	public FirstStageElevator() {
 		super("FirstStageElevator");
-
 	}
 
 	/**
