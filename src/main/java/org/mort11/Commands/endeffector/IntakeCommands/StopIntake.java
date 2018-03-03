@@ -13,7 +13,7 @@ public class StopIntake extends Command {
 
     public StopIntake() {
         super("StopIntake");
-        requires(Robot.intake);
+        requires(Robot.intakeRollers);
         setInterruptible(true);
     }
 
@@ -30,7 +30,7 @@ public class StopIntake extends Command {
     @Override
     protected void end() {
 
-        Robot.intake.setRollerSpeed(0);
+        Robot.intakeRollers.setRollerSpeed(0);
 
     }
 

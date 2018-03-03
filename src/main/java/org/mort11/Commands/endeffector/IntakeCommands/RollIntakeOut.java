@@ -13,13 +13,13 @@ public class RollIntakeOut extends Command {
 
     public RollIntakeOut() {
         super("RollIntakeOut");
-        requires(Robot.intake);
+        requires(Robot.intakeRollers);
         setInterruptible(true);
     }
 
     @Override
     protected void execute() {
-        Robot.intake.setRollerSpeed(Constants.INTAKE_SPEED);
+        Robot.intakeRollers.setRollerSpeed(Constants.INTAKE_SPEED);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class RollIntakeOut extends Command {
     @Override
     protected void end() {
 
-        Robot.intake.setRollerSpeed(0);
+        Robot.intakeRollers.setRollerSpeed(0);
 
     }
 

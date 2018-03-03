@@ -14,13 +14,13 @@ public class RollIntakeIn extends Command {
 
     public RollIntakeIn() {
         super("RollIntakeIn");
-        requires(Robot.intake);
+        requires(Robot.intakeRollers);
         setInterruptible(true);
     }
 
     @Override
     protected void execute() {
-        Robot.intake.setRollerSpeed(-Constants.INTAKE_SPEED);
+        Robot.intakeRollers.setRollerSpeed(-Constants.INTAKE_SPEED);
     }
 
     @Override
@@ -31,13 +31,13 @@ public class RollIntakeIn extends Command {
     @Override
     protected void end() {
 
-        Robot.intake.setRollerSpeed(0);
+        Robot.intakeRollers.setRollerSpeed(0);
 
     }
 
     @Override
     protected void interrupted() {
-        Robot.intake.setRollerSpeed(0);
+        Robot.intakeRollers.setRollerSpeed(0);
     }
 
 }
