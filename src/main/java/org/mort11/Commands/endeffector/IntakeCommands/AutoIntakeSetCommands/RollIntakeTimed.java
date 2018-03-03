@@ -11,7 +11,7 @@ public class RollIntakeTimed extends TimedCommand {
     public RollIntakeTimed(double speed, HardwareStates.RollerState request, double timeout){
         super(timeout);
         requires(Robot.intakeRollers);
-        setInterruptible(false);
+        setInterruptible(true);
         this.speed = speed;
         this.rollerState = request;
     }
