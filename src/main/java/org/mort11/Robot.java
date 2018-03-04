@@ -1,6 +1,7 @@
 package org.mort11;
 
 import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -100,6 +101,8 @@ public class Robot extends IterativeRobot {
 		if(autoCommand != null){
 			autoCommand.cancel();
 		}
+
+		//IO.getIntakePiston().set(DoubleSolenoid.Value.kForward);
 	}
 
 	@Override

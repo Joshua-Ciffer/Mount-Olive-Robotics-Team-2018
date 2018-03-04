@@ -2,6 +2,7 @@ package org.mort11.Subsystems.endeffector.Intake;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.mort11.Commands.endeffector.IntakeCommands.ActuatePiston;
 import org.mort11.Hardware.HardwareStates;
 import org.mort11.Hardware.IO;
 
@@ -11,7 +12,7 @@ public class IntakePistons extends Subsystem {
     }
     @Override
     protected void initDefaultCommand() {
-
+        //setDefaultCommand(new ActuatePiston(HardwareStates.IntakePistonState.OUT));
     }
     public void actuatePiston(HardwareStates.IntakePistonState pistonState) {
         switch (pistonState) {

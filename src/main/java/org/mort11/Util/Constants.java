@@ -41,7 +41,7 @@ public class Constants {
 	public static final double ELEVATOR_SPEED = .2;
 	public static final double INTAKE_SPEED = 0.5;
 	public static final double INTAKE_STOP = 0;
-	public static final double INTAKE_COAST = 0.1;
+	public static final double INTAKE_COAST = 0.25;
 	public static final double FOURBARARM_SPEED = 0.5;
 
 	// Talon control modes
@@ -56,7 +56,7 @@ public class Constants {
 	// Joystick buttons
 	public static final int INTAKE_BUTTON = 3;
 	public static final int OUTTAKE_BUTTON = 5;
-	public static final int ACTUATE_PISTON_BUTTON = 1;
+	public static final int ACTUATE_PISTON_BUTTON = 4;
 	public static final int CLIMB_BUTTON = 1;
 	public static final int INTAKE_POS_BUTTON = 2;
 	public static final int PLACE_ON_SCALE_BUTTON = 8;
@@ -104,7 +104,7 @@ public class Constants {
     public static final double MOTOR_DEADZONE = 0.2;
     public static final double ANGLE_DEADZONE = 5;
 
-    public static final int ROLLER_TIMEOUT = 1;
+    public static final double ROLLER_TIMEOUT = .75;
 
 	public static final int ARM_MAX = 180;
 	public static final int ARM_MIN = 0;

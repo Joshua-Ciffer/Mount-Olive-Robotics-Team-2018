@@ -46,9 +46,4 @@ public class RollIntakeTimed extends TimedCommand {
         protected void interrupted(){
         end();
         }
-
-    @Override
-    protected boolean isFinished() {
-        return false;
-    }
 }

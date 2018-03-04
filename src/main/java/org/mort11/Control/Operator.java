@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.mort11.Commands.Drivetrain.Shifting.Shift;
 import org.mort11.Commands.endeffector.IntakeCommands.*;
+import org.mort11.Commands.endeffector.IntakeCommands.auton.RollIntakeTimed;
 import org.mort11.Hardware.HardwareStates;
 import org.mort11.Util.Constants;
 
@@ -46,18 +47,20 @@ public class Operator {
         //JoystickButton placeOnScaleButton = new JoystickButton(leftOperatorJoystick, Constants.PLACE_ON_SCALE_BUTTON);
         //JoystickButton placeOnSwitchButton = new JoystickButton(leftOperatorJoystick, Constants.PLACE_ON_SWITCH_BUTTON);
 
-        JoystickButton intakeButton = new JoystickButton(leftOperatorJoystick, Constants.INTAKE_BUTTON);
-        JoystickButton outtakeButton = new JoystickButton(leftOperatorJoystick, Constants.OUTTAKE_BUTTON);
-        JoystickButton actuateIntakeButton = new JoystickButton(leftOperatorJoystick, Constants.ACTUATE_PISTON_BUTTON);
+        JoystickButton intakeButton = new JoystickButton(rightOperatorJoystick, Constants.INTAKE_BUTTON);
+        JoystickButton outtakeButton = new JoystickButton(rightOperatorJoystick, Constants.OUTTAKE_BUTTON);
+        JoystickButton outActuateButton = new JoystickButton(rightOperatorJoystick, 1);
+        JoystickButton closeIntake = new JoystickButton(rightOperatorJoystick, 2);
         //JoystickButton shiftButton = new JoystickButton(rightOperatorJoystick, Constants.SHIFT_BUTTON);
         //JoystickButton lowButton = new JoystickButton(rightOperatorJoystick, Constants.LOW_BUTTON);
 
-        intakeButton.whileHeld(new RollIntake(Constants.INTAKE_SPEED, HardwareStates.RollerState.IN));
-        intakeButton.whenReleased(new RollIntake(0, HardwareStates.RollerState.STOP));
+        //intakeButton.whileHeld(new RollIntake(Constants.INTAKE_SPEED, HardwareStates.RollerState.IN));
+        //intakeButton.whenReleased(new RollIntake(0, HardwareStates.RollerState.STOP));
 
         outtakeButton.whileHeld(new RollIntake(Constants.INTAKE_SPEED, HardwareStates.RollerState.OUT));
         outtakeButton.whenReleased(new RollIntake(0, HardwareStates.RollerState.STOP));
 
+        closeIntake.whenPressed(new ActuatePiston(HardwareStates.IntakePistonState.IN));
 
         //climbButton.whenPressed(new Climb());
         //intakePosButton.whenPressed(new Intake());
@@ -67,9 +70,10 @@ public class Operator {
         //shiftButton.whenPressed(new Shift(HardwareStates.Gear.HIGH));
         //lowButton.whenPressed(new Shift(HardwareStates.Gear.LOW));
 
-        actuateIntakeButton.whileHeld(new GrabAndClose());
-        actuateIntakeButton.whenReleased(new ActuatePiston(HardwareStates.IntakePistonState.IN));
+        intakeButton.whileHeld(new GrabAndClose());
+        intakeButton.whenReleased(new CoastIntake());
 
+        outActuateButton.whenPressed(new ActuatePiston(HardwareStates.IntakePistonState.IN));
     }
 
     /**
