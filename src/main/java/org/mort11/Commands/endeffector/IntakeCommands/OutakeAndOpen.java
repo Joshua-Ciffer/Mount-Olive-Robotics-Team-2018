@@ -6,8 +6,8 @@ import org.mort11.Util.Constants;
 
 public class OutakeAndOpen extends CommandGroup {
 
-    public OutakeAndOpen (){
+    public OutakeAndOpen() {
         addParallel(new ActuatePiston(HardwareStates.IntakePistonState.IN));
-        addParallel(new RollIntake(Constants.INTAKE_SPEED,HardwareStates.RollerState.OUT), Constants.ROLLER_TIMEOUT);
+        addParallel(new RollIntake(Constants.INTAKE_SPEED, HardwareStates.RollerState.OUT), Constants.ROLLER_TIMEOUT);
     }
 }

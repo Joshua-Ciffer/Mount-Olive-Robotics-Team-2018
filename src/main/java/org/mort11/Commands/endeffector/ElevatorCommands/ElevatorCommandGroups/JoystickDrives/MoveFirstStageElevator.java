@@ -5,7 +5,7 @@ import org.mort11.Commands.endeffector.ElevatorCommands.ElevatorPositions.FirstS
 import org.mort11.Commands.endeffector.ElevatorCommands.ElevatorPositions.FirstStage.MoveFirstStageElevatorUp;
 
 public class MoveFirstStageElevator extends CommandGroup {
-    public MoveFirstStageElevator(){
+    public MoveFirstStageElevator() {
         addSequential(new MoveFirstStageElevatorUp());
         addSequential(new MoveFirstStageElevatorDown());
     }

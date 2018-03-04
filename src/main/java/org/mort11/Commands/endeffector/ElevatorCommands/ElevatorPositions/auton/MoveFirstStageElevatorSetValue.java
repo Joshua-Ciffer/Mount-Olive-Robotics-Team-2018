@@ -5,10 +5,11 @@ import org.mort11.Hardware.HardwareStates;
 import org.mort11.Hardware.IO;
 import org.mort11.Robot;
 
-public class MoveFirstStageElevatorSetValue extends TimedCommand{
+public class MoveFirstStageElevatorSetValue extends TimedCommand {
     private double speed;
     private HardwareStates.ElevatorDirection elevatorDirection;
-    public MoveFirstStageElevatorSetValue(double speed, HardwareStates.ElevatorDirection elevatorDirection, double timeout){
+
+    public MoveFirstStageElevatorSetValue(double speed, HardwareStates.ElevatorDirection elevatorDirection, double timeout) {
         super(timeout);
         requires(Robot.firstStageElevator);
         setInterruptible(true);

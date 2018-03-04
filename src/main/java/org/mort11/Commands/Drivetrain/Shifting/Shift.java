@@ -3,7 +3,6 @@ package org.mort11.Commands.Drivetrain.Shifting;
 import edu.wpi.first.wpilibj.command.Command;
 import org.mort11.Hardware.HardwareStates;
 import org.mort11.Robot;
-import org.mort11.Subsystems.Drivetrain.Drivetrain;
 
 /**
  * Code for shifting transmission
@@ -19,7 +18,9 @@ public class Shift extends Command {
      *
      * @param gear
      */
-    public Shift(HardwareStates.Gear gear) {  this.gear = gear;}
+    public Shift(HardwareStates.Gear gear) {
+        this.gear = gear;
+    }
 
     /**
      * Calls shifting method in Drivetrain class.

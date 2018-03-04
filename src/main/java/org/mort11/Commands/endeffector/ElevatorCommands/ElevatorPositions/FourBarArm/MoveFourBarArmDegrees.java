@@ -9,7 +9,9 @@ public class MoveFourBarArmDegrees extends Command {
 
     private int degrees;
 
-    public MoveFourBarArmDegrees() {}
+    public MoveFourBarArmDegrees() {
+    }
+
     public MoveFourBarArmDegrees(int degrees) {
 
         super("MoveFourBarArmDegrees");
@@ -21,11 +23,9 @@ public class MoveFourBarArmDegrees extends Command {
     }
 
     protected void execute() {
-        if (degrees < IO.getPotentiometer().get()){
+        if (degrees < IO.getPotentiometer().get()) {
             Robot.fourBarArm.setPot(-Constants.FOURBARARM_SPEED);
-        }
-
-        else if (degrees > IO.getPotentiometer().get()){
+        } else if (degrees > IO.getPotentiometer().get()) {
             Robot.fourBarArm.setPot(Constants.FOURBARARM_SPEED);
         }
 

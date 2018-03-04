@@ -2,9 +2,9 @@ package org.mort11.Subsystems.Drivetrain;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.mort11.Commands.Drivetrain.JoystickDrive;
 import org.mort11.Hardware.HardwareStates;
 import org.mort11.Hardware.IO;
-import org.mort11.Commands.Drivetrain.JoystickDrive;
 import org.mort11.Util.Constants;
 
 /**
@@ -30,6 +30,7 @@ public class Drivetrain extends Subsystem {
 
     /**
      * Set right drivetrain motor speed
+     *
      * @param speed
      */
     public void setRightDriveSpeed(double speed) {
@@ -40,6 +41,7 @@ public class Drivetrain extends Subsystem {
 
     /**
      * Shift gear
+     *
      * @param gear
      */
     public void shift(HardwareStates.Gear gear) {
@@ -52,14 +54,14 @@ public class Drivetrain extends Subsystem {
         }
     }
 
-    public void setBothSides(double speed){
+    public void setBothSides(double speed) {
         setLeftDriveSpeed(speed);
         setRightDriveSpeed(speed);
         System.out.println("They are fighting");
 
     }
-    
-    public void halt (){
+
+    public void halt() {
         setLeftDriveSpeed(0);
         setRightDriveSpeed(0);
     }
@@ -70,7 +72,6 @@ public class Drivetrain extends Subsystem {
     protected void initDefaultCommand() {
         setDefaultCommand(new JoystickDrive());
     }
-
 
 
 }

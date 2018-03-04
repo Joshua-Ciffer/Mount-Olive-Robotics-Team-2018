@@ -6,7 +6,7 @@ import org.mort11.Hardware.HardwareStates;
 import org.mort11.Util.Constants;
 
 public class DriveDistanceWithCube extends CommandGroup {
-    public DriveDistanceWithCube (double distance){
+    public DriveDistanceWithCube(double distance) {
         addParallel(new DriveDistance(distance));
         addParallel(new RollIntake(Constants.INTAKE_COAST, HardwareStates.RollerState.IN));
     }

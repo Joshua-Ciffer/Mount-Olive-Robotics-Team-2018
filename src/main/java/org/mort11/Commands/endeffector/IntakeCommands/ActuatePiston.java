@@ -5,7 +5,6 @@ import org.mort11.Hardware.HardwareStates;
 import org.mort11.Robot;
 
 /**
- *
  * @author Joshua Ciffer
  * @author Benny Mirisola
  * @author Seven Kurt
@@ -13,22 +12,22 @@ import org.mort11.Robot;
  */
 public class ActuatePiston extends Command {
 
-	private HardwareStates.IntakePistonState pistonState;
+    private HardwareStates.IntakePistonState pistonState;
 
-	public ActuatePiston(HardwareStates.IntakePistonState pistonState) {
-		super("ActuatePiston");
-		requires(Robot.intakePistons);
-		setInterruptible(true);
-		this.pistonState = pistonState;
-	}
+    public ActuatePiston(HardwareStates.IntakePistonState pistonState) {
+        super("ActuatePiston");
+        requires(Robot.intakePistons);
+        setInterruptible(true);
+        this.pistonState = pistonState;
+    }
 
-	@Override
-	protected void execute() {
-		Robot.intakePistons.actuatePiston(pistonState);
-	}
+    @Override
+    protected void execute() {
+        Robot.intakePistons.actuatePiston(pistonState);
+    }
 
-	@Override
-	protected boolean isFinished() {
-		return true;
-	}
+    @Override
+    protected boolean isFinished() {
+        return true;
+    }
 }

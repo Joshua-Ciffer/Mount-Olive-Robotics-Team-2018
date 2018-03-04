@@ -1,9 +1,8 @@
 package org.mort11.Commands.Drivetrain;
 
 import edu.wpi.first.wpilibj.command.Command;
-import org.mort11.Hardware.IO;
-import org.mort11.Robot;
 import org.mort11.Control.Operator;
+import org.mort11.Robot;
 
 /**
  * @author Zach "Bad Push" Rich

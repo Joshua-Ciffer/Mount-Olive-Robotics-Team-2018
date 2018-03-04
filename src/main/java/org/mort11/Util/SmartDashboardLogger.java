@@ -1,22 +1,21 @@
 package org.mort11.Util;
 
-import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.mort11.Hardware.IO;
 
 /*
-* Initializes all the Motors and sensors to the Shuffleboard
-*
-*
-    */
+ * Initializes all the Motors and sensors to the Shuffleboard
+ *
+ *
+ */
 public class SmartDashboardLogger {
 
-    public static void init(){
+    public static void init() {
         initTalonVoltage();
         initLimitSwitches();
     }
 
-    private static void initTalonVoltage(){
+    private static void initTalonVoltage() {
         SmartDashboard.putNumber(Constants.leftDriveMasterName, IO.getLeftMaster().getMotorOutputVoltage());
         SmartDashboard.putNumber(Constants.leftDriveFollowerMiddleName, IO.getLeftSlaveMiddle().getMotorOutputVoltage());
         SmartDashboard.putNumber(Constants.leftDriveFollowerBackName, IO.getLeftSlaveBack().getMotorOutputVoltage());
@@ -37,7 +36,7 @@ public class SmartDashboardLogger {
 
     }
 
-    private static void initLimitSwitches(){
+    private static void initLimitSwitches() {
         SmartDashboard.putBoolean(IO.getFirstStageElevatorLimitSwitchTop().getName(), IO.getFirstStageElevatorLimitSwitchTop().get());
         SmartDashboard.putBoolean(IO.getFirstStageElevatorLimitSwitchBottom().getName(), IO.getFirstStageElevatorLimitSwitchBottom().get());
 

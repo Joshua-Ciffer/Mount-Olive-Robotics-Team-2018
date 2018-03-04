@@ -6,9 +6,10 @@ import org.mort11.Hardware.IO;
 import org.mort11.Robot;
 import org.mort11.Util.Constants;
 
-public class MoveFirstStageElevatorDown extends Command{
+public class MoveFirstStageElevatorDown extends Command {
     private double speed;
-    public MoveFirstStageElevatorDown(){
+
+    public MoveFirstStageElevatorDown() {
         super("JoystickDriveFirstStageElevatorDown");
         requires(Robot.firstStageElevator);
         setInterruptible(true);
@@ -18,7 +19,7 @@ public class MoveFirstStageElevatorDown extends Command{
     protected void execute() {
         speed = Operator.getLeftOperatorJoystick().getY();
 
-        if(speed > Constants.MOTOR_DEADZONE) {
+        if (speed > Constants.MOTOR_DEADZONE) {
             Robot.firstStageElevator.set(-speed);
         }
     }

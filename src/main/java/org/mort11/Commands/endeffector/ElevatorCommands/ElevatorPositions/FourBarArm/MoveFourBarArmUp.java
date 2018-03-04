@@ -14,27 +14,30 @@ public class MoveFourBarArmUp extends Command {
         requires(Robot.fourBarArm);
         setInterruptible(true);
     }
+
     @Override
     protected void execute() {
         speed = Operator.getRightOperatorJoystick().getZ();
-        if(speed < -Constants.MOTOR_DEADZONE){
+        if (speed < -Constants.MOTOR_DEADZONE) {
             System.out.println("MoveFourBarArmUp has executed");
             Robot.fourBarArm.set(-speed);
-        }
-        else{
+        } else {
             end();
         }
     }
+
     @Override
     protected boolean isFinished() {
 
         return !IO.getActuatorLimitSwitchTop().get() || speed > -Constants.MOTOR_DEADZONE;
     }
+
     @Override
     protected void end() {
         System.out.println("MoveFourBarArmUp has finished");
         Robot.fourBarArm.set(0);
     }
+
     @Override
     protected void interrupted() {
         end();

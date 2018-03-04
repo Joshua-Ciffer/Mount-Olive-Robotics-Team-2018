@@ -6,7 +6,7 @@ import org.mort11.Robot;
 public class DoNothing extends Command {
 
 
-    protected void execute(){
+    protected void execute() {
         System.out.println("Doing Nothing. You're pretty lazy!");
     }
 
@@ -16,7 +16,7 @@ public class DoNothing extends Command {
     }
 
     @Override
-    protected void end(){
+    protected void end() {
         Robot.driveTrain.halt();
     }
 }

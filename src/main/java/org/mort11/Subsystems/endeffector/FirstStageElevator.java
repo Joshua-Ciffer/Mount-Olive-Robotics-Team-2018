@@ -1,12 +1,11 @@
 package org.mort11.Subsystems.endeffector;
 
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.mort11.Commands.endeffector.ElevatorCommands.ElevatorCommandGroups.JoystickDrives.MoveFirstStageElevator;
-import org.mort11.Control.Operator;
 import org.mort11.Hardware.IO;
 import org.mort11.Util.Constants;
-import com.ctre.phoenix.motorcontrol.ControlMode;
 
 /**
  * This class contains a subsystem for the first stage elevator.
@@ -16,27 +15,27 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
  */
 public class FirstStageElevator extends Subsystem {
 
-	/**
-	 * Constructs a new FirstStageElevator Subsystem.
-	 */
-	public FirstStageElevator() {
-		super("FirstStageElevator");
-	}
+    /**
+     * Constructs a new FirstStageElevator Subsystem.
+     */
+    public FirstStageElevator() {
+        super("FirstStageElevator");
+    }
 
-	/**
-	 * Sets no default command for the subsystem.
-	 */
-	@Override
-	protected void initDefaultCommand() {
-		setDefaultCommand(new MoveFirstStageElevator());
-	}
+    /**
+     * Sets no default command for the subsystem.
+     */
+    @Override
+    protected void initDefaultCommand() {
+        setDefaultCommand(new MoveFirstStageElevator());
+    }
 
-	/**
-	 * Sets the speed of the elevator talons.
-	 * 
-	 * @param speed - Talon speed.
-	 */
-	public void set(double speed) {
+    /**
+     * Sets the speed of the elevator talons.
+     *
+     * @param speed - Talon speed.
+     */
+    public void set(double speed) {
 //		if (IO.getFirstStageElevatorLimitSwitchTop().get() == false) {
 //
 //			if (speed < -Constants.MOTOR_DEADZONE) {
@@ -66,9 +65,9 @@ public class FirstStageElevator extends Subsystem {
 //
 //		}
 
-		IO.getFirstStageElevatorTalonMaster().set(Constants.CONTROL_MODE, speed);
-		IO.getFirstStageElevatorTalonFollower().set(ControlMode.Follower, Constants.FIRST_STAGE_ELEVATOR_TALON_MASTER);
+        IO.getFirstStageElevatorTalonMaster().set(Constants.CONTROL_MODE, speed);
+        IO.getFirstStageElevatorTalonFollower().set(ControlMode.Follower, Constants.FIRST_STAGE_ELEVATOR_TALON_MASTER);
 
-	}
+    }
 
 }

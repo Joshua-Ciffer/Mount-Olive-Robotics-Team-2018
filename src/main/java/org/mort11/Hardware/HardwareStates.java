@@ -38,7 +38,7 @@ public class HardwareStates {
     }
 
     public enum RollerState {
-        IN, OUT, STOP,COAST
+        IN, OUT, STOP, COAST
     }
 
     public enum Gear {

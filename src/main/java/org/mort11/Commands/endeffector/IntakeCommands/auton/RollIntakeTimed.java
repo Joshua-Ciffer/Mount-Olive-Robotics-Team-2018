@@ -7,7 +7,8 @@ import org.mort11.Robot;
 public class RollIntakeTimed extends TimedCommand {
     private double speed;
     private HardwareStates.RollerState rollerState;
-    public RollIntakeTimed(double speed, HardwareStates.RollerState request, double timeout){
+
+    public RollIntakeTimed(double speed, HardwareStates.RollerState request, double timeout) {
         super(timeout);
         requires(Robot.intakeRollers);
         setInterruptible(true);
@@ -16,8 +17,8 @@ public class RollIntakeTimed extends TimedCommand {
     }
 
     @Override
-    protected void execute(){
-        switch (rollerState){
+    protected void execute() {
+        switch (rollerState) {
             case IN:
                 Robot.intakeRollers.setRollerSpeed(-speed);
                 break;
@@ -30,20 +31,20 @@ public class RollIntakeTimed extends TimedCommand {
                 Robot.intakeRollers.setRollerSpeed(0);
                 break;
 
-            }
         }
+    }
 
 
-        @Override
+    @Override
 
-        protected void end (){
+    protected void end() {
 
         Robot.intakeRollers.setRollerSpeed(0);
 
     }
 
-        @Override
-        protected void interrupted(){
+    @Override
+    protected void interrupted() {
         end();
-        }
+    }
 }

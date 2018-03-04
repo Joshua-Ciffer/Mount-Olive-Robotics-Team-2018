@@ -8,7 +8,8 @@ import org.mort11.Robot;
 public class MoveSecondStageElevatorSetValue extends TimedCommand {
     private double speed;
     private HardwareStates.ElevatorDirection elevatorDirection;
-    public MoveSecondStageElevatorSetValue(double speed, HardwareStates.ElevatorDirection elevatorDirection, double timeout){
+
+    public MoveSecondStageElevatorSetValue(double speed, HardwareStates.ElevatorDirection elevatorDirection, double timeout) {
         super(timeout);
         requires(Robot.secondStageElevator);
         setInterruptible(true);

@@ -8,6 +8,7 @@ import org.mort11.Robot;
 public class MoveFourBarArmSetValue extends TimedCommand {
     private double speed;
     private HardwareStates.ElevatorDirection elevatorDirection;
+
     public MoveFourBarArmSetValue(double speed, HardwareStates.ElevatorDirection elevatorDirection, double timeout) {
         super(timeout);
         requires(Robot.fourBarArm);
@@ -15,6 +16,7 @@ public class MoveFourBarArmSetValue extends TimedCommand {
         this.speed = speed;
         this.elevatorDirection = elevatorDirection;
     }
+
     @Override
     protected void execute() {
         switch (elevatorDirection) {
@@ -29,7 +31,7 @@ public class MoveFourBarArmSetValue extends TimedCommand {
                 break;
             case DOWN:
 
-                if(IO.getActuatorLimitSwitchBottom().get()) {
+                if (IO.getActuatorLimitSwitchBottom().get()) {
 
                     Robot.fourBarArm.set(-speed);
 
@@ -74,6 +76,7 @@ public class MoveFourBarArmSetValue extends TimedCommand {
         System.out.println("MoveFourBarArmDown has executed");
         Robot.fourBarArm.set(0);
     }
+
     @Override
     protected void interrupted() {
         end();

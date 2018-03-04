@@ -1,7 +1,7 @@
 package org.mort11.Commands.endeffector.IntakeCommands;
 //
+
 import edu.wpi.first.wpilibj.command.Command;
-import org.mort11.Hardware.HardwareStates;
 import org.mort11.Hardware.IO;
 import org.mort11.Robot;
 import org.mort11.Util.Constants;
@@ -13,31 +13,30 @@ import org.mort11.Util.Constants;
 //
 public class CoastIntake extends Command {
 
-    public CoastIntake(){
+    public CoastIntake() {
         super("CoastIntake");
         requires(Robot.intakeRollers);
         setInterruptible(true);
-   }
+    }
 
-    protected void execute(){
-        if(IO.getIntakeLimitSwitchLeft().get() == false && IO.getIntakeLimitSwitchRight().get() == false){
+    protected void execute() {
+        if (IO.getIntakeLimitSwitchLeft().get() == false && IO.getIntakeLimitSwitchRight().get() == false) {
             Robot.intakeRollers.setRollerSpeed(-Constants.INTAKE_COAST);
-        }
-        else{
+        } else {
             Robot.intakeRollers.setRollerSpeed(0);
         }
     }
 
-    protected void end (){
+    protected void end() {
         Robot.intakeRollers.setRollerSpeed(0);
     }
 
     @Override
-   protected boolean isFinished() {
+    protected boolean isFinished() {
         return false;
     }
 
-    protected void interrupted(){
+    protected void interrupted() {
         end();
     }
 }

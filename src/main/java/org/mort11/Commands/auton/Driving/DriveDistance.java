@@ -15,15 +15,15 @@ public class DriveDistance extends Command {
     private double distanceTravled;
 
     public DriveDistance(double targetDistance) {
-        this.targetDistance= targetDistance;
+        this.targetDistance = targetDistance;
     }
 
-    protected void initialize(){
-        IO.getRightMaster().setSelectedSensorPosition(0,0,0);
-        IO.getLeftMaster().setSelectedSensorPosition(0,0,0);
+    protected void initialize() {
+        IO.getRightMaster().setSelectedSensorPosition(0, 0, 0);
+        IO.getLeftMaster().setSelectedSensorPosition(0, 0, 0);
     }
 
-    protected void execute(){
+    protected void execute() {
 //        distance = ahrs.getDisplacementY();
 //        if(targetDistance - distance > Constants.DISTANCE_LENIENCY){
 //            drivetrain.setLeftDriveSpeed(Constants.SPEED_FAR);
@@ -43,7 +43,7 @@ public class DriveDistance extends Command {
         return distanceTravled <= targetDistance + 10 || distanceTravled >= targetDistance - 10;
     }
 
-    protected void end(){
+    protected void end() {
         drivetrain.setRightDriveSpeed(0);
         drivetrain.setLeftDriveSpeed(0);
     }

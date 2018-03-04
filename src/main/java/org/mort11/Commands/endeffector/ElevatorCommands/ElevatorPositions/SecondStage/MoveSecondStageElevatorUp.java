@@ -8,7 +8,8 @@ import org.mort11.Util.Constants;
 
 public class MoveSecondStageElevatorUp extends Command {
     private double speed;
-    public MoveSecondStageElevatorUp(){
+
+    public MoveSecondStageElevatorUp() {
         super("MoveSecondStageElevatorUp");
         requires(Robot.secondStageElevator);
         setInterruptible(true);
@@ -18,14 +19,15 @@ public class MoveSecondStageElevatorUp extends Command {
     protected void execute() {
         speed = Operator.getRightOperatorJoystick().getY();
 
-        if(speed < -Constants.MOTOR_DEADZONE)
+        if (speed < -Constants.MOTOR_DEADZONE)
             Robot.secondStageElevator.set(-speed);
     }
 
     @Override
     protected boolean isFinished() {
-        return !IO.getSecondStageElevatorLimitSwitchTop().get() || speed > -Constants.MOTOR_DEADZONE ;
+        return !IO.getSecondStageElevatorLimitSwitchTop().get() || speed > -Constants.MOTOR_DEADZONE;
     }
+
     @Override
     protected void end() {
         Robot.secondStageElevator.set(0);
