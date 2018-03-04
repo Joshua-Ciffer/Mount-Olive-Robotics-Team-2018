@@ -35,7 +35,9 @@ public class Constants {
     public static final int ARM_LIMIT_SWITCH_TOP = 1;
     public static final int ARM_LIMIT_SWITCH_BOTTOM = 2;
 
-    // Talon speeds
+    /*
+     *Talon speeds
+     */
     public static final double ELEVATOR_SPEED = .2;
     public static final double INTAKE_SPEED = 0.5;
     public static final double INTAKE_COAST = 0.25;
