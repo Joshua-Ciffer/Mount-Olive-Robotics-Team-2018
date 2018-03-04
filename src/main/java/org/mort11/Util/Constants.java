@@ -52,7 +52,6 @@ public class Constants {
     public static final int OUTTAKE_BUTTON = 5;
     public static final int IN_ACTUATE_BUTTON = 1;
     public static final int OUT_ACTUATE_BUTTON = 2;
-    public static final int ACTUATE_PISTON_BUTTON = 3;
     public static final int CLIMB_BUTTON = 6;
     public static final int INTAKE_POS_BUTTON = 10;
     public static final int PLACE_ON_SCALE_BUTTON = 8;
