@@ -44,4 +44,9 @@ public class HardwareStates {
     public enum Gear {
         HIGH, LOW
     }
+
+    public enum ElevatorDirection {
+        UP, DOWN
+
+    }
 }

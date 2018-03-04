@@ -1,20 +1,75 @@
 package org.mort11.Commands.endeffector.ElevatorCommands.ElevatorPositions.auton;
 
 import edu.wpi.first.wpilibj.command.TimedCommand;
+import org.mort11.Hardware.HardwareStates;
+import org.mort11.Hardware.IO;
 import org.mort11.Robot;
 
 public class MoveSecondStageElevatorSetValue extends TimedCommand {
     private double speed;
-    public MoveSecondStageElevatorSetValue(double speed, double timeout){
+    private HardwareStates.ElevatorDirection elevatorDirection;
+    public MoveSecondStageElevatorSetValue(double speed, HardwareStates.ElevatorDirection elevatorDirection, double timeout){
         super(timeout);
         requires(Robot.secondStageElevator);
-        setInterruptible(false);
+        setInterruptible(true);
         this.speed = speed;
+        this.elevatorDirection = elevatorDirection;
     }
 
     @Override
     protected void execute() {
-        Robot.secondStageElevator.set(speed);
+        switch (elevatorDirection) {
+
+            case UP:
+
+                if (IO.getSecondStageElevatorLimitSwitchTop().get()) {
+
+                    Robot.secondStageElevator.set(speed);
+
+                }
+
+                break;
+            case DOWN:
+
+                if (IO.getSecondStageElevatorLimitSwitchBottom().get()) {
+
+                    Robot.secondStageElevator.set(-speed);
+
+                }
+
+                break;
+
+        }
+
+    }
+
+    @Override
+    protected boolean isFinished() {
+
+        super.isFinished();
+
+        switch (elevatorDirection) {
+            case UP:
+                if (IO.getSecondStageElevatorLimitSwitchTop().get()) {
+
+                    return true;
+
+                }
+
+                break;
+            case DOWN:
+
+                if (IO.getSecondStageElevatorLimitSwitchBottom().get()) {
+
+                    return true;
+
+                }
+
+                break;
+        }
+
+        return false;
+
     }
 
     @Override
