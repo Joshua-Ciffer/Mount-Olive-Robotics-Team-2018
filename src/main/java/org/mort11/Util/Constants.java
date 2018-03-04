@@ -57,8 +57,8 @@ public class Constants {
     public static final int INTAKE_POS_BUTTON = 10;
     public static final int PLACE_ON_SCALE_BUTTON = 8;
     public static final int PLACE_ON_SWITCH_BUTTON = 9;
-    public static final int SHIFT_BUTTON = 11;
-    public static final int LOW_BUTTON = 12;
+    public static final int HIGH_GEAR_BUTTON = 11;
+    public static final int LOW_GEAR_BUTTON = 12;
 
     // Potentiometer
     public static final int POTENTIOMETER_INPUT = 2;
