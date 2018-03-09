@@ -36,34 +36,6 @@ public class FirstStageElevator extends Subsystem {
      * @param speed - Talon speed.
      */
     public void set(double speed) {
-//		if (IO.getFirstStageElevatorLimitSwitchTop().get() == false) {
-//
-//			if (speed < -Constants.MOTOR_DEADZONE) {
-//
-//				IO.getFirstStageElevatorTalonMaster().set(Constants.CONTROL_MODE, speed);
-//				IO.getFirstStageElevatorTalonFollower().set(ControlMode.Follower, Constants.FIRST_STAGE_ELEVATOR_TALON_MASTER);
-//
-//			}
-//
-//		} else if (IO.getFirstStageElevatorLimitSwitchBottom().get() == false) {
-//
-//			if (speed > Constants.MOTOR_DEADZONE) {
-//				System.out.println("We're inside");
-//				IO.getFirstStageElevatorTalonMaster().set(Constants.CONTROL_MODE, -speed);
-//				IO.getFirstStageElevatorTalonFollower().set(ControlMode.Follower, Constants.FIRST_STAGE_ELEVATOR_TALON_MASTER);
-//
-//			}
-//
-//		} else {
-//
-//			if ((speed > Constants.MOTOR_DEADZONE) || (speed < -Constants.MOTOR_DEADZONE)) {
-//
-//				IO.getFirstStageElevatorTalonMaster().set(Constants.CONTROL_MODE, speed);
-//				IO.getFirstStageElevatorTalonFollower().set(ControlMode.Follower, Constants.FIRST_STAGE_ELEVATOR_TALON_MASTER);
-//
-//			}
-//
-//		}
 
         IO.getFirstStageElevatorTalonMaster().set(Constants.CONTROL_MODE, speed);
         IO.getFirstStageElevatorTalonFollower().set(ControlMode.Follower, Constants.FIRST_STAGE_ELEVATOR_TALON_MASTER);
