@@ -10,7 +10,8 @@ import org.mort11.Util.Constants;
 /**
  * This class contains a subsystem for the first stage elevator.
  *
- * @author Seven Kurt
+ * @author Frank Alfano
+ * @author Benny Mirisola
  * @version 02/14/2018
  */
 public class FirstStageElevator extends Subsystem {
