@@ -37,7 +37,7 @@ public class FirstStageElevator extends Subsystem {
      */
     public void set(double speed) {
 
-        IO.getFirstStageElevatorTalonMaster().set(Constants.CONTROL_MODE, speed);
+        IO.getFirstStageElevatorTalonMaster().set(ControlMode.Position, speed * 10 *4096);
         IO.getFirstStageElevatorTalonFollower().set(ControlMode.Follower, Constants.FIRST_STAGE_ELEVATOR_TALON_MASTER);
 
     }

@@ -22,6 +22,10 @@ public class MoveFirstStageElevatorDown extends Command {
         if (speed > Constants.MOTOR_DEADZONE) {
             Robot.firstStageElevator.set(-speed);
         }
+
+        else{
+            IO.getFirstStageElevatorTalonMaster().setSelectedSensorPosition(0,0,0);
+        }
     }
 
     @Override

@@ -95,6 +95,7 @@ public class Robot extends IterativeRobot {
         if (autoCommand != null) {
             autoCommand.cancel();
         }
+        System.out.println("Error: " + IO.getFirstStageElevatorTalonMaster().getClosedLoopError(0));
     }
 
     @Override
