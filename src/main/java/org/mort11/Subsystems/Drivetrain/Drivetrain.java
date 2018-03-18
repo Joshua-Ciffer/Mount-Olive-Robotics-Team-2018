@@ -1,11 +1,12 @@
-package org.mort11.Subsystems.Drivetrain;
+package org.mort11.subsystems.drivetrain;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import org.mort11.Commands.Drivetrain.JoystickDrive;
-import org.mort11.Hardware.HardwareStates;
-import org.mort11.Hardware.IO;
-import org.mort11.Util.Constants;
+import org.mort11.commands.drivetrain.JoystickDrive;
+import org.mort11.hardware.IO;
+import org.mort11.util.Constants;
+import org.mort11.util.HardwareStates;
 
 /**
  * @version 01/28/2018
@@ -39,10 +40,22 @@ public class Drivetrain extends Subsystem {
         IO.getRightSlaveBack().set(Constants.FOLLOWER, Constants.DRIVETRAIN_RIGHT_MASTER);
     }
 
+    public void setLeftDriveVelocity(double velocity) {
+        IO.getLeftMaster().set(ControlMode.Velocity, velocity);
+        IO.getLeftSlaveMiddle().set(Constants.FOLLOWER, Constants.DRIVETRAIN_LEFT_MASTER);
+        IO.getLeftSlaveBack().set(Constants.FOLLOWER, Constants.DRIVETRAIN_LEFT_MASTER);
+    }
+
+    public void setRightDriveVelocity(double velocity) {
+        IO.getRightMaster().set(ControlMode.Velocity, -velocity);
+        IO.getRightSlaveMiddle().set(Constants.FOLLOWER, Constants.DRIVETRAIN_RIGHT_MASTER);
+        IO.getRightSlaveBack().set(Constants.FOLLOWER, Constants.DRIVETRAIN_RIGHT_MASTER);
+    }
+
     /**
      * Shift gear
      *
-     * @param gear
+     * @param
      */
     public void shift(HardwareStates.Gear gear) {
         if (gear.equals(HardwareStates.Gear.HIGH)) {

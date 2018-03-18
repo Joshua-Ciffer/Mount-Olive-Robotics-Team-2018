@@ -1,9 +1,9 @@
-package org.mort11.Subsystems.endeffector.Intake;
+package org.mort11.subsystems.endeffector.intake;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import org.mort11.Hardware.HardwareStates;
-import org.mort11.Hardware.IO;
+import org.mort11.hardware.IO;
+import org.mort11.util.HardwareStates;
 
 public class IntakePistons extends Subsystem {
     public IntakePistons() {
@@ -19,12 +19,10 @@ public class IntakePistons extends Subsystem {
         switch (pistonState) {
             case IN: {
                 IO.getIntakePiston().set(DoubleSolenoid.Value.kReverse);
-                System.out.println("Going in");
                 break;
             }
             case OUT: {
                 IO.getIntakePiston().set(DoubleSolenoid.Value.kForward);
-                System.out.println("Going out");
                 break;
             }
         }

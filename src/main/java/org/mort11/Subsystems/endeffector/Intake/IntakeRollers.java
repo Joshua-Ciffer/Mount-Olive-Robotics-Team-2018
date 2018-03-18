@@ -1,9 +1,9 @@
-package org.mort11.Subsystems.endeffector.Intake;
+package org.mort11.subsystems.endeffector.intake;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import org.mort11.Commands.endeffector.IntakeCommands.CoastIntake;
-import org.mort11.Hardware.IO;
-import org.mort11.Util.Constants;
+import org.mort11.commands.endeffector.intakeCommands.CoastIntake;
+import org.mort11.hardware.IO;
+import org.mort11.util.Constants;
 
 public class IntakeRollers extends Subsystem {
     public IntakeRollers() {
