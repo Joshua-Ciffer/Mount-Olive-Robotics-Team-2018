@@ -14,7 +14,7 @@ import org.mort11.util.HardwareStates;
 public class Drivetrain extends Subsystem {
 
     public Drivetrain() {
-        super("Drivetrain");
+        super("drivetrain");
     }
 
 

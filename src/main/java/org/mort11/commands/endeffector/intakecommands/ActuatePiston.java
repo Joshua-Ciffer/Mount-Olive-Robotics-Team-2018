@@ -1,4 +1,4 @@
-package org.mort11.commands.endeffector.intakeCommands;
+package org.mort11.commands.endeffector.intakecommands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.mort11.Robot;

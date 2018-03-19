@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.mort11.commands.endeffector.elevatorcommands.elevatorpositions.fourbararm.MoveFourBarArmDown;
 import org.mort11.commands.endeffector.elevatorcommands.elevatorpositions.fourbararm.MoveFourBarArmUp;
-import org.mort11.commands.endeffector.intakeCommands.*;
+import org.mort11.commands.endeffector.intakecommands.*;
 import org.mort11.util.Constants;
 import org.mort11.util.HardwareStates;
 import org.mort11.util.POV;
@@ -96,7 +96,7 @@ public class Operator {
         shifterButton.whenReleased(new ShiftIntake(HardwareStates.IntakeShiftState.DOWN));
 
         //JoystickButton intakeCommandGroupButton = new JoystickButton(leftOperatorJoystick, 7);
-        //intakeCommandGroupButton.whenPressed(new Intake());
+        //intakeCommandGroupButton.whenPressed(new intake());
 //        JoystickButton shiftIntakeButton = new JoystickButton(leftDriverJoystick, 1);
 //        shiftIntakeButton.whileHeld(new ShiftIntake(HardwareStates.IntakeShiftState.UP));
 //        shiftIntakeButton.whenReleased(new ShiftIntake(HardwareStates.IntakeShiftState.DOWN));
@@ -109,7 +109,7 @@ public class Operator {
         //JoystickButton lowButton = new JoystickButton(rightOperatorJoystick, Constants.LOW_BUTTON);
 
         //climbButton.whenPressed(new Climb());
-        //intakePosButton.whenPressed(new Intake());
+        //intakePosButton.whenPressed(new intake());
         //placeOnScaleButton.whenPressed(new PlaceOnScale());
         //placeOnSwitchButton.whenPressed(new PlaceOnSwitch());
 

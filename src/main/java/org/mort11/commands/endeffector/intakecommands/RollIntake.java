@@ -1,4 +1,4 @@
-package org.mort11.commands.endeffector.intakeCommands;
+package org.mort11.commands.endeffector.intakecommands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.mort11.Robot;
@@ -11,7 +11,7 @@ public class RollIntake extends Command {
     private HardwareStates.RollerState rollerState;
 
     public RollIntake(double speed, HardwareStates.RollerState request) {
-        super("Roll Intake");
+        super("Roll intake");
         requires(Robot.intakeRollers);
         setInterruptible(true);
         this.speed = speed;

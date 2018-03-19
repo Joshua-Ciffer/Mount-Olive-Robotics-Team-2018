@@ -23,7 +23,7 @@ public class Shift extends Command {
     }
 
     /**
-     * Calls shifting method in Drivetrain class.
+     * Calls shifting method in drivetrain class.
      */
     protected void execute() {
         Robot.driveTrain.shift(gear);

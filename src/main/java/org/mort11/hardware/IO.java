@@ -106,7 +106,7 @@ public class IO {
         //potentiometer = new AnalogPotentiometer(potentiometerInput, 180, 0);
 
         intakePiston = new DoubleSolenoid(Constants.PCM_ID, Constants.INTAKE_PISTON_IN, Constants.INTAKE_PISTON_OUT);
-        intakePiston.setName("Intake");
+        intakePiston.setName("intake");
 
         verticalShifterPiston = new DoubleSolenoid(Constants.PCM_ID, Constants.VERTICAL_SHIFTER_PISTON_UP, Constants.VERTICAL_SHIFTER_PISTON_DOWN);
         verticalShifterPiston.setName("VerticalShifterPiston");
@@ -125,8 +125,8 @@ public class IO {
 
     public static void initLimitSwitchNames() {
 
-        intakeLimitSwitchLeft.setName("Left Intake Limit Switch");
-        intakeLimitSwitchRight.setName("Right Intake Limit Switch");
+        intakeLimitSwitchLeft.setName("Left intake Limit Switch");
+        intakeLimitSwitchRight.setName("Right intake Limit Switch");
 
         firstStageElevatorLimitSwitchBottom.setName("Bottom First Stage Elevator Limit Switch");
         firstStageElevatorLimitSwitchTop.setName("Top First Stage Elevator Limit Switch");

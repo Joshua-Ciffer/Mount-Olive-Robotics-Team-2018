@@ -119,7 +119,7 @@ public interface Constants {
     String firstStageElevatorRightName = "Elevator Talon Right";
     String secondStageElevatorName = "Second Stage Elevator";
     String fourbarName = "Fourbar";
-    String intakeMotorLeftName = "Left Intake";
+    String intakeMotorLeftName = "Left intake";
     String intakeMotorRightName = "Right Drive";
 
     String potentiometerName = "Potentiometer";
@@ -150,7 +150,7 @@ public interface Constants {
     double ONE_TICK = CIRCUMFERENCE_IN_FEET / ENCODER_TICKS;
     double VELOCITY_SAMPLING_SIZE = 100;
 
-    // Drivetrain speeds
+    // drivetrain speeds
     double SPEED_FAR = .3;
     double SPEED_CLOSE = .22;
     double DRIVETRAIN_SPEED = -.3;

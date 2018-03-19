@@ -1,7 +1,7 @@
 package org.mort11.subsystems.endeffector.intake;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import org.mort11.commands.endeffector.intakeCommands.CoastIntake;
+import org.mort11.commands.endeffector.intakecommands.CoastIntake;
 import org.mort11.hardware.IO;
 import org.mort11.util.Constants;
 

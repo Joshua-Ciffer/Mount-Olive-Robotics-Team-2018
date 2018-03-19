@@ -3,7 +3,7 @@ package org.mort11.commands.auton._switch;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.WaitCommand;
 import org.mort11.commands.auton.turning.TurnDegrees;
-import org.mort11.commands.endeffector.intakeCommands.RollIntake;
+import org.mort11.commands.endeffector.intakecommands.RollIntake;
 import org.mort11.util.Constants;
 import org.mort11.util.HardwareStates;
 import test.TimedDriveDistance;

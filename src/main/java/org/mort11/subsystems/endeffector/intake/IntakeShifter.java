@@ -2,7 +2,7 @@ package org.mort11.subsystems.endeffector.intake;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import org.mort11.commands.endeffector.intakeCommands.ShiftIntake;
+import org.mort11.commands.endeffector.intakecommands.ShiftIntake;
 import org.mort11.hardware.IO;
 import org.mort11.util.HardwareStates;
 

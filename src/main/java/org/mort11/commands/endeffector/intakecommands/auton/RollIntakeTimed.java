@@ -1,4 +1,4 @@
-package org.mort11.commands.endeffector.intakeCommands.auton;
+package org.mort11.commands.endeffector.intakecommands.auton;
 
 import edu.wpi.first.wpilibj.command.TimedCommand;
 import org.mort11.Robot;
