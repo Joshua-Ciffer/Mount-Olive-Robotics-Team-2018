@@ -7,8 +7,6 @@ build/
 Thumbs.db
 .DS_Store
 run
-.idea/dictionaries
-.idea/libraries
 logs
 .idea/inspectionProfiles
 .idea/modules/
