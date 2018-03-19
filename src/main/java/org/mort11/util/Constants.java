@@ -6,7 +6,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
  * Constants contains port numbers, and other values that are used in other areas of the project.
  * This is declared as an interface since all field variables in interfaces are implicitly declared as public static final, so now you don't have to
  * write public static final for every variable.
- * 
+ *
  * @author Benny Mirisola
  * @version 03/08/2018
  */
