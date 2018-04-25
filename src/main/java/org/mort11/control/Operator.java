@@ -10,6 +10,8 @@ import org.mort11.util.HardwareStates;
 import org.mort11.util.POV;
 import org.mort11.util.POVButton;
 
+import static org.mort11.util.Constants.*;
+
 /**
  * Contains means of getting user input from joysticks and buttons.
  *
@@ -30,7 +32,9 @@ public class Operator {
      * Right driver joystick object.
      */
     private static Joystick rightDriverJoystick = new Joystick(Constants.RIGHT_DRIVER_JOYSTICK);
-
+   
+    private static Joystick kurtJoystick = new Joystick(KURT_JOYSTICK);
+    
     /**
      * Left operator joystick object.
      */
@@ -144,6 +148,10 @@ public class Operator {
      */
     public static Joystick getRightOperatorJoystick() {
         return rightOperatorJoystick;
+    }
+    
+    public static Joystick getKurtJoystick() {
+    	return kurtJoystick;
     }
 
 }

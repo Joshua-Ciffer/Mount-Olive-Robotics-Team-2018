@@ -24,8 +24,8 @@ public class JoystickDrive extends Command {
      */
     @Override
     protected void execute() {
-        Robot.driveTrain.setLeftDriveSpeed(Operator.getLeftDriverJoystick().getY());
-        Robot.driveTrain.setRightDriveSpeed(Operator.getRightDriverJoystick().getY());
+        Robot.driveTrain.setLeftDriveSpeed(Operator.getKurtJoystick().getX());
+        Robot.driveTrain.setRightDriveSpeed(Operator.getKurtJoystick().getY());
     }
 
     /**

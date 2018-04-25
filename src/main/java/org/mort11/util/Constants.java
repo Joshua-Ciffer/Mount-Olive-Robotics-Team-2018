@@ -72,6 +72,7 @@ public interface Constants {
     int RIGHT_DRIVER_JOYSTICK = 1;
     int LEFT_OPERATOR_JOYSTICK = 2;
     int RIGHT_OPERATOR_JOYSTICK = 3;
+    int KURT_JOYSTICK = 5;
 
     // Joystick buttons
     int ACTUATE_BUTTON = 1;
