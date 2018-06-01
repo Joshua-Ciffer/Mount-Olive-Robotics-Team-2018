@@ -16,7 +16,7 @@ import org.mort11.subsystems.endeffector.elevators.SecondStageElevator;
 import org.mort11.subsystems.endeffector.intake.IntakePistons;
 import org.mort11.subsystems.endeffector.intake.IntakeRollers;
 import org.mort11.subsystems.endeffector.intake.IntakeShifter;
-import org.mort11.subsystems.led.LED;
+import org.mort11.led.LED;
 import org.mort11.util.AutoChooser;
 import org.mort11.util.SmartDashboardLogger;
 
