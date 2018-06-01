@@ -2,21 +2,25 @@ package org.mort11.led;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
+
 import org.mort11.Robot;
 import org.mort11.hardware.IO;
-import static org.mort11.util.Constants.*;
+
+import static org.mort11.util.Constants.LED_RED_ON;
+import static org.mort11.util.Constants.LED_GREEN_OFF;
+import static org.mort11.util.Constants.LED_BLUE_OFF;
 
 /**
  * This command checks for input from a switch and if the switch is pressed, the LEDs are lit up green.
  * The LEDs stay red while the switch is not pressed.
  *
  * @author Joshua Ciffer
- * @version 02/16/2018
+ * @version 05/31/2018
  */
-public class IntakeColorChanger extends Command {
+public final class IntakeColorChanger extends Command {
 
 	/**
-	 * Constructs a new IntakeColorChanger command that requires the intake subsystem declared in the Robot class.
+	 * Constructs a new <code>IntakeColorChanger</code> command that requires the intake subsystem declared in the Robot class.
 	 */
 	public IntakeColorChanger() {
 		super("IntakeColorChanger");

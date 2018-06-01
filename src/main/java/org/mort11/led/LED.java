@@ -3,20 +3,27 @@ package org.mort11.led;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Subsystem;
+
 import org.mort11.hardware.IO;
-import static org.mort11.util.Constants.*;
+
+import static org.mort11.util.Constants.LED_RED_OFF;
+import static org.mort11.util.Constants.LED_RED_ON;
+import static org.mort11.util.Constants.LED_GREEN_OFF;
+import static org.mort11.util.Constants.LED_GREEN_ON;
+import static org.mort11.util.Constants.LED_BLUE_OFF;
+import static org.mort11.util.Constants.LED_BLUE_ON;
 
 /**
  * This class contains a subsystem for the LEDs. Several different commands can be run on the LED subsystem.
  * Values for the LEDs are inverted. True turns an LED off, false turns it on.
  * 
  * @author Joshua Ciffer
- * @version 02/16/2018
+ * @version 05/31/2018
  */
-public class LED extends Subsystem {
+public final class LED extends Subsystem {
 
 	/**
-	 * Constructs a new LED Subsystem.
+	 * Constructs a new <code>LED</code> Subsystem.
 	 */
 	public LED() {
 		super("LED");
@@ -55,6 +62,15 @@ public class LED extends Subsystem {
 		IO.getRedLED().set(LED_RED_OFF);		// Off
 		IO.getGreenLED().set(LED_GREEN_OFF);	// Off
 		IO.getBlueLED().set(LED_BLUE_ON);		// On
+	}
+
+	/**
+	 * Turns off all LEDs.
+	 */
+	public void turnOffAll() {
+		IO.getRedLED().set(LED_RED_OFF);		// Off
+		IO.getGreenLED().set(LED_GREEN_OFF);	// Off
+		IO.getBlueLED().set(LED_BLUE_OFF);		// Off
 	}
 
 	/**
@@ -170,7 +186,7 @@ public class LED extends Subsystem {
 	 * required.
 	 * 
 	 * @param ledCommand
-	 *        - The command to run on the LEDs.
+	 *        The command to run on the LEDs.
 	 */
 	public void setLEDCommand(Command ledCommand) {
 		switch (ledCommand.getName()) {

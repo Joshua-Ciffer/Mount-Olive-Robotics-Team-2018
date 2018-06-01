@@ -1,21 +1,25 @@
 package org.mort11.led;
 
 import edu.wpi.first.wpilibj.command.InstantCommand;
+
 import org.mort11.Robot;
 import org.mort11.hardware.IO;
-import static org.mort11.util.Constants.*;
+
+import static org.mort11.util.Constants.LED_RED_OFF;
+import static org.mort11.util.Constants.LED_GREEN_OFF;
+import static org.mort11.util.Constants.LED_BLUE_OFF;
 
 /**
- * This command cycles through every color on the LEDs at the end of the game.
- * This command is an instant command, because it only needs to run once at the end of the game.
+ * This command cycles through every color on the LEDs at the end of the game.This command is an instant command, because it only needs
+ * to run once at the end of the game.
  * 
  * @author Joshua Ciffer
- * @version 02/17/2018
+ * @version 05/31/2018
  */
-public class CycleEndGameColors extends InstantCommand {
+public final class CycleEndGameColors extends InstantCommand {
 
 	/**
-	 * Constructs a new CycleEndGameColors Command.
+	 * Constructs a new <code>CycleEndGameColors</code> Command.
 	 */
 	public CycleEndGameColors() {
 		super("CycleEndGameColors");
