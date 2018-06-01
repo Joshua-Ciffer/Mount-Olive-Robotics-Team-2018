@@ -1,4 +1,4 @@
-package org.mort11.commands.drivetrain;
+package org.mort11.drivetrain;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.mort11.Robot;

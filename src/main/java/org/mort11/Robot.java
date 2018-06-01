@@ -8,8 +8,8 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.mort11.control.Operator;
+import org.mort11.drivetrain.Drivetrain;
 import org.mort11.hardware.IO;
-import org.mort11.subsystems.drivetrain.Drivetrain;
 import org.mort11.subsystems.endeffector.elevators.FirstStageElevator;
 import org.mort11.subsystems.endeffector.elevators.FourBarArm;
 import org.mort11.subsystems.endeffector.elevators.SecondStageElevator;
@@ -54,7 +54,7 @@ public class Robot extends IterativeRobot {
 		intakeShifter = new IntakeShifter();
 		intakeRollers = new IntakeRollers();
 		driveTrain = new Drivetrain(); // Create the drive train subsystem object
-		// led = new LED();
+		led = new LED();
 		Operator.init();
 
 		sideChooser = new SendableChooser<>();

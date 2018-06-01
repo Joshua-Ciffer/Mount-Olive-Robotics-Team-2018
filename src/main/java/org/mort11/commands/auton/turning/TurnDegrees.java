@@ -3,8 +3,8 @@ package org.mort11.commands.auton.turning;
 import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.command.Command;
 import org.mort11.Robot;
+import org.mort11.drivetrain.Drivetrain;
 import org.mort11.hardware.IO;
-import org.mort11.subsystems.drivetrain.Drivetrain;
 import org.mort11.util.Constants;
 
 /**

@@ -1,4 +1,4 @@
-package org.mort11.commands.drivetrain.shifting;
+package org.mort11.drivetrain;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.mort11.Robot;
@@ -9,8 +9,8 @@ import org.mort11.util.HardwareStates;
  *
  * @author Zach Rich
  */
-
 public class Shift extends Command {
+	
     private HardwareStates.Gear gear;
 
     /**
@@ -33,4 +33,5 @@ public class Shift extends Command {
     protected boolean isFinished() {
         return true;
     }
+    
 }
