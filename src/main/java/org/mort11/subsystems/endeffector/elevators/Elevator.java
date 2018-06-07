@@ -13,12 +13,12 @@ import org.mort11.util.Constants;
  * @author Seven Kurt
  * @version 02/14/2018
  */
-public class FirstStageElevator extends Subsystem {
+public class Elevator extends Subsystem {
 
     /**
      * Constructs a new FirstStageElevator Subsystem.
      */
-    public FirstStageElevator() {
+    public Elevator() {
         super("FirstStageElevator");
     }
 
