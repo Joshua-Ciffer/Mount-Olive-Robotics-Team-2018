@@ -2,8 +2,6 @@ package org.mort11.control;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import org.mort11.commands.endeffector.elevatorcommands.elevatorpositions.fourbararm.MoveFourBarArmDown;
-import org.mort11.commands.endeffector.elevatorcommands.elevatorpositions.fourbararm.MoveFourBarArmUp;
 import org.mort11.commands.endeffector.intakecommands.*;
 import org.mort11.util.Constants;
 import org.mort11.util.HardwareStates;
@@ -69,12 +67,6 @@ public class Operator {
         //inActuateButton.whenPressed(new ActuatePiston(HardwareStates.IntakePistonState.OUT));
 
         POVButton fourbarButtonUp = new POVButton(rightOperatorJoystick, POV.UP);
-        fourbarButtonUp.whileHeld(new MoveFourBarArmUp(-Constants.FOURBARARM_SPEED));
-        fourbarButtonUp.whenReleased(new MoveFourBarArmUp(0));
-
-        POVButton fourButtonDown = new POVButton(rightOperatorJoystick, POV.DOWN);
-        fourButtonDown.whileHeld(new MoveFourBarArmDown(Constants.FOURBARARM_SPEED));
-        fourButtonDown.whenReleased(new MoveFourBarArmDown(0));
 
 
 //        JoystickButton firstStageUpButton = new JoystickButton(leftDriverJoystick, 1);
