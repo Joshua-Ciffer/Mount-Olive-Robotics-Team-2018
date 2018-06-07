@@ -11,11 +11,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.mort11.control.Operator;
 import org.mort11.drivetrain.Drivetrain;
+import org.mort11.elevator.Elevator;
 import org.mort11.hardware.IO;
-import org.mort11.subsystems.endeffector.elevators.Elevator;
-import org.mort11.subsystems.endeffector.intake.IntakePistons;
-import org.mort11.subsystems.endeffector.intake.IntakeRollers;
-import org.mort11.subsystems.endeffector.intake.IntakeShifter;
+import org.mort11.intake.IntakePistons;
+import org.mort11.intake.IntakeRollers;
+import org.mort11.intake.IntakeShifter;
 import org.mort11.led.LED;
 import org.mort11.util.AutoChooser;
 import org.mort11.util.SmartDashboardLogger;
