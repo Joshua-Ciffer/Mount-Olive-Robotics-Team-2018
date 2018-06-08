@@ -27,7 +27,7 @@ import org.mort11.util.SmartDashboardLogger;
  */
 public class Robot extends IterativeRobot {
 
-	public static Elevator firstStageElevator;
+	public static Elevator elevator;
 	public static IntakePistons intakePistons;
 	public static IntakeShifter intakeShifter;
 	public static IntakeRollers intakeRollers;
@@ -45,7 +45,7 @@ public class Robot extends IterativeRobot {
 
 		IO.init();
 
-		firstStageElevator = new Elevator();
+		elevator = new Elevator();
 		intakePistons = new IntakePistons();
 		intakeShifter = new IntakeShifter();
 		intakeRollers = new IntakeRollers();
@@ -66,8 +66,8 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void disabledInit() {
 		Scheduler.getInstance().removeAll();
-		IO.getFirstStageElevatorTalonMaster().setNeutralMode(NeutralMode.Brake);
-		IO.getFirstStageElevatorTalonFollower().setNeutralMode(NeutralMode.Brake);
+		IO.getElevatorTalonMaster().setNeutralMode(NeutralMode.Brake);
+		IO.getElevatorTalonFollower().setNeutralMode(NeutralMode.Brake);
 		SmartDashboardLogger.initEncoders();
 	}
 
@@ -90,8 +90,8 @@ public class Robot extends IterativeRobot {
 		if (autoCommand != null) {
 			autoCommand.start();
 		}
-		IO.getFirstStageElevatorTalonMaster().setNeutralMode(NeutralMode.Coast);
-		IO.getFirstStageElevatorTalonFollower().setNeutralMode(NeutralMode.Coast);
+		IO.getElevatorTalonMaster().setNeutralMode(NeutralMode.Coast);
+		IO.getElevatorTalonFollower().setNeutralMode(NeutralMode.Coast);
 	}
 
 	@Override
@@ -108,9 +108,9 @@ public class Robot extends IterativeRobot {
 			autoCommand.cancel();
 		}
 		IO.getRightMaster().setSelectedSensorPosition(0, 0, 0);
-		IO.getFirstStageElevatorTalonMaster().setSelectedSensorPosition(0, 0, 0);
-		IO.getFirstStageElevatorTalonMaster().setNeutralMode(NeutralMode.Coast);
-		IO.getFirstStageElevatorTalonFollower().setNeutralMode(NeutralMode.Coast);
+		IO.getElevatorTalonMaster().setSelectedSensorPosition(0, 0, 0);
+		IO.getElevatorTalonMaster().setNeutralMode(NeutralMode.Coast);
+		IO.getElevatorTalonFollower().setNeutralMode(NeutralMode.Coast);
 	}
 
 	@Override
@@ -118,7 +118,7 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 		SmartDashboardLogger.initEncoders();
 		SmartDashboard.updateValues();
-		System.out.println("Error: " + IO.getFirstStageElevatorTalonMaster().getClosedLoopError(0));
+		System.out.println("Error: " + IO.getElevatorTalonMaster().getClosedLoopError(0));
 		// ((LEDCommand)led.getCurrentCommand()).setCommandMode(INTAKE_COLOR_CHANGER);
 		// System.out.println("left Drive Error: " + IO.getLeftMaster().getClosedLoopError(0));
 		// System.out.println("Left Drive position" + IO.getLeftMaster().getSelectedSensorPosition(0));

@@ -27,7 +27,7 @@ public class Elevator extends Subsystem {
      */
     @Override
     protected void initDefaultCommand() {
-        setDefaultCommand(new MoveFirstStageElevator());
+        setDefaultCommand(new MoveElevator());
     }
 
     /**

@@ -13,7 +13,7 @@ public class MoveFirstStageElevatorSetValue extends TimedCommand {
 
     public MoveFirstStageElevatorSetValue(double speed, HardwareStates.ElevatorDirection elevatorDirection, double timeout) {
         super(timeout);
-        requires(Robot.firstStageElevator);
+        requires(Robot.elevator);
         setInterruptible(true);
         this.speed = speed;
         this.elevatorDirection = elevatorDirection;
@@ -25,7 +25,7 @@ public class MoveFirstStageElevatorSetValue extends TimedCommand {
             case UP:
                 if (IO.getFirstStageElevatorLimitSwitchTop().get()) {
 
-                    Robot.firstStageElevator.set(speed, Constants.FIRST_STAGE_ELEVATOR_ROTATIONS_TELEOP);
+                    Robot.elevator.set(speed, Constants.FIRST_STAGE_ELEVATOR_ROTATIONS_TELEOP);
 
                 }
 
@@ -34,7 +34,7 @@ public class MoveFirstStageElevatorSetValue extends TimedCommand {
 
                 if (IO.getFirstStageElevatorLimitSwitchBottom().get()) {
 
-                    Robot.firstStageElevator.set(-speed, Constants.FIRST_STAGE_ELEVATOR_ROTATIONS_TELEOP);
+                    Robot.elevator.set(-speed, Constants.FIRST_STAGE_ELEVATOR_ROTATIONS_TELEOP);
 
                 }
 
@@ -73,7 +73,7 @@ public class MoveFirstStageElevatorSetValue extends TimedCommand {
 
     @Override
     protected void end() {
-        Robot.firstStageElevator.set(0, Constants.FIRST_STAGE_ELEVATOR_ROTATIONS_TELEOP);
+        Robot.elevator.set(0, Constants.FIRST_STAGE_ELEVATOR_ROTATIONS_TELEOP);
     }
 
     @Override

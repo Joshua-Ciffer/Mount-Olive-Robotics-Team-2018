@@ -11,7 +11,7 @@ public class MoveElevatorUp extends Command {
 
     public MoveElevatorUp() {
         super("JoystickDriveFirstStageElevatorUp");
-        requires(Robot.firstStageElevator);
+        requires(Robot.elevator);
         setInterruptible(true);
     }
 
@@ -20,7 +20,7 @@ public class MoveElevatorUp extends Command {
         speed = Operator.getLeftOperatorJoystick().getY();
 
         if (speed < -Constants.MOTOR_DEADZONE) {
-            Robot.firstStageElevator.setVelocity(-speed);
+            Robot.elevator.setVelocity(-speed);
         }
     }
 
@@ -32,7 +32,7 @@ public class MoveElevatorUp extends Command {
     @Override
     protected void end() {
         //IO.getFirstStageElevatorTalonMaster().setSelectedSensorPosition(Constants.ZERO_ENCODER_POSITION,Constants.PID_LOOP_ID, 0);
-        Robot.firstStageElevator.setVelocity(0);
+        Robot.elevator.setVelocity(0);
     }
 
     @Override

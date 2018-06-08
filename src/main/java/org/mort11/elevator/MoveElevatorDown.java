@@ -19,7 +19,7 @@ public final class MoveElevatorDown extends Command {
 
     public MoveElevatorDown() {
         super("JoystickDriveFirstStageElevatorDown");
-        requires(Robot.firstStageElevator);
+        requires(Robot.elevator);
         setInterruptible(true);
         this.speed = speed;
     }
@@ -28,7 +28,7 @@ public final class MoveElevatorDown extends Command {
     protected void execute() {
         speed = Operator.getLeftOperatorJoystick().getY();
         if (speed > Constants.MOTOR_DEADZONE) {
-            Robot.firstStageElevator.setVelocity(-speed);
+            Robot.elevator.setVelocity(-speed);
         }
     }
 
@@ -39,16 +39,7 @@ public final class MoveElevatorDown extends Command {
 
     @Override
     protected void end() {
-        Robot.firstStageElevator.setVelocity(0);
+        Robot.elevator.setVelocity(0);
     }
 
-    @Override
-    protected void initialize() {
-        //IO.getFirstStageElevatorTalonMaster().setSelectedSensorPosition(Constants.ZERO_ENCODER_POSITION,Constants.PID_LOOP_ID, 0);
-    }
-
-    @Override
-    protected void interrupted() {
-        end();
-    }
 }
