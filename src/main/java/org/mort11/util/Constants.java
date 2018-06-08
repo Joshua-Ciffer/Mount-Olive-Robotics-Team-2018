@@ -75,9 +75,10 @@ public interface Constants {
     int KURT_JOYSTICK = 5;
 
     // Joystick buttons
-    int ACTUATE_BUTTON = 1;
+    int ACTUATE_INTAKE_PISTON_BUTTON = 1;
     int OUTTAKE_BUTTON = 5;
     int INTAKE_BUTTON = 3;
+    int INTAKE_SHIFTER_BUTTON = 12;
     int CLIMB_BUTTON = 6;
     int INTAKE_POS_BUTTON = 10;
     int PLACE_ON_SCALE_BUTTON = 8;
