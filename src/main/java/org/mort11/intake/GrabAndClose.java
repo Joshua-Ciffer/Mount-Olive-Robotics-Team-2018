@@ -8,7 +8,7 @@ import org.mort11.util.HardwareStates;
 public class GrabAndClose extends CommandGroup {
     public GrabAndClose() {
         setInterruptible(true);
-        addParallel(new ActuatePiston(HardwareStates.IntakePistonState.OUT));
+        addParallel(new ActuateIntakePiston(HardwareStates.IntakePistonState.OUT));
         addParallel(new RollIntake(Constants.INTAKE_SPEED, HardwareStates.RollerState.IN), Constants.ROLLER_TIMEOUT);
     }
 
