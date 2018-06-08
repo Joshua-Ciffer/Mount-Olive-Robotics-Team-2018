@@ -35,8 +35,6 @@ public class Operator {
 	 */
 	private static Joystick rightDriverJoystick = new Joystick(Constants.RIGHT_DRIVER_JOYSTICK);
 
-	private static Joystick kurtJoystick = new Joystick(KURT_JOYSTICK);
-
 	/**
 	 * Left operator joystick object.
 	 */
@@ -143,10 +141,6 @@ public class Operator {
 	 */
 	public static Joystick getRightOperatorJoystick() {
 		return rightOperatorJoystick;
-	}
-
-	public static Joystick getKurtJoystick() {
-		return kurtJoystick;
 	}
 
 }
