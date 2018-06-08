@@ -1,53 +1,74 @@
 package org.mort11.auton;
 
 import edu.wpi.first.wpilibj.command.TimedCommand;
+
 import org.mort11.Robot;
-import org.mort11.util.HardwareStates;
+import org.mort11.util.HardwareStates.RollerState;
 
-public class RollIntakeTimed extends TimedCommand {
-    private double speed;
-    private HardwareStates.RollerState rollerState;
+/**
+ * 
+ * 
+ *
+ * @author Joshua Ciffer
+ * @version 06/08/2018
+ */
+public final class RollIntakeTimed extends TimedCommand {
 
-    public RollIntakeTimed(double speed, HardwareStates.RollerState request, double timeout) {
-        super(timeout);
-        requires(Robot.intakeRollers);
-        setInterruptible(true);
-        this.speed = speed;
-        this.rollerState = request;
-    }
+	/**
+	 * The speed to set the intake rollers to.
+	 */
+	private double speed;
 
-    @Override
-    protected void execute() {
-        switch (rollerState) {
-            case IN: {
-                Robot.intakeRollers.setRollerSpeed(-speed);
-                break;
-            }
-            case OUT: {
-                Robot.intakeRollers.setRollerSpeed(speed);
-                break;
-            }
-            case STOP: {
-                Robot.intakeRollers.setRollerSpeed(0);
-                break;
-            }
-            case COAST: {
-                break;
-            }
-        }
-    }
+	/**
+	 * The state to set the intake rollers to.
+	 */
+	private RollerState rollerState;
 
+	/**
+	 * Constructs a new <code>RollIntakeTimed</code> command.
+	 *
+	 * @param speed
+	 *        The speed to set the intake rollers to.
+	 * @param request
+	 *        The state to set the intake rollers to.
+	 * @param timeout
+	 *        The duration to run the command, in seconds.
+	 */
+	public RollIntakeTimed(double speed, RollerState request, double timeout) {
+		super(timeout);
+		requires(Robot.intakeRollers);
+		setInterruptible(true);
+		this.speed = speed;
+		this.rollerState = request;
+	}
 
-    @Override
+	@Override
+	protected void execute() {
+		switch (rollerState) {
+			case IN: {
+				Robot.intakeRollers.setRollerSpeed(-speed);
+				break;
+			}
+			case OUT: {
+				Robot.intakeRollers.setRollerSpeed(speed);
+				break;
+			}
+			case STOP: {
+				Robot.intakeRollers.setRollerSpeed(0);
+				break;
+			}
+			case COAST: {
+				break;
+			}
+		}
+	}
 
-    protected void end() {
+	/**
+	 * Sets the roller speed to 0 at the completion of this command.
+	 */
+	@Override
+	protected void end() {
+		Robot.intakeRollers.setRollerSpeed(0);
+	}
 
-        Robot.intakeRollers.setRollerSpeed(0);
-
-    }
-
-    @Override
-    protected void interrupted() {
-        end();
-    }
 }

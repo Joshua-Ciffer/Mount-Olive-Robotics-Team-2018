@@ -1,7 +1,7 @@
 /**
- * 
+ * This package contains all auton command and command group classes.
  *
- * @author Joshua
- * @version 06/07/2018
+ * @author Joshua Ciffer
+ * @version 06/08/2018
  */
 package org.mort11.auton;

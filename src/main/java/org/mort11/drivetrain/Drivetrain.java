@@ -73,13 +73,11 @@ public final class Drivetrain extends Subsystem {
 	public void setBothSides(double speed) {
 		setLeftDriveSpeed(speed);
 		setRightDriveSpeed(speed);
-		System.out.println("They are fighting");
 
 	}
 
 	public void halt() {
-		setLeftDriveSpeed(0);
-		setRightDriveSpeed(0);
+		setBothSides(0);
 	}
 
 	/**

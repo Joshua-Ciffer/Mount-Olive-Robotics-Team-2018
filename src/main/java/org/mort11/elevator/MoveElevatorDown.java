@@ -1,15 +1,23 @@
-package org.mort11.auton;
+package org.mort11.elevator;
 
 import edu.wpi.first.wpilibj.command.Command;
+
 import org.mort11.Robot;
 import org.mort11.control.Operator;
 import org.mort11.hardware.IO;
 import org.mort11.util.Constants;
 
-public class MoveFirstStageElevatorDown extends Command {
+/**
+ * 
+ * 
+ *
+ * @author Joshua Ciffer
+ * @version 06/08/2018
+ */
+public final class MoveElevatorDown extends Command {
     private double speed;
 
-    public MoveFirstStageElevatorDown() {
+    public MoveElevatorDown() {
         super("JoystickDriveFirstStageElevatorDown");
         requires(Robot.firstStageElevator);
         setInterruptible(true);

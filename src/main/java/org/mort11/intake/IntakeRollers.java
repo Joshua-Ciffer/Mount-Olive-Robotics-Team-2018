@@ -3,9 +3,13 @@ package org.mort11.intake;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import org.mort11.hardware.IO;
+import org.mort11.util.HardwareStates.RollerState;
 import org.mort11.util.Constants;
 
 public class IntakeRollers extends Subsystem {
+	
+	private RollerState rollerState;
+	
     public IntakeRollers() {
         super("IntakeRollers");
     }
@@ -19,4 +23,13 @@ public class IntakeRollers extends Subsystem {
         IO.getIntakeRollerVictorLeft().set(Constants.CONTROL_MODE, speed);
         IO.getIntakeRollerVictorRight().set(Constants.CONTROL_MODE, speed);
     }
+    
+    public void setRollerState(RollerState rollerState) {
+    	this.rollerState = rollerState;
+    }
+    
+    public RollerState getRollerState() {
+    	return rollerState;
+    }
+    
 }

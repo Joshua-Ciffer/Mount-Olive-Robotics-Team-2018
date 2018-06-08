@@ -4,7 +4,6 @@ package org.mort11.elevator;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-import org.mort11.auton.MoveFirstStageElevator;
 import org.mort11.hardware.IO;
 import org.mort11.util.Constants;
 

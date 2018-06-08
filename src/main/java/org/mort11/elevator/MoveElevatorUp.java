@@ -1,4 +1,4 @@
-package org.mort11.auton;
+package org.mort11.elevator;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.mort11.Robot;
@@ -6,10 +6,10 @@ import org.mort11.control.Operator;
 import org.mort11.hardware.IO;
 import org.mort11.util.Constants;
 
-public class MoveFirstStageElevatorUp extends Command {
+public class MoveElevatorUp extends Command {
     private double speed;
 
-    public MoveFirstStageElevatorUp() {
+    public MoveElevatorUp() {
         super("JoystickDriveFirstStageElevatorUp");
         requires(Robot.firstStageElevator);
         setInterruptible(true);
