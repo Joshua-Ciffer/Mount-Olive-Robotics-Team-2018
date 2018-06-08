@@ -10,11 +10,11 @@ import org.mort11.util.HardwareStates;
  * @author Seven Kurt
  * @version 02/14/2018
  */
-public class ActuatePiston extends Command {
+public class ActuateIntakePiston extends Command {
 
     private HardwareStates.IntakePistonState pistonState;
 
-    public ActuatePiston(HardwareStates.IntakePistonState pistonState) {
+    public ActuateIntakePiston(HardwareStates.IntakePistonState pistonState) {
         super("ActuatePiston");
         requires(Robot.intakePistons);
         setInterruptible(true);
