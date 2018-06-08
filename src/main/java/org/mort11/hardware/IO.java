@@ -21,266 +21,238 @@ import static org.mort11.util.Constants.*;
  */
 public class IO {
 
-    public static Compressor compressor;
-    private static TalonSRX fourbarTalon;
-    private static TalonSRX firstStageElevatorTalonMaster, firstStageElevatorTalonFollower;
-    private static TalonSRX secondStageElevatorTalon;
-    private static VictorSPX intakeRollerVictorRight, intakeRollerVictorLeft;
-    private static TalonSRX leftMaster;
-    private static TalonSRX leftSlaveMiddle;
-    private static TalonSRX leftSlaveBack;
-    private static TalonSRX rightMaster;
-    private static TalonSRX rightSlaveMiddle;
-    private static TalonSRX rightSlaveBack;
-    private static DigitalInput intakeLimitSwitchLeft, intakeLimitSwitchRight;
-    private static DigitalInput firstStageElevatorLimitSwitchBottom, firstStageElevatorLimitSwitchTop;
-    private static DigitalInput secondStageElevatorLimitSwitchBottom, secondStageElevatorLimitSwitchTop;
-    private static DigitalInput actuatorLimitSwitchTop, actuatorLimitSwitchBottom;
-    private static AnalogInput potentiometerInput;
-    // LEDs input and output.
-    private static DigitalOutput redLED;
-    private static DigitalOutput greenLED;
-    private static DigitalOutput blueLED;
-    private static Potentiometer potentiometer;
-    private static AHRS ahrs;
-    /**
-     * Double Solenoids.
-     */
-    private static DoubleSolenoid transmission;
-    private static DoubleSolenoid intakePiston;
-    private static DoubleSolenoid verticalShifterPiston;
+	public static Compressor compressor;
+	private static TalonSRX elevatorTalonMaster, elevatorTalonFollower;
+	private static VictorSPX intakeRollerVictorRight, intakeRollerVictorLeft;
+	private static TalonSRX leftMaster;
+	private static TalonSRX leftSlaveMiddle;
+	private static TalonSRX leftSlaveBack;
+	private static TalonSRX rightMaster;
+	private static TalonSRX rightSlaveMiddle;
+	private static TalonSRX rightSlaveBack;
+	private static DigitalInput intakeLimitSwitchLeft, intakeLimitSwitchRight;
+	private static DigitalInput firstStageElevatorLimitSwitchBottom, firstStageElevatorLimitSwitchTop;
+	private static DigitalInput actuatorLimitSwitchTop, actuatorLimitSwitchBottom;
+	private static AnalogInput potentiometerInput;
+	// LEDs input and output.
+	private static DigitalOutput redLED;
+	private static DigitalOutput greenLED;
+	private static DigitalOutput blueLED;
+	private static Potentiometer potentiometer;
+	private static AHRS ahrs;
+	/**
+	 * Double Solenoids.
+	 */
+	private static DoubleSolenoid transmission;
+	private static DoubleSolenoid intakePiston;
+	private static DoubleSolenoid verticalShifterPiston;
 
-    public static void init() {
-        fourbarTalon = new TalonSRX(Constants.ARM_TALON);
+	public static void init() {
 
-        firstStageElevatorTalonMaster = new TalonSRX(Constants.FIRST_STAGE_ELEVATOR_TALON_MASTER);
-        firstStageElevatorTalonFollower = new TalonSRX(Constants.FIRST_STAGE_ELEVATOR_TALON_FOLLOWER);
-        firstStageElevatorTalonFollower.setInverted(true);
+		elevatorTalonMaster = new TalonSRX(Constants.FIRST_STAGE_ELEVATOR_TALON_MASTER);
+		elevatorTalonFollower = new TalonSRX(Constants.FIRST_STAGE_ELEVATOR_TALON_FOLLOWER);
+		elevatorTalonFollower.setInverted(true);
 
-        secondStageElevatorTalon = new TalonSRX(Constants.SECOND_STAGE_ELEVATOR_TALON);
+		leftMaster = new TalonSRX(Constants.DRIVETRAIN_LEFT_MASTER);
+		leftSlaveMiddle = new TalonSRX(Constants.DRIVETRAIN_LEFT_SLAVE_MIDDLE);
+		leftSlaveBack = new TalonSRX((Constants.DRIVETRAIN_LEFT_SLAVE_BACK));
 
-        leftMaster = new TalonSRX(Constants.DRIVETRAIN_LEFT_MASTER);
-        leftSlaveMiddle = new TalonSRX(Constants.DRIVETRAIN_LEFT_SLAVE_MIDDLE);
-        leftSlaveBack = new TalonSRX((Constants.DRIVETRAIN_LEFT_SLAVE_BACK));
+		rightMaster = new TalonSRX(Constants.DRIVETRAIN_RIGHT_MASTER);
+		rightSlaveMiddle = new TalonSRX(Constants.DRIVETRAIN_RIGHT_SLAVE_MIDDLE);
+		rightSlaveBack = new TalonSRX(Constants.DRIVETRAIN_RIGHT_SLAVE_BACK);
 
-        rightMaster = new TalonSRX(Constants.DRIVETRAIN_RIGHT_MASTER);
-        rightSlaveMiddle = new TalonSRX(Constants.DRIVETRAIN_RIGHT_SLAVE_MIDDLE);
-        rightSlaveBack = new TalonSRX(Constants.DRIVETRAIN_RIGHT_SLAVE_BACK);
+		leftMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
+		leftMaster.selectProfileSlot(0, 0);
+		rightMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
+		rightMaster.selectProfileSlot(0, 0);
+		rightMaster.setSensorPhase(true);
 
-        leftMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
-        leftMaster.selectProfileSlot(0, 0);
-        rightMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
-        rightMaster.selectProfileSlot(0, 0);
-        rightMaster.setSensorPhase(true);
+		elevatorTalonMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 100);
+		elevatorTalonMaster.selectProfileSlot(0, 0);
+		elevatorTalonMaster.setSensorPhase(false);
+		// firstStageElevatorTalonFollower.setInverted(true);
+		// rightMaster.config_kP(0, 0, 0);
 
-        firstStageElevatorTalonMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 100);
-        firstStageElevatorTalonMaster.selectProfileSlot(0, 0);
-        firstStageElevatorTalonMaster.setSensorPhase(false);
-        //firstStageElevatorTalonFollower.setInverted(true);
-        // rightMaster.config_kP(0, 0, 0);
+		// transmission = new DoubleSolenoid(Constants.PCM_ID, Constants.TRANSMISSION_SHIFT_LOW, Constants.TRANSMISSION_SHIFT_HIGH);
 
-        // transmission = new DoubleSolenoid(Constants.PCM_ID, Constants.TRANSMISSION_SHIFT_LOW, Constants.TRANSMISSION_SHIFT_HIGH);
+		intakeRollerVictorRight = new VictorSPX(Constants.INTAKE_ROLLER_VICTOR_RIGHT);
+		intakeRollerVictorLeft = new VictorSPX(Constants.INTAKE_ROLLER_VICTOR_LEFT);
 
-        intakeRollerVictorRight = new VictorSPX(Constants.INTAKE_ROLLER_VICTOR_RIGHT);
-        intakeRollerVictorLeft = new VictorSPX(Constants.INTAKE_ROLLER_VICTOR_LEFT);
+		intakeLimitSwitchLeft = new DigitalInput(Constants.INTAKE_LIMIT_SWITCH_LEFT);
+		intakeLimitSwitchRight = new DigitalInput(Constants.INTAKE_LIMIT_SWITCH_RIGHT);
 
-        intakeLimitSwitchLeft = new DigitalInput(Constants.INTAKE_LIMIT_SWITCH_LEFT);
-        intakeLimitSwitchRight = new DigitalInput(Constants.INTAKE_LIMIT_SWITCH_RIGHT);
+		firstStageElevatorLimitSwitchBottom = new DigitalInput(Constants.FIRST_STAGE_ELEVATOR_LIMIT_SWITCH_BOTTOM);
+		firstStageElevatorLimitSwitchTop = new DigitalInput(Constants.FIRST_STAGE_ELEVATOR_LIMIT_SWITCH_TOP);
 
-        firstStageElevatorLimitSwitchBottom = new DigitalInput(Constants.FIRST_STAGE_ELEVATOR_LIMIT_SWITCH_BOTTOM);
-        firstStageElevatorLimitSwitchTop = new DigitalInput(Constants.FIRST_STAGE_ELEVATOR_LIMIT_SWITCH_TOP);
+		actuatorLimitSwitchTop = new DigitalInput(Constants.ARM_LIMIT_SWITCH_TOP);
+		actuatorLimitSwitchBottom = new DigitalInput(Constants.ARM_LIMIT_SWITCH_BOTTOM);
 
-        secondStageElevatorLimitSwitchBottom = new DigitalInput(Constants.SECOND_STAGE_ELEVATOR_LIMIT_SWITCH_BOTTOM);
-        secondStageElevatorLimitSwitchTop = new DigitalInput(Constants.SECOND_STAGE_ELEVATOR_LIMIT_SWITCH_TOP);
+		redLED = new DigitalOutput(Constants.DIO_RED_LED);
+		greenLED = new DigitalOutput(Constants.DIO_GREEN_LED);
+		blueLED = new DigitalOutput(Constants.DIO_BLUE_LED);
 
-        actuatorLimitSwitchTop = new DigitalInput(Constants.ARM_LIMIT_SWITCH_TOP);
-        actuatorLimitSwitchBottom = new DigitalInput(Constants.ARM_LIMIT_SWITCH_BOTTOM);
+		initLimitSwitchNames();
 
-        redLED = new DigitalOutput(Constants.DIO_RED_LED);
-        greenLED = new DigitalOutput(Constants.DIO_GREEN_LED);
-        blueLED = new DigitalOutput(Constants.DIO_BLUE_LED);
+		// potentiometerInput = new AnalogInput(Constants.POTENTIOMETER_INPUT);
+		// potentiometer = new AnalogPotentiometer(potentiometerInput, 180, 0);
 
-        initLimitSwitchNames();
+		intakePiston = new DoubleSolenoid(Constants.PCM_ID, Constants.INTAKE_PISTON_IN, Constants.INTAKE_PISTON_OUT);
+		intakePiston.setName("intake");
 
-        //potentiometerInput = new AnalogInput(Constants.POTENTIOMETER_INPUT);
-        //potentiometer = new AnalogPotentiometer(potentiometerInput, 180, 0);
+		verticalShifterPiston = new DoubleSolenoid(Constants.PCM_ID, Constants.VERTICAL_SHIFTER_PISTON_UP, Constants.VERTICAL_SHIFTER_PISTON_DOWN);
+		verticalShifterPiston.setName("VerticalShifterPiston");
 
-        intakePiston = new DoubleSolenoid(Constants.PCM_ID, Constants.INTAKE_PISTON_IN, Constants.INTAKE_PISTON_OUT);
-        intakePiston.setName("intake");
+		compressor = new Compressor();
+		compressor.start();
 
-        verticalShifterPiston = new DoubleSolenoid(Constants.PCM_ID, Constants.VERTICAL_SHIFTER_PISTON_UP, Constants.VERTICAL_SHIFTER_PISTON_DOWN);
-        verticalShifterPiston.setName("VerticalShifterPiston");
+		ahrs = new AHRS(SPI.Port.kMXP);
 
-        compressor = new Compressor();
-        compressor.start();
+		// Keeps LEDs turned off at the beginning.
+		redLED.set(LED_RED_OFF);        // Off
+		greenLED.set(LED_GREEN_OFF);    // Off
+		blueLED.set(LED_BLUE_OFF);        // Off
 
-        ahrs = new AHRS(SPI.Port.kMXP);
+	}
 
-        // Keeps LEDs turned off at the beginning.
-        redLED.set(LED_RED_OFF);        // Off
-        greenLED.set(LED_GREEN_OFF);    // Off
-        blueLED.set(LED_BLUE_OFF);        // Off
+	public static void initLimitSwitchNames() {
 
-    }
+		intakeLimitSwitchLeft.setName("Left intake Limit Switch");
+		intakeLimitSwitchRight.setName("Right intake Limit Switch");
 
-    public static void initLimitSwitchNames() {
+		firstStageElevatorLimitSwitchBottom.setName("Bottom First Stage Elevator Limit Switch");
+		firstStageElevatorLimitSwitchTop.setName("Top First Stage Elevator Limit Switch");
 
-        intakeLimitSwitchLeft.setName("Left intake Limit Switch");
-        intakeLimitSwitchRight.setName("Right intake Limit Switch");
+		actuatorLimitSwitchBottom.setName("FourBar Bottom");
+		actuatorLimitSwitchTop.setName("Fourbar Top");
 
-        firstStageElevatorLimitSwitchBottom.setName("Bottom First Stage Elevator Limit Switch");
-        firstStageElevatorLimitSwitchTop.setName("Top First Stage Elevator Limit Switch");
+		redLED.setName("Red");
+		greenLED.setName("Green");
+		blueLED.setName("Blue");
 
-        secondStageElevatorLimitSwitchBottom.setName("Bottom Second Stage Elevator Limit Switch");
-        secondStageElevatorLimitSwitchTop.setName("Top Second Stage Elevator Limit Switch");
+	}
 
-        actuatorLimitSwitchBottom.setName("FourBar Bottom");
-        actuatorLimitSwitchTop.setName("Fourbar Top");
+	/**
+	 * Stops all motors and disables all solenoids.
+	 */
+	public static void seize() {
+		leftMaster.set(Constants.CONTROL_MODE, 0);
+		leftSlaveMiddle.set(Constants.FOLLOWER, 0);
+		leftSlaveBack.set(Constants.FOLLOWER, 0);
+		rightMaster.set(Constants.CONTROL_MODE, 0);
+		rightSlaveMiddle.set(Constants.FOLLOWER, 0);
+		rightSlaveBack.set(Constants.FOLLOWER, 0);
+	}
 
-        redLED.setName("Red");
-        greenLED.setName("Green");
-        blueLED.setName("Blue");
+	public static TalonSRX getElevatorTalonMaster() {
+		return elevatorTalonMaster;
+	}
 
-    }
+	public static TalonSRX getElevatorTalonFollower() {
+		return elevatorTalonFollower;
+	}
 
-    /**
-     * Stops all motors and disables all solenoids.
-     */
-    public static void seize() {
-        leftMaster.set(Constants.CONTROL_MODE, 0);
-        leftSlaveMiddle.set(Constants.FOLLOWER, 0);
-        leftSlaveBack.set(Constants.FOLLOWER, 0);
-        rightMaster.set(Constants.CONTROL_MODE, 0);
-        rightSlaveMiddle.set(Constants.FOLLOWER, 0);
-        rightSlaveBack.set(Constants.FOLLOWER, 0);
-    }
+	public static VictorSPX getIntakeRollerVictorRight() {
+		return intakeRollerVictorRight;
+	}
 
-    public static TalonSRX getFourbarTalon() {
-        return fourbarTalon;
-    }
+	public static VictorSPX getIntakeRollerVictorLeft() {
+		return intakeRollerVictorLeft;
+	}
 
-    public static TalonSRX getFirstStageElevatorTalonMaster() {
-        return firstStageElevatorTalonMaster;
-    }
+	public static DigitalInput getIntakeLimitSwitchLeft() {
+		return intakeLimitSwitchLeft;
+	}
 
-    public static TalonSRX getFirstStageElevatorTalonFollower() {
-        return firstStageElevatorTalonFollower;
-    }
+	public static DigitalInput getIntakeLimitSwitchRight() {
+		return intakeLimitSwitchRight;
+	}
 
-    public static TalonSRX getSecondStageElevatorTalon() {
-        return secondStageElevatorTalon;
-    }
+	public static DigitalInput getFirstStageElevatorLimitSwitchBottom() {
+		return firstStageElevatorLimitSwitchBottom;
+	}
 
-    public static VictorSPX getIntakeRollerVictorRight() {
-        return intakeRollerVictorRight;
-    }
+	public static DigitalInput getFirstStageElevatorLimitSwitchTop() {
+		return firstStageElevatorLimitSwitchTop;
+	}
 
-    public static VictorSPX getIntakeRollerVictorLeft() {
-        return intakeRollerVictorLeft;
-    }
+	public static DigitalInput getActuatorLimitSwitchTop() {
+		return actuatorLimitSwitchTop;
+	}
 
-    public static DigitalInput getIntakeLimitSwitchLeft() {
-        return intakeLimitSwitchLeft;
-    }
+	public static DigitalInput getActuatorLimitSwitchBottom() {
+		return actuatorLimitSwitchBottom;
+	}
 
-    public static DigitalInput getIntakeLimitSwitchRight() {
-        return intakeLimitSwitchRight;
-    }
+	public static AnalogInput getPotentiometerInput() {
+		return potentiometerInput;
+	}
 
-    public static DigitalInput getFirstStageElevatorLimitSwitchBottom() {
-        return firstStageElevatorLimitSwitchBottom;
-    }
+	public static Potentiometer getPotentiometer() {
+		return potentiometer;
+	}
 
-    public static DigitalInput getFirstStageElevatorLimitSwitchTop() {
-        return firstStageElevatorLimitSwitchTop;
-    }
+	public static DoubleSolenoid getIntakePiston() {
+		return intakePiston;
+	}
 
-    public static DigitalInput getSecondStageElevatorLimitSwitchBottom() {
-        return secondStageElevatorLimitSwitchBottom;
-    }
+	public static TalonSRX getLeftMaster() {
+		return leftMaster;
+	}
 
-    public static DigitalInput getSecondStageElevatorLimitSwitchTop() {
-        return secondStageElevatorLimitSwitchTop;
-    }
+	public static TalonSRX getLeftSlaveMiddle() {
+		return leftSlaveMiddle;
+	}
 
-    public static DigitalInput getActuatorLimitSwitchTop() {
-        return actuatorLimitSwitchTop;
-    }
+	public static TalonSRX getLeftSlaveBack() {
+		return leftSlaveBack;
+	}
 
-    public static DigitalInput getActuatorLimitSwitchBottom() {
-        return actuatorLimitSwitchBottom;
-    }
+	public static TalonSRX getRightMaster() {
+		return rightMaster;
+	}
 
-    public static AnalogInput getPotentiometerInput() {
-        return potentiometerInput;
-    }
+	public static TalonSRX getRightSlaveMiddle() {
+		return rightSlaveMiddle;
+	}
 
-    public static Potentiometer getPotentiometer() {
-        return potentiometer;
-    }
+	public static TalonSRX getRightSlaveBack() {
+		return rightSlaveBack;
+	}
 
-    public static DoubleSolenoid getIntakePiston() {
-        return intakePiston;
-    }
+	public static DoubleSolenoid getTransmission() {
+		return transmission;
+	}
 
-    public static TalonSRX getLeftMaster() {
-        return leftMaster;
-    }
+	public static DoubleSolenoid getVerticalShifterPiston() {
+		return verticalShifterPiston;
+	}
 
-    public static TalonSRX getLeftSlaveMiddle() {
-        return leftSlaveMiddle;
-    }
+	/**
+	 * @return NavX
+	 */
+	public static AHRS getAHRS() {
+		return ahrs;
+	}
 
-    public static TalonSRX getLeftSlaveBack() {
-        return leftSlaveBack;
-    }
+	/**
+	 * @return redLED digital output object.
+	 */
+	public static DigitalOutput getRedLED() {
+		return redLED;
+	}
 
-    public static TalonSRX getRightMaster() {
-        return rightMaster;
-    }
+	/**
+	 * @return greenLED digital output object.
+	 */
+	public static DigitalOutput getGreenLED() {
+		return greenLED;
+	}
 
-    public static TalonSRX getRightSlaveMiddle() {
-        return rightSlaveMiddle;
-    }
-
-    public static TalonSRX getRightSlaveBack() {
-        return rightSlaveBack;
-    }
-
-    public static DoubleSolenoid getTransmission() {
-        return transmission;
-    }
-
-    public static DoubleSolenoid getVerticalShifterPiston() {
-        return verticalShifterPiston;
-    }
-
-    /**
-     * @return NavX
-     */
-    public static AHRS getAHRS() {
-        return ahrs;
-    }
-
-    /**
-     * @return redLED digital output object.
-     */
-    public static DigitalOutput getRedLED() {
-        return redLED;
-    }
-
-    /**
-     * @return greenLED digital output object.
-     */
-    public static DigitalOutput getGreenLED() {
-        return greenLED;
-    }
-
-    /**
-     * @return blueLED digital output object.
-     */
-    public static DigitalOutput getBlueLED() {
-        return blueLED;
-    }
+	/**
+	 * @return blueLED digital output object.
+	 */
+	public static DigitalOutput getBlueLED() {
+		return blueLED;
+	}
 
 }
