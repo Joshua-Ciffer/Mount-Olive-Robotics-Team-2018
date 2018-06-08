@@ -37,19 +37,19 @@ public class Elevator extends Subsystem {
      */
     public void set(double speed, double rotations) {
 
-        IO.getFirstStageElevatorTalonMaster().set(ControlMode.Position, speed * rotations * Constants.ENCODER_TICKS);
-        IO.getFirstStageElevatorTalonFollower().set(ControlMode.Follower, Constants.FIRST_STAGE_ELEVATOR_TALON_MASTER);
+        IO.getElevatorTalonMaster().set(ControlMode.Position, speed * rotations * Constants.ENCODER_TICKS);
+        IO.getElevatorTalonFollower().set(ControlMode.Follower, Constants.FIRST_STAGE_ELEVATOR_TALON_MASTER);
 
     }
 
     public void setVelocity(double speed) {
-        IO.getFirstStageElevatorTalonMaster().set(ControlMode.Velocity, speed * Constants.FIRSTSTAGE_ELEVATOR_VELOCITY);
-        IO.getFirstStageElevatorTalonFollower().set(ControlMode.Follower, Constants.FIRST_STAGE_ELEVATOR_TALON_MASTER);
+        IO.getElevatorTalonMaster().set(ControlMode.Velocity, speed * Constants.FIRSTSTAGE_ELEVATOR_VELOCITY);
+        IO.getElevatorTalonFollower().set(ControlMode.Follower, Constants.FIRST_STAGE_ELEVATOR_TALON_MASTER);
     }
 
     public void setPercent(double percent) {
-        IO.getFirstStageElevatorTalonMaster().set(Constants.CONTROL_MODE, percent);
-        IO.getFirstStageElevatorTalonFollower().set(ControlMode.Follower, Constants.FIRST_STAGE_ELEVATOR_TALON_MASTER);
+        IO.getElevatorTalonMaster().set(Constants.CONTROL_MODE, percent);
+        IO.getElevatorTalonFollower().set(ControlMode.Follower, Constants.FIRST_STAGE_ELEVATOR_TALON_MASTER);
     }
 
 }
