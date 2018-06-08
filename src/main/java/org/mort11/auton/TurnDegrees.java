@@ -13,7 +13,7 @@ import org.mort11.util.Constants;
 public class TurnDegrees extends Command {
 
     private double desiredAngle;
-    private Drivetrain drivetrain = Robot.driveTrain;
+    private Drivetrain drivetrain = Robot.drivetrain;
     private AHRS ahrs = IO.getAHRS();
     private double yaw;
 
@@ -28,7 +28,7 @@ public class TurnDegrees extends Command {
 
         this.desiredAngle = angle;
 
-        requires(Robot.driveTrain);
+        requires(Robot.drivetrain);
     }
 
     protected void initialize() {

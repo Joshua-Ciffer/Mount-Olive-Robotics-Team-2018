@@ -35,7 +35,7 @@ public final class ShiftDrivetrain extends Command {
 	 * Calls shifting method in drivetrain subsystem class.
 	 */
 	protected void execute() {
-		Robot.driveTrain.shift(gear);
+		Robot.drivetrain.shift(gear);
 	}
 
 	/**

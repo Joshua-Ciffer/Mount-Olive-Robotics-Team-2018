@@ -31,7 +31,7 @@ public class Robot extends IterativeRobot {
 	public static IntakePistons intakePistons;
 	public static IntakeShifter intakeShifter;
 	public static IntakeRollers intakeRollers;
-	public static Drivetrain driveTrain;
+	public static Drivetrain drivetrain;
 	public static LED led;
 	public static SendableChooser<Command> autoChooser;
 	SendableChooser<String> sideChooser;
@@ -49,7 +49,7 @@ public class Robot extends IterativeRobot {
 		intakePistons = new IntakePistons();
 		intakeShifter = new IntakeShifter();
 		intakeRollers = new IntakeRollers();
-		driveTrain = new Drivetrain(); // Create the drive train subsystem object
+		drivetrain = new Drivetrain(); // Create the drive train subsystem object
 		led = new LED();
 		Operator.init();
 

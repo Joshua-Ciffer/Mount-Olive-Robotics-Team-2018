@@ -1,51 +1,70 @@
 package org.mort11.auton;
 
 import edu.wpi.first.wpilibj.command.Command;
+
 import org.mort11.Robot;
-import org.mort11.drivetrain.Drivetrain;
 import org.mort11.hardware.IO;
-import org.mort11.util.Constants;
 import org.mort11.util.Convertor;
 
+import static org.mort11.util.Constants.*;
+
 /**
+ * This auton command drives the robot for a specified distance.
+ * 
  * @author Seven Kurt
+ * @author Joshua Ciffer
+ * @version 06/08/2018
  */
-public class DriveDistance extends Command {
-    private double targetDistance;
-    private Drivetrain drivetrain = Robot.driveTrain;
-    private double distanceTravled;
+public final class DriveDistance extends Command {
 
-    public DriveDistance(double targetDistance) {
-        this.targetDistance = targetDistance;
-    }
+	/**
+	 * The distance intended for the robot to drive.
+	 */
+	private double targetDistance;
 
-    protected void initialize() {
-        IO.getRightMaster().setSelectedSensorPosition(0, 0, 0);
-        IO.getLeftMaster().setSelectedSensorPosition(0, 0, 0);
-    }
+	/**
+	 * The distance the robot has traveled so far.
+	 */
+	private double distanceTraveled;
 
-    protected void execute() {
-        //distance = ahrs.getDisplacementY();
-        if (Math.abs(targetDistance - distanceTravled) > Constants.DISTANCE_LENIENCY) {
-            drivetrain.setLeftDriveVelocity(Convertor.convertFPSToEncoderTicksPer100Milliseconds(2));
-            drivetrain.setRightDriveVelocity(Convertor.convertFPSToEncoderTicksPer100Milliseconds(2));
-        } else if (Math.abs(targetDistance - distanceTravled) < Constants.DISTANCE_LENIENCY) {
-            drivetrain.setLeftDriveVelocity(Convertor.convertFPSToEncoderTicksPer100Milliseconds(1));
-            drivetrain.setRightDriveVelocity(Convertor.convertFPSToEncoderTicksPer100Milliseconds(2));
-        }
+	/**
+	 * Constructs a new <code>DriveDistance</code> command.
+	 *
+	 * @param targetDistance
+	 *        The distance intended for the robot to drive.
+	 */
+	public DriveDistance(double targetDistance) {
+		super("DriveDistance");
+		this.targetDistance = targetDistance;
+	}
 
-        drivetrain.setLeftDriveSpeed(0.5);
-        drivetrain.setRightDriveSpeed(0.5);
-        distanceTravled = Constants.CIRCUMFERENCE_IN_INCHES * (IO.getRightMaster().getSensorCollection().getPulseWidthPosition() / 4096);
+	protected void initialize() {
+		IO.getRightMaster().setSelectedSensorPosition(0, 0, 0);
+		IO.getLeftMaster().setSelectedSensorPosition(0, 0, 0);
+	}
 
-    }
+	protected void execute() {
+		// distance = ahrs.getDisplacementY();
+		if (Math.abs(targetDistance - distanceTraveled) > DISTANCE_LENIENCY) {
+			Robot.drivetrain.setLeftDriveVelocity(Convertor.convertFPSToEncoderTicksPer100Milliseconds(2));
+			Robot.drivetrain.setRightDriveVelocity(Convertor.convertFPSToEncoderTicksPer100Milliseconds(2));
+		} else if (Math.abs(targetDistance - distanceTraveled) < DISTANCE_LENIENCY) {
+			Robot.drivetrain.setLeftDriveVelocity(Convertor.convertFPSToEncoderTicksPer100Milliseconds(1));
+			Robot.drivetrain.setRightDriveVelocity(Convertor.convertFPSToEncoderTicksPer100Milliseconds(2));
+		}
 
-    protected boolean isFinished() {
-        return distanceTravled <= targetDistance + 10 || distanceTravled >= targetDistance - 10;
-    }
+		Robot.drivetrain.setLeftDriveSpeed(0.5);
+		Robot.drivetrain.setRightDriveSpeed(0.5);
+		distanceTraveled = CIRCUMFERENCE_IN_INCHES * (IO.getRightMaster().getSensorCollection().getPulseWidthPosition() / 4096);
 
-    protected void end() {
-        drivetrain.setRightDriveSpeed(0);
-        drivetrain.setLeftDriveSpeed(0);
-    }
+	}
+
+	protected boolean isFinished() {
+		return distanceTraveled <= targetDistance + 10 || distanceTraveled >= targetDistance - 10;
+	}
+
+	protected void end() {
+		Robot.drivetrain.setRightDriveSpeed(0);
+		Robot.drivetrain.setLeftDriveSpeed(0);
+	}
 }
