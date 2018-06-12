@@ -6,8 +6,8 @@ import org.mort11.util.HardwareStates;
 
 public class DriveTimedWithCube extends CommandGroup {
 
-    public DriveTimedWithCube(double speed, double timeout, double intakeSpeed) {
+    public DriveTimedWithCube(double speed, double timeout) {
         addParallel(new DriveDistanceTimed(speed, timeout));
-        addParallel(new RollIntake(intakeSpeed, HardwareStates.IntakeRollersState.IN));
+        addParallel(new RollIntake(HardwareStates.IntakeRollersState.IN));
     }
 }
