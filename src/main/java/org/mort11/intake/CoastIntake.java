@@ -1,43 +1,52 @@
 package org.mort11.intake;
-//
 
 import edu.wpi.first.wpilibj.command.Command;
+
 import org.mort11.Robot;
 import org.mort11.hardware.IO;
 import org.mort11.util.Constants;
 
-//import org.mort11.Hardware.HardwareStates;
-//import org.mort11.Hardware.IO;
-//import org.mort11.Robot;
-//import org.mort11.Util.Constants;
-//
-public class CoastIntake extends Command {
+/**
+ * Command that coasts the intake rollers upon a button press from the operator joystick.
+ *
+ * @author Joshua Ciffer
+ * @version 06/12/2018
+ */
+public final class CoastIntake extends Command {
 
-    public CoastIntake() {
-        super("CoastIntake");
-        requires(Robot.intakeRollers);
-        setInterruptible(true);
-    }
+	/**
+	 * Constructs a new <code>CoastIntake</code> command.
+	 */
+	public CoastIntake() {
+		super("CoastIntake");
+		requires(Robot.intakeRollers);
+		setInterruptible(true);
+	}
 
-    protected void execute() {
-        if (IO.getIntakeLimitSwitchLeft().get() == false && IO.getIntakeLimitSwitchRight().get() == false) {
-            Robot.intakeRollers.setRollerSpeed(-Constants.INTAKE_COAST);
-        } else {
-            //Robot.intakeRollers.setRollerSpeed(0);
-        }
-    }
+	/**
+	 * If both intake limit switches are not pressed, coast the intake rollers.
+	 */
+	@Override
+	protected void execute() {
+		if (!IO.getIntakeLimitSwitchLeft().get() && !IO.getIntakeLimitSwitchRight().get()) {
+			Robot.intakeRollers.setRollerSpeed(-Constants.INTAKE_COAST);
+		}
+	}
 
-    protected void end() {
-        Robot.intakeRollers.setRollerSpeed(0);
-    }
+	/**
+	 * Command always returns false.
+	 */
+	@Override
+	protected boolean isFinished() {
+		return false;
+	}
 
-    @Override
-    protected boolean isFinished() {
-        return false;
-    }
-
-    protected void interrupted() {
-        end();
-    }
+	/**
+	 * Intake rollers are halted upon completion of this command.
+	 */
+	@Override
+	protected void end() {
+		Robot.intakeRollers.halt();
+	}
 
 }

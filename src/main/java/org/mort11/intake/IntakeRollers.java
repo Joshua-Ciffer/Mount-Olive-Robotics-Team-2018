@@ -24,6 +24,10 @@ public class IntakeRollers extends Subsystem {
         IO.getIntakeRollerVictorRight().set(Constants.CONTROL_MODE, speed);
     }
     
+    public void halt() {
+    	setRollerSpeed(0);
+    }
+    
     public void setRollerState(RollerState rollerState) {
     	this.rollerState = rollerState;
     }

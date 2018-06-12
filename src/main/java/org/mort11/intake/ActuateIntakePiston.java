@@ -1,34 +1,50 @@
 package org.mort11.intake;
 
 import edu.wpi.first.wpilibj.command.Command;
+
 import org.mort11.Robot;
-import org.mort11.util.HardwareStates;
+import org.mort11.util.HardwareStates.IntakePistonState;
 
 /**
+ * Command that actuates the intake piston to the desired state from a button press on the operator joystick.
+ * 
  * @author Joshua Ciffer
- * @author Benny Mirisola
- * @author Seven Kurt
- * @version 02/14/2018
+ * @version 06/12/2018
  */
-public class ActuateIntakePiston extends Command {
+public final class ActuateIntakePiston extends Command {
 
-    private HardwareStates.IntakePistonState pistonState;
+	/**
+	 * The state to put the piston in.
+	 */
+	private IntakePistonState pistonState;
 
-    public ActuateIntakePiston(HardwareStates.IntakePistonState pistonState) {
-        super("ActuatePiston");
-        requires(Robot.intakePistons);
-        setInterruptible(true);
-        this.pistonState = pistonState;
-    }
+	/**
+	 * Constructs a new <code>ActuateIntakePiston</code> command.
+	 *
+	 * @param pistonState
+	 *        The state to put the piston in.
+	 */
+	public ActuateIntakePiston(IntakePistonState pistonState) {
+		super("ActuatePiston");
+		this.pistonState = pistonState;
+		requires(Robot.intakePistons);
+		setInterruptible(true);
+	}
 
-    @Override
-    protected void execute() {
-        Robot.intakePistons.actuatePiston(pistonState);
-    }
+	/**
+	 * Actuates the intake piston to the desired state.
+	 */
+	@Override
+	protected void execute() {
+		Robot.intakePistons.actuatePiston(pistonState);
+	}
 
-    @Override
-    protected boolean isFinished() {
-        return true;
-    }
+	/**
+	 * Command returns true after actuating the piston.
+	 */
+	@Override
+	protected boolean isFinished() {
+		return true;
+	}
 
 }
