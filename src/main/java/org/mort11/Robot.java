@@ -21,11 +21,14 @@ import org.mort11.util.AutoChooser;
 import org.mort11.util.SmartDashboardLogger;
 
 /**
+ * 
+ * @author Joshua Ciffer
  * @author Benny Mirisola
  * @author Seven Kurt
  * @author Frank Alfano
+ * @version 06/12/2018
  */
-public class Robot extends IterativeRobot {
+public final class Robot extends IterativeRobot {
 
 	public static Elevator elevator;
 	public static IntakePistons intakePiston;
@@ -39,6 +42,11 @@ public class Robot extends IterativeRobot {
 	private String gameData; // Game data from the driver station
 	@SuppressWarnings("unused")
 	private String robotPos; // The position of the robot on the field
+
+	/**
+	 * Don't let anyone instantiate this class.
+	 */
+	private Robot() {}
 
 	@Override
 	public void robotInit() {
@@ -77,7 +85,6 @@ public class Robot extends IterativeRobot {
 		SmartDashboardLogger.initEncoders();
 		AutoChooser.addAutons(sideChooser.getSelected());
 		SmartDashboard.putData("autons", autoChooser);
-		// System.out.println("Elevator Position:" + IO.getFirstStageElevatorTalonMaster().getSelectedSensorPosition(0));
 	}
 
 	@Override
@@ -85,8 +92,6 @@ public class Robot extends IterativeRobot {
 		gameData = DriverStation.getInstance().getGameSpecificMessage(); // Get the game data from the driver station
 		autoCommand = AutoChooser.setAutoCommand(autoChooser.getSelected(), gameData);
 		IO.getRightMaster().setSelectedSensorPosition(0, 0, 0);
-		// autoCommand = new SwitchTurnLeft();
-		// autoCommand = new TurnDegrees(-90);
 		if (autoCommand != null) {
 			autoCommand.start();
 		}
@@ -97,7 +102,6 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
-		// ((LEDCommand)led.getCurrentCommand()).setCommandMode(CHANGE_ALLIANCE_COLOR);
 		// SmartDashboard.updateValues();
 		// SmartDashboardLogger.initEncoders();
 	}
@@ -119,16 +123,6 @@ public class Robot extends IterativeRobot {
 		SmartDashboardLogger.initEncoders();
 		SmartDashboard.updateValues();
 		System.out.println("Error: " + IO.getElevatorTalonMaster().getClosedLoopError(0));
-		// ((LEDCommand)led.getCurrentCommand()).setCommandMode(INTAKE_COLOR_CHANGER);
-		// System.out.println("left Drive Error: " + IO.getLeftMaster().getClosedLoopError(0));
-		// System.out.println("Left Drive position" + IO.getLeftMaster().getSelectedSensorPosition(0));
-		// System.out.println("Velocity of Elevator: " + IO.getFirstStageElevatorTalonMaster().getSelectedSensorVelocity(0));
-		// System.out.println("Error of Elevator " + IO.getFirstStageElevatorTalonMaster().getClosedLoopError(0));
-		// SmartDashboard.putNumber("Velocity:", IO.getRightMaster().getSelectedSensorVelocity(0));
-		// SmartDashboard.putNumber("Error", IO.getRightMaster().getClosedLoopError(0));
-		// SmartDashboard.putNumber("Position", IO.getRightMaster().getSelectedSensorPosition(0));
-		// SmartDashboard.updateValues();
-		// System.out.println(IO.getFirstStageElevatorTalonMaster().getSelectedSensorVelocity(Constants.PID_LOOP_ID));
 		System.out.println(IO.getRightMaster().getSelectedSensorPosition(0));
 		System.out.println(IO.getLeftMaster().getSelectedSensorPosition(0));
 	}

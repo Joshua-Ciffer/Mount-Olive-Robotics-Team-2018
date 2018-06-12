@@ -3,12 +3,18 @@ package org.mort11.hardware;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
-import com.kauailabs.navx.frc.AHRS;
-import edu.wpi.first.wpilibj.*;
-import edu.wpi.first.wpilibj.interfaces.Potentiometer;
-import org.mort11.util.Constants;
 
-import static org.mort11.util.Constants.*;
+import com.kauailabs.navx.frc.AHRS;
+
+import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DigitalOutput;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.interfaces.Potentiometer;
+import edu.wpi.first.wpilibj.SPI;
+
+import org.mort11.util.Constants;
 
 /**
  * Contains objects that correlate to hardware on the robot.
@@ -17,11 +23,11 @@ import static org.mort11.util.Constants.*;
  * @author Seven Kurt
  * @author Joshua Ciffer
  * @author Frankie Alfano
- * @version 02/14/2018
+ * @version 06/12/2018
  */
-public class IO {
+public final class IO {
 
-	public static Compressor compressor;
+	private static Compressor compressor;
 	private static TalonSRX elevatorTalonMaster, elevatorTalonFollower;
 	private static VictorSPX intakeRollerVictorRight, intakeRollerVictorLeft;
 	private static TalonSRX leftMaster;
@@ -31,7 +37,7 @@ public class IO {
 	private static TalonSRX rightSlaveMiddle;
 	private static TalonSRX rightSlaveBack;
 	private static DigitalInput intakeLimitSwitchLeft, intakeLimitSwitchRight;
-	private static DigitalInput firstStageElevatorLimitSwitchBottom, firstStageElevatorLimitSwitchTop;
+	private static DigitalInput elevatorLimitSwitchBottom, elevatorLimitSwitchTop;
 	private static DigitalInput actuatorLimitSwitchTop, actuatorLimitSwitchBottom;
 	private static AnalogInput potentiometerInput;
 	// LEDs input and output.
@@ -47,6 +53,14 @@ public class IO {
 	private static DoubleSolenoid intakePiston;
 	private static DoubleSolenoid intakeShifterPiston;
 
+	/**
+	 * Don't let anyone instantiate this class.
+	 */
+	private IO() {}
+
+	/**
+	 * Initializes all hardware objects.
+	 */
 	public static void init() {
 
 		elevatorTalonMaster = new TalonSRX(Constants.FIRST_STAGE_ELEVATOR_TALON_MASTER);
@@ -81,8 +95,8 @@ public class IO {
 		intakeLimitSwitchLeft = new DigitalInput(Constants.INTAKE_LIMIT_SWITCH_LEFT);
 		intakeLimitSwitchRight = new DigitalInput(Constants.INTAKE_LIMIT_SWITCH_RIGHT);
 
-		firstStageElevatorLimitSwitchBottom = new DigitalInput(Constants.FIRST_STAGE_ELEVATOR_LIMIT_SWITCH_BOTTOM);
-		firstStageElevatorLimitSwitchTop = new DigitalInput(Constants.FIRST_STAGE_ELEVATOR_LIMIT_SWITCH_TOP);
+		elevatorLimitSwitchBottom = new DigitalInput(Constants.FIRST_STAGE_ELEVATOR_LIMIT_SWITCH_BOTTOM);
+		elevatorLimitSwitchTop = new DigitalInput(Constants.FIRST_STAGE_ELEVATOR_LIMIT_SWITCH_TOP);
 
 		actuatorLimitSwitchTop = new DigitalInput(Constants.ARM_LIMIT_SWITCH_TOP);
 		actuatorLimitSwitchBottom = new DigitalInput(Constants.ARM_LIMIT_SWITCH_BOTTOM);
@@ -108,9 +122,9 @@ public class IO {
 		ahrs = new AHRS(SPI.Port.kMXP);
 
 		// Keeps LEDs turned off at the beginning.
-		redLED.set(LED_RED_OFF);        // Off
-		greenLED.set(LED_GREEN_OFF);    // Off
-		blueLED.set(LED_BLUE_OFF);        // Off
+		redLED.set(Constants.LED_RED_OFF);        // Off
+		greenLED.set(Constants.LED_GREEN_OFF);    // Off
+		blueLED.set(Constants.LED_BLUE_OFF);        // Off
 
 	}
 
@@ -119,8 +133,8 @@ public class IO {
 		intakeLimitSwitchLeft.setName("Left intake Limit Switch");
 		intakeLimitSwitchRight.setName("Right intake Limit Switch");
 
-		firstStageElevatorLimitSwitchBottom.setName("Bottom First Stage Elevator Limit Switch");
-		firstStageElevatorLimitSwitchTop.setName("Top First Stage Elevator Limit Switch");
+		elevatorLimitSwitchBottom.setName("Bottom First Stage Elevator Limit Switch");
+		elevatorLimitSwitchTop.setName("Top First Stage Elevator Limit Switch");
 
 		actuatorLimitSwitchBottom.setName("FourBar Bottom");
 		actuatorLimitSwitchTop.setName("Fourbar Top");
@@ -168,11 +182,11 @@ public class IO {
 	}
 
 	public static DigitalInput getFirstStageElevatorLimitSwitchBottom() {
-		return firstStageElevatorLimitSwitchBottom;
+		return elevatorLimitSwitchBottom;
 	}
 
 	public static DigitalInput getFirstStageElevatorLimitSwitchTop() {
-		return firstStageElevatorLimitSwitchTop;
+		return elevatorLimitSwitchTop;
 	}
 
 	public static DigitalInput getActuatorLimitSwitchTop() {
@@ -253,6 +267,10 @@ public class IO {
 	 */
 	public static DigitalOutput getBlueLED() {
 		return blueLED;
+	}
+
+	public static Compressor getCompressor() {
+		return compressor;
 	}
 
 }
