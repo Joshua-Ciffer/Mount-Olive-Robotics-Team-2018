@@ -44,15 +44,15 @@ public class AutoChooser {
     public static void addAutons(String side) {
         if (side.equals("Middle")) {
             Robot.autoChooser.addObject("Do Nothing", new DoNothing());
-            Robot.autoChooser.addDefault("Drive Forwards With Cube", new DriveTimedWithCube(Constants.DRIVETRAIN_SPEED, 4, Constants.INTAKE_COAST));
+            Robot.autoChooser.addDefault("Drive Forwards With Cube", new DriveTimedWithCube(Constants.DRIVETRAIN_SPEED, 4));
             Robot.autoChooser.addObject("DriveForwardsTimed", new DriveDistanceTimed(Constants.DRIVETRAIN_SPEED, 2));
         } else if (side.equals("Left")) {
             Robot.autoChooser.addObject("Do Nothing", new DoNothing());
-            Robot.autoChooser.addDefault("Drive Forwards With Cube", new DriveTimedWithCube(Constants.DRIVETRAIN_SPEED, 5, Constants.INTAKE_COAST));
+            Robot.autoChooser.addDefault("Drive Forwards With Cube", new DriveTimedWithCube(Constants.DRIVETRAIN_SPEED, 5));
             Robot.autoChooser.addObject("DriveForwardsTimed", new DriveDistanceTimed(Constants.DRIVETRAIN_SPEED, 3));
         } else if (side.equals("Right")) {
             Robot.autoChooser.addObject("Do Nothing", new DoNothing());
-            Robot.autoChooser.addDefault("Drive Forwards With Cube", new DriveTimedWithCube(Constants.DRIVETRAIN_SPEED, 5, Constants.INTAKE_COAST));
+            Robot.autoChooser.addDefault("Drive Forwards With Cube", new DriveTimedWithCube(Constants.DRIVETRAIN_SPEED, 5));
             Robot.autoChooser.addObject("DriveForwardsTimed", new DriveDistanceTimed(Constants.DRIVETRAIN_SPEED, 3));
         }
     }
