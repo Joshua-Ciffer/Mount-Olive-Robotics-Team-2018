@@ -3,7 +3,7 @@ package org.mort11.auton;
 import edu.wpi.first.wpilibj.command.TimedCommand;
 
 import org.mort11.Robot;
-import org.mort11.util.HardwareStates.RollerState;
+import org.mort11.util.HardwareStates.IntakeRollersState;
 
 /**
  * 
@@ -22,7 +22,7 @@ public final class RollIntakeTimed extends TimedCommand {
 	/**
 	 * The state to set the intake rollers to.
 	 */
-	private RollerState rollerState;
+	private IntakeRollersState rollerState;
 
 	/**
 	 * Constructs a new <code>RollIntakeTimed</code> command.
@@ -34,7 +34,7 @@ public final class RollIntakeTimed extends TimedCommand {
 	 * @param timeout
 	 *        The duration to run the command, in seconds.
 	 */
-	public RollIntakeTimed(double speed, RollerState request, double timeout) {
+	public RollIntakeTimed(double speed, IntakeRollersState request, double timeout) {
 		super(timeout);
 		requires(Robot.intakeRollers);
 		setInterruptible(true);

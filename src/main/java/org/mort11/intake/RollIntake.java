@@ -8,9 +8,9 @@ import org.mort11.util.HardwareStates;
 public class RollIntake extends Command {
 
     private double speed;
-    private HardwareStates.RollerState rollerState;
+    private HardwareStates.IntakeRollersState rollerState;
 
-    public RollIntake(double speed, HardwareStates.RollerState request) {
+    public RollIntake(double speed, HardwareStates.IntakeRollersState request) {
         super("Roll intake");
         requires(Robot.intakeRollers);
         setInterruptible(true);

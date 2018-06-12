@@ -28,7 +28,7 @@ import org.mort11.util.SmartDashboardLogger;
 public class Robot extends IterativeRobot {
 
 	public static Elevator elevator;
-	public static IntakePistons intakePistons;
+	public static IntakePistons intakePiston;
 	public static IntakeShifter intakeShifter;
 	public static IntakeRollers intakeRollers;
 	public static Drivetrain drivetrain;
@@ -46,7 +46,7 @@ public class Robot extends IterativeRobot {
 		IO.init();
 
 		elevator = new Elevator();
-		intakePistons = new IntakePistons();
+		intakePiston = new IntakePistons();
 		intakeShifter = new IntakeShifter();
 		intakeRollers = new IntakeRollers();
 		drivetrain = new Drivetrain(); // Create the drive train subsystem object

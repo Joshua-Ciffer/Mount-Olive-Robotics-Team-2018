@@ -12,21 +12,7 @@ public class HardwareStates {
     /**
      * States for the first stage elevator.
      */
-    public enum ElevatorFirstStageState {
-        BOTTOM, TOP
-    }
-
-    /**
-     * States for the second stage elevator.
-     */
-    public enum ElevatorSecondStageState {
-        BOTTOM, MIDDLE, TOP
-    }
-
-    /**
-     * States for the four bar arm state.
-     */
-    public enum FourBarArmState {
+    public enum ElevatorState {
         BOTTOM, TOP
     }
 
@@ -41,11 +27,11 @@ public class HardwareStates {
         UP, DOWN
     }
 
-    public enum RollerState {
+    public enum IntakeRollersState {
         IN, OUT, STOP, COAST
     }
 
-    public enum Gear {
+    public enum DrivetrainGear {
         HIGH, LOW
     }
 

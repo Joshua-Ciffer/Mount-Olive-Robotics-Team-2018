@@ -6,7 +6,7 @@ import org.mort11.Robot;
 import org.mort11.util.HardwareStates.IntakePistonState;
 
 /**
- * Command that actuates the intake piston to the desired state from a button press on the operator joystick.
+ * Command that actuates the intake piston to the desired state triggered by a button press on the operator joystick.
  * 
  * @author Joshua Ciffer
  * @version 06/12/2018
@@ -25,10 +25,10 @@ public final class ActuateIntakePiston extends Command {
 	 *        The state to put the piston in.
 	 */
 	public ActuateIntakePiston(IntakePistonState pistonState) {
-		super("ActuatePiston");
+		super("ActuateIntakePiston");
 		this.pistonState = pistonState;
-		requires(Robot.intakePistons);
-		setInterruptible(true);
+		requires(Robot.intakePiston);
+		setInterruptible(false);
 	}
 
 	/**
@@ -36,7 +36,7 @@ public final class ActuateIntakePiston extends Command {
 	 */
 	@Override
 	protected void execute() {
-		Robot.intakePistons.actuatePiston(pistonState);
+		Robot.intakePiston.actuate(pistonState);
 	}
 
 	/**

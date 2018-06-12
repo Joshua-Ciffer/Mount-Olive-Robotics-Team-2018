@@ -5,11 +5,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 import org.mort11.hardware.IO;
 import org.mort11.util.Constants;
 import org.mort11.util.HardwareStates.IntakePistonState;
-import org.mort11.util.HardwareStates.RollerState;
+import org.mort11.util.HardwareStates.IntakeRollersState;
 
 /**
- * 
- * 
+ * Command to grab a cube and close the intake. Command is triggered by a button on the operator joystick.
  *
  * @author Joshua Ciffer
  * @version 06/12/2018
@@ -18,17 +17,16 @@ public final class GrabAndClose extends CommandGroup {
 
 	/**
 	 * Constructs a new <code>GrabAndClose</code> command.
-	 *
-	 *
 	 */
 	public GrabAndClose() {
+		super("GrabAndClose");
 		setInterruptible(true);
 		addParallel(new ActuateIntakePiston(IntakePistonState.OUT));
-		addParallel(new RollIntake(Constants.INTAKE_SPEED, RollerState.IN), Constants.ROLLER_TIMEOUT);
+		addParallel(new RollIntake(Constants.INTAKE_SPEED, IntakeRollersState.IN), Constants.ROLLER_TIMEOUT);
 	}
 
 	/**
-	 * Command finishes if the intake limit switches are both pressed.
+	 * Command finishes if the intake limit switches are both pressed (a cube is in the intake).
 	 */
 	@Override
 	protected boolean isFinished() {

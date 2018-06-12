@@ -7,7 +7,7 @@ import org.mort11.hardware.IO;
 import org.mort11.util.Constants;
 
 /**
- * Command that coasts the intake rollers upon a button press from the operator joystick.
+ * Command that coasts the intake rollers when triggered by a button press from the operator joystick.
  *
  * @author Joshua Ciffer
  * @version 06/12/2018

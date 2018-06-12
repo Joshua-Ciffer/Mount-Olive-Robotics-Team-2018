@@ -8,6 +8,6 @@ import org.mort11.util.HardwareStates;
 public class DriveDistanceWithCube extends CommandGroup {
     public DriveDistanceWithCube(double distance) {
         addParallel(new DriveDistance(distance));
-        addParallel(new RollIntake(Constants.INTAKE_COAST, HardwareStates.RollerState.IN));
+        addParallel(new RollIntake(Constants.INTAKE_COAST, HardwareStates.IntakeRollersState.IN));
     }
 }

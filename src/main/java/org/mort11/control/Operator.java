@@ -10,7 +10,7 @@ import org.mort11.intake.RollIntake;
 import org.mort11.intake.ShiftIntake;
 import org.mort11.util.Constants;
 import org.mort11.util.HardwareStates.IntakePistonState;
-import org.mort11.util.HardwareStates.RollerState;
+import org.mort11.util.HardwareStates.IntakeRollersState;
 import org.mort11.util.HardwareStates.IntakeShiftState;
 
 /**
@@ -58,11 +58,11 @@ public final class Operator {
 		actuateIntakePistonButton.whenReleased(new GrabAndClose());
 
 		JoystickButton outtakeButton = new JoystickButton(rightOperatorJoystick, Constants.OUTTAKE_BUTTON);
-		outtakeButton.whileHeld(new RollIntake(Constants.INTAKE_OUTAKE_SPEED, RollerState.OUT));
-		outtakeButton.whenReleased(new RollIntake(0, RollerState.STOP));
+		outtakeButton.whileHeld(new RollIntake(Constants.INTAKE_OUTAKE_SPEED, IntakeRollersState.OUT));
+		outtakeButton.whenReleased(new RollIntake(0, IntakeRollersState.STOP));
 
 		JoystickButton intakeButton = new JoystickButton(rightOperatorJoystick, Constants.INTAKE_BUTTON);
-		intakeButton.whileHeld(new RollIntake(Constants.INTAKE_SPEED, RollerState.IN));
+		intakeButton.whileHeld(new RollIntake(Constants.INTAKE_SPEED, IntakeRollersState.IN));
 		intakeButton.whenReleased(new CoastIntake());
 
 		JoystickButton intakeShifterButton = new JoystickButton(rightOperatorJoystick, Constants.INTAKE_SHIFTER_BUTTON);

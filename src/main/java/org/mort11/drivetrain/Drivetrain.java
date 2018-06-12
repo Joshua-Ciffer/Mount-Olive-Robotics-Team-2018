@@ -60,12 +60,12 @@ public final class Drivetrain extends Subsystem {
 	 *
 	 * @param
 	 */
-	public void shift(HardwareStates.Gear gear) {
-		if (gear.equals(HardwareStates.Gear.HIGH)) {
+	public void shift(HardwareStates.DrivetrainGear gear) {
+		if (gear.equals(HardwareStates.DrivetrainGear.HIGH)) {
 			IO.getTransmission().set(DoubleSolenoid.Value.kForward);
 		}
 
-		if (gear.equals(HardwareStates.Gear.LOW)) {
+		if (gear.equals(HardwareStates.DrivetrainGear.LOW)) {
 			IO.getTransmission().set(DoubleSolenoid.Value.kReverse);
 		}
 	}

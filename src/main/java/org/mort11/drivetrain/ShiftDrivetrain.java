@@ -3,7 +3,7 @@ package org.mort11.drivetrain;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.mort11.Robot;
-import org.mort11.util.HardwareStates.Gear;
+import org.mort11.util.HardwareStates.DrivetrainGear;
 
 /**
  * Command that runs upon a button press to change the gear of the drivetrain.
@@ -17,7 +17,7 @@ public final class ShiftDrivetrain extends Command {
 	/**
 	 * The gear the drivetrain is put in to.
 	 */
-	private Gear gear;
+	private DrivetrainGear gear;
 
 	/**
 	 * Constructs a new <code>ShiftDrivetrain</code> command.
@@ -25,7 +25,7 @@ public final class ShiftDrivetrain extends Command {
 	 * @param gear
 	 *        The gear to shift the drivetrain to.
 	 */
-	public ShiftDrivetrain(Gear gear) {
+	public ShiftDrivetrain(DrivetrainGear gear) {
 		super("ShiftDrivetrain");
 		this.gear = gear;
 		setInterruptible(false);
