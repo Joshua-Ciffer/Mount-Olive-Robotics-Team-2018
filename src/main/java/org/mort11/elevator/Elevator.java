@@ -19,7 +19,7 @@ public class Elevator extends Subsystem {
      * Constructs a new FirstStageElevator Subsystem.
      */
     public Elevator() {
-        super("FirstStageElevator");
+        super("Elevator");
     }
 
     /**
@@ -38,18 +38,18 @@ public class Elevator extends Subsystem {
     public void set(double speed, double rotations) {
 
         IO.getElevatorTalonMaster().set(ControlMode.Position, speed * rotations * Constants.ENCODER_TICKS);
-        IO.getElevatorTalonFollower().set(ControlMode.Follower, Constants.FIRST_STAGE_ELEVATOR_TALON_MASTER);
+        IO.getElevatorTalonFollower().set(ControlMode.Follower, Constants.ELEVATOR_TALON_MASTER);
 
     }
 
     public void setVelocity(double speed) {
-        IO.getElevatorTalonMaster().set(ControlMode.Velocity, speed * Constants.FIRSTSTAGE_ELEVATOR_VELOCITY);
-        IO.getElevatorTalonFollower().set(ControlMode.Follower, Constants.FIRST_STAGE_ELEVATOR_TALON_MASTER);
+        IO.getElevatorTalonMaster().set(ControlMode.Velocity, speed * Constants.ELEVATOR_VELOCITY);
+        IO.getElevatorTalonFollower().set(ControlMode.Follower, Constants.ELEVATOR_TALON_MASTER);
     }
 
     public void setPercent(double percent) {
         IO.getElevatorTalonMaster().set(Constants.CONTROL_MODE, percent);
-        IO.getElevatorTalonFollower().set(ControlMode.Follower, Constants.FIRST_STAGE_ELEVATOR_TALON_MASTER);
+        IO.getElevatorTalonFollower().set(ControlMode.Follower, Constants.ELEVATOR_TALON_MASTER);
     }
 
 }

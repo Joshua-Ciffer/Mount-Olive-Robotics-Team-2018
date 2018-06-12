@@ -15,10 +15,8 @@ public interface Constants {
     /*
      * Motors
      */
-    int ARM_TALON = 11;
-    int FIRST_STAGE_ELEVATOR_TALON_MASTER = 8;
-    int FIRST_STAGE_ELEVATOR_TALON_FOLLOWER = 9;
-    int SECOND_STAGE_ELEVATOR_TALON = 10;
+    int ELEVATOR_TALON_MASTER = 8;
+    int ELEVATOR_TALON_FOLLOWER = 9;
     int INTAKE_ROLLER_VICTOR_RIGHT = 7;
     int INTAKE_ROLLER_VICTOR_LEFT = 6;
     int DRIVETRAIN_LEFT_MASTER = 0;
@@ -48,23 +46,17 @@ public interface Constants {
     // NOTE: Fill in actual values for limit switches.
     int INTAKE_LIMIT_SWITCH_LEFT = 0;
     int INTAKE_LIMIT_SWITCH_RIGHT = 4;
-    int FIRST_STAGE_ELEVATOR_LIMIT_SWITCH_BOTTOM = 6;
-    int FIRST_STAGE_ELEVATOR_LIMIT_SWITCH_TOP = 5;
-    int SECOND_STAGE_ELEVATOR_LIMIT_SWITCH_BOTTOM = 7;
-    int SECOND_STAGE_ELEVATOR_LIMIT_SWITCH_TOP = 3;
-
-    int ARM_LIMIT_SWITCH_TOP = 8;
-    int ARM_LIMIT_SWITCH_BOTTOM = 9;
+    int ELEVATOR_LIMIT_SWITCH_BOTTOM = 6;
+    int ELEVATOR_LIMIT_SWITCH_TOP = 5;
 
     /*
      * Talon speeds
      */
     double ELEVATOR_SPEED = .2;
     double INTAKE_SPEED = 1;
-    double INTAKE_OUTAKE_SPEED = 1;
+    double OUTTAKE_SPEED = 1;
     double INTAKE_COAST = 0.25;
-    double FOURBARARM_SPEED = 1;
-    double FIRSTSTAGE_ELEVATOR_VELOCITY = 600;
+    double ELEVATOR_VELOCITY = 600;
 
 
     // Joysticks
@@ -72,7 +64,6 @@ public interface Constants {
     int RIGHT_DRIVER_JOYSTICK = 1;
     int LEFT_OPERATOR_JOYSTICK = 2;
     int RIGHT_OPERATOR_JOYSTICK = 3;
-    int KURT_JOYSTICK = 5;
 
     // Joystick buttons
     int ACTUATE_INTAKE_PISTON_BUTTON = 1;
@@ -117,10 +108,8 @@ public interface Constants {
     String rightDriveMasterName = "RightDrive Master";
     String rightDriveFollowerMiddleName = "RightDrive Follower Middle";
     String rightDriveFollowerBackName = "RightDrive Follower Back";
-    String firstStageElevatorLeftName = "Elevator Talon Left";
-    String firstStageElevatorRightName = "Elevator Talon Right";
-    String secondStageElevatorName = "Second Stage Elevator";
-    String fourbarName = "Fourbar";
+    String elevatorLeftName = "Elevator Talon Left";
+    String elevatorRightName = "Elevator Talon Right";
     String intakeMotorLeftName = "Left intake";
     String intakeMotorRightName = "Right Drive";
 
@@ -131,9 +120,6 @@ public interface Constants {
 
     double ROLLER_TIMEOUT = .75;
     int INTAKE_TIMEOUT = 4;
-
-    int ARM_MAX = 180;
-    int ARM_MIN = 0;
 
     double CIRCUMFERENCE_IN_INCHES = 6 * Math.PI;
     double CIRCUMFERENCE_IN_FEET = 0.5 * Math.PI;
@@ -174,7 +160,7 @@ public interface Constants {
     /*
      * Rotations
      */
-    double FIRST_STAGE_ELEVATOR_ROTATIONS_TELEOP = 10;
+    double ELEVATOR_ROTATIONS_TELEOP = 10;
 
 
     int PID_LOOP_ID = 0;

@@ -45,7 +45,7 @@ public final class RollIntake extends Command {
 				break;
 			}
 			case OUT: {
-				Robot.intakeRollers.setRollerSpeed(Constants.INTAKE_OUTAKE_SPEED);
+				Robot.intakeRollers.setRollerSpeed(Constants.OUTTAKE_SPEED);
 				break;
 			}
 			case STOP: {

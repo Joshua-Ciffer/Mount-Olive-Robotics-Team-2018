@@ -38,7 +38,6 @@ public final class IO {
 	private static TalonSRX rightSlaveBack;
 	private static DigitalInput intakeLimitSwitchLeft, intakeLimitSwitchRight;
 	private static DigitalInput elevatorLimitSwitchBottom, elevatorLimitSwitchTop;
-	private static DigitalInput actuatorLimitSwitchTop, actuatorLimitSwitchBottom;
 	private static AnalogInput potentiometerInput;
 	// LEDs input and output.
 	private static DigitalOutput redLED;
@@ -63,8 +62,8 @@ public final class IO {
 	 */
 	public static void init() {
 
-		elevatorTalonMaster = new TalonSRX(Constants.FIRST_STAGE_ELEVATOR_TALON_MASTER);
-		elevatorTalonFollower = new TalonSRX(Constants.FIRST_STAGE_ELEVATOR_TALON_FOLLOWER);
+		elevatorTalonMaster = new TalonSRX(Constants.ELEVATOR_TALON_MASTER);
+		elevatorTalonFollower = new TalonSRX(Constants.ELEVATOR_TALON_FOLLOWER);
 		elevatorTalonFollower.setInverted(true);
 
 		leftMaster = new TalonSRX(Constants.DRIVETRAIN_LEFT_MASTER);
@@ -95,11 +94,8 @@ public final class IO {
 		intakeLimitSwitchLeft = new DigitalInput(Constants.INTAKE_LIMIT_SWITCH_LEFT);
 		intakeLimitSwitchRight = new DigitalInput(Constants.INTAKE_LIMIT_SWITCH_RIGHT);
 
-		elevatorLimitSwitchBottom = new DigitalInput(Constants.FIRST_STAGE_ELEVATOR_LIMIT_SWITCH_BOTTOM);
-		elevatorLimitSwitchTop = new DigitalInput(Constants.FIRST_STAGE_ELEVATOR_LIMIT_SWITCH_TOP);
-
-		actuatorLimitSwitchTop = new DigitalInput(Constants.ARM_LIMIT_SWITCH_TOP);
-		actuatorLimitSwitchBottom = new DigitalInput(Constants.ARM_LIMIT_SWITCH_BOTTOM);
+		elevatorLimitSwitchBottom = new DigitalInput(Constants.ELEVATOR_LIMIT_SWITCH_BOTTOM);
+		elevatorLimitSwitchTop = new DigitalInput(Constants.ELEVATOR_LIMIT_SWITCH_TOP);
 
 		redLED = new DigitalOutput(Constants.DIO_RED_LED);
 		greenLED = new DigitalOutput(Constants.DIO_GREEN_LED);
@@ -135,9 +131,6 @@ public final class IO {
 
 		elevatorLimitSwitchBottom.setName("Bottom First Stage Elevator Limit Switch");
 		elevatorLimitSwitchTop.setName("Top First Stage Elevator Limit Switch");
-
-		actuatorLimitSwitchBottom.setName("FourBar Bottom");
-		actuatorLimitSwitchTop.setName("Fourbar Top");
 
 		redLED.setName("Red");
 		greenLED.setName("Green");
@@ -187,14 +180,6 @@ public final class IO {
 
 	public static DigitalInput getFirstStageElevatorLimitSwitchTop() {
 		return elevatorLimitSwitchTop;
-	}
-
-	public static DigitalInput getActuatorLimitSwitchTop() {
-		return actuatorLimitSwitchTop;
-	}
-
-	public static DigitalInput getActuatorLimitSwitchBottom() {
-		return actuatorLimitSwitchBottom;
 	}
 
 	public static AnalogInput getPotentiometerInput() {

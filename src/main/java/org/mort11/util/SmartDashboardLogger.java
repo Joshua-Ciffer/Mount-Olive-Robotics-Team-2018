@@ -24,8 +24,8 @@ public class SmartDashboardLogger {
         SmartDashboard.putNumber(Constants.rightDriveFollowerMiddleName, IO.getRightSlaveMiddle().getMotorOutputVoltage());
         SmartDashboard.putNumber(Constants.rightDriveFollowerBackName, IO.getRightSlaveBack().getMotorOutputVoltage());
 
-        SmartDashboard.putNumber(Constants.firstStageElevatorRightName, IO.getElevatorTalonMaster().getMotorOutputVoltage());
-        SmartDashboard.putNumber(Constants.firstStageElevatorLeftName, IO.getElevatorTalonFollower().getMotorOutputVoltage());
+        SmartDashboard.putNumber(Constants.elevatorRightName, IO.getElevatorTalonMaster().getMotorOutputVoltage());
+        SmartDashboard.putNumber(Constants.elevatorLeftName, IO.getElevatorTalonFollower().getMotorOutputVoltage());
 
         SmartDashboard.putNumber(Constants.intakeMotorLeftName, IO.getIntakeRollerVictorLeft().getMotorOutputVoltage());
         SmartDashboard.putNumber(Constants.intakeMotorRightName, IO.getIntakeRollerVictorRight().getMotorOutputVoltage());
