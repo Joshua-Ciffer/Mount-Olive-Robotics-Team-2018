@@ -24,7 +24,7 @@ public final class CoastIntake extends Command {
 	}
 
 	/**
-	 * If both intake limit switches are not pressed, coast the intake rollers.
+	 * If both intake limit switches are pressed, coast the intake rollers.
 	 */
 	@Override
 	protected void execute() {

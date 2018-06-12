@@ -1,37 +1,51 @@
 package org.mort11.intake;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import org.mort11.hardware.IO;
-import org.mort11.util.HardwareStates;
+import org.mort11.util.HardwareStates.IntakeShiftState;
 
 /**
+ * The intake shifter subsystem represents the piston that moves the intake into an up or down position.
+ * 
  * @author Joshua Ciffer
- * @version 03/08/2018
+ * @version 06/12/2018
  */
-public class IntakeShifter extends Subsystem {
+public final class IntakeShifter extends Subsystem {
 
-    public IntakeShifter() {
-        super("IntakePistons");
-    }
+	/**
+	 * Constructs a new <code>IntakeShifter</code> subsystem.
+	 */
+	public IntakeShifter() {
+		super("IntakeShifter");
+	}
 
-    @Override
-    protected void initDefaultCommand() {
-        setDefaultCommand(new ShiftIntake(HardwareStates.IntakeShiftState.DOWN));
-    }
+	/**
+	 * By default, subsystem is shifted into the down position.
+	 */
+	@Override
+	protected void initDefaultCommand() {
+		setDefaultCommand(new ShiftIntake(IntakeShiftState.DOWN));
+	}
 
-    public void shiftPiston(HardwareStates.IntakeShiftState pistonState) {
-        switch (pistonState) {
-            case UP: {
-                IO.getVerticalShifterPiston().set(DoubleSolenoid.Value.kReverse);
-                break;
-            }
-            case DOWN: {
-                IO.getVerticalShifterPiston().set(DoubleSolenoid.Value.kForward);
-                break;
-            }
-        }
-    }
+	/**
+	 * Shifts the intake into the desired position.
+	 *
+	 * @param pistonState
+	 *        The state to shift the intake pistons to.
+	 */
+	public void shift(IntakeShiftState pistonState) {
+		switch (pistonState) {
+			case UP: {
+				IO.getIntakeShifterPiston().set(Value.kReverse);
+				break;
+			}
+			case DOWN: {
+				IO.getIntakeShifterPiston().set(Value.kForward);
+				break;
+			}
+		}
+	}
 
 }

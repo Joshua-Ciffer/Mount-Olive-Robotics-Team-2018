@@ -22,7 +22,7 @@ public final class GrabAndClose extends CommandGroup {
 		super("GrabAndClose");
 		setInterruptible(true);
 		addParallel(new ActuateIntakePiston(IntakePistonState.OUT));
-		addParallel(new RollIntake(Constants.INTAKE_SPEED, IntakeRollersState.IN), Constants.ROLLER_TIMEOUT);
+		addParallel(new RollIntake(IntakeRollersState.IN), Constants.ROLLER_TIMEOUT);
 	}
 
 	/**

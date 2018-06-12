@@ -45,7 +45,7 @@ public class IO {
 	 */
 	private static DoubleSolenoid transmission;
 	private static DoubleSolenoid intakePiston;
-	private static DoubleSolenoid verticalShifterPiston;
+	private static DoubleSolenoid intakeShifterPiston;
 
 	public static void init() {
 
@@ -99,8 +99,8 @@ public class IO {
 		intakePiston = new DoubleSolenoid(Constants.PCM_ID, Constants.INTAKE_PISTON_IN, Constants.INTAKE_PISTON_OUT);
 		intakePiston.setName("intake");
 
-		verticalShifterPiston = new DoubleSolenoid(Constants.PCM_ID, Constants.VERTICAL_SHIFTER_PISTON_UP, Constants.VERTICAL_SHIFTER_PISTON_DOWN);
-		verticalShifterPiston.setName("VerticalShifterPiston");
+		intakeShifterPiston = new DoubleSolenoid(Constants.PCM_ID, Constants.VERTICAL_SHIFTER_PISTON_UP, Constants.VERTICAL_SHIFTER_PISTON_DOWN);
+		intakeShifterPiston.setName("VerticalShifterPiston");
 
 		compressor = new Compressor();
 		compressor.start();
@@ -223,8 +223,8 @@ public class IO {
 		return transmission;
 	}
 
-	public static DoubleSolenoid getVerticalShifterPiston() {
-		return verticalShifterPiston;
+	public static DoubleSolenoid getIntakeShifterPiston() {
+		return intakeShifterPiston;
 	}
 
 	/**
