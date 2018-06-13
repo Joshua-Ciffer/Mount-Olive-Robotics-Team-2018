@@ -92,7 +92,7 @@ public final class Operator {
 	}
 
 	/**
-	 * @return Right operator joystick.
+	 * @return Right operator joystick object.
 	 */
 	public static Joystick getRightOperatorJoystick() {
 		return rightOperatorJoystick;
