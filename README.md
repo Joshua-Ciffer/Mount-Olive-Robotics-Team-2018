@@ -23,6 +23,9 @@
 ### Intake
 - All intake subsystems and commands need to be tested THOROUGHLY.
   - Intake shifter may need to be modified depending on how the mechanical kids build the intake.
+### Climber
+- Entire climber subsystem needs to be written.
+  - Climber consists of a piston that extends up and down.
 
 # Resources
 - Project API: https://joshua-ciffer.github.io/MORT-2018-Off-Season/
