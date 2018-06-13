@@ -1,4 +1,5 @@
--Get rid of code for arm.
--Get rid of code for elevator.
-  -Elevator is only going to be one stage.
--Write code to actuate piston for climber.
+# Mount Olive Robotics Team 2018 Off-Season
+## Contributors: Joshua Ciffer, and yea no one else at this point... Thanks for the help.
+
+
+## Agenda
