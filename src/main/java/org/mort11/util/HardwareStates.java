@@ -15,6 +15,23 @@ public final class HardwareStates {
 	private HardwareStates() {}
 
 	/**
+	 * Hardware states for the drivetrain transmission.
+	 */
+	public enum DrivetrainGear {
+
+		/**
+		 * State when the drivetrain is in high gear.
+		 */
+		HIGH,
+
+		/**
+		 * State when the drivetrain is in low gear.
+		 */
+		LOW
+
+	}
+
+	/**
 	 * Hardware states for the elevator.
 	 */
 	public enum ElevatorState {
@@ -28,6 +45,33 @@ public final class HardwareStates {
 		 * State when the elevator cannot go any higher (top elevator limit switch is pressed).
 		 */
 		TOP
+
+	}
+
+	/**
+	 * Hardware states for the intake rollers.
+	 */
+	public enum IntakeRollersState {
+
+		/**
+		 * State when the intake is intaking a cube.
+		 */
+		IN,
+
+		/**
+		 * State when the intake is outtaking a cube.
+		 */
+		OUT,
+
+		/**
+		 * State when the intake rollers are stopped.
+		 */
+		STOP,
+
+		/**
+		 * State when the intake rollers are coasting.
+		 */
+		COAST
 
 	}
 
@@ -66,46 +110,19 @@ public final class HardwareStates {
 	}
 
 	/**
-	 * Hardware states for the intake rollers.
+	 * Hardware states for the climber.
 	 */
-	public enum IntakeRollersState {
+	public enum ClimberState {
 
 		/**
-		 * State when the intake is intaking a cube.
+		 * State when the climber piston is fully extended (climbing).
 		 */
-		IN,
+		EXTENDED,
 
 		/**
-		 * State when the intake is outtaking a cube.
+		 * State when the climber piston is fully retracted (not climbing).
 		 */
-		OUT,
-
-		/**
-		 * State when the intake rollers are stopped.
-		 */
-		STOP,
-
-		/**
-		 * State when the intake rollers are coasting.
-		 */
-		COAST
-
-	}
-
-	/**
-	 * Hardware states for the drivetrain transmission.
-	 */
-	public enum DrivetrainGear {
-
-		/**
-		 * State when the drivetrain is in high gear.
-		 */
-		HIGH,
-
-		/**
-		 * State when the drivetrain is in low gear.
-		 */
-		LOW
+		RETRACTED
 
 	}
 
