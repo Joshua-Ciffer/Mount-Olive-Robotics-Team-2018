@@ -22,6 +22,7 @@ public final class DoNothing extends Command {
 	/**
 	 * Command does nothing while executing.
 	 */
+	@Override
 	protected void execute() {}
 
 	/**

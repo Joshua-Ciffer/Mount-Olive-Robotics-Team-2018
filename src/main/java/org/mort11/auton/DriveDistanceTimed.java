@@ -36,6 +36,7 @@ public final class DriveDistanceTimed extends TimedCommand {
 	/**
 	 * Sets both sides of the drivetrain to drive at the specified speed.
 	 */
+	@Override
 	protected void execute() {
 		Robot.drivetrain.setBothSides(speed);
 	}
@@ -43,6 +44,7 @@ public final class DriveDistanceTimed extends TimedCommand {
 	/**
 	 * Halts the drivetrain at the completion of the command.
 	 */
+	@Override
 	protected void end() {
 		Robot.drivetrain.halt();
 	}

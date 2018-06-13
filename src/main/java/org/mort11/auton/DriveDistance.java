@@ -35,12 +35,15 @@ public final class DriveDistance extends Command {
 	public DriveDistance(double targetDistance) {
 		super("DriveDistance");
 		this.targetDistance = targetDistance;
+		requires(Robot.drivetrain);
+		setInterruptible(false);
 	}
 
 	/**
 	 * Initializes drivetrain talon sensors.
 	 * TODO: Can someone add further documentation or explanation for what the code for this method does?
 	 */
+	@Override
 	protected void initialize() {
 		IO.getRightMaster().setSelectedSensorPosition(0, 0, 0);
 		IO.getLeftMaster().setSelectedSensorPosition(0, 0, 0);
@@ -49,6 +52,7 @@ public final class DriveDistance extends Command {
 	/**
 	 * Robot is driven until the distance traveled is reached.
 	 */
+	@Override
 	protected void execute() {
 		if (Math.abs(targetDistance - distanceTraveled) > Constants.DISTANCE_LENIENCY) {
 			Robot.drivetrain.setLeftDriveVelocity(Convertor.convertFPSToEncoderTicksPer100Milliseconds(2));
@@ -65,6 +69,7 @@ public final class DriveDistance extends Command {
 	/**
 	 * Command is finished if the distance traveled is with in plus or minus 10 units of the target distance.
 	 */
+	@Override
 	protected boolean isFinished() {
 		return (distanceTraveled <= targetDistance + 10) || (distanceTraveled >= targetDistance - 10);
 	}
@@ -72,6 +77,7 @@ public final class DriveDistance extends Command {
 	/**
 	 * Robot is halted upon completion of this command.
 	 */
+	@Override
 	protected void end() {
 		Robot.drivetrain.halt();
 	}

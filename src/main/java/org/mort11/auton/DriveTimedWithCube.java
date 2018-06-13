@@ -1,13 +1,30 @@
 package org.mort11.auton;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+
 import org.mort11.intake.RollIntake;
-import org.mort11.util.HardwareStates;
+import org.mort11.util.HardwareStates.IntakeRollersState;;
 
-public class DriveTimedWithCube extends CommandGroup {
+/**
+ * An auton command to drive the robot for a specified time while holding a cube.
+ *
+ * @author Joshua Ciffer
+ * @version 06/12/2018
+ */
+public final class DriveTimedWithCube extends CommandGroup {
 
-    public DriveTimedWithCube(double speed, double timeout) {
-        addParallel(new DriveDistanceTimed(speed, timeout));
-        addParallel(new RollIntake(HardwareStates.IntakeRollersState.IN));
-    }
+	/**
+	 * Constructs a new <code>DriveTimedWithCube</code>.
+	 *
+	 * @param speed
+	 *        The speed for the robot to drive at.
+	 * @param timeout
+	 *        The time (in seconds) for the robot to drive.
+	 */
+	public DriveTimedWithCube(double speed, double timeout) {
+		super("DriveTimedWithCube");
+		addParallel(new DriveDistanceTimed(speed, timeout));
+		addParallel(new RollIntake(IntakeRollersState.IN));
+	}
+
 }

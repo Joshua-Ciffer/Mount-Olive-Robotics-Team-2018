@@ -41,11 +41,13 @@ public final class TurnDegrees extends Command {
 			this.desiredAngle = desiredAngle;
 		}
 		requires(Robot.drivetrain);
+		setInterruptible(false);
 	}
 
 	/**
 	 * Initializes the AHRS to zero degrees.
 	 */
+	@Override
 	protected void initialize() {
 		IO.getAHRS().zeroYaw();
 	}
@@ -53,6 +55,7 @@ public final class TurnDegrees extends Command {
 	/**
 	 * Turns the robot until the desired angle is reached.
 	 */
+	@Override
 	protected void execute() {
 		yaw = IO.getAHRS().getYaw();
 		/*
@@ -80,8 +83,9 @@ public final class TurnDegrees extends Command {
 	}
 
 	/**
-	 * Command is finished if
+	 * Command is finished if the yaw turned is at the finished angle.
 	 */
+	@Override
 	protected boolean isFinished() {
 		return Math.abs(IO.getAHRS().getYaw() - desiredAngle) <= Constants.ANGLE_FINISH;
 	}
@@ -89,6 +93,7 @@ public final class TurnDegrees extends Command {
 	/**
 	 * Upon completion of the command, the drivetrain is halted, and the AHRS is set to zero yaw.
 	 */
+	@Override
 	protected void end() {
 		Robot.drivetrain.halt();
 		IO.getAHRS().zeroYaw();
