@@ -6,11 +6,9 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import com.kauailabs.navx.frc.AHRS;
 
-import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.interfaces.Potentiometer;
 import edu.wpi.first.wpilibj.SPI;
 
 import org.mort11.Robot;
@@ -118,16 +116,6 @@ public final class IO {
 	private static Compressor compressor;
 
 	/**
-	 * Input for the potentiometer.
-	 */
-	private static AnalogInput potentiometerInput;
-
-	/**
-	 * The potentiometer.
-	 */
-	private static Potentiometer potentiometer;
-
-	/**
 	 * The AHRS sensor.
 	 */
 	private static AHRS AHRS;
@@ -173,15 +161,6 @@ public final class IO {
 		compressor = new Compressor();
 
 		AHRS = new AHRS(SPI.Port.kMXP);
-
-		initNames();
-	}
-
-	public static void initNames() {
-		leftIntakeLimitSwitch.setName("Left intake Limit Switch");
-		rightIntakeLimitSwitch.setName("Right intake Limit Switch");
-		bottomElevatorLimitSwitch.setName("Bottom First Stage Elevator Limit Switch");
-		topElevatorLimitSwitch.setName("Top First Stage Elevator Limit Switch");
 	}
 
 	/**
@@ -320,20 +299,6 @@ public final class IO {
 	 */
 	public static Compressor getCompressor() {
 		return compressor;
-	}
-
-	/**
-	 * @return Input for the potentiometer.
-	 */
-	public static AnalogInput getPotentiometerInput() {
-		return potentiometerInput;
-	}
-
-	/**
-	 * @return The potentiometer.
-	 */
-	public static Potentiometer getPotentiometer() {
-		return potentiometer;
 	}
 
 	/**

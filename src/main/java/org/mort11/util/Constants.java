@@ -201,42 +201,60 @@ public interface Constants {
 	int INTAKE_BUTTON = 3;
 
 	/**
-	 * TODO
+	 * Limit for elevator motor speed.
 	 */
 	double MOTOR_DEADZONE = 0.2;
 
+	/**
+	 * The circumference in inches.
+	 */
 	double CIRCUMFERENCE_IN_INCHES = 6 * Math.PI;
 
+	/**
+	 * The circumference in feet.
+	 */
 	double CIRCUMFERENCE_IN_FEET = 0.5 * Math.PI;
 
+	/**
+	 * The total number of encoder ticks.
+	 */
 	double ENCODER_TICKS = 4096;
 
+	/**
+	 * The value representing one encoder tick.
+	 */
 	double ONE_TICK = CIRCUMFERENCE_IN_FEET / ENCODER_TICKS;
-	// NavX Constants
+
+	/**
+	 * Value when an angle is determined close enough.
+	 */
 	int ANGLE_LENIENCY_CLOSE = 5;
 
+	/**
+	 * Value when an angle is determined far enough.
+	 */
 	int ANGLE_LENIENCY_FAR = 45;
 
+	/**
+	 * Value when an angle is determiend to be within margin of error.
+	 */
 	int ANGLE_FINISH = 5;
 
+	/**
+	 * Value for margin of error for drive distance.
+	 */
 	int DISTANCE_LENIENCY = 10;
 
+	/**
+	 * Converts feet per second to encoder ticks per 100 milliseconds.
+	 *
+	 * @param fps
+	 *        The feet per second to convert.
+	 * @return Encoder ticks per 100 milliseconds.
+	 */
 	static double convertFPSToEncoderTicksPer100Milliseconds(double fps) {
 		double ticksPer100Mil = (fps / (10 * Constants.ONE_TICK));
-		System.out.println(ticksPer100Mil);
 		return ticksPer100Mil;
 	}
-
-	String leftDriveMasterName = "LeftDrive Master";
-	String leftDriveFollowerMiddleName = "LeftDrive Follower Middle";
-	String leftDriveFollowerBackName = "LeftDrive Follower Back";
-	String rightDriveMasterName = "RightDrive Master";
-	String rightDriveFollowerMiddleName = "RightDrive Follower Middle";
-	String rightDriveFollowerBackName = "RightDrive Follower Back";
-	String elevatorLeftName = "Elevator Talon Left";
-	String elevatorRightName = "Elevator Talon Right";
-	String intakeMotorLeftName = "Left intake";
-	String intakeMotorRightName = "Right Drive";
-	String potentiometerName = "Potentiometer";
 
 }
