@@ -17,8 +17,8 @@
 ### Drivetrain
 - Drivetrain and shifting code is done just needs to be tested.
 ### Elevator
-- Elevator commands and subsystem need to be worked on.
-  - Reminder that elevator is now only one stage.
+- <s>Elevator commands and subsystem need to be worked on.
+  - Reminder that elevator is now only one stage. </s>
 ### Intake
 - All intake subsystems and commands need to be tested THOROUGHLY.
   - Intake shifter may need to be modified depending on how the mechanical kids build the intake.
