@@ -1,12 +1,17 @@
-.idea/
+# Eclipse Specific Files and Folders
 .settings/
-bin/
 /.classpath
 /.project
+
+# IntelliJ Specific Files and Folders
+.idea/
+
+# Compiled Output
+*.class
+bin/
+build/
+
 .gradle/
 out
-build/
-Thumbs.db
-.DS_Store
 run
 logs
