@@ -22,7 +22,6 @@ public final class MoveElevatorDown extends Command {
 		super("JoystickDriveFirstStageElevatorDown");
 		requires(Robot.elevator);
 		setInterruptible(true);
-		this.speed = speed;
 	}
 
 	@Override
