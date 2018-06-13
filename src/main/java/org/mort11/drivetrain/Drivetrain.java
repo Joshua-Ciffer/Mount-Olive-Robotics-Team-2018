@@ -39,8 +39,8 @@ public final class Drivetrain extends Subsystem {
 	 */
 	public void setLeftSpeed(double speed) {
 		IO.getLeftMaster().set(ControlMode.PercentOutput, -speed);
-		IO.getLeftSlaveMiddle().set(ControlMode.Follower, Constants.DRIVETRAIN_LEFT_MASTER);
-		IO.getLeftSlaveBack().set(ControlMode.Follower, Constants.DRIVETRAIN_LEFT_MASTER);
+		IO.getLeftSlaveMiddle().set(ControlMode.Follower, Constants.LEFT_DRIVE_TALON_MASTER);
+		IO.getLeftSlaveBack().set(ControlMode.Follower, Constants.LEFT_DRIVE_TALON_MASTER);
 	}
 
 	/**
@@ -51,8 +51,8 @@ public final class Drivetrain extends Subsystem {
 	 */
 	public void setRightSpeed(double speed) {
 		IO.getRightMaster().set(ControlMode.PercentOutput, speed);
-		IO.getRightSlaveMiddle().set(ControlMode.Follower, Constants.DRIVETRAIN_RIGHT_MASTER);
-		IO.getRightSlaveBack().set(ControlMode.Follower, Constants.DRIVETRAIN_RIGHT_MASTER);
+		IO.getRightSlaveMiddle().set(ControlMode.Follower, Constants.RIGHT_DRIVE_TALON_MASTER);
+		IO.getRightSlaveBack().set(ControlMode.Follower, Constants.RIGHT_DRIVE_TALON_MASTER);
 	}
 
 	/**
@@ -74,8 +74,8 @@ public final class Drivetrain extends Subsystem {
 	 */
 	public void setLeftVelocity(double velocity) {
 		IO.getLeftMaster().set(ControlMode.Velocity, velocity);
-		IO.getLeftSlaveMiddle().set(ControlMode.Follower, Constants.DRIVETRAIN_LEFT_MASTER);
-		IO.getLeftSlaveBack().set(ControlMode.Follower, Constants.DRIVETRAIN_LEFT_MASTER);
+		IO.getLeftSlaveMiddle().set(ControlMode.Follower, Constants.LEFT_DRIVE_TALON_MASTER);
+		IO.getLeftSlaveBack().set(ControlMode.Follower, Constants.LEFT_DRIVE_TALON_MASTER);
 	}
 
 	/**
@@ -86,8 +86,8 @@ public final class Drivetrain extends Subsystem {
 	 */
 	public void setRightVelocity(double velocity) {
 		IO.getRightMaster().set(ControlMode.Velocity, -velocity);
-		IO.getRightSlaveMiddle().set(ControlMode.Follower, Constants.DRIVETRAIN_RIGHT_MASTER);
-		IO.getRightSlaveBack().set(ControlMode.Follower, Constants.DRIVETRAIN_RIGHT_MASTER);
+		IO.getRightSlaveMiddle().set(ControlMode.Follower, Constants.RIGHT_DRIVE_TALON_MASTER);
+		IO.getRightSlaveBack().set(ControlMode.Follower, Constants.RIGHT_DRIVE_TALON_MASTER);
 	}
 
 	/**

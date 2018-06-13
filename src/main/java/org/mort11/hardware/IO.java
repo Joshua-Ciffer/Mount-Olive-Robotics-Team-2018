@@ -67,13 +67,13 @@ public final class IO {
 		elevatorTalonFollower = new TalonSRX(Constants.ELEVATOR_TALON_FOLLOWER);
 		elevatorTalonFollower.setInverted(true);
 
-		leftDriveMaster = new TalonSRX(Constants.DRIVETRAIN_LEFT_MASTER);
-		leftDriveSlaveMiddle = new TalonSRX(Constants.DRIVETRAIN_LEFT_SLAVE_MIDDLE);
-		leftDriveSlaveBack = new TalonSRX((Constants.DRIVETRAIN_LEFT_SLAVE_BACK));
+		leftDriveMaster = new TalonSRX(Constants.LEFT_DRIVE_TALON_MASTER);
+		leftDriveSlaveMiddle = new TalonSRX(Constants.LEFT_DRIVE_TALON_MIDDLE);
+		leftDriveSlaveBack = new TalonSRX((Constants.LEFT_DRIVE_TALON_REAR));
 
-		rightDriveMaster = new TalonSRX(Constants.DRIVETRAIN_RIGHT_MASTER);
-		rightDriveSlaveMiddle = new TalonSRX(Constants.DRIVETRAIN_RIGHT_SLAVE_MIDDLE);
-		rightDriveSlaveBack = new TalonSRX(Constants.DRIVETRAIN_RIGHT_SLAVE_BACK);
+		rightDriveMaster = new TalonSRX(Constants.RIGHT_DRIVE_TALON_MASTER);
+		rightDriveSlaveMiddle = new TalonSRX(Constants.RIGHT_DRIVE_TALON_MIDDLE);
+		rightDriveSlaveBack = new TalonSRX(Constants.RIGHT_DRIVE_TALON_REAR);
 
 		leftDriveMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
 		leftDriveMaster.selectProfileSlot(0, 0);
@@ -87,16 +87,16 @@ public final class IO {
 		// firstStageElevatorTalonFollower.setInverted(true);
 		// rightMaster.config_kP(0, 0, 0);
 
-		// transmission = new DoubleSolenoid(Constants.PCM_ID, Constants.TRANSMISSION_SHIFT_LOW, Constants.TRANSMISSION_SHIFT_HIGH);
+		transmission = new DoubleSolenoid(Constants.PCM_ID, Constants.TRANSMISSION_SHIFT_LOW, Constants.TRANSMISSION_SHIFT_HIGH);
 
-		intakeRollerVictorRight = new VictorSPX(Constants.INTAKE_ROLLER_VICTOR_RIGHT);
-		intakeRollerVictorLeft = new VictorSPX(Constants.INTAKE_ROLLER_VICTOR_LEFT);
+		intakeRollerVictorRight = new VictorSPX(Constants.RIGHT_INTAKE_ROLLER_VICTOR);
+		intakeRollerVictorLeft = new VictorSPX(Constants.LEFT_INTAKE_ROLLER_VICTOR);
 
-		intakeLimitSwitchLeft = new DigitalInput(Constants.INTAKE_LIMIT_SWITCH_LEFT);
-		intakeLimitSwitchRight = new DigitalInput(Constants.INTAKE_LIMIT_SWITCH_RIGHT);
+		intakeLimitSwitchLeft = new DigitalInput(Constants.LEFT_INTAKE_LIMIT_SWITCH);
+		intakeLimitSwitchRight = new DigitalInput(Constants.RIGHT_INTAKE_LIMIT_SWITCH);
 
-		elevatorLimitSwitchBottom = new DigitalInput(Constants.ELEVATOR_LIMIT_SWITCH_BOTTOM);
-		elevatorLimitSwitchTop = new DigitalInput(Constants.ELEVATOR_LIMIT_SWITCH_TOP);
+		elevatorLimitSwitchBottom = new DigitalInput(Constants.BOTTOM_ELEVATOR_LIMIT_SWITCH);
+		elevatorLimitSwitchTop = new DigitalInput(Constants.TOP_ELEVATOR_LIMIT_SWITCH);
 
 		redLED = new DigitalOutput(Constants.DIO_RED_LED);
 		greenLED = new DigitalOutput(Constants.DIO_GREEN_LED);
@@ -110,7 +110,7 @@ public final class IO {
 		intakePiston = new DoubleSolenoid(Constants.PCM_ID, Constants.INTAKE_PISTON_IN, Constants.INTAKE_PISTON_OUT);
 		intakePiston.setName("intake");
 
-		intakeShifterPiston = new DoubleSolenoid(Constants.PCM_ID, Constants.VERTICAL_SHIFTER_PISTON_UP, Constants.VERTICAL_SHIFTER_PISTON_DOWN);
+		intakeShifterPiston = new DoubleSolenoid(Constants.PCM_ID, Constants.INTAKE_SHIFTER_PISTON_UP, Constants.VERTICAL_SHIFTER_PISTON_DOWN);
 		intakeShifterPiston.setName("VerticalShifterPiston");
 
 		compressor = new Compressor();

@@ -65,19 +65,19 @@ public final class TurnDegrees extends Command {
 		 */
 		if (Math.abs(yaw - desiredAngle) >= Constants.ANGLE_LENIENCY_FAR) {
 			if (desiredAngle < 0) {
-				Robot.drivetrain.setLeftSpeed(Constants.SPEED_FAR);
-				Robot.drivetrain.setRightSpeed(-Constants.SPEED_FAR);
+				Robot.drivetrain.setLeftSpeed(Constants.DRIVETRAIN_SPEED_FAR);
+				Robot.drivetrain.setRightSpeed(-Constants.DRIVETRAIN_SPEED_FAR);
 			} else {
-				Robot.drivetrain.setLeftSpeed(-Constants.SPEED_FAR);
-				Robot.drivetrain.setRightSpeed(Constants.SPEED_FAR);
+				Robot.drivetrain.setLeftSpeed(-Constants.DRIVETRAIN_SPEED_FAR);
+				Robot.drivetrain.setRightSpeed(Constants.DRIVETRAIN_SPEED_FAR);
 			}
 		} else if (Math.abs(yaw - desiredAngle) >= Constants.ANGLE_LENIENCY_CLOSE) {
 			if (desiredAngle < 0) {
-				Robot.drivetrain.setLeftSpeed(Constants.SPEED_CLOSE);
-				Robot.drivetrain.setRightSpeed(-Constants.SPEED_CLOSE);
+				Robot.drivetrain.setLeftSpeed(Constants.DRIVETRAIN_SPEED_CLOSE);
+				Robot.drivetrain.setRightSpeed(-Constants.DRIVETRAIN_SPEED_CLOSE);
 			} else {
-				Robot.drivetrain.setLeftSpeed(-Constants.SPEED_CLOSE);
-				Robot.drivetrain.setRightSpeed(Constants.SPEED_CLOSE);
+				Robot.drivetrain.setLeftSpeed(-Constants.DRIVETRAIN_SPEED_CLOSE);
+				Robot.drivetrain.setRightSpeed(Constants.DRIVETRAIN_SPEED_CLOSE);
 			}
 		}
 	}
