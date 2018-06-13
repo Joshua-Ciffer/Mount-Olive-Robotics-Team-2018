@@ -156,51 +156,6 @@ public interface Constants {
 	double ELEVATOR_VELOCITY = 600;
 
 	/**
-	 * Red LED channel port value.
-	 */
-	int RED_LED_CHANNEL = 10;
-
-	/**
-	 * Green LED channel port value.
-	 */
-	int GREEN_LED_CHANNEL = 11;
-
-	/**
-	 * Blue LED channel port value.
-	 */
-	int BLUE_LED_CHANNEL = 12;
-
-	/**
-	 * Red LED channel off value.
-	 */
-	boolean LED_RED_OFF = false;
-
-	/**
-	 * Red LED channel on value.
-	 */
-	boolean LED_RED_ON = true;
-
-	/**
-	 * Green LED channel off value.
-	 */
-	boolean LED_GREEN_OFF = false;
-
-	/**
-	 * Green LED channel on value.
-	 */
-	boolean LED_GREEN_ON = true;
-
-	/**
-	 * Blue LED channel off value.
-	 */
-	boolean LED_BLUE_OFF = true;
-
-	/**
-	 * Blue LED channel on value.
-	 */
-	boolean LED_BLUE_ON = false;
-
-	/**
 	 * PCM ID value.
 	 */
 	int PCM_ID = 20;
@@ -266,12 +221,12 @@ public interface Constants {
 
 	int DISTANCE_LENIENCY = 10;
 
-    static double convertFPSToEncoderTicksPer100Milliseconds(double fps) {
-        double ticksPer100Mil = (fps / (10 * Constants.ONE_TICK));
-        System.out.println(ticksPer100Mil);
-        return ticksPer100Mil;
-    }
-	
+	static double convertFPSToEncoderTicksPer100Milliseconds(double fps) {
+		double ticksPer100Mil = (fps / (10 * Constants.ONE_TICK));
+		System.out.println(ticksPer100Mil);
+		return ticksPer100Mil;
+	}
+
 	String leftDriveMasterName = "LeftDrive Master";
 	String leftDriveFollowerMiddleName = "LeftDrive Follower Middle";
 	String leftDriveFollowerBackName = "LeftDrive Follower Back";

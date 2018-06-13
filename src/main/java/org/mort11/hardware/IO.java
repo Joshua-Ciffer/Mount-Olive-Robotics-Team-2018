@@ -9,7 +9,6 @@ import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.DigitalOutput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.interfaces.Potentiometer;
 import edu.wpi.first.wpilibj.SPI;
@@ -114,21 +113,6 @@ public final class IO {
 	private static DigitalInput rightIntakeLimitSwitch;
 
 	/**
-	 * Red LED channel.
-	 */
-	private static DigitalOutput redLED;
-
-	/**
-	 * Green LED channel.
-	 */
-	private static DigitalOutput greenLED;
-
-	/**
-	 * Blue LED channel.
-	 */
-	private static DigitalOutput blueLED;
-
-	/**
 	 * The main compressor.
 	 */
 	private static Compressor compressor;
@@ -185,10 +169,6 @@ public final class IO {
 		intakeShifterPiston = new DoubleSolenoid(Constants.PCM_ID, Constants.INTAKE_SHIFTER_PISTON_UP, Constants.INTAKE_SHIFTER_PISTON_DOWN);
 		leftIntakeLimitSwitch = new DigitalInput(Constants.LEFT_INTAKE_LIMIT_SWITCH);
 		rightIntakeLimitSwitch = new DigitalInput(Constants.RIGHT_INTAKE_LIMIT_SWITCH);
-
-		redLED = new DigitalOutput(Constants.RED_LED_CHANNEL);
-		greenLED = new DigitalOutput(Constants.GREEN_LED_CHANNEL);
-		blueLED = new DigitalOutput(Constants.BLUE_LED_CHANNEL);
 
 		compressor = new Compressor();
 
@@ -333,27 +313,6 @@ public final class IO {
 	 */
 	public static DigitalInput getRightIntakeLimitSwitch() {
 		return rightIntakeLimitSwitch;
-	}
-
-	/**
-	 * @return The red LED channel.
-	 */
-	public static DigitalOutput getRedLED() {
-		return redLED;
-	}
-
-	/**
-	 * @return The green LED channel.
-	 */
-	public static DigitalOutput getGreenLED() {
-		return greenLED;
-	}
-
-	/**
-	 * @return The blue LED channel.
-	 */
-	public static DigitalOutput getBlueLED() {
-		return blueLED;
 	}
 
 	/**

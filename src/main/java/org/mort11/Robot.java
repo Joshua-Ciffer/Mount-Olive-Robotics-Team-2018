@@ -16,7 +16,6 @@ import org.mort11.hardware.IO;
 import org.mort11.intake.IntakePistons;
 import org.mort11.intake.IntakeRollers;
 import org.mort11.intake.IntakeShifter;
-import org.mort11.led.LED;
 import org.mort11.util.AutoChooser;
 import org.mort11.util.SmartDashboardLogger;
 
@@ -57,11 +56,6 @@ public final class Robot extends IterativeRobot {
 	public static IntakeShifter intakeShifter;
 
 	/**
-	 * The LED subsystem.
-	 */
-	public static LED led;
-
-	/**
 	 * Tells the robot which auton command to run.
 	 */
 	public static SendableChooser<Command> autonChooser;
@@ -97,7 +91,6 @@ public final class Robot extends IterativeRobot {
 		intakeRollers = new IntakeRollers();
 		intakePistons = new IntakePistons();
 		intakeShifter = new IntakeShifter();
-		led = new LED();
 		Operator.init();
 
 		sideChooser = new SendableChooser<>();
