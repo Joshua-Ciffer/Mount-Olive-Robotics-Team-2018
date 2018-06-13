@@ -22,3 +22,8 @@
 ### Intake
 - All intake subsystems and commands need to be tested THOROUGHLY.
   - Intake shifter may need to be modified depending on how the mechanical kids build the intake.
+
+# Resources
+- Project API: https://joshua-ciffer.github.io/MORT-2018-Off-Season/
+- WPILib API: http://first.wpi.edu/FRC/roborio/release/docs/java/
+- CTRE API: http://www.ctr-electronics.com/downloads/api/java/html/index.html
