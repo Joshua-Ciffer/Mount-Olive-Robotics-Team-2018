@@ -7,6 +7,7 @@
 ### General
 - Code could use lots of additional documentation.
 - New constant values and port numbers need to be filled in.
+- Clean up util package.
 ### Hardware
 - Clean up IO class.
 ### Control
