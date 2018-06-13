@@ -6,6 +6,7 @@
 
 ### General
 - Code could use lots of additional documentation.
+- New constant values and port numbers need to be filled in.
 ### Hardware
 - Clean up IO class.
 ### Control
