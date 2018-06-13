@@ -29,6 +29,10 @@
 ### Climber
 - Entire climber subsystem needs to be written.
   - Climber consists of a piston that extends up and down.
+  - What needs to be written:
+    - Climber Subsystem
+    - ExtendClimber command (actuates climber piston)
+    - ClimberState hardware state enum
 
 # Resources
 - Project API: https://joshua-ciffer.github.io/MORT-2018-Off-Season/
