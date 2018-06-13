@@ -9,7 +9,7 @@
 - New constant values and port numbers need to be filled in.
 - Clean up util package.
 ### Hardware
-- Clean up IO class.
+- <s>Clean up IO class.</s>
 ### Control
 - Find out button mappings.
   - Which commands are triggered on what action (button release, held, pressed, etc).
@@ -32,7 +32,7 @@
   - What needs to be written:
     - Climber Subsystem
     - ExtendClimber command (actuates climber piston)
-    - ClimberState hardware state enum
+    - <s>ClimberState hardware state enum</s>
 
 # Resources
 - Project API: https://joshua-ciffer.github.io/MORT-2018-Off-Season/
