@@ -5,15 +5,20 @@
 # Agenda
 
 ### General
-
+- Code could use lots of additional documentation.
 ### Hardware
-
+- Clean up IO class.
 ### Control
-
+- Find out button mappings.
+  - Which commands are triggered on what action (button release, held, pressed, etc).
 ### Auton
-
+- Current autons (DriveDistance, TurnDegrees, etc) need to be tested.
+- Once all subsystems are 100% functional and tested, we can start working on some advanced auton stuff.
 ### Drivetrain
-
+- Drivetrain and shifting code is done just needs to be tested.
 ### Elevator
-
+- Elevator commands and subsystem need to be worked on.
+  - Reminder that elevator is now only one stage.
 ### Intake
+- All intake subsystems and commands need to be tested THOROUGHLY.
+  - Intake shifter may need to be modified depending on how the mechanical kids build the intake.
