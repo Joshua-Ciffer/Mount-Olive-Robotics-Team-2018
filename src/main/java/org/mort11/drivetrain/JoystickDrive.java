@@ -10,7 +10,7 @@ import org.mort11.control.Operator;
  * 
  * @author Zach "Bad Push" Rich
  * @author Joshua Ciffer
- * @version 06/08/2018
+ * @version 06/12/2018
  */
 public final class JoystickDrive extends Command {
 
@@ -24,20 +24,16 @@ public final class JoystickDrive extends Command {
 	}
 
 	/**
-	 * Set drivetrain sides to operator joystick input.
+	 * Set drivetrain speed to operator joystick input.
 	 */
 	@Override
 	protected void execute() {
-		Robot.drivetrain.setLeftDriveSpeed(Operator.getLeftDriverJoystick().getX());
-		Robot.drivetrain.setRightDriveSpeed(Operator.getRightDriverJoystick().getY());
+		Robot.drivetrain.setLeftSpeed(Operator.getLeftDriverJoystick().getY());
+		Robot.drivetrain.setRightSpeed(Operator.getRightDriverJoystick().getY());
 	}
 
 	/**
-	 * The limit switch is false when it is pressed. The switch returns true when it is not pressed.
-	 * If the limit switch is pressed (false) then isFinished() returns true because the switch would
-	 * then stop robot movement.
-	 *
-	 * @return Returns whether or not the command has been interrupted.
+	 * Command always returns false.
 	 */
 	@Override
 	protected boolean isFinished() {

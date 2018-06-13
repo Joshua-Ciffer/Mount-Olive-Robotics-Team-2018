@@ -38,7 +38,7 @@ public final class DriveDistanceTimed extends TimedCommand {
 	 */
 	@Override
 	protected void execute() {
-		Robot.drivetrain.setBothSides(speed);
+		Robot.drivetrain.setBothSpeed(speed);
 	}
 
 	/**

@@ -8,9 +8,9 @@ import org.mort11.util.HardwareStates.DrivetrainGear;
 /**
  * Command that runs upon a button press to change the gear of the drivetrain.
  *
- * @author Zach Rich
+ * @author Zach "Merge Error" Rich
  * @author Joshua Ciffer
- * @version 06/08/2018
+ * @version 06/12/2018
  */
 public final class ShiftDrivetrain extends Command {
 
@@ -34,12 +34,13 @@ public final class ShiftDrivetrain extends Command {
 	/**
 	 * Calls shifting method in drivetrain subsystem class.
 	 */
+	@Override
 	protected void execute() {
 		Robot.drivetrain.shift(gear);
 	}
 
 	/**
-	 * Always returns true because command never finishes.
+	 * Returns true after the drivetrain is shifted.
 	 */
 	@Override
 	protected boolean isFinished() {
