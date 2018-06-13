@@ -48,4 +48,11 @@ public final class IntakeShifter extends Subsystem {
 		}
 	}
 
+	/**
+	 * Disables the intake shifter piston.
+	 */
+	public void halt() {
+		IO.getIntakeShifterPiston().set(Value.kOff);
+	}
+
 }

@@ -47,4 +47,11 @@ public final class IntakePistons extends Subsystem {
 		}
 	}
 
+	/**
+	 * Disables the intake pistons.
+	 */
+	public void halt() {
+		IO.getIntakePiston().set(Value.kOff);
+	}
+
 }

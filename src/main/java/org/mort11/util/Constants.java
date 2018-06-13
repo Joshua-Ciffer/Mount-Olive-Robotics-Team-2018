@@ -43,12 +43,12 @@ public interface Constants {
 	/**
 	 * Drivetrain transmission low state port value.
 	 */
-	int TRANSMISSION_SHIFT_LOW = 4;
+	int DRIVETRAIN_TRANSMISSION_LOW = 4;
 
 	/**
 	 * Drivetrain transmission high state port value.
 	 */
-	int TRANSMISSION_SHIFT_HIGH = 5;
+	int DRIVETRAIN_TRANSMISSION_HIGH = 5;
 
 	/**
 	 * The drivetrain speed (percent output mode) used in autons.
@@ -118,7 +118,7 @@ public interface Constants {
 	/**
 	 * Intake shifter piston extended state port value.
 	 */
-	int VERTICAL_SHIFTER_PISTON_DOWN = 0;
+	int INTAKE_SHIFTER_PISTON_DOWN = 0;
 
 	/**
 	 * The timeout for the intake rollers when intaking a cube.
@@ -158,17 +158,17 @@ public interface Constants {
 	/**
 	 * Red LED channel port value.
 	 */
-	int DIO_RED_LED = 10;
+	int RED_LED_CHANNEL = 10;
 
 	/**
 	 * Green LED channel port value.
 	 */
-	int DIO_GREEN_LED = 11;
+	int GREEN_LED_CHANNEL = 11;
 
 	/**
 	 * Blue LED channel port value.
 	 */
-	int DIO_BLUE_LED = 12;
+	int BLUE_LED_CHANNEL = 12;
 
 	/**
 	 * Red LED channel off value.

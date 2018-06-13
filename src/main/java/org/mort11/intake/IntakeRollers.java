@@ -40,8 +40,8 @@ public final class IntakeRollers extends Subsystem {
 	 *        The speed to set the intake rollers.
 	 */
 	public void setRollerSpeed(double speed) {
-		IO.getIntakeRollerVictorLeft().set(ControlMode.PercentOutput, speed);
-		IO.getIntakeRollerVictorRight().set(ControlMode.PercentOutput, speed);
+		IO.getLeftIntakeRollerVictor().set(ControlMode.PercentOutput, speed);
+		IO.getRightIntakeRollerVictor().set(ControlMode.PercentOutput, speed);
 	}
 
 	/**

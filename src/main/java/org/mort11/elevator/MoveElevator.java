@@ -40,7 +40,7 @@ public final class MoveElevator extends Command {
 	 */
 	@Override
 	protected boolean isFinished() {
-		if (!IO.getFirstStageElevatorLimitSwitchBottom().get() || (speed < Constants.MOTOR_DEADZONE)) {
+		if (!IO.getBottomElevatorLimitSwitch().get() || (speed < Constants.MOTOR_DEADZONE)) {
 			return true;
 		} else {
 			return false;

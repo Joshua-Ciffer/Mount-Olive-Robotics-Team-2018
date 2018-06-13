@@ -45,8 +45,8 @@ public final class DriveDistance extends Command {
 	 */
 	@Override
 	protected void initialize() {
-		IO.getRightMaster().setSelectedSensorPosition(0, 0, 0);
-		IO.getLeftMaster().setSelectedSensorPosition(0, 0, 0);
+		IO.getRightDriveTalonMaster().setSelectedSensorPosition(0, 0, 0);
+		IO.getLeftDriveTalonMaster().setSelectedSensorPosition(0, 0, 0);
 	}
 
 	/**
@@ -61,7 +61,7 @@ public final class DriveDistance extends Command {
 		}
 		Robot.drivetrain.setLeftSpeed(0.5);
 		Robot.drivetrain.setRightSpeed(0.5);
-		distanceTraveled += Constants.CIRCUMFERENCE_IN_INCHES * (IO.getRightMaster().getSensorCollection().getPulseWidthPosition() / 4096);
+		distanceTraveled += Constants.CIRCUMFERENCE_IN_INCHES * (IO.getRightDriveTalonMaster().getSensorCollection().getPulseWidthPosition() / 4096);
 	}
 
 	/**

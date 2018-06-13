@@ -91,7 +91,7 @@ public final class Robot extends IterativeRobot {
 	public void autonomousInit() {
 		gameData = DriverStation.getInstance().getGameSpecificMessage(); // Get the game data from the driver station
 		autoCommand = AutoChooser.setAutoCommand(autoChooser.getSelected(), gameData);
-		IO.getRightMaster().setSelectedSensorPosition(0, 0, 0);
+		IO.getRightDriveTalonMaster().setSelectedSensorPosition(0, 0, 0);
 		if (autoCommand != null) {
 			autoCommand.start();
 		}
@@ -111,7 +111,7 @@ public final class Robot extends IterativeRobot {
 		if (autoCommand != null) {
 			autoCommand.cancel();
 		}
-		IO.getRightMaster().setSelectedSensorPosition(0, 0, 0);
+		IO.getRightDriveTalonMaster().setSelectedSensorPosition(0, 0, 0);
 		IO.getElevatorTalonMaster().setSelectedSensorPosition(0, 0, 0);
 		IO.getElevatorTalonMaster().setNeutralMode(NeutralMode.Coast);
 		IO.getElevatorTalonFollower().setNeutralMode(NeutralMode.Coast);
@@ -123,8 +123,8 @@ public final class Robot extends IterativeRobot {
 		SmartDashboardLogger.initEncoders();
 		SmartDashboard.updateValues();
 		System.out.println("Error: " + IO.getElevatorTalonMaster().getClosedLoopError(0));
-		System.out.println(IO.getRightMaster().getSelectedSensorPosition(0));
-		System.out.println(IO.getLeftMaster().getSelectedSensorPosition(0));
+		System.out.println(IO.getRightDriveTalonMaster().getSelectedSensorPosition(0));
+		System.out.println(IO.getLeftDriveTalonMaster().getSelectedSensorPosition(0));
 	}
 
 	@Override

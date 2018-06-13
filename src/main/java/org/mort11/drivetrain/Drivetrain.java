@@ -21,7 +21,7 @@ public final class Drivetrain extends Subsystem {
 	 * Constructs a new <code>Drivetrain</code> subsystem.
 	 */
 	public Drivetrain() {
-		super("drivetrain");
+		super("Drivetrain");
 	}
 
 	/**
@@ -38,9 +38,9 @@ public final class Drivetrain extends Subsystem {
 	 *        The speed to set.
 	 */
 	public void setLeftSpeed(double speed) {
-		IO.getLeftMaster().set(ControlMode.PercentOutput, -speed);
-		IO.getLeftSlaveMiddle().set(ControlMode.Follower, Constants.LEFT_DRIVE_TALON_MASTER);
-		IO.getLeftSlaveBack().set(ControlMode.Follower, Constants.LEFT_DRIVE_TALON_MASTER);
+		IO.getLeftDriveTalonMaster().set(ControlMode.PercentOutput, -speed);
+		IO.getLeftDriveTalonMiddle().set(ControlMode.Follower, Constants.LEFT_DRIVE_TALON_MASTER);
+		IO.getLeftDriveTalonRear().set(ControlMode.Follower, Constants.LEFT_DRIVE_TALON_MASTER);
 	}
 
 	/**
@@ -50,9 +50,9 @@ public final class Drivetrain extends Subsystem {
 	 *        The speed to set.
 	 */
 	public void setRightSpeed(double speed) {
-		IO.getRightMaster().set(ControlMode.PercentOutput, speed);
-		IO.getRightSlaveMiddle().set(ControlMode.Follower, Constants.RIGHT_DRIVE_TALON_MASTER);
-		IO.getRightSlaveBack().set(ControlMode.Follower, Constants.RIGHT_DRIVE_TALON_MASTER);
+		IO.getRightDriveTalonMaster().set(ControlMode.PercentOutput, speed);
+		IO.getRightDriveTalonMiddle().set(ControlMode.Follower, Constants.RIGHT_DRIVE_TALON_MASTER);
+		IO.getRightDriveTalonRear().set(ControlMode.Follower, Constants.RIGHT_DRIVE_TALON_MASTER);
 	}
 
 	/**
@@ -73,9 +73,9 @@ public final class Drivetrain extends Subsystem {
 	 *        The velocity to set.
 	 */
 	public void setLeftVelocity(double velocity) {
-		IO.getLeftMaster().set(ControlMode.Velocity, velocity);
-		IO.getLeftSlaveMiddle().set(ControlMode.Follower, Constants.LEFT_DRIVE_TALON_MASTER);
-		IO.getLeftSlaveBack().set(ControlMode.Follower, Constants.LEFT_DRIVE_TALON_MASTER);
+		IO.getLeftDriveTalonMaster().set(ControlMode.Velocity, velocity);
+		IO.getLeftDriveTalonMiddle().set(ControlMode.Follower, Constants.LEFT_DRIVE_TALON_MASTER);
+		IO.getLeftDriveTalonRear().set(ControlMode.Follower, Constants.LEFT_DRIVE_TALON_MASTER);
 	}
 
 	/**
@@ -85,9 +85,9 @@ public final class Drivetrain extends Subsystem {
 	 *        The velocity to set.
 	 */
 	public void setRightVelocity(double velocity) {
-		IO.getRightMaster().set(ControlMode.Velocity, -velocity);
-		IO.getRightSlaveMiddle().set(ControlMode.Follower, Constants.RIGHT_DRIVE_TALON_MASTER);
-		IO.getRightSlaveBack().set(ControlMode.Follower, Constants.RIGHT_DRIVE_TALON_MASTER);
+		IO.getRightDriveTalonMaster().set(ControlMode.Velocity, -velocity);
+		IO.getRightDriveTalonMiddle().set(ControlMode.Follower, Constants.RIGHT_DRIVE_TALON_MASTER);
+		IO.getRightDriveTalonRear().set(ControlMode.Follower, Constants.RIGHT_DRIVE_TALON_MASTER);
 	}
 
 	/**
@@ -106,6 +106,7 @@ public final class Drivetrain extends Subsystem {
 	 */
 	public void halt() {
 		setBothSpeed(0);
+		IO.getDrivetrainTransmission().set(Value.kOff);
 	}
 
 	/**
@@ -117,11 +118,11 @@ public final class Drivetrain extends Subsystem {
 	public void shift(DrivetrainGear gear) {
 		switch (gear) {
 			case HIGH: {
-				IO.getTransmission().set(Value.kForward);
+				IO.getDrivetrainTransmission().set(Value.kForward);
 				break;
 			}
 			case LOW: {
-				IO.getTransmission().set(Value.kReverse);
+				IO.getDrivetrainTransmission().set(Value.kReverse);
 				break;
 			}
 		}

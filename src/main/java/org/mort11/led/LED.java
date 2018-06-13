@@ -72,7 +72,7 @@ public final class LED extends Subsystem {
 	 * then the LEDs change to green.
 	 */
 	public void changeIntakeColor() {
-		if (!IO.getIntakeLimitSwitchLeft().get() && !IO.getIntakeLimitSwitchRight().get()) {		// Switch is pressed,
+		if (!IO.getLeftIntakeLimitSwitch().get() && !IO.getRightIntakeLimitSwitch().get()) {		// Switch is pressed,
 			IO.getRedLED().set(Constants.LED_RED_OFF);			// Off
 			IO.getGreenLED().set(Constants.LED_GREEN_ON);		// On
 			IO.getBlueLED().set(Constants.LED_BLUE_OFF);		// Off

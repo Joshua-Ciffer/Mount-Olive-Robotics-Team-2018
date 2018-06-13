@@ -15,31 +15,32 @@ import org.mort11.util.Constants;
  * @version 06/08/2018
  */
 public final class MoveElevatorDown extends Command {
-    private double speed;
 
-    public MoveElevatorDown() {
-        super("JoystickDriveFirstStageElevatorDown");
-        requires(Robot.elevator);
-        setInterruptible(true);
-        this.speed = speed;
-    }
+	private double speed;
 
-    @Override
-    protected void execute() {
-        speed = Operator.getLeftOperatorJoystick().getY();
-        if (speed > Constants.MOTOR_DEADZONE) {
-            Robot.elevator.setVelocity(-speed);
-        }
-    }
+	public MoveElevatorDown() {
+		super("JoystickDriveFirstStageElevatorDown");
+		requires(Robot.elevator);
+		setInterruptible(true);
+		this.speed = speed;
+	}
 
-    @Override
-    protected boolean isFinished() {
-        return !IO.getFirstStageElevatorLimitSwitchBottom().get() || speed < Constants.MOTOR_DEADZONE;
-    }
+	@Override
+	protected void execute() {
+		speed = Operator.getLeftOperatorJoystick().getY();
+		if (speed > Constants.MOTOR_DEADZONE) {
+			Robot.elevator.setVelocity(-speed);
+		}
+	}
 
-    @Override
-    protected void end() {
-        Robot.elevator.setVelocity(0);
-    }
+	@Override
+	protected boolean isFinished() {
+		return !IO.getBottomElevatorLimitSwitch().get() || speed < Constants.MOTOR_DEADZONE;
+	}
+
+	@Override
+	protected void end() {
+		Robot.elevator.setVelocity(0);
+	}
 
 }

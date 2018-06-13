@@ -7,41 +7,42 @@ import org.mort11.hardware.IO;
 import org.mort11.util.Constants;
 
 public class MoveElevatorUp extends Command {
-    private double speed;
 
-    public MoveElevatorUp() {
-        super("JoystickDriveFirstStageElevatorUp");
-        requires(Robot.elevator);
-        setInterruptible(true);
-    }
+	private double speed;
 
-    @Override
-    protected void execute() {
-        speed = Operator.getLeftOperatorJoystick().getY();
+	public MoveElevatorUp() {
+		super("JoystickDriveFirstStageElevatorUp");
+		requires(Robot.elevator);
+		setInterruptible(true);
+	}
 
-        if (speed < -Constants.MOTOR_DEADZONE) {
-            Robot.elevator.setVelocity(-speed);
-        }
-    }
+	@Override
+	protected void execute() {
+		speed = Operator.getLeftOperatorJoystick().getY();
 
-    @Override
-    protected boolean isFinished() {
-        return !IO.getFirstStageElevatorLimitSwitchTop().get() || speed > -Constants.MOTOR_DEADZONE;
-    }
+		if (speed < -Constants.MOTOR_DEADZONE) {
+			Robot.elevator.setVelocity(-speed);
+		}
+	}
 
-    @Override
-    protected void end() {
-        //IO.getFirstStageElevatorTalonMaster().setSelectedSensorPosition(Constants.ZERO_ENCODER_POSITION,Constants.PID_LOOP_ID, 0);
-        Robot.elevator.setVelocity(0);
-    }
+	@Override
+	protected boolean isFinished() {
+		return !IO.getTopElevatorLimitSwitch().get() || speed > -Constants.MOTOR_DEADZONE;
+	}
 
-    @Override
-    protected void interrupted() {
-        end();
-    }
+	@Override
+	protected void end() {
+		// IO.getFirstStageElevatorTalonMaster().setSelectedSensorPosition(Constants.ZERO_ENCODER_POSITION,Constants.PID_LOOP_ID, 0);
+		Robot.elevator.setVelocity(0);
+	}
 
-    @Override
-    protected void initialize() {
-        //IO.getFirstStageElevatorTalonMaster().setSelectedSensorPosition(Constants.ZERO_ENCODER_POSITION,Constants.PID_LOOP_ID, 0);
-    }
+	@Override
+	protected void interrupted() {
+		end();
+	}
+
+	@Override
+	protected void initialize() {
+		// IO.getFirstStageElevatorTalonMaster().setSelectedSensorPosition(Constants.ZERO_ENCODER_POSITION,Constants.PID_LOOP_ID, 0);
+	}
 }

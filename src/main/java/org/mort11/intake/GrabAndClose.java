@@ -30,7 +30,7 @@ public final class GrabAndClose extends CommandGroup {
 	 */
 	@Override
 	protected boolean isFinished() {
-		return !IO.getIntakeLimitSwitchLeft().get() && !IO.getIntakeLimitSwitchRight().get();
+		return !IO.getLeftIntakeLimitSwitch().get() && !IO.getRightIntakeLimitSwitch().get();
 	}
 
 }

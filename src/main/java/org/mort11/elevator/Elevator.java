@@ -54,4 +54,11 @@ public final class Elevator extends Subsystem {
 		IO.getElevatorTalonFollower().set(ControlMode.Follower, Constants.ELEVATOR_TALON_MASTER);
 	}
 
+	/**
+	 * Stops the elevator motors.
+	 */
+	public void halt() {
+		setPercent(0);
+	}
+
 }

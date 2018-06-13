@@ -77,7 +77,7 @@ public final class RollIntake extends Command {
 				break;
 			}
 			case IN: {
-				if (!IO.getIntakeLimitSwitchLeft().get() || !IO.getIntakeLimitSwitchRight().get()) {
+				if (!IO.getLeftIntakeLimitSwitch().get() || !IO.getRightIntakeLimitSwitch().get()) {
 					return true;
 				}
 				break;
