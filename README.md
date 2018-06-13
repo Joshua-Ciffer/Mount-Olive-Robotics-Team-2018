@@ -16,6 +16,7 @@
 ### Auton
 - Current autons (DriveDistance, TurnDegrees, etc) need to be tested.
 - Once all subsystems are 100% functional and tested, we can start working on some advanced auton stuff.
+  - Again, more autons once all subsystems are done.
 ### Drivetrain
 - Drivetrain and shifting code is done just needs to be tested.
 ### Elevator
