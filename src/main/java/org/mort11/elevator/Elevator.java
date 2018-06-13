@@ -48,7 +48,7 @@ public class Elevator extends Subsystem {
     }
 
     public void setPercent(double percent) {
-        IO.getElevatorTalonMaster().set(Constants.CONTROL_MODE, percent);
+        IO.getElevatorTalonMaster().set(ControlMode.PercentOutput, percent);
         IO.getElevatorTalonFollower().set(ControlMode.Follower, Constants.ELEVATOR_TALON_MASTER);
     }
 

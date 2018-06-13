@@ -1,10 +1,11 @@
 package org.mort11.intake;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import org.mort11.hardware.IO;
 import org.mort11.util.HardwareStates.IntakeRollersState;
-import org.mort11.util.Constants;
 
 /**
  * The subsystem representing the intake roller wheels that intake or outtake a cube.
@@ -39,8 +40,8 @@ public final class IntakeRollers extends Subsystem {
 	 *        The speed to set the intake rollers.
 	 */
 	public void setRollerSpeed(double speed) {
-		IO.getIntakeRollerVictorLeft().set(Constants.CONTROL_MODE, speed);
-		IO.getIntakeRollerVictorRight().set(Constants.CONTROL_MODE, speed);
+		IO.getIntakeRollerVictorLeft().set(ControlMode.PercentOutput, speed);
+		IO.getIntakeRollerVictorRight().set(ControlMode.PercentOutput, speed);
 	}
 
 	/**

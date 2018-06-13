@@ -1,5 +1,6 @@
 package org.mort11.hardware;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
@@ -30,12 +31,12 @@ public final class IO {
 	private static Compressor compressor;
 	private static TalonSRX elevatorTalonMaster, elevatorTalonFollower;
 	private static VictorSPX intakeRollerVictorRight, intakeRollerVictorLeft;
-	private static TalonSRX leftMaster;
-	private static TalonSRX leftSlaveMiddle;
-	private static TalonSRX leftSlaveBack;
-	private static TalonSRX rightMaster;
-	private static TalonSRX rightSlaveMiddle;
-	private static TalonSRX rightSlaveBack;
+	private static TalonSRX leftDriveMaster;
+	private static TalonSRX leftDriveSlaveMiddle;
+	private static TalonSRX leftDriveSlaveBack;
+	private static TalonSRX rightDriveMaster;
+	private static TalonSRX rightDriveSlaveMiddle;
+	private static TalonSRX rightDriveSlaveBack;
 	private static DigitalInput intakeLimitSwitchLeft, intakeLimitSwitchRight;
 	private static DigitalInput elevatorLimitSwitchBottom, elevatorLimitSwitchTop;
 	private static AnalogInput potentiometerInput;
@@ -66,19 +67,19 @@ public final class IO {
 		elevatorTalonFollower = new TalonSRX(Constants.ELEVATOR_TALON_FOLLOWER);
 		elevatorTalonFollower.setInverted(true);
 
-		leftMaster = new TalonSRX(Constants.DRIVETRAIN_LEFT_MASTER);
-		leftSlaveMiddle = new TalonSRX(Constants.DRIVETRAIN_LEFT_SLAVE_MIDDLE);
-		leftSlaveBack = new TalonSRX((Constants.DRIVETRAIN_LEFT_SLAVE_BACK));
+		leftDriveMaster = new TalonSRX(Constants.DRIVETRAIN_LEFT_MASTER);
+		leftDriveSlaveMiddle = new TalonSRX(Constants.DRIVETRAIN_LEFT_SLAVE_MIDDLE);
+		leftDriveSlaveBack = new TalonSRX((Constants.DRIVETRAIN_LEFT_SLAVE_BACK));
 
-		rightMaster = new TalonSRX(Constants.DRIVETRAIN_RIGHT_MASTER);
-		rightSlaveMiddle = new TalonSRX(Constants.DRIVETRAIN_RIGHT_SLAVE_MIDDLE);
-		rightSlaveBack = new TalonSRX(Constants.DRIVETRAIN_RIGHT_SLAVE_BACK);
+		rightDriveMaster = new TalonSRX(Constants.DRIVETRAIN_RIGHT_MASTER);
+		rightDriveSlaveMiddle = new TalonSRX(Constants.DRIVETRAIN_RIGHT_SLAVE_MIDDLE);
+		rightDriveSlaveBack = new TalonSRX(Constants.DRIVETRAIN_RIGHT_SLAVE_BACK);
 
-		leftMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
-		leftMaster.selectProfileSlot(0, 0);
-		rightMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
-		rightMaster.selectProfileSlot(0, 0);
-		rightMaster.setSensorPhase(true);
+		leftDriveMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
+		leftDriveMaster.selectProfileSlot(0, 0);
+		rightDriveMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
+		rightDriveMaster.selectProfileSlot(0, 0);
+		rightDriveMaster.setSensorPhase(true);
 
 		elevatorTalonMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 100);
 		elevatorTalonMaster.selectProfileSlot(0, 0);
@@ -142,12 +143,12 @@ public final class IO {
 	 * Stops all motors and disables all solenoids.
 	 */
 	public static void seize() {
-		leftMaster.set(Constants.CONTROL_MODE, 0);
-		leftSlaveMiddle.set(Constants.FOLLOWER, 0);
-		leftSlaveBack.set(Constants.FOLLOWER, 0);
-		rightMaster.set(Constants.CONTROL_MODE, 0);
-		rightSlaveMiddle.set(Constants.FOLLOWER, 0);
-		rightSlaveBack.set(Constants.FOLLOWER, 0);
+		leftDriveMaster.set(ControlMode.PercentOutput, 0);
+		leftDriveSlaveMiddle.set(ControlMode.Follower, 0);
+		leftDriveSlaveBack.set(ControlMode.Follower, 0);
+		rightDriveMaster.set(ControlMode.PercentOutput, 0);
+		rightDriveSlaveMiddle.set(ControlMode.Follower, 0);
+		rightDriveSlaveBack.set(ControlMode.Follower, 0);
 	}
 
 	public static TalonSRX getElevatorTalonMaster() {
@@ -195,27 +196,27 @@ public final class IO {
 	}
 
 	public static TalonSRX getLeftMaster() {
-		return leftMaster;
+		return leftDriveMaster;
 	}
 
 	public static TalonSRX getLeftSlaveMiddle() {
-		return leftSlaveMiddle;
+		return leftDriveSlaveMiddle;
 	}
 
 	public static TalonSRX getLeftSlaveBack() {
-		return leftSlaveBack;
+		return leftDriveSlaveBack;
 	}
 
 	public static TalonSRX getRightMaster() {
-		return rightMaster;
+		return rightDriveMaster;
 	}
 
 	public static TalonSRX getRightSlaveMiddle() {
-		return rightSlaveMiddle;
+		return rightDriveSlaveMiddle;
 	}
 
 	public static TalonSRX getRightSlaveBack() {
-		return rightSlaveBack;
+		return rightDriveSlaveBack;
 	}
 
 	public static DoubleSolenoid getTransmission() {

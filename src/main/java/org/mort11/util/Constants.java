@@ -93,12 +93,6 @@ public interface Constants {
     int VERTICAL_SHIFTER_PISTON_UP = 1;
     int VERTICAL_SHIFTER_PISTON_DOWN = 0;
 
-    /**
-     * Control Modes
-     */
-    ControlMode FOLLOWER = ControlMode.Follower;
-    ControlMode CONTROL_MODE = ControlMode.PercentOutput;
-
     /*
      * Motor Names
      */
