@@ -3,18 +3,13 @@ package org.mort11.led;
 import edu.wpi.first.wpilibj.command.InstantCommand;
 
 import org.mort11.Robot;
-import org.mort11.hardware.IO;
-
-import static org.mort11.util.Constants.LED_RED_OFF;
-import static org.mort11.util.Constants.LED_GREEN_OFF;
-import static org.mort11.util.Constants.LED_BLUE_OFF;
 
 /**
  * This command cycles through every color on the LEDs at the end of the game.This command is an instant command, because it only needs
  * to run once at the end of the game.
  * 
  * @author Joshua Ciffer
- * @version 05/31/2018
+ * @version 06/12/2018
  */
 public final class CycleEndGameColors extends InstantCommand {
 
@@ -32,9 +27,7 @@ public final class CycleEndGameColors extends InstantCommand {
 	 */
 	@Override
 	protected void initialize() {
-		IO.getRedLED().set(LED_RED_OFF);			// Off
-		IO.getGreenLED().set(LED_GREEN_OFF);		// Off
-		IO.getBlueLED().set(LED_BLUE_OFF);			// Off
+		Robot.led.turnOffAll();
 	}
 
 	/**
@@ -51,9 +44,7 @@ public final class CycleEndGameColors extends InstantCommand {
 	@Override
 	protected boolean isFinished() {
 		if (timeSinceInitialized() >= 30) {		// Command only runs for 30 seconds.
-			IO.getRedLED().set(LED_RED_OFF);			// Off
-			IO.getGreenLED().set(LED_GREEN_OFF);		// Off
-			IO.getBlueLED().set(LED_BLUE_OFF);			// Off
+			Robot.led.turnOffAll();
 			return true;
 		} else {
 			return false;

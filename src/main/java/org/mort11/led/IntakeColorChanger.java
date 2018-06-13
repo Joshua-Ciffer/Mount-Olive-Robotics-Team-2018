@@ -5,10 +5,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 import org.mort11.Robot;
 import org.mort11.hardware.IO;
-
-import static org.mort11.util.Constants.LED_RED_ON;
-import static org.mort11.util.Constants.LED_GREEN_OFF;
-import static org.mort11.util.Constants.LED_BLUE_OFF;
+import org.mort11.util.Constants;
 
 /**
  * This command checks for input from a switch and if the switch is pressed, the LEDs are lit up green.
@@ -33,9 +30,9 @@ public final class IntakeColorChanger extends Command {
 	 */
 	@Override
 	protected void initialize() {
-		IO.getRedLED().set(LED_RED_ON);			// On
-		IO.getGreenLED().set(LED_GREEN_OFF);	// Off
-		IO.getBlueLED().set(LED_BLUE_OFF);		// Off
+		IO.getRedLED().set(Constants.LED_RED_ON);			// On
+		IO.getGreenLED().set(Constants.LED_GREEN_OFF);		// Off
+		IO.getBlueLED().set(Constants.LED_BLUE_OFF);		// Off
 	}
 
 	/**
@@ -52,8 +49,6 @@ public final class IntakeColorChanger extends Command {
 
 	/**
 	 * Always returns false so the command is never interrupted.
-	 *
-	 * @return False
 	 */
 	@Override
 	protected boolean isFinished() {

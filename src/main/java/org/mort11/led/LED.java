@@ -5,13 +5,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import org.mort11.hardware.IO;
-
-import static org.mort11.util.Constants.LED_RED_OFF;
-import static org.mort11.util.Constants.LED_RED_ON;
-import static org.mort11.util.Constants.LED_GREEN_OFF;
-import static org.mort11.util.Constants.LED_GREEN_ON;
-import static org.mort11.util.Constants.LED_BLUE_OFF;
-import static org.mort11.util.Constants.LED_BLUE_ON;
+import org.mort11.util.Constants;
 
 /**
  * This class contains a subsystem for the LEDs. Several different commands can be run on the LED subsystem.
@@ -41,36 +35,36 @@ public final class LED extends Subsystem {
 	 * Turns on red LEDs.
 	 */
 	public void turnOnRed() {
-		IO.getRedLED().set(LED_RED_ON);			// On
-		IO.getGreenLED().set(LED_GREEN_OFF);	// Off
-		IO.getBlueLED().set(LED_BLUE_OFF);		// Off
+		IO.getRedLED().set(Constants.LED_RED_ON);			// On
+		IO.getGreenLED().set(Constants.LED_GREEN_OFF);		// Off
+		IO.getBlueLED().set(Constants.LED_BLUE_OFF);		// Off
 	}
 
 	/**
 	 * Turns on green LEDs.
 	 */
 	public void turnOnGreen() {
-		IO.getRedLED().set(LED_RED_OFF);		// Off
-		IO.getGreenLED().set(LED_GREEN_ON);		// On
-		IO.getBlueLED().set(LED_BLUE_OFF);		// Off
+		IO.getRedLED().set(Constants.LED_RED_OFF);			// Off
+		IO.getGreenLED().set(Constants.LED_GREEN_ON);		// On
+		IO.getBlueLED().set(Constants.LED_BLUE_OFF);		// Off
 	}
 
 	/**
 	 * Turns on blue LEDs.
 	 */
 	public void turnOnBlue() {
-		IO.getRedLED().set(LED_RED_OFF);		// Off
-		IO.getGreenLED().set(LED_GREEN_OFF);	// Off
-		IO.getBlueLED().set(LED_BLUE_ON);		// On
+		IO.getRedLED().set(Constants.LED_RED_OFF);		// Off
+		IO.getGreenLED().set(Constants.LED_GREEN_OFF);	// Off
+		IO.getBlueLED().set(Constants.LED_BLUE_ON);		// On
 	}
 
 	/**
 	 * Turns off all LEDs.
 	 */
 	public void turnOffAll() {
-		IO.getRedLED().set(LED_RED_OFF);		// Off
-		IO.getGreenLED().set(LED_GREEN_OFF);	// Off
-		IO.getBlueLED().set(LED_BLUE_OFF);		// Off
+		IO.getRedLED().set(Constants.LED_RED_OFF);		// Off
+		IO.getGreenLED().set(Constants.LED_GREEN_OFF);	// Off
+		IO.getBlueLED().set(Constants.LED_BLUE_OFF);	// Off
 	}
 
 	/**
@@ -79,13 +73,13 @@ public final class LED extends Subsystem {
 	 */
 	public void changeIntakeColor() {
 		if (!IO.getIntakeLimitSwitchLeft().get() && !IO.getIntakeLimitSwitchRight().get()) {		// Switch is pressed,
-			IO.getRedLED().set(LED_RED_OFF);		// Off
-			IO.getGreenLED().set(LED_GREEN_ON);		// On
-			IO.getBlueLED().set(LED_BLUE_OFF);		// Off
+			IO.getRedLED().set(Constants.LED_RED_OFF);			// Off
+			IO.getGreenLED().set(Constants.LED_GREEN_ON);		// On
+			IO.getBlueLED().set(Constants.LED_BLUE_OFF);		// Off
 		} else {											// Switch is not pressed,
-			IO.getRedLED().set(LED_RED_ON);			// On
-			IO.getGreenLED().set(LED_GREEN_OFF);	// Off
-			IO.getBlueLED().set(LED_BLUE_OFF);		// Off
+			IO.getRedLED().set(Constants.LED_RED_ON);			// On
+			IO.getGreenLED().set(Constants.LED_GREEN_OFF);		// Off
+			IO.getBlueLED().set(Constants.LED_BLUE_OFF);		// Off
 		}
 	}
 
@@ -95,21 +89,21 @@ public final class LED extends Subsystem {
 	public void changeAllianceColor() {
 		switch (DriverStation.getInstance().getAlliance()) {
 			case Blue: {
-				IO.getRedLED().set(LED_RED_OFF);		// Off
-				IO.getGreenLED().set(LED_GREEN_OFF);	// Off
-				IO.getBlueLED().set(LED_BLUE_ON);		// On
+				IO.getRedLED().set(Constants.LED_RED_OFF);		// Off
+				IO.getGreenLED().set(Constants.LED_GREEN_OFF);	// Off
+				IO.getBlueLED().set(Constants.LED_BLUE_ON);		// On
 				break;
 			}
 			case Red: {
-				IO.getRedLED().set(LED_RED_ON);			// On
-				IO.getGreenLED().set(LED_GREEN_OFF);	// Off
-				IO.getBlueLED().set(LED_BLUE_OFF);		// Off
+				IO.getRedLED().set(Constants.LED_RED_ON);		// On
+				IO.getGreenLED().set(Constants.LED_GREEN_OFF);	// Off
+				IO.getBlueLED().set(Constants.LED_BLUE_OFF);	// Off
 				break;
 			}
 			case Invalid: {
-				IO.getRedLED().set(LED_RED_OFF);		// Off
-				IO.getGreenLED().set(LED_GREEN_ON);		// On
-				IO.getBlueLED().set(LED_BLUE_OFF);		// Off
+				IO.getRedLED().set(Constants.LED_RED_OFF);		// Off
+				IO.getGreenLED().set(Constants.LED_GREEN_ON);	// On
+				IO.getBlueLED().set(Constants.LED_BLUE_OFF);	// Off
 				break;
 			}
 		}
@@ -121,57 +115,48 @@ public final class LED extends Subsystem {
 	public void endGameColors() {
 		switch ((int)(Math.random() * 7)) {		// Randomly determines which color to set it to.
 			case 0: {	// Red.
-				IO.getRedLED().set(LED_RED_ON);			// On
-				IO.getGreenLED().set(LED_GREEN_OFF);	// Off
-				IO.getBlueLED().set(LED_BLUE_OFF);		// Off
+				IO.getRedLED().set(Constants.LED_RED_ON);		// On
+				IO.getGreenLED().set(Constants.LED_GREEN_OFF);	// Off
+				IO.getBlueLED().set(Constants.LED_BLUE_OFF);	// Off
 				break;
 			}
 			case 1: {	// Green.
-				IO.getRedLED().set(LED_RED_OFF);		// Off
-				IO.getGreenLED().set(LED_GREEN_ON);		// On
-				IO.getBlueLED().set(LED_BLUE_OFF);		// Off
+				IO.getRedLED().set(Constants.LED_RED_OFF);		// Off
+				IO.getGreenLED().set(Constants.LED_GREEN_ON);	// On
+				IO.getBlueLED().set(Constants.LED_BLUE_OFF);	// Off
 				break;
 			}
 			case 2: {	// Blue.
-				IO.getRedLED().set(LED_RED_OFF);		// Off
-				IO.getGreenLED().set(LED_GREEN_OFF);	// Off
-				IO.getBlueLED().set(LED_BLUE_ON);		// On
+				IO.getRedLED().set(Constants.LED_RED_OFF);		// Off
+				IO.getGreenLED().set(Constants.LED_GREEN_OFF);	// Off
+				IO.getBlueLED().set(Constants.LED_BLUE_ON);		// On
 				break;
 			}
 			case 3: {	// Purple.
-				IO.getRedLED().set(LED_RED_ON);			// On
-				IO.getGreenLED().set(LED_GREEN_OFF);	// Off
-				IO.getBlueLED().set(LED_BLUE_ON);		// On
+				IO.getRedLED().set(Constants.LED_RED_ON);		// On
+				IO.getGreenLED().set(Constants.LED_GREEN_OFF);	// Off
+				IO.getBlueLED().set(Constants.LED_BLUE_ON);		// On
 				break;
 			}
 			case 4: {	// Yellow.
-				IO.getRedLED().set(LED_RED_ON);			// On
-				IO.getGreenLED().set(LED_GREEN_ON);		// On
-				IO.getBlueLED().set(LED_BLUE_OFF);		// Off
+				IO.getRedLED().set(Constants.LED_RED_ON);		// On
+				IO.getGreenLED().set(Constants.LED_GREEN_ON);	// On
+				IO.getBlueLED().set(Constants.LED_BLUE_OFF);	// Off
 				break;
 			}
 			case 5: {	// Light blue.
-				IO.getRedLED().set(LED_RED_OFF);		// Off
-				IO.getGreenLED().set(LED_GREEN_ON);		// On
-				IO.getBlueLED().set(LED_BLUE_ON);		// On
+				IO.getRedLED().set(Constants.LED_RED_OFF);		// Off
+				IO.getGreenLED().set(Constants.LED_GREEN_ON);	// On
+				IO.getBlueLED().set(Constants.LED_BLUE_ON);		// On
 				break;
 			}
 			case 6: {	// White.
-				IO.getRedLED().set(LED_RED_ON);			// On
-				IO.getGreenLED().set(LED_GREEN_ON);		// On
-				IO.getBlueLED().set(LED_BLUE_ON);		// On
+				IO.getRedLED().set(Constants.LED_RED_ON);		// On
+				IO.getGreenLED().set(Constants.LED_GREEN_ON);	// On
+				IO.getBlueLED().set(Constants.LED_BLUE_ON);		// On
 				break;
 			}
 		}
-	}
-
-	/**
-	 * Turns off all LEDs.
-	 */
-	public void disableLEDs() {
-		IO.getRedLED().set(LED_RED_OFF);		// Off
-		IO.getGreenLED().set(LED_GREEN_OFF);	// Off
-		IO.getBlueLED().set(LED_BLUE_OFF);		// Off
 	}
 
 	/**
