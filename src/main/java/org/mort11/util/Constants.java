@@ -266,6 +266,12 @@ public interface Constants {
 
 	int DISTANCE_LENIENCY = 10;
 
+    static double convertFPSToEncoderTicksPer100Milliseconds(double fps) {
+        double ticksPer100Mil = (fps / (10 * Constants.ONE_TICK));
+        System.out.println(ticksPer100Mil);
+        return ticksPer100Mil;
+    }
+	
 	String leftDriveMasterName = "LeftDrive Master";
 	String leftDriveFollowerMiddleName = "LeftDrive Follower Middle";
 	String leftDriveFollowerBackName = "LeftDrive Follower Back";

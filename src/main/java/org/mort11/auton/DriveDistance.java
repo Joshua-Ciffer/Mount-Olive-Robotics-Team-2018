@@ -4,7 +4,6 @@ import edu.wpi.first.wpilibj.command.Command;
 
 import org.mort11.Robot;
 import org.mort11.hardware.IO;
-import org.mort11.util.Convertor;
 import org.mort11.util.Constants;
 
 /**
@@ -55,9 +54,9 @@ public final class DriveDistance extends Command {
 	@Override
 	protected void execute() {
 		if (Math.abs(targetDistance - distanceTraveled) > Constants.DISTANCE_LENIENCY) {
-			Robot.drivetrain.setBothVelocity(Convertor.convertFPSToEncoderTicksPer100Milliseconds(2));
+			Robot.drivetrain.setBothVelocity(Constants.convertFPSToEncoderTicksPer100Milliseconds(2));
 		} else if (Math.abs(targetDistance - distanceTraveled) < Constants.DISTANCE_LENIENCY) {
-			Robot.drivetrain.setBothVelocity(Convertor.convertFPSToEncoderTicksPer100Milliseconds(1));
+			Robot.drivetrain.setBothVelocity(Constants.convertFPSToEncoderTicksPer100Milliseconds(1));
 		}
 		Robot.drivetrain.setLeftSpeed(0.5);
 		Robot.drivetrain.setRightSpeed(0.5);
