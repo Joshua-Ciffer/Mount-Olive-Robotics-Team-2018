@@ -211,7 +211,7 @@ public final class IO {
 		Robot.drivetrain.halt();
 		Robot.elevator.halt();
 		Robot.intakeRollers.halt();
-		Robot.intakePiston.halt();
+		Robot.intakePistons.halt();
 		Robot.intakeShifter.halt();
 		compressor.stop();
 	}

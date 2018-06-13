@@ -28,7 +28,7 @@ public final class LED extends Subsystem {
 	 */
 	@Override
 	protected void initDefaultCommand() {
-		setDefaultCommand(new DisableLEDs());
+		setDefaultCommand(new DisableLEDs()); // Set no default command when LEDs are not in use.
 	}
 
 	/**

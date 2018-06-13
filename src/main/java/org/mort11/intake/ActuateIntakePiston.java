@@ -27,7 +27,7 @@ public final class ActuateIntakePiston extends Command {
 	public ActuateIntakePiston(IntakePistonState pistonState) {
 		super("ActuateIntakePiston");
 		this.pistonState = pistonState;
-		requires(Robot.intakePiston);
+		requires(Robot.intakePistons);
 		setInterruptible(false);
 	}
 
@@ -36,7 +36,7 @@ public final class ActuateIntakePiston extends Command {
 	 */
 	@Override
 	protected void execute() {
-		Robot.intakePiston.actuate(pistonState);
+		Robot.intakePistons.actuate(pistonState);
 	}
 
 	/**
