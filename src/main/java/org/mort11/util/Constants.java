@@ -61,11 +61,6 @@ public interface Constants {
 	int RIGHT_OPERATOR_JOYSTICK = 3;
 
 	/**
-	 * Limit for elevator motor speed.
-	 */
-	double MOTOR_DEADZONE = 0.2;
-
-	/**
 	 * The total number of encoder ticks.
 	 */
 	double ENCODER_TICKS = 4096;
