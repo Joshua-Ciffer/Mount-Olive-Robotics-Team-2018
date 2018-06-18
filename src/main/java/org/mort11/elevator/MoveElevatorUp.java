@@ -1,50 +1,48 @@
 package org.mort11.elevator;
 
 import edu.wpi.first.wpilibj.command.Command;
-
 import org.mort11.Robot;
+import org.mort11.control.Operator;
 import org.mort11.hardware.IO;
 import org.mort11.util.Constants;
 
-/**
- * Command to move the elevator into its highest position.
- *
- * @author Joshua Ciffer
- * @version 06/13/2018
- */
-public final class MoveElevatorUp extends Command {
+public class MoveElevatorUp extends Command {
 
-	/**
-	 * Constructs a new <code>MoveElevatorUp</code> command.
-	 */
+	private double speed;
+
 	public MoveElevatorUp() {
-		super("MoveElevatorUp");
+		super("JoystickDriveFirstStageElevatorUp");
 		requires(Robot.elevator);
 		setInterruptible(true);
 	}
 
-	/**
-	 * Elevator is moved up until the command finishes.
-	 */
 	@Override
 	protected void execute() {
-		Robot.elevator.setSpeedPercentMode(Constants.ELEVATOR_SPEED);
+		speed = Operator.getLeftOperatorJoystick().getY();
+
+		if (speed < -Constants.MOTOR_DEADZONE) {
+			Robot.elevator.setVelocity(-speed);
+		}
 	}
 
-	/**
-	 * Command finishes if the top elevator limit switch is pressed.
-	 */
 	@Override
 	protected boolean isFinished() {
-		return !IO.getTopElevatorLimitSwitch().get();
+		return !IO.getTopElevatorLimitSwitch().get() || speed > -Constants.MOTOR_DEADZONE;
 	}
 
-	/**
-	 * Elevator is halted upon completion of this command.
-	 */
 	@Override
 	protected void end() {
-		Robot.elevator.halt();
+		// IO.getFirstStageElevatorTalonMaster().setSelectedSensorPosition(Constants.ZERO_ENCODER_POSITION,Constants.PID_LOOP_ID, 0);
+		Robot.elevator.setVelocity(0);
 	}
 
+	@Override
+	protected void interrupted() {
+		end();
+	}
+
+	@Override
+	protected void initialize() {
+		// IO.getFirstStageElevatorTalonMaster().setSelectedSensorPosition(Constants.ZERO_ENCODER_POSITION,Constants.PID_LOOP_ID, 0);
+	}
 }
