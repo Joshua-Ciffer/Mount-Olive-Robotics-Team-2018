@@ -24,39 +24,33 @@ public final class Elevator extends Subsystem {
 	}
 
 	/**
-	 * Sets the default command to joystick drive.
+	 * 
 	 */
 	@Override
 	protected void initDefaultCommand() {
-		setDefaultCommand(new JoystickDrive());
+		setDefaultCommand(new MoveElevator());
 	}
 
 	/**
+	 * Sets the speed of the elevator talons.
+	 *
 	 * @param speed
-	 *        The speed to set (position mode).
-	 * @param rotations
-	 *        The number of rotation.
+	 *        - Talon speed.
 	 */
-	public void setSpeedPositionMode(double speed, double rotations) {
+	public void set(double speed, double rotations) {
+
 		IO.getElevatorTalonMaster().set(ControlMode.Position, speed * rotations * Constants.ENCODER_TICKS);
 		IO.getElevatorTalonFollower().set(ControlMode.Follower, Constants.ELEVATOR_TALON_MASTER);
+
 	}
 
-	/**
-	 * @param speed
-	 *        The speed to set (velocity mode).
-	 */
-	public void setSpeedVelocityMode(double speed) {
+	public void setVelocity(double speed) {
 		IO.getElevatorTalonMaster().set(ControlMode.Velocity, speed * Constants.ELEVATOR_VELOCITY);
 		IO.getElevatorTalonFollower().set(ControlMode.Follower, Constants.ELEVATOR_TALON_MASTER);
 	}
 
-	/**
-	 * @param speed
-	 *        The speed to set (percent output mode).
-	 */
-	public void setSpeedPercentMode(double speed) {
-		IO.getElevatorTalonMaster().set(ControlMode.PercentOutput, speed);
+	public void setPercent(double percent) {
+		IO.getElevatorTalonMaster().set(ControlMode.PercentOutput, percent);
 		IO.getElevatorTalonFollower().set(ControlMode.Follower, Constants.ELEVATOR_TALON_MASTER);
 	}
 
@@ -64,7 +58,7 @@ public final class Elevator extends Subsystem {
 	 * Stops the elevator motors.
 	 */
 	public void halt() {
-		setSpeedPercentMode(0);
+		setPercent(0);
 	}
 
 }
