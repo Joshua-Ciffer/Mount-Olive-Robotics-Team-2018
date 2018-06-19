@@ -34,11 +34,11 @@ public final class JoystickDrive extends Command {
 	@Override
 	protected void execute() {
 		speed = Operator.getLeftDriverJoystick().getY();
-		if (!IO.getBottomElevatorLimitSwitch().get()) {	// If the elevator is at the top,
+		if (!IO.getTopElevatorLimitSwitch().get()) {	// If the elevator is at the top,
 			if (speed < 0) {	// Only move it as long as it is going down.
 				Robot.elevator.setSpeedPercentMode(speed);
 			}
-		} else if (!IO.getTopElevatorLimitSwitch().get()) {	// If the elevator is at the bottom,
+		} else if (!IO.getBottomElevatorLimitSwitch().get()) {	// If the elevator is at the bottom,
 			if (speed > 0) {	// Only move it as long as it is going up.
 				Robot.elevator.setSpeedPercentMode(speed);
 			}
