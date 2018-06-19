@@ -66,6 +66,36 @@ public interface Constants {
 	double DRIVETRAIN_SPEED_CLOSE = .22;
 
 	/**
+	 * Elevator master motor port value.
+	 */
+	int ELEVATOR_TALON_MASTER = 8;
+
+	/**
+	 * Elevator follower motor port value.
+	 */
+	int ELEVATOR_TALON_FOLLOWER = 9;
+
+	/**
+	 * Bottom elevator limit switch port value.
+	 */
+	int BOTTOM_ELEVATOR_LIMIT_SWITCH = 6;
+
+	/**
+	 * Top elevator limit switch port value.
+	 */
+	int TOP_ELEVATOR_LIMIT_SWITCH = 5;
+
+	/**
+	 * The elevator speed used in autons.
+	 */
+	double ELEVATOR_SPEED = .2;
+
+	/**
+	 * The elevator velocity used in velocity control mode.
+	 */
+	double ELEVATOR_VELOCITY = 600;
+
+	/**
 	 * Right intake roller motor port value.
 	 */
 	int RIGHT_INTAKE_ROLLER_VICTOR = 7;
@@ -126,34 +156,14 @@ public interface Constants {
 	double ROLLER_TIMEOUT = .75;
 
 	/**
-	 * Elevator master motor port value.
+	 * The climber piston extended state port value.
 	 */
-	int ELEVATOR_TALON_MASTER = 8;
+	int CLIMBER_PISTON_EXTENDED = 0;
 
 	/**
-	 * Elevator follower motor port value.
+	 * The climber piston retracted state port value.
 	 */
-	int ELEVATOR_TALON_FOLLOWER = 9;
-
-	/**
-	 * Bottom elevator limit switch port value.
-	 */
-	int BOTTOM_ELEVATOR_LIMIT_SWITCH = 6;
-
-	/**
-	 * Top elevator limit switch port value.
-	 */
-	int TOP_ELEVATOR_LIMIT_SWITCH = 5;
-
-	/**
-	 * The elevator speed used in autons.
-	 */
-	double ELEVATOR_SPEED = .2;
-
-	/**
-	 * The elevator velocity used in velocity control mode.
-	 */
-	double ELEVATOR_VELOCITY = 600;
+	int CLIMBER_PISTON_RETRACTED = 0;
 
 	/**
 	 * PCM ID value.

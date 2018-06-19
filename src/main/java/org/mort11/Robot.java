@@ -16,6 +16,7 @@ import org.mort11.hardware.IO;
 import org.mort11.intake.IntakePistons;
 import org.mort11.intake.IntakeRollers;
 import org.mort11.intake.IntakeShifter;
+import org.mort11.climber.Climber;
 import org.mort11.util.AutoChooser;
 import org.mort11.util.SmartDashboardLogger;
 
@@ -56,6 +57,11 @@ public final class Robot extends IterativeRobot {
 	public static IntakeShifter intakeShifter;
 
 	/**
+	 * The climber piston subsystem.
+	 */
+	public static Climber climber;
+
+	/**
 	 * Tells the robot which auton command to run.
 	 */
 	public static SendableChooser<Command> autonChooser;
@@ -91,6 +97,7 @@ public final class Robot extends IterativeRobot {
 		intakeRollers = new IntakeRollers();
 		intakePistons = new IntakePistons();
 		intakeShifter = new IntakeShifter();
+		climber = new Climber();
 		Operator.init();
 
 		sideChooser = new SendableChooser<>();

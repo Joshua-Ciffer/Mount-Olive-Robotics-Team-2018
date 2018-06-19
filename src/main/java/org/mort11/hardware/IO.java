@@ -111,6 +111,11 @@ public final class IO {
 	private static DigitalInput rightIntakeLimitSwitch;
 
 	/**
+	 * The climber piston.
+	 */
+	private static DoubleSolenoid climberPiston;
+
+	/**
 	 * The main compressor.
 	 */
 	private static Compressor compressor;
@@ -158,6 +163,8 @@ public final class IO {
 		leftIntakeLimitSwitch = new DigitalInput(Constants.LEFT_INTAKE_LIMIT_SWITCH);
 		rightIntakeLimitSwitch = new DigitalInput(Constants.RIGHT_INTAKE_LIMIT_SWITCH);
 
+		climberPiston = new DoubleSolenoid(Constants.PCM_ID, Constants.CLIMBER_PISTON_EXTENDED, Constants.CLIMBER_PISTON_RETRACTED);
+
 		compressor = new Compressor();
 
 		AHRS = new AHRS(SPI.Port.kMXP);
@@ -172,6 +179,7 @@ public final class IO {
 		Robot.intakeRollers.halt();
 		Robot.intakePistons.halt();
 		Robot.intakeShifter.halt();
+		Robot.climber.halt();
 		compressor.stop();
 	}
 
@@ -292,6 +300,13 @@ public final class IO {
 	 */
 	public static DigitalInput getRightIntakeLimitSwitch() {
 		return rightIntakeLimitSwitch;
+	}
+
+	/**
+	 * @return The climber piston.
+	 */
+	public static DoubleSolenoid getClimberPiston() {
+		return climberPiston;
 	}
 
 	/**
