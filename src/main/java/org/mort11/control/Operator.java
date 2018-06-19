@@ -1,17 +1,8 @@
 package org.mort11.control;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import org.mort11.intake.ActuateIntakePiston;
-import org.mort11.intake.CoastIntake;
-import org.mort11.intake.GrabAndClose;
-import org.mort11.intake.RollIntake;
-import org.mort11.intake.ShiftIntake;
 import org.mort11.util.Constants;
-import org.mort11.util.HardwareStates.IntakePistonState;
-import org.mort11.util.HardwareStates.IntakeRollersState;
-import org.mort11.util.HardwareStates.IntakeShiftState;
 
 /**
  * Contains objects representing driver and operator joysticks and assigns specific commands to buttons.
@@ -52,23 +43,7 @@ public final class Operator {
 	/**
 	 * Initializes all joystick objects and buttons.
 	 */
-	public static void init() {
-		JoystickButton actuateIntakePistonButton = new JoystickButton(leftOperatorJoystick, Constants.ACTUATE_INTAKE_PISTON_BUTTON);
-		actuateIntakePistonButton.whileHeld(new ActuateIntakePiston(IntakePistonState.IN));
-		actuateIntakePistonButton.whenReleased(new GrabAndClose());
-
-		JoystickButton outtakeButton = new JoystickButton(rightOperatorJoystick, Constants.OUTTAKE_BUTTON);
-		outtakeButton.whileHeld(new RollIntake(IntakeRollersState.OUT));
-		outtakeButton.whenReleased(new RollIntake(IntakeRollersState.STOP));
-
-		JoystickButton intakeButton = new JoystickButton(rightOperatorJoystick, Constants.INTAKE_BUTTON);
-		intakeButton.whileHeld(new RollIntake(IntakeRollersState.IN));
-		intakeButton.whenReleased(new CoastIntake());
-
-		JoystickButton intakeShifterButton = new JoystickButton(rightOperatorJoystick, Constants.INTAKE_SHIFTER_BUTTON);
-		intakeShifterButton.whileHeld(new ShiftIntake(IntakeShiftState.UP));
-		intakeShifterButton.whenReleased(new ShiftIntake(IntakeShiftState.DOWN));
-	}
+	public static void init() {}
 
 	/**
 	 * @return Left driver joystick object.
