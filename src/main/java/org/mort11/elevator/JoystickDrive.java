@@ -43,7 +43,7 @@ public final class JoystickDrive extends Command {
 				Robot.elevator.setSpeedPercentMode(speed);
 			}
 		} else {	// Otherwise, move it in whatever direction.
-			Robot.elevator.setSpeedPercentMode(Operator.getLeftOperatorJoystick().getY());
+			Robot.elevator.setSpeedPercentMode(speed);
 		}
 	}
 
