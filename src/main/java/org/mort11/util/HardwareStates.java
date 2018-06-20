@@ -15,23 +15,6 @@ public final class HardwareStates {
 	private HardwareStates() {}
 
 	/**
-	 * Hardware states for the drivetrain transmission.
-	 */
-	public enum DrivetrainGear {
-
-		/**
-		 * State when the drivetrain is in high gear.
-		 */
-		HIGH,
-
-		/**
-		 * State when the drivetrain is in low gear.
-		 */
-		LOW
-
-	}
-
-	/**
 	 * Hardware states for the elevator.
 	 */
 	public enum ElevatorState {
