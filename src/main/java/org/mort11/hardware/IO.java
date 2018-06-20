@@ -56,11 +56,6 @@ public final class IO {
 	private static TalonSRX rightDriveTalonRear;
 
 	/**
-	 * The drivetrain transmission.
-	 */
-	private static DoubleSolenoid drivetrainTransmission;
-
-	/**
 	 * The master elevator motor.
 	 */
 	private static TalonSRX elevatorTalonMaster;
@@ -145,7 +140,6 @@ public final class IO {
 		rightDriveTalonMaster.setSensorPhase(true);
 		rightDriveTalonMiddle = new TalonSRX(Constants.RIGHT_DRIVE_TALON_MIDDLE);
 		rightDriveTalonRear = new TalonSRX(Constants.RIGHT_DRIVE_TALON_REAR);
-		drivetrainTransmission = new DoubleSolenoid(Constants.PCM_ID, Constants.DRIVETRAIN_TRANSMISSION_LOW, Constants.DRIVETRAIN_TRANSMISSION_HIGH);
 
 		elevatorTalonMaster = new TalonSRX(Constants.ELEVATOR_TALON_MASTER);
 		elevatorTalonMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 180);
@@ -223,13 +217,6 @@ public final class IO {
 	 */
 	public static TalonSRX getRightDriveTalonRear() {
 		return rightDriveTalonRear;
-	}
-
-	/**
-	 * @return The drivetrain transmission.
-	 */
-	public static DoubleSolenoid getDrivetrainTransmission() {
-		return drivetrainTransmission;
 	}
 
 	/**

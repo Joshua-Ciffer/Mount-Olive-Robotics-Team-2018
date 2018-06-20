@@ -41,16 +41,6 @@ public interface Constants {
 	int RIGHT_DRIVE_TALON_REAR = 5;
 
 	/**
-	 * Drivetrain transmission low state port value.
-	 */
-	int DRIVETRAIN_TRANSMISSION_LOW = 4;
-
-	/**
-	 * Drivetrain transmission high state port value.
-	 */
-	int DRIVETRAIN_TRANSMISSION_HIGH = 5;
-
-	/**
 	 * The drivetrain speed (percent output mode) used in autons.
 	 */
 	double DRIVETRAIN_SPEED = -.3;

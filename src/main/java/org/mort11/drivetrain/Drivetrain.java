@@ -2,12 +2,10 @@ package org.mort11.drivetrain;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import org.mort11.hardware.IO;
 import org.mort11.util.Constants;
-import org.mort11.util.HardwareStates.DrivetrainGear;
 
 /**
  * This class represents the drivetrain subsystem.
@@ -27,6 +25,7 @@ public final class Drivetrain extends Subsystem {
 	/**
 	 * Sets default command to be operated off of the joystick.
 	 */
+	@Override
 	protected void initDefaultCommand() {
 		setDefaultCommand(new JoystickDrive());
 	}
@@ -106,26 +105,6 @@ public final class Drivetrain extends Subsystem {
 	 */
 	public void halt() {
 		setBothSpeed(0);
-		IO.getDrivetrainTransmission().set(Value.kOff);
-	}
-
-	/**
-	 * Shifts the gear of the drivetrain.
-	 *
-	 * @param gear
-	 *        The gear to shift to.
-	 */
-	public void shift(DrivetrainGear gear) {
-		switch (gear) {
-			case HIGH: {
-				IO.getDrivetrainTransmission().set(Value.kForward);
-				break;
-			}
-			case LOW: {
-				IO.getDrivetrainTransmission().set(Value.kReverse);
-				break;
-			}
-		}
 	}
 
 }
