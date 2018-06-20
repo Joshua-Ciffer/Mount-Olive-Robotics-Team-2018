@@ -8,6 +8,7 @@
 - Code could use lots of additional documentation.
 - New constant values and port numbers need to be filled in.
 - Work on autochooser
+- Smart Dashboard stuff.
 - <s>Clean up util package.</s>
 ### Hardware
 - <s>Clean up IO class.</s>
