@@ -7,7 +7,8 @@
 ### General
 - Code could use lots of additional documentation.
 - New constant values and port numbers need to be filled in.
-- Clean up util package.
+- Work on autochooser
+- <s>Clean up util package.</s>
 ### Hardware
 - <s>Clean up IO class.</s>
 ### Control
@@ -18,7 +19,7 @@
 - Once all subsystems are 100% functional and tested, we can start working on some advanced auton stuff.
   - Again, more autons once all subsystems are done.
 ### Drivetrain
-- Drivetrain and shifting code is done just needs to be tested.
+- 
 ### Elevator
 - <s>Elevator commands and subsystem need to be worked on.
   - Reminder that elevator is now only one stage.
@@ -26,7 +27,7 @@
   - MoveElevator command needs to be rewritten.</s>
 ### Intake
 - All intake subsystems and commands need to be tested THOROUGHLY.
-  - Intake shifter may need to be modified depending on how the mechanical kids build the intake.
+  - <s>Intake shifter may need to be modified depending on how the mechanical kids build the intake.</s>
 ### Climber
 - <s>Entire climber subsystem needs to be written.
   - Climber consists of a piston that extends up and down.
