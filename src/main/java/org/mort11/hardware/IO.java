@@ -1,6 +1,5 @@
 package org.mort11.hardware;
 
-import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
@@ -21,7 +20,7 @@ import org.mort11.util.Constants;
  * @author Seven Kurt
  * @author Joshua Ciffer
  * @author Frankie Alfano
- * @version 06/13/2018
+ * @version 06/20/2018
  */
 public final class IO {
 
@@ -130,21 +129,13 @@ public final class IO {
 	 */
 	public static void init() {
 		leftDriveTalonMaster = new TalonSRX(Constants.LEFT_DRIVE_TALON_MASTER);
-		leftDriveTalonMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
-		leftDriveTalonMaster.selectProfileSlot(0, 0);
 		leftDriveTalonMiddle = new TalonSRX(Constants.LEFT_DRIVE_TALON_MIDDLE);
 		leftDriveTalonRear = new TalonSRX(Constants.LEFT_DRIVE_TALON_REAR);
 		rightDriveTalonMaster = new TalonSRX(Constants.RIGHT_DRIVE_TALON_MASTER);
-		rightDriveTalonMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 0);
-		rightDriveTalonMaster.selectProfileSlot(0, 0);
-		rightDriveTalonMaster.setSensorPhase(true);
 		rightDriveTalonMiddle = new TalonSRX(Constants.RIGHT_DRIVE_TALON_MIDDLE);
 		rightDriveTalonRear = new TalonSRX(Constants.RIGHT_DRIVE_TALON_REAR);
 
 		elevatorTalonMaster = new TalonSRX(Constants.ELEVATOR_TALON_MASTER);
-		elevatorTalonMaster.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 180);
-		elevatorTalonMaster.selectProfileSlot(0, 0);
-		elevatorTalonMaster.setSensorPhase(false);
 		elevatorTalonFollower = new TalonSRX(Constants.ELEVATOR_TALON_FOLLOWER);
 		elevatorTalonFollower.setInverted(true);
 		bottomElevatorLimitSwitch = new DigitalInput(Constants.BOTTOM_ELEVATOR_LIMIT_SWITCH);

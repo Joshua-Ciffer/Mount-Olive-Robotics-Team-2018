@@ -18,7 +18,6 @@ import org.mort11.intake.IntakeRollers;
 import org.mort11.intake.IntakeShifter;
 import org.mort11.climber.Climber;
 import org.mort11.util.AutoChooser;
-import org.mort11.util.SmartDashboardLogger;
 
 /**
  * The main robot class. All subsystems are initialized here and commands are scheduled.
@@ -115,7 +114,6 @@ public final class Robot extends IterativeRobot {
 		Scheduler.getInstance().removeAll();
 		IO.getElevatorTalonMaster().setNeutralMode(NeutralMode.Brake);
 		IO.getElevatorTalonFollower().setNeutralMode(NeutralMode.Brake);
-		SmartDashboardLogger.initEncoders();
 	}
 
 	/**
@@ -124,7 +122,6 @@ public final class Robot extends IterativeRobot {
 	@Override
 	public void disabledPeriodic() {
 		autonChooser = new SendableChooser<>();
-		SmartDashboardLogger.initEncoders();
 		AutoChooser.addAutons(sideChooser.getSelected());
 		SmartDashboard.putData("autons", autonChooser);
 	}
@@ -136,7 +133,6 @@ public final class Robot extends IterativeRobot {
 	public void autonomousInit() {
 		gameData = DriverStation.getInstance().getGameSpecificMessage(); // Get the game data from the driver station
 		autonCommand = AutoChooser.setAutoCommand(autonChooser.getSelected(), gameData);
-		IO.getRightDriveTalonMaster().setSelectedSensorPosition(0, 0, 0);
 		if (autonCommand != null) {
 			autonCommand.start();
 		}
@@ -160,8 +156,6 @@ public final class Robot extends IterativeRobot {
 		if (autonCommand != null) {
 			autonCommand.cancel();
 		}
-		IO.getRightDriveTalonMaster().setSelectedSensorPosition(0, 0, 0);
-		IO.getElevatorTalonMaster().setSelectedSensorPosition(0, 0, 0);
 		IO.getElevatorTalonMaster().setNeutralMode(NeutralMode.Coast);
 		IO.getElevatorTalonFollower().setNeutralMode(NeutralMode.Coast);
 	}
@@ -172,7 +166,6 @@ public final class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		SmartDashboardLogger.initEncoders();
 		SmartDashboard.updateValues();
 	}
 

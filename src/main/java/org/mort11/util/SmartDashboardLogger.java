@@ -37,18 +37,4 @@ public class SmartDashboardLogger {
 		SmartDashboard.putBoolean("Right Intake Limit Switch", IO.getRightIntakeLimitSwitch().get());
 	}
 
-	public static void initEncoders() {
-		SmartDashboard.putNumber("Left DT Position", IO.getLeftDriveTalonMaster().getSelectedSensorPosition(0));
-		SmartDashboard.putNumber("Right DT Position", IO.getRightDriveTalonMaster().getSelectedSensorPosition(0));
-		SmartDashboard.putNumber("First Stage Elevator Position", IO.getElevatorTalonMaster().getSelectedSensorPosition(0));
-		SmartDashboard.putNumber("Right Velocity", IO.getRightDriveTalonMaster().getSelectedSensorVelocity(0));
-		SmartDashboard.putNumber("Left Velocity", IO.getLeftDriveTalonMaster().getSelectedSensorVelocity(0));
-		SmartDashboard.putNumber("First Stage Velocity", IO.getElevatorTalonMaster().getSelectedSensorVelocity(0));
-		SmartDashboard.putNumber("Right Error", IO.getRightDriveTalonMaster().getClosedLoopError(0));
-		SmartDashboard.putNumber("Left Error", IO.getLeftDriveTalonMaster().getClosedLoopError(0));
-		SmartDashboard.putNumber("First Stage Elevator", IO.getElevatorTalonMaster().getClosedLoopError(0));
-		SmartDashboard.putNumber("Right Distance", IO.getRightDriveTalonMaster().getSelectedSensorPosition(0) / Constants.ENCODER_TICKS);
-		SmartDashboard.putNumber("Left Distance", IO.getLeftDriveTalonMaster().getSelectedSensorPosition(0) / Constants.ENCODER_TICKS);
-	}
-
 }
