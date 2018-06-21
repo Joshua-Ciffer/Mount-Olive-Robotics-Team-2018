@@ -173,12 +173,7 @@ public interface Constants {
 	/**
 	 * Left operator joystick port value.
 	 */
-	int LEFT_OPERATOR_JOYSTICK = 2;
-
-	/**
-	 * Right operator joystick port value.
-	 */
-	int RIGHT_OPERATOR_JOYSTICK = 3;
+	int OPERATOR_JOYSTICK = 2;
 
 	/**
 	 * Actuate intake piston button value.

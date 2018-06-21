@@ -37,12 +37,7 @@ public final class Operator {
 	/**
 	 * Left operator joystick object.
 	 */
-	private static Joystick leftOperatorJoystick = new Joystick(Constants.LEFT_OPERATOR_JOYSTICK);
-
-	/**
-	 * Right operator joystick object.
-	 */
-	private static Joystick rightOperatorJoystick = new Joystick(Constants.RIGHT_OPERATOR_JOYSTICK);
+	private static Joystick operatorJoystick = new Joystick(Constants.OPERATOR_JOYSTICK);
 
 	/**
 	 * Don't let anyone instantiate this class.
@@ -53,19 +48,19 @@ public final class Operator {
 	 * Initializes all joystick objects and buttons.
 	 */
 	public static void init() {
-		JoystickButton actuateIntakePistonButton = new JoystickButton(leftOperatorJoystick, Constants.ACTUATE_INTAKE_PISTON_BUTTON);
+		JoystickButton actuateIntakePistonButton = new JoystickButton(operatorJoystick, Constants.ACTUATE_INTAKE_PISTON_BUTTON);
 		actuateIntakePistonButton.whileHeld(new ActuateIntakePiston(IntakePistonState.IN));
 		actuateIntakePistonButton.whenReleased(new GrabAndClose());
 
-		JoystickButton outtakeButton = new JoystickButton(rightOperatorJoystick, Constants.OUTTAKE_BUTTON);
+		JoystickButton outtakeButton = new JoystickButton(operatorJoystick, Constants.OUTTAKE_BUTTON);
 		outtakeButton.whileHeld(new RollIntake(IntakeRollersState.OUT));
 		outtakeButton.whenReleased(new RollIntake(IntakeRollersState.STOP));
 
-		JoystickButton intakeButton = new JoystickButton(rightOperatorJoystick, Constants.INTAKE_BUTTON);
+		JoystickButton intakeButton = new JoystickButton(operatorJoystick, Constants.INTAKE_BUTTON);
 		intakeButton.whileHeld(new RollIntake(IntakeRollersState.IN));
 		intakeButton.whenReleased(new CoastIntake());
 
-		JoystickButton intakeShifterButton = new JoystickButton(rightOperatorJoystick, Constants.INTAKE_SHIFTER_BUTTON);
+		JoystickButton intakeShifterButton = new JoystickButton(operatorJoystick, Constants.INTAKE_SHIFTER_BUTTON);
 		intakeShifterButton.whileHeld(new ShiftIntake(IntakeShiftState.UP));
 		intakeShifterButton.whenReleased(new ShiftIntake(IntakeShiftState.DOWN));
 	}
@@ -87,15 +82,8 @@ public final class Operator {
 	/**
 	 * @return Left operator joystick object.
 	 */
-	public static Joystick getLeftOperatorJoystick() {
-		return leftOperatorJoystick;
-	}
-
-	/**
-	 * @return Right operator joystick object.
-	 */
-	public static Joystick getRightOperatorJoystick() {
-		return rightOperatorJoystick;
+	public static Joystick getOperatorJoystick() {
+		return operatorJoystick;
 	}
 
 }
