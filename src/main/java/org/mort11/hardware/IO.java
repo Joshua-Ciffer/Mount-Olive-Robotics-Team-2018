@@ -129,14 +129,14 @@ public final class IO {
 	 */
 	public static void init() {
 		leftDriveTalonMaster = new TalonSRX(Constants.LEFT_DRIVE_TALON_MASTER);
-		leftDriveTalonMiddle = new TalonSRX(Constants.LEFT_DRIVE_TALON_MIDDLE);
+		leftDriveTalonMiddle = new TalonSRX(Constants.LEFT_DRIVE_TALON_FRONT);
 		leftDriveTalonRear = new TalonSRX(Constants.LEFT_DRIVE_TALON_REAR);
 		rightDriveTalonMaster = new TalonSRX(Constants.RIGHT_DRIVE_TALON_MASTER);
-		rightDriveTalonMiddle = new TalonSRX(Constants.RIGHT_DRIVE_TALON_MIDDLE);
+		rightDriveTalonMiddle = new TalonSRX(Constants.RIGHT_DRIVE_TALON_FRONT);
 		rightDriveTalonRear = new TalonSRX(Constants.RIGHT_DRIVE_TALON_REAR);
 
-		elevatorTalonMaster = new TalonSRX(Constants.ELEVATOR_TALON_MASTER);
-		elevatorTalonFollower = new TalonSRX(Constants.ELEVATOR_TALON_FOLLOWER);
+		elevatorTalonMaster = new TalonSRX(Constants.ELEVATOR_TALON_RIGHT);
+		elevatorTalonFollower = new TalonSRX(Constants.ELEVATOR_TALON_LEFT);
 		elevatorTalonFollower.setInverted(true);
 		bottomElevatorLimitSwitch = new DigitalInput(Constants.BOTTOM_ELEVATOR_LIMIT_SWITCH);
 		topElevatorLimitSwitch = new DigitalInput(Constants.TOP_ELEVATOR_LIMIT_SWITCH);

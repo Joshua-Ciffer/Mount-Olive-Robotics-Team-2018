@@ -39,7 +39,7 @@ public final class Elevator extends Subsystem {
 	 */
 	public void setSpeedPositionMode(double speed, double rotations) {
 		IO.getElevatorTalonMaster().set(ControlMode.Position, speed * rotations * Constants.ENCODER_TICKS);
-		IO.getElevatorTalonFollower().set(ControlMode.Follower, Constants.ELEVATOR_TALON_MASTER);
+		IO.getElevatorTalonFollower().set(ControlMode.Follower, Constants.ELEVATOR_TALON_RIGHT);
 	}
 
 	/**
@@ -48,7 +48,7 @@ public final class Elevator extends Subsystem {
 	 */
 	public void setSpeedVelocityMode(double speed) {
 		IO.getElevatorTalonMaster().set(ControlMode.Velocity, speed * Constants.ELEVATOR_VELOCITY);
-		IO.getElevatorTalonFollower().set(ControlMode.Follower, Constants.ELEVATOR_TALON_MASTER);
+		IO.getElevatorTalonFollower().set(ControlMode.Follower, Constants.ELEVATOR_TALON_RIGHT);
 	}
 
 	/**
@@ -57,7 +57,7 @@ public final class Elevator extends Subsystem {
 	 */
 	public void setSpeedPercentMode(double speed) {
 		IO.getElevatorTalonMaster().set(ControlMode.PercentOutput, speed);
-		IO.getElevatorTalonFollower().set(ControlMode.Follower, Constants.ELEVATOR_TALON_MASTER);
+		IO.getElevatorTalonFollower().set(ControlMode.Follower, Constants.ELEVATOR_TALON_RIGHT);
 	}
 
 	/**

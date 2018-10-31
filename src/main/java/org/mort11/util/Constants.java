@@ -11,34 +11,34 @@ package org.mort11.util;
 public interface Constants {
 
 	/**
-	 * Left drivetrain master motor port value.
-	 */
-	int LEFT_DRIVE_TALON_MASTER = 0;
-
-	/**
 	 * Left drivetrain middle follower motor port value.
 	 */
-	int LEFT_DRIVE_TALON_MIDDLE = 1;
+	int LEFT_DRIVE_TALON_FRONT = 58;
+
+	/**
+	 * Left drivetrain master motor port value.
+	 */
+	int LEFT_DRIVE_TALON_MASTER = 59;
 
 	/**
 	 * Left drivetrain rear follower motor port value.
 	 */
-	int LEFT_DRIVE_TALON_REAR = 2;
-
-	/**
-	 * Right drivetrain master motor port value.
-	 */
-	int RIGHT_DRIVE_TALON_MASTER = 3;
+	int LEFT_DRIVE_TALON_REAR = 60;
 
 	/**
 	 * Right drivetrain middle follower motor port value.
 	 */
-	int RIGHT_DRIVE_TALON_MIDDLE = 4;
+	int RIGHT_DRIVE_TALON_FRONT = 53;
+
+	/**
+	 * Right drivetrain master motor port value.
+	 */
+	int RIGHT_DRIVE_TALON_MASTER = 54;
 
 	/**
 	 * Right drivetrain rear follower motor port value.
 	 */
-	int RIGHT_DRIVE_TALON_REAR = 5;
+	int RIGHT_DRIVE_TALON_REAR = 55;
 
 	/**
 	 * The drivetrain speed (percent output mode) used in autons.
@@ -58,12 +58,12 @@ public interface Constants {
 	/**
 	 * Elevator master motor port value.
 	 */
-	int ELEVATOR_TALON_MASTER = 8;
+	int ELEVATOR_TALON_RIGHT = 56;
 
 	/**
 	 * Elevator follower motor port value.
 	 */
-	int ELEVATOR_TALON_FOLLOWER = 9;
+	int ELEVATOR_TALON_LEFT = 57;
 
 	/**
 	 * Bottom elevator limit switch port value.
@@ -88,12 +88,12 @@ public interface Constants {
 	/**
 	 * Right intake roller motor port value.
 	 */
-	int RIGHT_INTAKE_ROLLER_VICTOR = 7;
+	int RIGHT_INTAKE_ROLLER_VICTOR = 51;
 
 	/**
 	 * Left intake roller motor port value.
 	 */
-	int LEFT_INTAKE_ROLLER_VICTOR = 6;
+	int LEFT_INTAKE_ROLLER_VICTOR = 52;
 
 	/**
 	 * Right intake limit switch port value.
@@ -158,7 +158,7 @@ public interface Constants {
 	/**
 	 * PCM ID value.
 	 */
-	int PCM_ID = 20;
+	int PCM_ID = 61;
 
 	/**
 	 * Left driver joystick port value.
