@@ -28,7 +28,7 @@ import org.mort11.util.AutoChooser;
  * @author Frank Alfano
  * @version 06/13/2018
  */
-public final class Robot extends IterativeRobot {
+public class Robot extends IterativeRobot {
 
 	/**
 	 * The drivetrain subsystem.
@@ -79,11 +79,6 @@ public final class Robot extends IterativeRobot {
 	 * Game data from the drive station.
 	 */
 	private static String gameData;
-
-	/**
-	 * Don't let anyone instantiate this class.
-	 */
-	private Robot() {}
 
 	/**
 	 * Initializes all of the robots subsystems and the smart dash board.

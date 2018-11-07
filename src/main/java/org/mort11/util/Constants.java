@@ -148,12 +148,12 @@ public interface Constants {
 	/**
 	 * The climber piston extended state port value.
 	 */
-	int CLIMBER_PISTON_EXTENDED = 0;
+	int CLIMBER_PISTON_EXTENDED = 4;
 
 	/**
 	 * The climber piston retracted state port value.
 	 */
-	int CLIMBER_PISTON_RETRACTED = 0;
+	int CLIMBER_PISTON_RETRACTED = 5;
 
 	/**
 	 * PCM ID value.
