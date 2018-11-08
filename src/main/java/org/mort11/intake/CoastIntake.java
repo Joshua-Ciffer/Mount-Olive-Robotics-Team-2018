@@ -19,7 +19,7 @@ public final class CoastIntake extends Command {
 	 */
 	public CoastIntake() {
 		super("CoastIntake");
-		requires(Robot.intakeRollers);
+		requires(Robot.getIntakeRollers());
 		setInterruptible(true);
 	}
 
@@ -28,7 +28,7 @@ public final class CoastIntake extends Command {
 	 */
 	@Override
 	protected void execute() {
-		Robot.intakeRollers.setRollerSpeed(-Constants.COAST_SPEED);
+		Robot.getIntakeRollers().setRollerSpeed(-Constants.COAST_SPEED);
 	}
 
 	/**
@@ -44,7 +44,7 @@ public final class CoastIntake extends Command {
 	 */
 	@Override
 	protected void end() {
-		Robot.intakeRollers.halt();
+		Robot.getIntakeRollers().halt();
 	}
 
 }

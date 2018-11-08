@@ -8,7 +8,6 @@ import org.mort11.intake.GrabAndClose;
 import org.mort11.intake.RollIntake;
 import org.mort11.intake.ShiftIntake;
 import org.mort11.util.Constants;
-import org.mort11.util.HardwareStates.IntakePistonState;
 import org.mort11.util.HardwareStates.IntakeRollersState;
 import org.mort11.util.HardwareStates.IntakeShiftState;
 
@@ -60,7 +59,7 @@ public final class Operator {
 
 		JoystickButton intakeShifterButton = new JoystickButton(operatorJoystick, Constants.INTAKE_SHIFTER_UP_BUTTON);
 		intakeShifterButton.whenPressed(new ShiftIntake(IntakeShiftState.UP));
-		
+
 		JoystickButton intakeShifterDownButton = new JoystickButton(operatorJoystick, Constants.INTAKE_SHIFTER_DOWN_BUTTON);
 		intakeShifterDownButton.whenPressed(new ShiftIntake(IntakeShiftState.DOWN));
 	}

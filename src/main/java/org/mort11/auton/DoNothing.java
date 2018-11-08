@@ -38,7 +38,7 @@ public final class DoNothing extends Command {
 	 */
 	@Override
 	protected void end() {
-		Robot.drivetrain.halt();
+		Robot.getDrivetrain().halt();
 	}
 
 }

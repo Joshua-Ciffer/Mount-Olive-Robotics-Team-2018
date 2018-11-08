@@ -19,7 +19,7 @@ public final class JoystickDrive extends Command {
 	 */
 	public JoystickDrive() {
 		super("JoystickDrive");
-		requires(Robot.drivetrain);
+		requires(Robot.getDrivetrain());
 		setInterruptible(false);
 	}
 
@@ -28,8 +28,8 @@ public final class JoystickDrive extends Command {
 	 */
 	@Override
 	protected void execute() {
-		Robot.drivetrain.setLeftSpeed(Operator.getLeftDriverJoystick().getY());
-		Robot.drivetrain.setRightSpeed(Operator.getRightDriverJoystick().getY());
+		Robot.getDrivetrain().setLeftSpeed(Operator.getLeftDriverJoystick().getY());
+		Robot.getDrivetrain().setRightSpeed(Operator.getRightDriverJoystick().getY());
 	}
 
 	/**

@@ -64,6 +64,11 @@ public final class IO {
 	private static DigitalInput bottomElevatorLimitSwitch;
 
 	/**
+	 * The top elevator limit switch.
+	 */
+	private static DigitalInput topElevatorLimitSwitch;
+
+	/**
 	 * The right intake roller motor.
 	 */
 	private static VictorSPX rightIntakeRollerVictor;
@@ -103,6 +108,7 @@ public final class IO {
 		elevatorTalonFollower = new TalonSRX(Constants.ELEVATOR_TALON_LEFT);
 		elevatorTalonFollower.setInverted(true);
 		bottomElevatorLimitSwitch = new DigitalInput(Constants.BOTTOM_ELEVATOR_LIMIT_SWITCH);
+		topElevatorLimitSwitch = new DigitalInput(Constants.TOP_ELEVATOR_LIMIT_SWITCH);
 
 		rightIntakeRollerVictor = new VictorSPX(Constants.RIGHT_INTAKE_ROLLER_VICTOR);
 		leftIntakeRollerVictor = new VictorSPX(Constants.LEFT_INTAKE_ROLLER_VICTOR);
@@ -115,10 +121,10 @@ public final class IO {
 	 * Stops all motors and disables all pistons and the compressor.
 	 */
 	public static void seize() {
-		Robot.drivetrain.halt();
-		Robot.elevator.halt();
-		Robot.intakeRollers.halt();
-		Robot.intakeShifter.halt();
+		Robot.getDrivetrain().halt();
+		Robot.getElevator().halt();
+		Robot.getIntakeRollers().halt();
+		Robot.getIntakeShifter().halt();
 		compressor.stop();
 	}
 
@@ -183,6 +189,13 @@ public final class IO {
 	 */
 	public static DigitalInput getBottomElevatorLimitSwitch() {
 		return bottomElevatorLimitSwitch;
+	}
+
+	/**
+	 * @return The top elevator limit switch.
+	 */
+	public static DigitalInput getTopElevatorLimitSwitch() {
+		return topElevatorLimitSwitch;
 	}
 
 	/**

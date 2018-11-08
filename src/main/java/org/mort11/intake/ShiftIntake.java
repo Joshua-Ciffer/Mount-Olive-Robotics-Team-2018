@@ -27,7 +27,7 @@ public final class ShiftIntake extends Command {
 	public ShiftIntake(IntakeShiftState pistonState) {
 		super("ShiftIntake");
 		this.pistonState = pistonState;
-		requires(Robot.intakeShifter);
+		requires(Robot.getIntakeShifter());
 		setInterruptible(false);
 	}
 
@@ -36,7 +36,7 @@ public final class ShiftIntake extends Command {
 	 */
 	@Override
 	protected void execute() {
-		Robot.intakeShifter.shift(pistonState);
+		Robot.getIntakeShifter().shift(pistonState);
 	}
 
 	/**

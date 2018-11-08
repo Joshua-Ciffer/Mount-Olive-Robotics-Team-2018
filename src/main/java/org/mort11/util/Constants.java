@@ -6,24 +6,20 @@ package org.mort11.util;
  * write public static final for every variable.
  *
  * @author Joshua Ciffer
- * @version 06/13/2018
+ * @author Benny Mirisola
+ * @version 11/08/2018
  */
 public interface Constants {
 
 	/**
-	 * Left drivetrain middle follower motor port value.
+	 * PCM ID value.
 	 */
-	int LEFT_DRIVE_TALON_FRONT = 58;
+	int PCM_ID = 61;
 
 	/**
-	 * Left drivetrain master motor port value.
+	 * PDP ID value.
 	 */
-	int LEFT_DRIVE_TALON_MASTER = 59;
-
-	/**
-	 * Left drivetrain rear follower motor port value.
-	 */
-	int LEFT_DRIVE_TALON_REAR = 60;
+	int PDP_ID = 62;
 
 	/**
 	 * Right drivetrain middle follower motor port value.
@@ -41,19 +37,19 @@ public interface Constants {
 	int RIGHT_DRIVE_TALON_REAR = 55;
 
 	/**
-	 * The drivetrain speed (percent output mode) used in autons.
+	 * Left drivetrain middle follower motor port value.
 	 */
-	double DRIVETRAIN_SPEED = -.3;
+	int LEFT_DRIVE_TALON_FRONT = 58;
 
 	/**
-	 * The drivetrain speed (percent output mode) used in autons when far away from its target.
+	 * Left drivetrain master motor port value.
 	 */
-	double DRIVETRAIN_SPEED_FAR = .3;
+	int LEFT_DRIVE_TALON_MASTER = 59;
 
 	/**
-	 * The drivetrain speed (percent output mode) used in autons when close to its target.
+	 * Left drivetrain rear follower motor port value.
 	 */
-	double DRIVETRAIN_SPEED_CLOSE = .22;
+	int LEFT_DRIVE_TALON_REAR = 60;
 
 	/**
 	 * Elevator master motor port value.
@@ -66,26 +62,6 @@ public interface Constants {
 	int ELEVATOR_TALON_LEFT = 57;
 
 	/**
-	 * Bottom elevator limit switch port value.
-	 */
-	int BOTTOM_ELEVATOR_LIMIT_SWITCH = 9;
-
-	/**
-	 * Top elevator limit switch port value.
-	 */
-	int TOP_ELEVATOR_LIMIT_SWITCH = 5;
-
-	/**
-	 * The elevator speed used in autons.
-	 */
-	double ELEVATOR_SPEED = .2;
-
-	/**
-	 * The elevator velocity used in velocity control mode.
-	 */
-	double ELEVATOR_VELOCITY = 600;
-
-	/**
 	 * Right intake roller motor port value.
 	 */
 	int RIGHT_INTAKE_ROLLER_VICTOR = 51;
@@ -96,44 +72,14 @@ public interface Constants {
 	int LEFT_INTAKE_ROLLER_VICTOR = 52;
 
 	/**
-	 * Right intake limit switch port value.
+	 * Top elevator limit switch port value.
 	 */
-	int RIGHT_INTAKE_LIMIT_SWITCH = 4;
+	int TOP_ELEVATOR_LIMIT_SWITCH = 8;
 
 	/**
-	 * Left intake limit switch port value.
+	 * Bottom elevator limit switch port value.
 	 */
-	int LEFT_INTAKE_LIMIT_SWITCH = 0;
-
-	/**
-	 * The intake roller speed when intaking a cube.
-	 */
-	double INTAKE_SPEED = -1;
-
-	/**
-	 * The intake roller speed when outtaking a cube.
-	 */
-	double OUTTAKE_SPEED = 1;
-
-	/**
-	 * The intake roller speed when coasting.
-	 */
-	double COAST_SPEED = 0.25;
-
-	/**
-	 * Intake piston extended state port value.
-	 */
-	int INTAKE_PISTON_IN = 2;
-
-	/**
-	 * Intake piston retracted state port value.
-	 */
-	int INTAKE_PISTON_OUT = 3;
-
-	/**
-	 * Intake shifter piston retracted state port value.
-	 */
-	int INTAKE_SHIFTER_PISTON_UP = 1;
+	int BOTTOM_ELEVATOR_LIMIT_SWITCH = 9;
 
 	/**
 	 * Intake shifter piston extended state port value.
@@ -141,24 +87,9 @@ public interface Constants {
 	int INTAKE_SHIFTER_PISTON_DOWN = 0;
 
 	/**
-	 * The timeout for the intake rollers when intaking a cube.
+	 * Intake shifter piston retracted state port value.
 	 */
-	double ROLLER_TIMEOUT = .75;
-
-	/**
-	 * The climber piston extended state port value.
-	 */
-	int CLIMBER_PISTON_EXTENDED = 4;
-
-	/**
-	 * The climber piston retracted state port value.
-	 */
-	int CLIMBER_PISTON_RETRACTED = 5;
-
-	/**
-	 * PCM ID value.
-	 */
-	int PCM_ID = 61;
+	int INTAKE_SHIFTER_PISTON_UP = 1;
 
 	/**
 	 * Left driver joystick port value.
@@ -196,6 +127,51 @@ public interface Constants {
 	 * Intake button value.
 	 */
 	int INTAKE_BUTTON = 3;
+
+	/**
+	 * The drivetrain speed (percent output mode) used in autons.
+	 */
+	double DRIVETRAIN_SPEED = -.3;
+
+	/**
+	 * The drivetrain speed (percent output mode) used in autons when far away from its target.
+	 */
+	double DRIVETRAIN_SPEED_FAR = .3;
+
+	/**
+	 * The drivetrain speed (percent output mode) used in autons when close to its target.
+	 */
+	double DRIVETRAIN_SPEED_CLOSE = .22;
+
+	/**
+	 * The elevator speed used in autons.
+	 */
+	double ELEVATOR_SPEED = .2;
+
+	/**
+	 * The elevator velocity used in velocity control mode.
+	 */
+	double ELEVATOR_VELOCITY = 600;
+
+	/**
+	 * The intake roller speed when intaking a cube.
+	 */
+	double INTAKE_SPEED = -1;
+
+	/**
+	 * The intake roller speed when outtaking a cube.
+	 */
+	double OUTTAKE_SPEED = 1;
+
+	/**
+	 * The intake roller speed when coasting.
+	 */
+	double COAST_SPEED = 0.25;
+
+	/**
+	 * The timeout for the intake rollers when intaking a cube.
+	 */
+	double ROLLER_TIMEOUT = .75;
 
 	/**
 	 * Limit for elevator motor speed.

@@ -40,7 +40,7 @@ public final class TurnDegrees extends Command {
 		} else {
 			this.desiredAngle = desiredAngle;
 		}
-		requires(Robot.drivetrain);
+		requires(Robot.getDrivetrain());
 		setInterruptible(false);
 	}
 
@@ -49,7 +49,7 @@ public final class TurnDegrees extends Command {
 	 */
 	@Override
 	protected void initialize() {
-		IO.getAHRS().zeroYaw();
+		// IO.getAHRS().zeroYaw();
 	}
 
 	/**
@@ -57,7 +57,7 @@ public final class TurnDegrees extends Command {
 	 */
 	@Override
 	protected void execute() {
-		yaw = IO.getAHRS().getYaw();
+		// yaw = IO.getAHRS().getYaw();
 		/*
 		 * Finds the difference in angle between desired angle and the current yaw. If difference is greater than 30, set the motors
 		 * to .3. If the difference is less than 30 but more than 3, set the motors to .15.
@@ -65,19 +65,19 @@ public final class TurnDegrees extends Command {
 		 */
 		if (Math.abs(yaw - desiredAngle) >= Constants.ANGLE_LENIENCY_FAR) {
 			if (desiredAngle < 0) {
-				Robot.drivetrain.setLeftSpeed(Constants.DRIVETRAIN_SPEED_FAR);
-				Robot.drivetrain.setRightSpeed(-Constants.DRIVETRAIN_SPEED_FAR);
+				Robot.getDrivetrain().setLeftSpeed(Constants.DRIVETRAIN_SPEED_FAR);
+				Robot.getDrivetrain().setRightSpeed(-Constants.DRIVETRAIN_SPEED_FAR);
 			} else {
-				Robot.drivetrain.setLeftSpeed(-Constants.DRIVETRAIN_SPEED_FAR);
-				Robot.drivetrain.setRightSpeed(Constants.DRIVETRAIN_SPEED_FAR);
+				Robot.getDrivetrain().setLeftSpeed(-Constants.DRIVETRAIN_SPEED_FAR);
+				Robot.getDrivetrain().setRightSpeed(Constants.DRIVETRAIN_SPEED_FAR);
 			}
 		} else if (Math.abs(yaw - desiredAngle) >= Constants.ANGLE_LENIENCY_CLOSE) {
 			if (desiredAngle < 0) {
-				Robot.drivetrain.setLeftSpeed(Constants.DRIVETRAIN_SPEED_CLOSE);
-				Robot.drivetrain.setRightSpeed(-Constants.DRIVETRAIN_SPEED_CLOSE);
+				Robot.getDrivetrain().setLeftSpeed(Constants.DRIVETRAIN_SPEED_CLOSE);
+				Robot.getDrivetrain().setRightSpeed(-Constants.DRIVETRAIN_SPEED_CLOSE);
 			} else {
-				Robot.drivetrain.setLeftSpeed(-Constants.DRIVETRAIN_SPEED_CLOSE);
-				Robot.drivetrain.setRightSpeed(Constants.DRIVETRAIN_SPEED_CLOSE);
+				Robot.getDrivetrain().setLeftSpeed(-Constants.DRIVETRAIN_SPEED_CLOSE);
+				Robot.getDrivetrain().setRightSpeed(Constants.DRIVETRAIN_SPEED_CLOSE);
 			}
 		}
 	}
@@ -87,7 +87,8 @@ public final class TurnDegrees extends Command {
 	 */
 	@Override
 	protected boolean isFinished() {
-		return Math.abs(IO.getAHRS().getYaw() - desiredAngle) <= Constants.ANGLE_FINISH;
+		// return Math.abs(IO.getAHRS().getYaw() - desiredAngle) <= Constants.ANGLE_FINISH;
+		return true;
 	}
 
 	/**
@@ -95,8 +96,8 @@ public final class TurnDegrees extends Command {
 	 */
 	@Override
 	protected void end() {
-		Robot.drivetrain.halt();
-		IO.getAHRS().zeroYaw();
+		Robot.getDrivetrain().halt();
+		// IO.getAHRS().zeroYaw();
 	}
 
 }

@@ -19,7 +19,7 @@ public final class MoveElevatorDown extends Command {
 	 */
 	public MoveElevatorDown() {
 		super("MoveElevatorDown");
-		requires(Robot.elevator);
+		requires(Robot.getElevator());
 		setInterruptible(true);
 	}
 
@@ -28,7 +28,7 @@ public final class MoveElevatorDown extends Command {
 	 */
 	@Override
 	protected void execute() {
-		Robot.elevator.setSpeedPercentMode(-Constants.ELEVATOR_SPEED);
+		Robot.getElevator().setSpeedPercentMode(-Constants.ELEVATOR_SPEED);
 	}
 
 	/**
@@ -44,7 +44,7 @@ public final class MoveElevatorDown extends Command {
 	 */
 	@Override
 	protected void end() {
-		Robot.elevator.halt();
+		Robot.getElevator().halt();
 	}
 
 }

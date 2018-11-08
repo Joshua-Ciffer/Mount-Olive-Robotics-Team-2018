@@ -46,21 +46,21 @@ public class AutoChooser {
 	public static void addAutons(String side) {
 		switch (side.toLowerCase()) {
 			case "middle": {
-				Robot.autonChooser.addObject("Do Nothing", new DoNothing());
-				Robot.autonChooser.addDefault("Drive Forwards With Cube", new DriveTimedWithCube(Constants.DRIVETRAIN_SPEED, 4));
-				Robot.autonChooser.addObject("DriveForwardsTimed", new DriveDistanceTimed(Constants.DRIVETRAIN_SPEED, 2));
+				Robot.getAutonChooser().addObject("Do Nothing", new DoNothing());
+				Robot.getAutonChooser().addDefault("Drive Forwards With Cube", new DriveTimedWithCube(Constants.DRIVETRAIN_SPEED, 4));
+				Robot.getAutonChooser().addObject("DriveForwardsTimed", new DriveDistanceTimed(Constants.DRIVETRAIN_SPEED, 2));
 				break;
 			}
 			case "left": {
-				Robot.autonChooser.addObject("Do Nothing", new DoNothing());
-				Robot.autonChooser.addDefault("Drive Forwards With Cube", new DriveTimedWithCube(Constants.DRIVETRAIN_SPEED, 5));
-				Robot.autonChooser.addObject("DriveForwardsTimed", new DriveDistanceTimed(Constants.DRIVETRAIN_SPEED, 3));
+				Robot.getAutonChooser().addObject("Do Nothing", new DoNothing());
+				Robot.getAutonChooser().addDefault("Drive Forwards With Cube", new DriveTimedWithCube(Constants.DRIVETRAIN_SPEED, 5));
+				Robot.getAutonChooser().addObject("DriveForwardsTimed", new DriveDistanceTimed(Constants.DRIVETRAIN_SPEED, 3));
 				break;
 			}
 			case "right": {
-				Robot.autonChooser.addObject("Do Nothing", new DoNothing());
-				Robot.autonChooser.addDefault("Drive Forwards With Cube", new DriveTimedWithCube(Constants.DRIVETRAIN_SPEED, 5));
-				Robot.autonChooser.addObject("DriveForwardsTimed", new DriveDistanceTimed(Constants.DRIVETRAIN_SPEED, 3));
+				Robot.getAutonChooser().addObject("Do Nothing", new DoNothing());
+				Robot.getAutonChooser().addDefault("Drive Forwards With Cube", new DriveTimedWithCube(Constants.DRIVETRAIN_SPEED, 5));
+				Robot.getAutonChooser().addObject("DriveForwardsTimed", new DriveDistanceTimed(Constants.DRIVETRAIN_SPEED, 3));
 				break;
 			}
 		}

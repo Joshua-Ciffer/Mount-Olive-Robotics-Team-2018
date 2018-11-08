@@ -2,7 +2,6 @@ package org.mort11.intake;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-import org.mort11.hardware.IO;
 import org.mort11.util.HardwareStates.IntakeRollersState;
 import org.mort11.util.Constants;
 import org.mort11.Robot;
@@ -29,7 +28,7 @@ public final class RollIntake extends Command {
 	public RollIntake(IntakeRollersState rollerState) {
 		super("Roll intake");
 		this.rollerState = rollerState;
-		requires(Robot.intakeRollers);
+		requires(Robot.getIntakeRollers());
 		setInterruptible(true);
 	}
 
@@ -41,15 +40,15 @@ public final class RollIntake extends Command {
 	protected void execute() {
 		switch (rollerState) {
 			case IN: {
-				Robot.intakeRollers.setRollerSpeed(Constants.INTAKE_SPEED);
+				Robot.getIntakeRollers().setRollerSpeed(Constants.INTAKE_SPEED);
 				break;
 			}
 			case OUT: {
-				Robot.intakeRollers.setRollerSpeed(Constants.OUTTAKE_SPEED);
+				Robot.getIntakeRollers().setRollerSpeed(Constants.OUTTAKE_SPEED);
 				break;
 			}
 			case STOP: {
-				Robot.intakeRollers.halt();
+				Robot.getIntakeRollers().halt();
 				break;
 			}
 			case COAST: {
@@ -77,10 +76,7 @@ public final class RollIntake extends Command {
 				break;
 			}
 			case IN: {
-				if (!IO.getLeftIntakeLimitSwitch().get() || !IO.getRightIntakeLimitSwitch().get()) {
-					return true;
-				}
-				break;
+				return true;
 			}
 		}
 		return false;
@@ -91,7 +87,7 @@ public final class RollIntake extends Command {
 	 */
 	@Override
 	protected void end() {
-		Robot.intakeRollers.halt();
+		Robot.getIntakeRollers().halt();
 	}
 
 }

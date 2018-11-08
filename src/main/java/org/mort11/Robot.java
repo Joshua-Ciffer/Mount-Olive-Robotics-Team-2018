@@ -1,7 +1,5 @@
 package org.mort11;
 
-import com.ctre.phoenix.motorcontrol.NeutralMode;
-
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -30,27 +28,27 @@ public class Robot extends IterativeRobot {
 	/**
 	 * The drivetrain subsystem.
 	 */
-	public static Drivetrain drivetrain;
+	private static Drivetrain drivetrain;
 
 	/**
 	 * The elevator subsystem.
 	 */
-	public static Elevator elevator;
+	private static Elevator elevator;
 
 	/**
 	 * The intake roller wheels.
 	 */
-	public static IntakeRollers intakeRollers;
+	private static IntakeRollers intakeRollers;
 
 	/**
 	 * The intake shifter piston.
 	 */
-	public static IntakeShifter intakeShifter;
+	private static IntakeShifter intakeShifter;
 
 	/**
 	 * Tells the robot which auton command to run.
 	 */
-	public static SendableChooser<Command> autonChooser;
+	private static SendableChooser<Command> autonChooser;
 
 	/**
 	 * Tells the robot which side?
@@ -123,7 +121,9 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
+		super.autonomousPeriodic();
 		Scheduler.getInstance().run();
+		SmartDashboard.updateValues();
 	}
 
 	/**
@@ -131,6 +131,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopInit() {
+		super.teleopInit();
 		if (autonCommand != null) {
 			autonCommand.cancel();
 		}
@@ -142,6 +143,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
+		super.teleopPeriodic();
 		Scheduler.getInstance().run();
 		SmartDashboard.updateValues();
 	}
@@ -151,6 +153,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void testInit() {
+		super.testInit();
 		IO.getCompressor().start();
 	}
 
@@ -159,8 +162,49 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void testPeriodic() {
+		super.testPeriodic();
 		Scheduler.getInstance().run();
 		SmartDashboard.updateValues();
+	}
+
+	/**
+	 * @return The drivetrain subsystem.
+	 */
+	public static Drivetrain getDrivetrain() {
+		return drivetrain;
+	}
+
+	/**
+	 * @return The elevator subsystem.
+	 */
+	public static Elevator getElevator() {
+		return elevator;
+	}
+
+	/**
+	 * @return The intake rollers subsystem.
+	 */
+	public static IntakeRollers getIntakeRollers() {
+		return intakeRollers;
+	}
+
+	/**
+	 * @return The intake shifter subsystem.
+	 */
+	public static IntakeShifter getIntakeShifter() {
+		return intakeShifter;
+	}
+
+	public static SendableChooser<Command> getAutonChooser() {
+		return autonChooser;
+	}
+
+	public static SendableChooser<String> getSideChooser() {
+		return sideChooser;
+	}
+
+	public static Command getAutonCommand() {
+		return autonCommand;
 	}
 
 }

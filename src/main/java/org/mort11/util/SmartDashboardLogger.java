@@ -30,7 +30,6 @@ public class SmartDashboardLogger {
 	}
 
 	private static void initLimitSwitches() {
-		SmartDashboard.putBoolean("Top Elevator Limit Switch", IO.getTopElevatorLimitSwitch().get());
 		SmartDashboard.putBoolean("Bottom Elevator Limit Switch", IO.getBottomElevatorLimitSwitch().get());
 
 	}

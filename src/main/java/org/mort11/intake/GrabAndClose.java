@@ -2,9 +2,7 @@ package org.mort11.intake;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-import org.mort11.hardware.IO;
 import org.mort11.util.Constants;
-import org.mort11.util.HardwareStates.IntakePistonState;
 import org.mort11.util.HardwareStates.IntakeRollersState;
 
 /**
@@ -21,7 +19,6 @@ public final class GrabAndClose extends CommandGroup {
 	public GrabAndClose() {
 		super("GrabAndClose");
 		setInterruptible(true);
-		addParallel(new ActuateIntakePiston(IntakePistonState.OUT));
 		addParallel(new RollIntake(IntakeRollersState.IN), Constants.ROLLER_TIMEOUT);
 	}
 
@@ -30,7 +27,7 @@ public final class GrabAndClose extends CommandGroup {
 	 */
 	@Override
 	protected boolean isFinished() {
-		return !IO.getLeftIntakeLimitSwitch().get() && !IO.getRightIntakeLimitSwitch().get();
+		return false;
 	}
 
 }

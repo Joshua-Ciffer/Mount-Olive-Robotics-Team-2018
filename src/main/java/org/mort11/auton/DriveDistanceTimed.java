@@ -29,7 +29,7 @@ public final class DriveDistanceTimed extends TimedCommand {
 	public DriveDistanceTimed(double speed, double timeout) {
 		super(timeout);
 		this.speed = speed;
-		requires(Robot.drivetrain);
+		requires(Robot.getDrivetrain());
 		setInterruptible(false);
 	}
 
@@ -38,7 +38,7 @@ public final class DriveDistanceTimed extends TimedCommand {
 	 */
 	@Override
 	protected void execute() {
-		Robot.drivetrain.setBothSpeed(speed);
+		Robot.getDrivetrain().setBothSpeed(speed);
 	}
 
 	/**
@@ -46,7 +46,7 @@ public final class DriveDistanceTimed extends TimedCommand {
 	 */
 	@Override
 	protected void end() {
-		Robot.drivetrain.halt();
+		Robot.getDrivetrain().halt();
 	}
 
 }
