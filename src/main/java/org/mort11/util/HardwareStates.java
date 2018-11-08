@@ -4,8 +4,7 @@ package org.mort11.util;
  * Contains enum type states for different hardware conditions.
  *
  * @author Joshua Ciffer
- * @author Zach "Merge Errors" Rich
- * @version 06/13/2018
+ * @version 11/08/2018
  */
 public final class HardwareStates {
 
@@ -59,23 +58,6 @@ public final class HardwareStates {
 	}
 
 	/**
-	 * Hardware states for the intake piston.
-	 */
-	public enum IntakePistonState {
-
-		/**
-		 * State when the intake is closed (holding on to a cube).
-		 */
-		IN,
-
-		/**
-		 * State when the intake is open (releasing a cube).
-		 */
-		OUT
-
-	}
-
-	/**
 	 * Hardware states for the intake shifter.
 	 */
 	public enum IntakeShiftState {
@@ -89,23 +71,6 @@ public final class HardwareStates {
 		 * State when the intake is shifted in the down position.
 		 */
 		DOWN
-
-	}
-
-	/**
-	 * Hardware states for the climber.
-	 */
-	public enum ClimberState {
-
-		/**
-		 * State when the climber piston is fully extended (climbing).
-		 */
-		EXTENDED,
-
-		/**
-		 * State when the climber piston is fully retracted (not climbing).
-		 */
-		RETRACTED
 
 	}
 
