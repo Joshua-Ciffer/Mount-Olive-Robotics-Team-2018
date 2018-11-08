@@ -3,12 +3,9 @@ package org.mort11.hardware;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
-import com.kauailabs.navx.frc.AHRS;
-
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.SPI;
 
 import org.mort11.Robot;
 import org.mort11.util.Constants;
@@ -16,11 +13,8 @@ import org.mort11.util.Constants;
 /**
  * Contains objects that correlate to hardware on the robot.
  *
- * @author Benny Mirisola
- * @author Seven Kurt
  * @author Joshua Ciffer
- * @author Frankie Alfano
- * @version 06/20/2018
+ * @version 11/08/2018
  */
 public final class IO {
 
@@ -70,11 +64,6 @@ public final class IO {
 	private static DigitalInput bottomElevatorLimitSwitch;
 
 	/**
-	 * The top elevator limit switch.
-	 */
-	private static DigitalInput topElevatorLimitSwitch;
-
-	/**
 	 * The right intake roller motor.
 	 */
 	private static VictorSPX rightIntakeRollerVictor;
@@ -85,24 +74,9 @@ public final class IO {
 	private static VictorSPX leftIntakeRollerVictor;
 
 	/**
-	 * The intake grabber piston.
-	 */
-	private static DoubleSolenoid intakePiston;
-
-	/**
 	 * The piston that shifts the intake into position.
 	 */
 	private static DoubleSolenoid intakeShifterPiston;
-
-	/**
-	 * The left intake limit switch.
-	 */
-	private static DigitalInput leftIntakeLimitSwitch;
-
-	/**
-	 * The right intake limit switch.
-	 */
-	private static DigitalInput rightIntakeLimitSwitch;
 
 	/**
 	 * The main compressor.
@@ -129,14 +103,10 @@ public final class IO {
 		elevatorTalonFollower = new TalonSRX(Constants.ELEVATOR_TALON_LEFT);
 		elevatorTalonFollower.setInverted(true);
 		bottomElevatorLimitSwitch = new DigitalInput(Constants.BOTTOM_ELEVATOR_LIMIT_SWITCH);
-		topElevatorLimitSwitch = new DigitalInput(Constants.TOP_ELEVATOR_LIMIT_SWITCH);
 
 		rightIntakeRollerVictor = new VictorSPX(Constants.RIGHT_INTAKE_ROLLER_VICTOR);
 		leftIntakeRollerVictor = new VictorSPX(Constants.LEFT_INTAKE_ROLLER_VICTOR);
-		intakePiston = new DoubleSolenoid(Constants.PCM_ID, Constants.INTAKE_PISTON_IN, Constants.INTAKE_PISTON_OUT);
 		intakeShifterPiston = new DoubleSolenoid(Constants.PCM_ID, Constants.INTAKE_SHIFTER_PISTON_UP, Constants.INTAKE_SHIFTER_PISTON_DOWN);
-		leftIntakeLimitSwitch = new DigitalInput(Constants.LEFT_INTAKE_LIMIT_SWITCH);
-		rightIntakeLimitSwitch = new DigitalInput(Constants.RIGHT_INTAKE_LIMIT_SWITCH);
 
 		compressor = new Compressor();
 	}
@@ -148,7 +118,6 @@ public final class IO {
 		Robot.drivetrain.halt();
 		Robot.elevator.halt();
 		Robot.intakeRollers.halt();
-		Robot.intakePistons.halt();
 		Robot.intakeShifter.halt();
 		compressor.stop();
 	}
@@ -217,13 +186,6 @@ public final class IO {
 	}
 
 	/**
-	 * @return The top elevator limit switch.
-	 */
-	public static DigitalInput getTopElevatorLimitSwitch() {
-		return topElevatorLimitSwitch;
-	}
-
-	/**
 	 * @return The right intake roller motor.
 	 */
 	public static VictorSPX getRightIntakeRollerVictor() {
@@ -238,31 +200,10 @@ public final class IO {
 	}
 
 	/**
-	 * @return The intake grabber piston.
-	 */
-	public static DoubleSolenoid getIntakePiston() {
-		return intakePiston;
-	}
-
-	/**
 	 * @return The piston that shifts the intake into position.
 	 */
 	public static DoubleSolenoid getIntakeShifterPiston() {
 		return intakeShifterPiston;
-	}
-
-	/**
-	 * @return The left intake limit switch.
-	 */
-	public static DigitalInput getLeftIntakeLimitSwitch() {
-		return leftIntakeLimitSwitch;
-	}
-
-	/**
-	 * @return The right intake limit switch.
-	 */
-	public static DigitalInput getRightIntakeLimitSwitch() {
-		return rightIntakeLimitSwitch;
 	}
 
 	/**

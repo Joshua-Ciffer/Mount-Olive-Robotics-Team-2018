@@ -33,8 +33,6 @@ public class SmartDashboardLogger {
 		SmartDashboard.putBoolean("Top Elevator Limit Switch", IO.getTopElevatorLimitSwitch().get());
 		SmartDashboard.putBoolean("Bottom Elevator Limit Switch", IO.getBottomElevatorLimitSwitch().get());
 
-		SmartDashboard.putBoolean("Left Intake Limit Switch", IO.getLeftIntakeLimitSwitch().get());
-		SmartDashboard.putBoolean("Right Intake Limit Switch", IO.getRightIntakeLimitSwitch().get());
 	}
 
 }

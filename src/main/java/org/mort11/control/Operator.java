@@ -3,7 +3,6 @@ package org.mort11.control;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import org.mort11.intake.ActuateIntakePiston;
 import org.mort11.intake.CoastIntake;
 import org.mort11.intake.GrabAndClose;
 import org.mort11.intake.RollIntake;
@@ -49,7 +48,6 @@ public final class Operator {
 	 */
 	public static void init() {
 		JoystickButton actuateIntakePistonButton = new JoystickButton(operatorJoystick, Constants.ACTUATE_INTAKE_PISTON_BUTTON);
-		actuateIntakePistonButton.whileHeld(new ActuateIntakePiston(IntakePistonState.IN));
 		actuateIntakePistonButton.whenReleased(new GrabAndClose());
 
 		JoystickButton outtakeButton = new JoystickButton(operatorJoystick, Constants.OUTTAKE_BUTTON);

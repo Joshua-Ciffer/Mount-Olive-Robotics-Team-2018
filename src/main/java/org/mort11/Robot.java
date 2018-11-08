@@ -9,11 +9,10 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.mort11.hardware.IO;
 import org.mort11.control.Operator;
 import org.mort11.drivetrain.Drivetrain;
 import org.mort11.elevator.Elevator;
-import org.mort11.hardware.IO;
-import org.mort11.intake.IntakePistons;
 import org.mort11.intake.IntakeRollers;
 import org.mort11.intake.IntakeShifter;
 import org.mort11.util.AutoChooser;
@@ -23,9 +22,8 @@ import org.mort11.util.AutoChooser;
  * 
  * @author Joshua Ciffer
  * @author Benny Mirisola
- * @author Seven Kurt
- * @author Frank Alfano
- * @version 06/13/2018
+ * @author Timmy Vu
+ * @version 11/08/2018
  */
 public class Robot extends IterativeRobot {
 
@@ -43,11 +41,6 @@ public class Robot extends IterativeRobot {
 	 * The intake roller wheels.
 	 */
 	public static IntakeRollers intakeRollers;
-
-	/**
-	 * The intake grabber piston.
-	 */
-	public static IntakePistons intakePistons;
 
 	/**
 	 * The intake shifter piston.
@@ -83,7 +76,6 @@ public class Robot extends IterativeRobot {
 		drivetrain = new Drivetrain();
 		elevator = new Elevator();
 		intakeRollers = new IntakeRollers();
-		intakePistons = new IntakePistons();
 		intakeShifter = new IntakeShifter();
 		Operator.init();
 
@@ -100,8 +92,6 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void disabledInit() {
 		Scheduler.getInstance().removeAll();
-		IO.getElevatorTalonMaster().setNeutralMode(NeutralMode.Brake);
-		IO.getElevatorTalonFollower().setNeutralMode(NeutralMode.Brake);
 		IO.getCompressor().stop();
 	}
 
@@ -125,8 +115,6 @@ public class Robot extends IterativeRobot {
 		if (autonCommand != null) {
 			autonCommand.start();
 		}
-		IO.getElevatorTalonMaster().setNeutralMode(NeutralMode.Coast);
-		IO.getElevatorTalonFollower().setNeutralMode(NeutralMode.Coast);
 		IO.getCompressor().start();
 	}
 
@@ -146,8 +134,6 @@ public class Robot extends IterativeRobot {
 		if (autonCommand != null) {
 			autonCommand.cancel();
 		}
-		IO.getElevatorTalonMaster().setNeutralMode(NeutralMode.Coast);
-		IO.getElevatorTalonFollower().setNeutralMode(NeutralMode.Coast);
 		IO.getCompressor().start();
 	}
 
