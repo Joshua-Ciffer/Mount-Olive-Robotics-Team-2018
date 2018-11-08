@@ -28,9 +28,7 @@ public final class CoastIntake extends Command {
 	 */
 	@Override
 	protected void execute() {
-		if (!IO.getLeftIntakeLimitSwitch().get() && !IO.getRightIntakeLimitSwitch().get()) {
-			Robot.intakeRollers.setRollerSpeed(-Constants.COAST_SPEED);
-		}
+		Robot.intakeRollers.setRollerSpeed(-Constants.COAST_SPEED);
 	}
 
 	/**
