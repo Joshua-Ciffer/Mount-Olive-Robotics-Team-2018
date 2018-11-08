@@ -1,4 +1,4 @@
- package org.mort11;
+package org.mort11;
 
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 
@@ -109,6 +109,7 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().removeAll();
 		IO.getElevatorTalonMaster().setNeutralMode(NeutralMode.Brake);
 		IO.getElevatorTalonFollower().setNeutralMode(NeutralMode.Brake);
+		IO.getCompressor().stop();
 	}
 
 	/**
@@ -133,6 +134,7 @@ public class Robot extends IterativeRobot {
 		}
 		IO.getElevatorTalonMaster().setNeutralMode(NeutralMode.Coast);
 		IO.getElevatorTalonFollower().setNeutralMode(NeutralMode.Coast);
+		IO.getCompressor().start();
 	}
 
 	/**
@@ -153,6 +155,7 @@ public class Robot extends IterativeRobot {
 		}
 		IO.getElevatorTalonMaster().setNeutralMode(NeutralMode.Coast);
 		IO.getElevatorTalonFollower().setNeutralMode(NeutralMode.Coast);
+		IO.getCompressor().start();
 	}
 
 	/**
@@ -168,7 +171,9 @@ public class Robot extends IterativeRobot {
 	 * Initializes robot for test mode.
 	 */
 	@Override
-	public void testInit() {}
+	public void testInit() {
+		IO.getCompressor().start();
+	}
 
 	/**
 	 * Periodic code for test mode.

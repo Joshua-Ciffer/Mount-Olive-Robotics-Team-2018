@@ -68,7 +68,7 @@ public interface Constants {
 	/**
 	 * Bottom elevator limit switch port value.
 	 */
-	int BOTTOM_ELEVATOR_LIMIT_SWITCH = 6;
+	int BOTTOM_ELEVATOR_LIMIT_SWITCH = 9;
 
 	/**
 	 * Top elevator limit switch port value.
@@ -108,7 +108,7 @@ public interface Constants {
 	/**
 	 * The intake roller speed when intaking a cube.
 	 */
-	double INTAKE_SPEED = 1;
+	double INTAKE_SPEED = -1;
 
 	/**
 	 * The intake roller speed when outtaking a cube.
@@ -183,7 +183,9 @@ public interface Constants {
 	/**
 	 * Intake shifter button value.
 	 */
-	int INTAKE_SHIFTER_BUTTON = 12;
+	int INTAKE_SHIFTER_DOWN_BUTTON = 12;
+
+	int INTAKE_SHIFTER_UP_BUTTON = 11;
 
 	/**
 	 * Outtake button value.

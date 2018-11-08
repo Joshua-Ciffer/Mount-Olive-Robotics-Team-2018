@@ -60,9 +60,11 @@ public final class Operator {
 		intakeButton.whileHeld(new RollIntake(IntakeRollersState.IN));
 		intakeButton.whenReleased(new CoastIntake());
 
-		JoystickButton intakeShifterButton = new JoystickButton(operatorJoystick, Constants.INTAKE_SHIFTER_BUTTON);
-		intakeShifterButton.whileHeld(new ShiftIntake(IntakeShiftState.UP));
-		intakeShifterButton.whenReleased(new ShiftIntake(IntakeShiftState.DOWN));
+		JoystickButton intakeShifterButton = new JoystickButton(operatorJoystick, Constants.INTAKE_SHIFTER_UP_BUTTON);
+		intakeShifterButton.whenPressed(new ShiftIntake(IntakeShiftState.UP));
+		
+		JoystickButton intakeShifterDownButton = new JoystickButton(operatorJoystick, Constants.INTAKE_SHIFTER_DOWN_BUTTON);
+		intakeShifterDownButton.whenPressed(new ShiftIntake(IntakeShiftState.DOWN));
 	}
 
 	/**
