@@ -121,7 +121,6 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
-		super.autonomousPeriodic();
 		Scheduler.getInstance().run();
 		SmartDashboard.updateValues();
 	}
@@ -131,7 +130,6 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopInit() {
-		super.teleopInit();
 		if (autonCommand != null) {
 			autonCommand.cancel();
 		}
@@ -143,7 +141,6 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		super.teleopPeriodic();
 		Scheduler.getInstance().run();
 		SmartDashboard.updateValues();
 	}
@@ -153,7 +150,6 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void testInit() {
-		super.testInit();
 		IO.getCompressor().start();
 	}
 
@@ -162,7 +158,6 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void testPeriodic() {
-		super.testPeriodic();
 		Scheduler.getInstance().run();
 		SmartDashboard.updateValues();
 	}
@@ -195,14 +190,23 @@ public class Robot extends IterativeRobot {
 		return intakeShifter;
 	}
 
+	/**
+	 * @return The auton sendable chooser.
+	 */
 	public static SendableChooser<Command> getAutonChooser() {
 		return autonChooser;
 	}
 
+	/**
+	 * @return The side sendable chooser
+	 */
 	public static SendableChooser<String> getSideChooser() {
 		return sideChooser;
 	}
 
+	/**
+	 * @return The current auton command.
+	 */
 	public static Command getAutonCommand() {
 		return autonCommand;
 	}
