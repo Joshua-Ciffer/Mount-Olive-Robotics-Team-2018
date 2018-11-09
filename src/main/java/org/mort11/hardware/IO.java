@@ -117,7 +117,7 @@ public final class IO {
 		leftIntakeRollerVictor.setInverted(true);
 		intakeShifterPiston = new DoubleSolenoid(Constants.PCM_ID, Constants.INTAKE_SHIFTER_PISTON_DOWN, Constants.INTAKE_SHIFTER_PISTON_UP);
 
-		compressor = new Compressor();
+		compressor = new Compressor(Constants.PCM_ID);
 	}
 
 	/**
