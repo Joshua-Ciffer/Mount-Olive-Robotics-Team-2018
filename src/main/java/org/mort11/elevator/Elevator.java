@@ -11,8 +11,7 @@ import org.mort11.util.Constants;
  * This class contains a subsystem for the elevator.
  *
  * @author Joshua Ciffer
- * @author Seven Kurt
- * @version 06/13/2018
+ * @version 11/08/2018
  */
 public final class Elevator extends Subsystem {
 
@@ -38,8 +37,8 @@ public final class Elevator extends Subsystem {
 	 *        The number of rotation.
 	 */
 	public void setSpeedPositionMode(double speed, double rotations) {
-		IO.getElevatorTalonMaster().set(ControlMode.Position, speed * rotations * Constants.ENCODER_TICKS);
-		IO.getElevatorTalonFollower().set(ControlMode.Follower, Constants.ELEVATOR_TALON_RIGHT);
+		IO.getElevatorTalonRight().set(ControlMode.Position, speed * rotations * Constants.ENCODER_TICKS);
+		IO.getElevatorTalonLeft().set(ControlMode.Follower, Constants.ELEVATOR_TALON_RIGHT);
 	}
 
 	/**
@@ -47,8 +46,8 @@ public final class Elevator extends Subsystem {
 	 *        The speed to set (velocity mode).
 	 */
 	public void setSpeedVelocityMode(double speed) {
-		IO.getElevatorTalonMaster().set(ControlMode.Velocity, speed * Constants.ELEVATOR_VELOCITY);
-		IO.getElevatorTalonFollower().set(ControlMode.Follower, Constants.ELEVATOR_TALON_RIGHT);
+		IO.getElevatorTalonRight().set(ControlMode.Velocity, speed * Constants.ELEVATOR_VELOCITY);
+		IO.getElevatorTalonLeft().set(ControlMode.Follower, Constants.ELEVATOR_TALON_RIGHT);
 	}
 
 	/**
@@ -56,8 +55,8 @@ public final class Elevator extends Subsystem {
 	 *        The speed to set (percent output mode).
 	 */
 	public void setSpeedPercentMode(double speed) {
-		IO.getElevatorTalonMaster().set(ControlMode.PercentOutput, speed);
-		IO.getElevatorTalonFollower().set(ControlMode.Follower, Constants.ELEVATOR_TALON_RIGHT);
+		IO.getElevatorTalonRight().set(ControlMode.PercentOutput, speed);
+		IO.getElevatorTalonLeft().set(ControlMode.Follower, Constants.ELEVATOR_TALON_RIGHT);
 	}
 
 	/**
