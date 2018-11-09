@@ -30,7 +30,7 @@ public final class Operator {
 	private static Joystick rightDriverJoystick = new Joystick(Constants.RIGHT_DRIVER_JOYSTICK);
 
 	/**
-	 * Left operator joystick object.
+	 * Operator joystick object.
 	 */
 	private static Joystick operatorJoystick = new Joystick(Constants.OPERATOR_JOYSTICK);
 
@@ -73,7 +73,7 @@ public final class Operator {
 	}
 
 	/**
-	 * @return Left operator joystick object.
+	 * @return Operator joystick object.
 	 */
 	public static Joystick getOperatorJoystick() {
 		return operatorJoystick;

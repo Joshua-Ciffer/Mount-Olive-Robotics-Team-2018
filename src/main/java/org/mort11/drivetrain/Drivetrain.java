@@ -37,7 +37,7 @@ public final class Drivetrain extends Subsystem {
 	 *        The speed to set.
 	 */
 	public void setLeftSpeed(double speed) {
-		IO.getLeftDriveTalonMaster().set(ControlMode.PercentOutput, -speed);
+		IO.getLeftDriveTalonMaster().set(ControlMode.PercentOutput, speed);
 		IO.getLeftDriveTalonFront().set(ControlMode.Follower, Constants.LEFT_DRIVE_TALON_MASTER);
 		IO.getLeftDriveTalonRear().set(ControlMode.Follower, Constants.LEFT_DRIVE_TALON_MASTER);
 	}
@@ -84,7 +84,7 @@ public final class Drivetrain extends Subsystem {
 	 *        The velocity to set.
 	 */
 	public void setRightVelocity(double velocity) {
-		IO.getRightDriveTalonMaster().set(ControlMode.Velocity, -velocity);
+		IO.getRightDriveTalonMaster().set(ControlMode.Velocity, velocity);
 		IO.getRightDriveTalonFront().set(ControlMode.Follower, Constants.RIGHT_DRIVE_TALON_MASTER);
 		IO.getRightDriveTalonRear().set(ControlMode.Follower, Constants.RIGHT_DRIVE_TALON_MASTER);
 	}
