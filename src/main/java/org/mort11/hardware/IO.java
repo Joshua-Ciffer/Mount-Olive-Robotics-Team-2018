@@ -118,6 +118,7 @@ public final class IO {
 		intakeShifterPiston = new DoubleSolenoid(Constants.PCM_ID, Constants.INTAKE_SHIFTER_PISTON_DOWN, Constants.INTAKE_SHIFTER_PISTON_UP);
 
 		compressor = new Compressor(Constants.PCM_ID);
+		compressor.start();
 	}
 
 	/**

@@ -76,7 +76,6 @@ public class Robot extends IterativeRobot {
 		intakeRollers = new IntakeRollers();
 		intakeShifter = new IntakeShifter();
 		Operator.init();
-		IO.getCompressor().start();
 		sideChooser = new SendableChooser<>();
 		sideChooser.addDefault("Middle", "Middle");
 		sideChooser.addObject("Left", "Left");
