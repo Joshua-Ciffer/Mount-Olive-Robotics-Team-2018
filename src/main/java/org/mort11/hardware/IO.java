@@ -19,34 +19,34 @@ import org.mort11.util.Constants;
 public final class IO {
 
 	/**
-	 * The left drivetrain master motor.
+	 * The front right drivetrain talon.
 	 */
-	private static TalonSRX leftDriveTalonMaster;
+	private static TalonSRX rightDriveTalonFront;
 
 	/**
-	 * The left drivetrain middle follower motor.
-	 */
-	private static TalonSRX leftDriveTalonMiddle;
-
-	/**
-	 * The left drivetrain rear follower motor.
-	 */
-	private static TalonSRX leftDriveTalonRear;
-
-	/**
-	 * The right drivetrain master motor.
+	 * The master right drivetrain talon.
 	 */
 	private static TalonSRX rightDriveTalonMaster;
 
 	/**
-	 * The right drivetrain middle follower motor.
-	 */
-	private static TalonSRX rightDriveTalonMiddle;
-
-	/**
-	 * The right drivetrain rear follower motor.
+	 * The rear right drivetrain talon.
 	 */
 	private static TalonSRX rightDriveTalonRear;
+
+	/**
+	 * The front left drivetrain talon.
+	 */
+	private static TalonSRX leftDriveTalonFront;
+
+	/**
+	 * The master left drivetrain talon.
+	 */
+	private static TalonSRX leftDriveTalonMaster;
+
+	/**
+	 * The rear left drivetrain talon.
+	 */
+	private static TalonSRX leftDriveTalonRear;
 
 	/**
 	 * The master elevator motor.
@@ -97,12 +97,12 @@ public final class IO {
 	 * Initializes all hardware objects.
 	 */
 	public static void init() {
-		leftDriveTalonMaster = new TalonSRX(Constants.LEFT_DRIVE_TALON_MASTER);
-		leftDriveTalonMiddle = new TalonSRX(Constants.LEFT_DRIVE_TALON_FRONT);
-		leftDriveTalonRear = new TalonSRX(Constants.LEFT_DRIVE_TALON_REAR);
+		rightDriveTalonFront = new TalonSRX(Constants.RIGHT_DRIVE_TALON_FRONT);
 		rightDriveTalonMaster = new TalonSRX(Constants.RIGHT_DRIVE_TALON_MASTER);
-		rightDriveTalonMiddle = new TalonSRX(Constants.RIGHT_DRIVE_TALON_FRONT);
 		rightDriveTalonRear = new TalonSRX(Constants.RIGHT_DRIVE_TALON_REAR);
+		leftDriveTalonFront = new TalonSRX(Constants.LEFT_DRIVE_TALON_FRONT);
+		leftDriveTalonMaster = new TalonSRX(Constants.LEFT_DRIVE_TALON_MASTER);
+		leftDriveTalonRear = new TalonSRX(Constants.LEFT_DRIVE_TALON_REAR);
 
 		elevatorTalonMaster = new TalonSRX(Constants.ELEVATOR_TALON_RIGHT);
 		elevatorTalonFollower = new TalonSRX(Constants.ELEVATOR_TALON_LEFT);
@@ -129,45 +129,45 @@ public final class IO {
 	}
 
 	/**
-	 * @return The left drivetrain master motor.
+	 * @return The front right drivetrain talon.
 	 */
-	public static TalonSRX getLeftDriveTalonMaster() {
-		return leftDriveTalonMaster;
+	public static TalonSRX getRightDriveTalonFront() {
+		return rightDriveTalonFront;
 	}
 
 	/**
-	 * @return The left drivetrain middle follower motor.
-	 */
-	public static TalonSRX getLeftDriveTalonMiddle() {
-		return leftDriveTalonMiddle;
-	}
-
-	/**
-	 * @return The left drivetrain rear follower motor.
-	 */
-	public static TalonSRX getLeftDriveTalonRear() {
-		return leftDriveTalonRear;
-	}
-
-	/**
-	 * @return The right drivetrain master motor.
+	 * @return The master right drivetrain talon.
 	 */
 	public static TalonSRX getRightDriveTalonMaster() {
 		return rightDriveTalonMaster;
 	}
 
 	/**
-	 * @return The right drivetrain middle follower motor.
-	 */
-	public static TalonSRX getRightDriveTalonMiddle() {
-		return rightDriveTalonMiddle;
-	}
-
-	/**
-	 * @return The right drivetrain rear follower motor.
+	 * @return The rear right drivetrain talon.
 	 */
 	public static TalonSRX getRightDriveTalonRear() {
 		return rightDriveTalonRear;
+	}
+
+	/**
+	 * @return The front left drivetrain talon.
+	 */
+	public static TalonSRX getLeftDriveTalonFront() {
+		return leftDriveTalonFront;
+	}
+
+	/**
+	 * @return The master left drivetrain talon.
+	 */
+	public static TalonSRX getLeftDriveTalonMaster() {
+		return leftDriveTalonMaster;
+	}
+
+	/**
+	 * @return The rear left drivetrain talon.
+	 */
+	public static TalonSRX getLeftDriveTalonRear() {
+		return leftDriveTalonRear;
 	}
 
 	/**

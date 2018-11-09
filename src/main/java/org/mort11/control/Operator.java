@@ -15,10 +15,9 @@ import org.mort11.util.HardwareStates.IntakeShiftState;
  * Contains objects representing driver and operator joysticks and assigns specific commands to buttons.
  *
  * @author Joshua Ciffer
- * @author Frankie Alfano
  * @author Benny Mirisola
- * @author Tim Vu
- * @version 06/08/2018
+ * @author Timmy Vu
+ * @version 11/08/2018
  */
 public final class Operator {
 

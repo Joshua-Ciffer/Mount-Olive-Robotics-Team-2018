@@ -8,9 +8,8 @@ import org.mort11.control.Operator;
 /**
  * The main command that operates the drivetrain based on joystick input from the driver.
  * 
- * @author Zach "Bad Push" Rich
  * @author Joshua Ciffer
- * @version 06/12/2018
+ * @version 11/08/2018
  */
 public final class JoystickDrive extends Command {
 

@@ -11,7 +11,7 @@ import org.mort11.util.Constants;
  * This class represents the drivetrain subsystem.
  * 
  * @author Joshua Ciffer
- * @version 06/12/2018
+ * @version 11/08/2018
  */
 public final class Drivetrain extends Subsystem {
 
@@ -38,7 +38,7 @@ public final class Drivetrain extends Subsystem {
 	 */
 	public void setLeftSpeed(double speed) {
 		IO.getLeftDriveTalonMaster().set(ControlMode.PercentOutput, -speed);
-		IO.getLeftDriveTalonMiddle().set(ControlMode.Follower, Constants.LEFT_DRIVE_TALON_MASTER);
+		IO.getLeftDriveTalonFront().set(ControlMode.Follower, Constants.LEFT_DRIVE_TALON_MASTER);
 		IO.getLeftDriveTalonRear().set(ControlMode.Follower, Constants.LEFT_DRIVE_TALON_MASTER);
 	}
 
@@ -50,7 +50,7 @@ public final class Drivetrain extends Subsystem {
 	 */
 	public void setRightSpeed(double speed) {
 		IO.getRightDriveTalonMaster().set(ControlMode.PercentOutput, speed);
-		IO.getRightDriveTalonMiddle().set(ControlMode.Follower, Constants.RIGHT_DRIVE_TALON_MASTER);
+		IO.getRightDriveTalonFront().set(ControlMode.Follower, Constants.RIGHT_DRIVE_TALON_MASTER);
 		IO.getRightDriveTalonRear().set(ControlMode.Follower, Constants.RIGHT_DRIVE_TALON_MASTER);
 	}
 
@@ -73,7 +73,7 @@ public final class Drivetrain extends Subsystem {
 	 */
 	public void setLeftVelocity(double velocity) {
 		IO.getLeftDriveTalonMaster().set(ControlMode.Velocity, velocity);
-		IO.getLeftDriveTalonMiddle().set(ControlMode.Follower, Constants.LEFT_DRIVE_TALON_MASTER);
+		IO.getLeftDriveTalonFront().set(ControlMode.Follower, Constants.LEFT_DRIVE_TALON_MASTER);
 		IO.getLeftDriveTalonRear().set(ControlMode.Follower, Constants.LEFT_DRIVE_TALON_MASTER);
 	}
 
@@ -85,7 +85,7 @@ public final class Drivetrain extends Subsystem {
 	 */
 	public void setRightVelocity(double velocity) {
 		IO.getRightDriveTalonMaster().set(ControlMode.Velocity, -velocity);
-		IO.getRightDriveTalonMiddle().set(ControlMode.Follower, Constants.RIGHT_DRIVE_TALON_MASTER);
+		IO.getRightDriveTalonFront().set(ControlMode.Follower, Constants.RIGHT_DRIVE_TALON_MASTER);
 		IO.getRightDriveTalonRear().set(ControlMode.Follower, Constants.RIGHT_DRIVE_TALON_MASTER);
 	}
 
