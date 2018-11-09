@@ -76,7 +76,7 @@ public class Robot extends IterativeRobot {
 		intakeRollers = new IntakeRollers();
 		intakeShifter = new IntakeShifter();
 		Operator.init();
-
+		IO.getCompressor().start();
 		sideChooser = new SendableChooser<>();
 		sideChooser.addDefault("Middle", "Middle");
 		sideChooser.addObject("Left", "Left");
@@ -85,12 +85,17 @@ public class Robot extends IterativeRobot {
 	}
 
 	/**
+	 * Runs periodically no matter what mode is enabled or disabled.
+	 */
+	@Override
+	public void robotPeriodic() {}
+
+	/**
 	 * Initializes the robot for disabled mode.
 	 */
 	@Override
 	public void disabledInit() {
 		Scheduler.getInstance().removeAll();
-		IO.getCompressor().stop();
 	}
 
 	/**
@@ -113,7 +118,6 @@ public class Robot extends IterativeRobot {
 		if (autonCommand != null) {
 			autonCommand.start();
 		}
-		IO.getCompressor().start();
 	}
 
 	/**
@@ -133,7 +137,6 @@ public class Robot extends IterativeRobot {
 		if (autonCommand != null) {
 			autonCommand.cancel();
 		}
-		IO.getCompressor().start();
 	}
 
 	/**
@@ -149,9 +152,7 @@ public class Robot extends IterativeRobot {
 	 * Initializes robot for test mode.
 	 */
 	@Override
-	public void testInit() {
-		IO.getCompressor().start();
-	}
+	public void testInit() {}
 
 	/**
 	 * Periodic code for test mode.

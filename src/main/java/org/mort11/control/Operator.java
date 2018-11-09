@@ -52,10 +52,10 @@ public final class Operator {
 		intakeButton.whenReleased(new RollIntake(IntakeRollersState.STOP));
 
 		JoystickButton intakeShifterDownButton = new JoystickButton(operatorJoystick, Constants.INTAKE_SHIFTER_DOWN_BUTTON);
-		intakeShifterDownButton.whenPressed(new ShiftIntake(IntakeShiftState.UP));
+		intakeShifterDownButton.whenPressed(new ShiftIntake(IntakeShiftState.DOWN));
 
 		JoystickButton intakeShifterUpButton = new JoystickButton(operatorJoystick, Constants.INTAKE_SHIFTER_UP_BUTTON);
-		intakeShifterUpButton.whenPressed(new ShiftIntake(IntakeShiftState.DOWN));
+		intakeShifterUpButton.whenPressed(new ShiftIntake(IntakeShiftState.UP));
 	}
 
 	/**
