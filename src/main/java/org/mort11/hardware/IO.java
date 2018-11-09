@@ -113,8 +113,8 @@ public final class IO {
 		bottomElevatorLimitSwitch = new DigitalInput(Constants.BOTTOM_ELEVATOR_LIMIT_SWITCH);
 
 		rightIntakeRollerVictor = new VictorSPX(Constants.RIGHT_INTAKE_ROLLER_VICTOR);
-		rightIntakeRollerVictor.setInverted(true);
 		leftIntakeRollerVictor = new VictorSPX(Constants.LEFT_INTAKE_ROLLER_VICTOR);
+		leftIntakeRollerVictor.setInverted(true);
 		intakeShifterPiston = new DoubleSolenoid(Constants.PCM_ID, Constants.INTAKE_SHIFTER_PISTON_DOWN, Constants.INTAKE_SHIFTER_PISTON_UP);
 
 		compressor = new Compressor();
