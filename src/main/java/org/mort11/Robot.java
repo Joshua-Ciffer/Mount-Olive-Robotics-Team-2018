@@ -5,7 +5,6 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.mort11.hardware.IO;
 import org.mort11.control.Operator;
@@ -80,14 +79,15 @@ public class Robot extends IterativeRobot {
 		sideChooser.addDefault("Middle", "Middle");
 		sideChooser.addObject("Left", "Left");
 		sideChooser.addObject("Right", "Right");
-		SmartDashboard.putData("Sides", sideChooser);
 	}
 
 	/**
 	 * Runs periodically no matter what mode is enabled or disabled.
 	 */
 	@Override
-	public void robotPeriodic() {}
+	public void robotPeriodic() {
+
+	}
 
 	/**
 	 * Initializes the robot for disabled mode.
@@ -104,7 +104,6 @@ public class Robot extends IterativeRobot {
 	public void disabledPeriodic() {
 		autonChooser = new SendableChooser<>();
 		AutoChooser.addAutons(sideChooser.getSelected());
-		SmartDashboard.putData("autons", autonChooser);
 	}
 
 	/**
@@ -125,7 +124,6 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
-		SmartDashboard.updateValues();
 	}
 
 	/**
@@ -144,7 +142,6 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		SmartDashboard.updateValues();
 	}
 
 	/**
@@ -159,7 +156,6 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void testPeriodic() {
 		Scheduler.getInstance().run();
-		SmartDashboard.updateValues();
 	}
 
 	/**
