@@ -107,10 +107,13 @@ public interface Constants {
 	int OPERATOR_JOYSTICK = 2;
 
 	/**
-	 * Intake shifter button value.
+	 * Intake shifter (down) button assignment.
 	 */
 	int INTAKE_SHIFTER_DOWN_BUTTON = 12;
 
+	/**
+	 * Intake shifter (up) button assignment.
+	 */
 	int INTAKE_SHIFTER_UP_BUTTON = 11;
 
 	/**

@@ -48,12 +48,7 @@ public final class HardwareStates {
 		/**
 		 * State when the intake rollers are stopped.
 		 */
-		STOP,
-
-		/**
-		 * State when the intake rollers are coasting.
-		 */
-		COAST
+		STOP
 
 	}
 

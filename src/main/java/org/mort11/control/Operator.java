@@ -3,7 +3,6 @@ package org.mort11.control;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import org.mort11.intake.CoastIntake;
 import org.mort11.intake.RollIntake;
 import org.mort11.intake.ShiftIntake;
 import org.mort11.util.Constants;
@@ -50,13 +49,13 @@ public final class Operator {
 
 		JoystickButton intakeButton = new JoystickButton(operatorJoystick, Constants.INTAKE_BUTTON);
 		intakeButton.whileHeld(new RollIntake(IntakeRollersState.IN));
-		intakeButton.whenReleased(new CoastIntake());
-
-		JoystickButton intakeShifterButton = new JoystickButton(operatorJoystick, Constants.INTAKE_SHIFTER_UP_BUTTON);
-		intakeShifterButton.whenPressed(new ShiftIntake(IntakeShiftState.UP));
+		intakeButton.whenReleased(new RollIntake(IntakeRollersState.STOP));
 
 		JoystickButton intakeShifterDownButton = new JoystickButton(operatorJoystick, Constants.INTAKE_SHIFTER_DOWN_BUTTON);
-		intakeShifterDownButton.whenPressed(new ShiftIntake(IntakeShiftState.DOWN));
+		intakeShifterDownButton.whenPressed(new ShiftIntake(IntakeShiftState.UP));
+
+		JoystickButton intakeShifterUpButton = new JoystickButton(operatorJoystick, Constants.INTAKE_SHIFTER_UP_BUTTON);
+		intakeShifterUpButton.whenPressed(new ShiftIntake(IntakeShiftState.DOWN));
 	}
 
 	/**

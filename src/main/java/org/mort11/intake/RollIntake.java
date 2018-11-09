@@ -10,7 +10,7 @@ import org.mort11.Robot;
  * The roll intake command runs the intake rollers depending on the state they are currently in.
  *
  * @author Joshua Ciffer
- * @version 06/12/2018
+ * @version 11/08/2018
  */
 public final class RollIntake extends Command {
 
@@ -51,34 +51,14 @@ public final class RollIntake extends Command {
 				Robot.getIntakeRollers().halt();
 				break;
 			}
-			case COAST: {
-				break;
-			}
 		}
 	}
 
 	/**
-	 * The intake rollers will roll continuously if they are coasting, outtaking, or stopped. In any of those situations, this command is canceled
-	 * by a button press or button release from the operator joystick. If intaking, the command completes if a cube hits both the intake limit switches.
-	 * 
-	 * @return Whether or not the intake rollers are finished running.
+	 * @return False, because command never completes until button is released.
 	 */
 	@Override
 	protected boolean isFinished() {
-		switch (rollerState) {
-			case COAST: {
-				break;
-			}
-			case OUT: {
-				break;
-			}
-			case STOP: {
-				break;
-			}
-			case IN: {
-				return true;
-			}
-		}
 		return false;
 	}
 

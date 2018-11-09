@@ -11,7 +11,7 @@ import org.mort11.util.HardwareStates.IntakeRollersState;
  * The subsystem representing the intake roller wheels that intake or outtake a cube.
  *
  * @author Joshua Ciffer
- * @version 06/12/2018
+ * @version 11/08/2018
  */
 public final class IntakeRollers extends Subsystem {
 
@@ -32,7 +32,7 @@ public final class IntakeRollers extends Subsystem {
 	 */
 	@Override
 	protected void initDefaultCommand() {
-		setDefaultCommand(new CoastIntake());
+		setDefaultCommand(new RollIntake(IntakeRollersState.STOP));
 	}
 
 	/**
