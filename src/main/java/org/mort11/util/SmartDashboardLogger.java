@@ -14,16 +14,16 @@ public class SmartDashboardLogger {
 	}
 
 	private static void initTalonVoltage() {
+		SmartDashboard.putNumber("Left Drive Talon Front", IO.getLeftDriveTalonFront().getMotorOutputVoltage());
 		SmartDashboard.putNumber("Left Drive Talon Master", IO.getLeftDriveTalonMaster().getMotorOutputVoltage());
-		SmartDashboard.putNumber("Left Drive Talon Middle", IO.getLeftDriveTalonMiddle().getMotorOutputVoltage());
 		SmartDashboard.putNumber("Left Drive Talon Rear", IO.getLeftDriveTalonRear().getMotorOutputVoltage());
 
+		SmartDashboard.putNumber("Right Drive Talon Front", IO.getRightDriveTalonFront().getMotorOutputVoltage());
 		SmartDashboard.putNumber("Right Drive Talon Master", IO.getRightDriveTalonMaster().getMotorOutputVoltage());
-		SmartDashboard.putNumber("Right Drive Talon Middle", IO.getRightDriveTalonMiddle().getMotorOutputVoltage());
 		SmartDashboard.putNumber("Right Drive Talon Rear", IO.getRightDriveTalonRear().getMotorOutputVoltage());
 
-		SmartDashboard.putNumber("Elevator Talon Master", IO.getElevatorTalonMaster().getMotorOutputVoltage());
-		SmartDashboard.putNumber("Elevator Talon Follower", IO.getElevatorTalonFollower().getMotorOutputVoltage());
+		SmartDashboard.putNumber("Elevator Talon Left", IO.getElevatorTalonLeft().getMotorOutputVoltage());
+		SmartDashboard.putNumber("Elevator Talon Right", IO.getElevatorTalonRight().getMotorOutputVoltage());
 
 		SmartDashboard.putNumber("Left Intake Roller Victor", IO.getLeftIntakeRollerVictor().getMotorOutputVoltage());
 		SmartDashboard.putNumber("Right Intake Roller Victor", IO.getRightIntakeRollerVictor().getMotorOutputVoltage());
@@ -31,6 +31,7 @@ public class SmartDashboardLogger {
 
 	private static void initLimitSwitches() {
 		SmartDashboard.putBoolean("Bottom Elevator Limit Switch", IO.getBottomElevatorLimitSwitch().get());
+		SmartDashboard.putBoolean("Top Elevator Limit Switch", IO.getTopElevatorLimitSwitch().get());
 
 	}
 
