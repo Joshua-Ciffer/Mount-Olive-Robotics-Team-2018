@@ -22,11 +22,11 @@ public final class IntakeShifter extends Subsystem {
 	}
 
 	/**
-	 * By default, subsystem is shifted into the down position.
+	 * By default, subsystem is shifted into the up position.
 	 */
 	@Override
 	protected void initDefaultCommand() {
-		setDefaultCommand(new ShiftIntake(IntakeShiftState.DOWN));
+		setDefaultCommand(new ShiftIntake(IntakeShiftState.UP));
 	}
 
 	/**
