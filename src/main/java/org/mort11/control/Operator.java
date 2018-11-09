@@ -4,7 +4,6 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.mort11.intake.CoastIntake;
-import org.mort11.intake.GrabAndClose;
 import org.mort11.intake.RollIntake;
 import org.mort11.intake.ShiftIntake;
 import org.mort11.util.Constants;
@@ -45,9 +44,6 @@ public final class Operator {
 	 * Initializes all joystick objects and buttons.
 	 */
 	public static void init() {
-		JoystickButton actuateIntakePistonButton = new JoystickButton(operatorJoystick, Constants.ACTUATE_INTAKE_PISTON_BUTTON);
-		actuateIntakePistonButton.whenReleased(new GrabAndClose());
-
 		JoystickButton outtakeButton = new JoystickButton(operatorJoystick, Constants.OUTTAKE_BUTTON);
 		outtakeButton.whileHeld(new RollIntake(IntakeRollersState.OUT));
 		outtakeButton.whenReleased(new RollIntake(IntakeRollersState.STOP));
