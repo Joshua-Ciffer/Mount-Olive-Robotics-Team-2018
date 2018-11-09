@@ -66,41 +66,6 @@ public final class Drivetrain extends Subsystem {
 	}
 
 	/**
-	 * Sets the left drive speed based on encoder ticks per 100ms.
-	 *
-	 * @param velocity
-	 *        The velocity to set.
-	 */
-	public void setLeftVelocity(double velocity) {
-		IO.getLeftDriveTalonMaster().set(ControlMode.Velocity, velocity);
-		IO.getLeftDriveTalonFront().set(ControlMode.Follower, Constants.LEFT_DRIVE_TALON_MASTER);
-		IO.getLeftDriveTalonRear().set(ControlMode.Follower, Constants.LEFT_DRIVE_TALON_MASTER);
-	}
-
-	/**
-	 * Sets the right drive speed based on encoder ticks per 100ms.
-	 *
-	 * @param velocity
-	 *        The velocity to set.
-	 */
-	public void setRightVelocity(double velocity) {
-		IO.getRightDriveTalonMaster().set(ControlMode.Velocity, velocity);
-		IO.getRightDriveTalonFront().set(ControlMode.Follower, Constants.RIGHT_DRIVE_TALON_MASTER);
-		IO.getRightDriveTalonRear().set(ControlMode.Follower, Constants.RIGHT_DRIVE_TALON_MASTER);
-	}
-
-	/**
-	 * Sets both sides of the drivetrain to the same velocity.
-	 *
-	 * @param velocity
-	 *        The velocity to set.
-	 */
-	public void setBothVelocity(double velocity) {
-		setLeftVelocity(velocity);
-		setRightVelocity(velocity);
-	}
-
-	/**
 	 * Stops the drivetrain.
 	 */
 	public void halt() {
