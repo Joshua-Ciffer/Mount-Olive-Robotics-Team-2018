@@ -10,7 +10,7 @@ import org.mort11.Robot;
  * Command to move the elevator up or down based on input from the operator joystick.
  *
  * @author Joshua Ciffer
- * @version 06/13/2018
+ * @version 11/08/2018
  */
 public final class JoystickDrive extends Command {
 
@@ -36,14 +36,18 @@ public final class JoystickDrive extends Command {
 		speed = Operator.getOperatorJoystick().getY();
 		if (!IO.getTopElevatorLimitSwitch().get()) {	// If the elevator is at the top,
 			if (speed < 0) {	// Only move it as long as it is going down.
-				Robot.getElevator().setSpeedPercentMode(speed);
+				Robot.getElevator().setSpeed(speed);
+			} else {
+				Robot.getElevator().setSpeed(0);
 			}
 		} else if (!IO.getBottomElevatorLimitSwitch().get()) {	// If the elevator is at the bottom,
 			if (speed > 0) {	// Only move it as long as it is going up.
-				Robot.getElevator().setSpeedPercentMode(speed);
+				Robot.getElevator().setSpeed(speed);
+			} else {
+				Robot.getElevator().setSpeed(0);
 			}
 		} else {	// Otherwise, move it in whatever direction.
-			Robot.getElevator().setSpeedPercentMode(speed);
+			Robot.getElevator().setSpeed(speed);
 		}
 	}
 

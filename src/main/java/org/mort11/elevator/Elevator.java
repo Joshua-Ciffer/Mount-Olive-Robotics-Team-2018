@@ -32,29 +32,9 @@ public final class Elevator extends Subsystem {
 
 	/**
 	 * @param speed
-	 *        The speed to set (position mode).
-	 * @param rotations
-	 *        The number of rotation.
-	 */
-	public void setSpeedPositionMode(double speed, double rotations) {
-		IO.getElevatorTalonRight().set(ControlMode.Position, speed * rotations * Constants.ENCODER_TICKS);
-		IO.getElevatorTalonLeft().set(ControlMode.Follower, Constants.ELEVATOR_TALON_RIGHT);
-	}
-
-	/**
-	 * @param speed
-	 *        The speed to set (velocity mode).
-	 */
-	public void setSpeedVelocityMode(double speed) {
-		IO.getElevatorTalonRight().set(ControlMode.Velocity, speed * Constants.ELEVATOR_VELOCITY);
-		IO.getElevatorTalonLeft().set(ControlMode.Follower, Constants.ELEVATOR_TALON_RIGHT);
-	}
-
-	/**
-	 * @param speed
 	 *        The speed to set (percent output mode).
 	 */
-	public void setSpeedPercentMode(double speed) {
+	public void setSpeed(double speed) {
 		IO.getElevatorTalonRight().set(ControlMode.PercentOutput, speed);
 		IO.getElevatorTalonLeft().set(ControlMode.Follower, Constants.ELEVATOR_TALON_RIGHT);
 	}
@@ -63,7 +43,7 @@ public final class Elevator extends Subsystem {
 	 * Stops the elevator motors.
 	 */
 	public void halt() {
-		setSpeedPercentMode(0);
+		setSpeed(0);
 	}
 
 }

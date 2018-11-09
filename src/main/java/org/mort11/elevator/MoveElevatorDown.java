@@ -10,7 +10,7 @@ import org.mort11.util.Constants;
  * A command to move the elevator to its lowest point.
  *
  * @author Joshua Ciffer
- * @version 06/13/2018
+ * @version 11/08/2018
  */
 public final class MoveElevatorDown extends Command {
 
@@ -28,7 +28,7 @@ public final class MoveElevatorDown extends Command {
 	 */
 	@Override
 	protected void execute() {
-		Robot.getElevator().setSpeedPercentMode(-Constants.ELEVATOR_SPEED);
+		Robot.getElevator().setSpeed(-Constants.ELEVATOR_SPEED);
 	}
 
 	/**
