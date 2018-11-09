@@ -49,24 +49,24 @@ public final class IO {
 	private static TalonSRX leftDriveTalonRear;
 
 	/**
-	 * The master elevator motor.
+	 * The right elevator talon.
 	 */
-	private static TalonSRX elevatorTalonMaster;
+	private static TalonSRX elevatorTalonRight;
 
 	/**
-	 * The follower elevator motor.
+	 * The left elevator talon.
 	 */
-	private static TalonSRX elevatorTalonFollower;
-
-	/**
-	 * The bottom elevator limit switch.
-	 */
-	private static DigitalInput bottomElevatorLimitSwitch;
+	private static TalonSRX elevatorTalonLeft;
 
 	/**
 	 * The top elevator limit switch.
 	 */
 	private static DigitalInput topElevatorLimitSwitch;
+
+	/**
+	 * The bottom elevator limit switch.
+	 */
+	private static DigitalInput bottomElevatorLimitSwitch;
 
 	/**
 	 * The right intake roller motor.
@@ -104,15 +104,14 @@ public final class IO {
 		leftDriveTalonMaster = new TalonSRX(Constants.LEFT_DRIVE_TALON_MASTER);
 		leftDriveTalonRear = new TalonSRX(Constants.LEFT_DRIVE_TALON_REAR);
 
-		elevatorTalonMaster = new TalonSRX(Constants.ELEVATOR_TALON_RIGHT);
-		elevatorTalonFollower = new TalonSRX(Constants.ELEVATOR_TALON_LEFT);
-		elevatorTalonFollower.setInverted(true);
-		bottomElevatorLimitSwitch = new DigitalInput(Constants.BOTTOM_ELEVATOR_LIMIT_SWITCH);
+		elevatorTalonRight = new TalonSRX(Constants.ELEVATOR_TALON_RIGHT);
+		elevatorTalonLeft = new TalonSRX(Constants.ELEVATOR_TALON_LEFT);
 		topElevatorLimitSwitch = new DigitalInput(Constants.TOP_ELEVATOR_LIMIT_SWITCH);
+		bottomElevatorLimitSwitch = new DigitalInput(Constants.BOTTOM_ELEVATOR_LIMIT_SWITCH);
 
 		rightIntakeRollerVictor = new VictorSPX(Constants.RIGHT_INTAKE_ROLLER_VICTOR);
 		leftIntakeRollerVictor = new VictorSPX(Constants.LEFT_INTAKE_ROLLER_VICTOR);
-		intakeShifterPiston = new DoubleSolenoid(Constants.PCM_ID, Constants.INTAKE_SHIFTER_PISTON_UP, Constants.INTAKE_SHIFTER_PISTON_DOWN);
+		intakeShifterPiston = new DoubleSolenoid(Constants.PCM_ID, Constants.INTAKE_SHIFTER_PISTON_DOWN, Constants.INTAKE_SHIFTER_PISTON_UP);
 
 		compressor = new Compressor();
 	}
@@ -171,17 +170,17 @@ public final class IO {
 	}
 
 	/**
-	 * @return The master elevator motor.
+	 * @return The right elevator talon.
 	 */
-	public static TalonSRX getElevatorTalonMaster() {
-		return elevatorTalonMaster;
+	public static TalonSRX getElevatorTalonRight() {
+		return elevatorTalonRight;
 	}
 
 	/**
-	 * @return The follower elevator motor.
+	 * @return The left elevator talon.
 	 */
-	public static TalonSRX getElevatorTalonFollower() {
-		return elevatorTalonFollower;
+	public static TalonSRX getElevatorTalonLeft() {
+		return elevatorTalonLeft;
 	}
 
 	/**

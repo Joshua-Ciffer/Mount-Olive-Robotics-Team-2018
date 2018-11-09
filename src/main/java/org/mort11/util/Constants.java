@@ -22,7 +22,7 @@ public interface Constants {
 	int PDP_ID = 62;
 
 	/**
-	 * Right drivetrain middle follower motor port value.
+	 * Right drivetrain front follower motor port value.
 	 */
 	int RIGHT_DRIVE_TALON_FRONT = 53;
 
@@ -37,7 +37,7 @@ public interface Constants {
 	int RIGHT_DRIVE_TALON_REAR = 55;
 
 	/**
-	 * Left drivetrain middle follower motor port value.
+	 * Left drivetrain front follower motor port value.
 	 */
 	int LEFT_DRIVE_TALON_FRONT = 58;
 
@@ -52,24 +52,14 @@ public interface Constants {
 	int LEFT_DRIVE_TALON_REAR = 60;
 
 	/**
-	 * Elevator master motor port value.
+	 * Elevator right motor port value.
 	 */
 	int ELEVATOR_TALON_RIGHT = 56;
 
 	/**
-	 * Elevator follower motor port value.
+	 * Elevator left motor port value.
 	 */
 	int ELEVATOR_TALON_LEFT = 57;
-
-	/**
-	 * Right intake roller motor port value.
-	 */
-	int RIGHT_INTAKE_ROLLER_VICTOR = 51;
-
-	/**
-	 * Left intake roller motor port value.
-	 */
-	int LEFT_INTAKE_ROLLER_VICTOR = 52;
 
 	/**
 	 * Top elevator limit switch port value.
@@ -80,6 +70,16 @@ public interface Constants {
 	 * Bottom elevator limit switch port value.
 	 */
 	int BOTTOM_ELEVATOR_LIMIT_SWITCH = 9;
+
+	/**
+	 * Right intake roller motor port value.
+	 */
+	int RIGHT_INTAKE_ROLLER_VICTOR = 51;
+
+	/**
+	 * Left intake roller motor port value.
+	 */
+	int LEFT_INTAKE_ROLLER_VICTOR = 52;
 
 	/**
 	 * Intake shifter piston extended state port value.
