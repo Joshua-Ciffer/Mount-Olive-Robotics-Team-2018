@@ -5,6 +5,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import org.mort11.hardware.IO;
+import org.mort11.util.Constants;
 import org.mort11.util.HardwareStates.IntakeRollersState;
 
 /**
@@ -41,7 +42,7 @@ public final class IntakeRollers extends Subsystem {
 	 */
 	public void setRollerSpeed(double speed) {
 		IO.getLeftIntakeRollerVictor().set(ControlMode.PercentOutput, speed);
-		IO.getRightIntakeRollerVictor().set(ControlMode.PercentOutput, speed);
+		IO.getRightIntakeRollerVictor().set(ControlMode.Follower, Constants.LEFT_INTAKE_ROLLER_VICTOR);
 	}
 
 	/**

@@ -10,7 +10,7 @@ import org.mort11.util.HardwareStates.IntakeShiftState;
  * The intake shifter subsystem represents the piston that moves the intake into an up or down position.
  * 
  * @author Joshua Ciffer
- * @version 06/12/2018
+ * @version 11/08/2018
  */
 public final class IntakeShifter extends Subsystem {
 
