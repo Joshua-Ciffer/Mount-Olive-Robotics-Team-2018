@@ -2,7 +2,8 @@
 ### Contributors: Joshua Ciffer, and yea no one else at this point... Thanks for the help.
 
 # Agenda
-- Motor inversions
+- <s>Motor inversions</s>
+- <s>Compressor</s>
 - Button assignments
 - Autochooser and autons
 - SmartDashboard
