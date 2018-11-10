@@ -129,7 +129,7 @@ public interface Constants {
 	/**
 	 * The drivetrain speed (percent output mode) used in autons.
 	 */
-	double DRIVETRAIN_SPEED = -.3;
+	double DRIVETRAIN_SPEED = -1;
 
 	/**
 	 * The drivetrain speed (percent output mode) used in autons when far away from its target.
@@ -146,7 +146,7 @@ public interface Constants {
 	* Drivetrain timeout used in autons
 	 */
 
-	double DRIVETRAIN_AUTON_TIMEOUT = 5;
+	double DRIVETRAIN_AUTON_TIMEOUT = 1.5;
 
 	/**
 	 * Drivetrain intake speed used in autonomous

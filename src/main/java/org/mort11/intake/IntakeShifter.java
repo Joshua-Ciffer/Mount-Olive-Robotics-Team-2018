@@ -26,7 +26,7 @@ public final class IntakeShifter extends Subsystem {
 	 */
 	@Override
 	protected void initDefaultCommand() {
-		setDefaultCommand(new ShiftIntake(IntakeShiftState.UP));
+
 	}
 
 	/**
