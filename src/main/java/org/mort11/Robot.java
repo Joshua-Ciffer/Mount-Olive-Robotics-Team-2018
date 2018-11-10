@@ -57,9 +57,7 @@ public class Robot extends IterativeRobot {
 	 * Runs periodically no matter what mode is enabled or disabled.
 	 */
 	@Override
-	public void robotPeriodic() {
-
-	}
+	public void robotPeriodic() {}
 
 	/**
 	 * Initializes the robot for disabled mode.
