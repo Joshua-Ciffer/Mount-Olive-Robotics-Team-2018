@@ -4,7 +4,6 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
-import org.mort11.auton.DriveDistanceTimed;
 import org.mort11.auton.DriveTimedWithCube;
 import org.mort11.hardware.IO;
 import org.mort11.control.Operator;
@@ -44,6 +43,9 @@ public class Robot extends IterativeRobot {
 	 */
 	private static IntakeShifter intakeShifter;
 
+	/**
+	 * The auton command to run.
+	 */
 	private Command autoCommand;
 
 	/**
@@ -85,8 +87,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousInit() {
 		autoCommand = new DriveTimedWithCube(Constants.DRIVETRAIN_SPEED, Constants.DRIVETRAIN_AUTON_TIMEOUT);
-
-		if(autoCommand != null){
+		if (autoCommand != null) {
 			autoCommand.start();
 		}
 	}

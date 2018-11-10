@@ -141,17 +141,14 @@ public interface Constants {
 	 */
 	double DRIVETRAIN_SPEED_CLOSE = .22;
 
-
 	/**
-	* Drivetrain timeout used in autons
+	 * Drivetrain timeout used in autons.
 	 */
-
 	double DRIVETRAIN_AUTON_TIMEOUT = 5;
 
 	/**
-	 * Drivetrain intake speed used in autonomous
+	 * Drivetrain intake speed used in autonomous.
 	 */
-
 	double DRIVETRAIN_AUTON_INTAKE_SPEED = .75;
 
 	/**
