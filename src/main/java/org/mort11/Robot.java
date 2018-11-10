@@ -1,14 +1,18 @@
 package org.mort11;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
+import org.mort11.auton.DriveDistanceTimed;
+import org.mort11.auton.DriveTimedWithCube;
 import org.mort11.hardware.IO;
 import org.mort11.control.Operator;
 import org.mort11.drivetrain.Drivetrain;
 import org.mort11.elevator.Elevator;
 import org.mort11.intake.IntakeRollers;
 import org.mort11.intake.IntakeShifter;
+import org.mort11.util.Constants;
 
 /**
  * The main robot class. All subsystems are initialized here and commands are scheduled.
@@ -39,6 +43,8 @@ public class Robot extends IterativeRobot {
 	 * The intake shifter piston.
 	 */
 	private static IntakeShifter intakeShifter;
+
+	private Command autoCommand;
 
 	/**
 	 * Initializes all of the robots subsystems and the smart dash board.
@@ -77,7 +83,13 @@ public class Robot extends IterativeRobot {
 	 * Initializes the robot for auton mode.
 	 */
 	@Override
-	public void autonomousInit() {}
+	public void autonomousInit() {
+		autoCommand = new DriveTimedWithCube(Constants.DRIVETRAIN_SPEED, Constants.DRIVETRAIN_AUTON_TIMEOUT);
+
+		if(autoCommand != null){
+			autoCommand.start();
+		}
+	}
 
 	/**
 	 * Periodic code for auton mode.
