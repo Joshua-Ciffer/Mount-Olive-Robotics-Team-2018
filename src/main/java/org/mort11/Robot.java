@@ -1,10 +1,7 @@
 package org.mort11;
 
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 
 import org.mort11.hardware.IO;
 import org.mort11.control.Operator;
@@ -12,7 +9,6 @@ import org.mort11.drivetrain.Drivetrain;
 import org.mort11.elevator.Elevator;
 import org.mort11.intake.IntakeRollers;
 import org.mort11.intake.IntakeShifter;
-import org.mort11.util.AutoChooser;
 
 /**
  * The main robot class. All subsystems are initialized here and commands are scheduled.
@@ -45,26 +41,6 @@ public class Robot extends IterativeRobot {
 	private static IntakeShifter intakeShifter;
 
 	/**
-	 * Tells the robot which auton command to run.
-	 */
-	private static SendableChooser<Command> autonChooser;
-
-	/**
-	 * Tells the robot which side?
-	 */
-	private static SendableChooser<String> sideChooser;
-
-	/**
-	 * The auton command to run for this round.
-	 */
-	private static Command autonCommand;
-
-	/**
-	 * Game data from the drive station.
-	 */
-	private static String gameData;
-
-	/**
 	 * Initializes all of the robots subsystems and the smart dash board.
 	 */
 	@Override
@@ -75,10 +51,6 @@ public class Robot extends IterativeRobot {
 		intakeRollers = new IntakeRollers();
 		intakeShifter = new IntakeShifter();
 		Operator.init();
-		sideChooser = new SendableChooser<>();
-		sideChooser.addDefault("Middle", "Middle");
-		sideChooser.addObject("Left", "Left");
-		sideChooser.addObject("Right", "Right");
 	}
 
 	/**
@@ -101,22 +73,13 @@ public class Robot extends IterativeRobot {
 	 * Periodic code for disabled mode.
 	 */
 	@Override
-	public void disabledPeriodic() {
-		autonChooser = new SendableChooser<>();
-		AutoChooser.addAutons(sideChooser.getSelected());
-	}
+	public void disabledPeriodic() {}
 
 	/**
 	 * Initializes the robot for auton mode.
 	 */
 	@Override
-	public void autonomousInit() {
-		gameData = DriverStation.getInstance().getGameSpecificMessage(); // Get the game data from the driver station
-		autonCommand = AutoChooser.setAutoCommand(autonChooser.getSelected(), gameData);
-		if (autonCommand != null) {
-			autonCommand.start();
-		}
-	}
+	public void autonomousInit() {}
 
 	/**
 	 * Periodic code for auton mode.
@@ -130,11 +93,7 @@ public class Robot extends IterativeRobot {
 	 * Initializes the robot for teleop mode.
 	 */
 	@Override
-	public void teleopInit() {
-		if (autonCommand != null) {
-			autonCommand.cancel();
-		}
-	}
+	public void teleopInit() {}
 
 	/**
 	 * Periodic code for teleop mode.
@@ -184,27 +143,6 @@ public class Robot extends IterativeRobot {
 	 */
 	public static IntakeShifter getIntakeShifter() {
 		return intakeShifter;
-	}
-
-	/**
-	 * @return The auton sendable chooser.
-	 */
-	public static SendableChooser<Command> getAutonChooser() {
-		return autonChooser;
-	}
-
-	/**
-	 * @return The side sendable chooser
-	 */
-	public static SendableChooser<String> getSideChooser() {
-		return sideChooser;
-	}
-
-	/**
-	 * @return The current auton command.
-	 */
-	public static Command getAutonCommand() {
-		return autonCommand;
 	}
 
 }
