@@ -35,19 +35,19 @@ public final class JoystickDrive extends Command {
 	protected void execute() {
 		speed = Operator.getOperatorJoystick().getY();
 		if (!IO.getTopElevatorLimitSwitch().get()) {	// If the elevator is at the top,
-			if (speed < 0) {	// Only move it as long as it is going down.
-				Robot.getElevator().setSpeed(speed);
+			if (speed > 0) {	// Only move it as long as it is going down.
+				Robot.getElevator().setSpeed(-speed);
 			} else {
 				Robot.getElevator().setSpeed(0);
 			}
 		} else if (!IO.getBottomElevatorLimitSwitch().get()) {	// If the elevator is at the bottom,
-			if (speed > 0) {	// Only move it as long as it is going up.
-				Robot.getElevator().setSpeed(speed);
+			if (speed < 0) {	// Only move it as long as it is going up.
+				Robot.getElevator().setSpeed(-speed);
 			} else {
 				Robot.getElevator().setSpeed(0);
 			}
 		} else {	// Otherwise, move it in whatever direction.
-			Robot.getElevator().setSpeed(speed);
+			Robot.getElevator().setSpeed(-speed);
 		}
 	}
 

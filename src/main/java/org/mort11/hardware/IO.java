@@ -99,11 +99,14 @@ public final class IO {
 	public static void init() {
 		rightDriveTalonFront = new TalonSRX(Constants.RIGHT_DRIVE_TALON_FRONT);
 		rightDriveTalonMaster = new TalonSRX(Constants.RIGHT_DRIVE_TALON_MASTER);
+		rightDriveTalonMaster.configContinuousCurrentLimit(Constants.MAX_DRIVETRAIN_AMPS, 0);
+		rightDriveTalonMaster.enableCurrentLimit(true);
 		rightDriveTalonRear = new TalonSRX(Constants.RIGHT_DRIVE_TALON_REAR);
 		leftDriveTalonFront = new TalonSRX(Constants.LEFT_DRIVE_TALON_FRONT);
 		leftDriveTalonFront.setInverted(true);
 		leftDriveTalonMaster = new TalonSRX(Constants.LEFT_DRIVE_TALON_MASTER);
 		leftDriveTalonMaster.setInverted(true);
+		leftDriveTalonMaster.configContinuousCurrentLimit(Constants.MAX_DRIVETRAIN_AMPS,0);
 		leftDriveTalonRear = new TalonSRX(Constants.LEFT_DRIVE_TALON_REAR);
 		leftDriveTalonRear.setInverted(true);
 

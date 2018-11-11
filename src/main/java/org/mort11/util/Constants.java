@@ -109,12 +109,12 @@ public interface Constants {
 	/**
 	 * Intake shifter (down) button assignment.
 	 */
-	int INTAKE_SHIFTER_DOWN_BUTTON = 12;
+	int INTAKE_SHIFTER_DOWN_BUTTON = 11;
 
 	/**
 	 * Intake shifter (up) button assignment.
 	 */
-	int INTAKE_SHIFTER_UP_BUTTON = 11;
+	int INTAKE_SHIFTER_UP_BUTTON = 9;
 
 	/**
 	 * Outtake button value.
@@ -129,7 +129,7 @@ public interface Constants {
 	/**
 	 * The drivetrain speed (percent output mode) used in autons.
 	 */
-	double DRIVETRAIN_SPEED = -1;
+	double DRIVETRAIN_SPEED = .3;
 
 	/**
 	 * The drivetrain speed (percent output mode) used in autons when far away from its target.
@@ -143,10 +143,16 @@ public interface Constants {
 
 
 	/**
+	 * Amp for drivetrain current limiting
+	 */
+
+	int MAX_DRIVETRAIN_AMPS = 40;
+
+	/**
 	* Drivetrain timeout used in autons
 	 */
 
-	double DRIVETRAIN_AUTON_TIMEOUT = 1.5;
+	double DRIVETRAIN_AUTON_TIMEOUT = 3;
 
 	/**
 	 * Drivetrain intake speed used in autonomous

@@ -84,7 +84,6 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		//autoCommand = new DriveTimedWithCube(Constants.DRIVETRAIN_SPEED, Constants.DRIVETRAIN_AUTON_TIMEOUT);
 		autoCommand = new DriveDistanceTimed(Constants.DRIVETRAIN_SPEED, Constants.DRIVETRAIN_AUTON_TIMEOUT);
 		if(autoCommand != null){
 			autoCommand.start();
