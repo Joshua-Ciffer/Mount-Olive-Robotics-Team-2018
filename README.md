@@ -1,5 +1,5 @@
 # Mount Olive Robotics Team 2018 Off-Season
-### Contributors: Joshua Ciffer, and yea no one else at this point... Thanks for the help.
+### Contributors: Joshua Ciffer, and yea no one else at this point... Thanks for the help. (GitHub contributors display is a lie)
 
 # Agenda
 - <s>Motor inversions</s>
